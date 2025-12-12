@@ -157,7 +157,7 @@
 
   /* Section styles */
   .section-padding {
-    @apply py-20 md:py-28 lg:py-32;
+    @apply py-14 md:py-20 lg:py-24;
   }
 
   .container-narrow {
@@ -174,15 +174,15 @@
   }
 
   .heading-display {
-    @apply text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight;
+    @apply text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight text-foreground;
   }
 
   .heading-section {
-    @apply text-3xl md:text-4xl font-semibold leading-tight;
+    @apply text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight text-foreground;
   }
 
   .heading-card {
-    @apply text-xl md:text-2xl font-semibold;
+    @apply text-xl md:text-2xl font-semibold text-foreground;
   }
 
   .text-body {

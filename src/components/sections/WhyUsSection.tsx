@@ -23,44 +23,44 @@ const pillars = [
 
 export function WhyUsSection() {
   return (
-    <section className="section-padding bg-secondary/30" id="pourquoi">
+    <section className="py-16 md:py-20 bg-secondary/50" id="pourquoi">
       <div className="container-wide">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block text-sm font-medium text-accent uppercase tracking-wider mb-4">
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <span className="inline-block text-sm font-medium text-accent uppercase tracking-wider mb-3">
             Nos engagements
           </span>
-          <h2 className="heading-section text-foreground mb-6">
+          <h2 className="font-serif text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground mb-5">
             Pourquoi Patrimoine Indivis ?
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-base text-muted-foreground">
             Trois piliers fondamentaux qui font notre différence sur le marché du rachat de parts indivises.
           </p>
         </div>
 
         {/* Pillars Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {pillars.map((pillar, index) => (
             <div
               key={pillar.title}
-              className="relative bg-card rounded-3xl p-10 border border-border/50 shadow-card hover:shadow-lg transition-all duration-300 group"
+              className="relative bg-card rounded-2xl p-8 lg:p-9 border border-border/40 shadow-soft hover:shadow-card hover:border-accent/20 transition-all duration-300 group"
             >
               {/* Number badge */}
-              <div className="absolute -top-4 -left-4 w-10 h-10 rounded-full bg-accent text-navy font-bold flex items-center justify-center text-lg">
+              <div className="absolute -top-3 -left-3 w-9 h-9 rounded-full bg-accent text-navy font-bold flex items-center justify-center text-base shadow-sm">
                 {index + 1}
               </div>
               
-              <div className="w-16 h-16 rounded-2xl bg-accent/10 flex items-center justify-center mb-8 group-hover:bg-accent/20 transition-colors">
-                <pillar.icon className="w-8 h-8 text-accent" />
+              <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-6 group-hover:bg-accent/15 transition-colors">
+                <pillar.icon className="w-7 h-7 text-accent" />
               </div>
               
-              <h3 className="font-serif text-2xl font-semibold text-foreground mb-2">
+              <h3 className="font-serif text-xl font-semibold text-foreground mb-2">
                 {pillar.title}
               </h3>
-              <p className="text-accent text-sm font-medium uppercase tracking-wide mb-4">
+              <p className="text-accent text-xs font-medium uppercase tracking-wide mb-3">
                 {pillar.subtitle}
               </p>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed text-sm">
                 {pillar.description}
               </p>
             </div>
