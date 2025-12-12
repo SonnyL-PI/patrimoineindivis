@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Logo } from "@/components/Logo";
+import logo from "@/assets/logo.png";
 
 const navLinks = [
   { href: "/", label: "Accueil" },
@@ -79,9 +79,9 @@ export function Header() {
         <div className="container-wide">
           <div className="flex items-center justify-between h-18 lg:h-20">
             {/* Logo */}
-            <div className="flex-shrink-0">
-              <Logo variant="light" showBadge={true} size="md" />
-            </div>
+            <Link to="/" className="flex-shrink-0">
+              <img src={logo} alt="Patrimoine Indivis" className="h-10 lg:h-12 w-auto" />
+            </Link>
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-6 xl:gap-8 ml-8">

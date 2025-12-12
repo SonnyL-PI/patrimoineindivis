@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin } from "lucide-react";
-import { Logo } from "@/components/Logo";
+import logo from "@/assets/logo.png";
 
 const footerLinks = {
   navigation: [
@@ -26,9 +26,9 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <div className="mb-6">
-              <Logo variant="light" showBadge={true} size="sm" />
-            </div>
+            <Link to="/" className="inline-block mb-6">
+              <img src={logo} alt="Patrimoine Indivis" className="h-10 w-auto" />
+            </Link>
             <p className="text-primary-foreground/70 text-sm leading-relaxed mb-6">
               Société spécialisée dans le rachat de parts indivises mêmes minoritaires.
             </p>
