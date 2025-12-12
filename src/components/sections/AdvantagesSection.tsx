@@ -35,7 +35,7 @@ const advantages = [
 
 export function AdvantagesSection() {
   return (
-    <section className="section-padding bg-charcoal text-primary-foreground" id="avantages">
+    <section className="section-padding bg-navy text-primary-foreground" id="avantages">
       <div className="container-wide">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">

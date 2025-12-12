@@ -32,7 +32,7 @@ export function Header() {
   return (
     <>
       {/* Top Bar with Contact Info */}
-      <div className="bg-charcoal text-primary-foreground py-2 hidden md:block">
+      <div className="bg-navy text-primary-foreground py-2 hidden md:block">
         <div className="container-wide flex items-center justify-between text-sm">
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-2">
@@ -65,8 +65,8 @@ export function Header() {
       <header
         className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-charcoal/98 backdrop-blur-md shadow-md"
-            : "bg-charcoal"
+            ? "bg-navy/98 backdrop-blur-md shadow-md"
+            : "bg-navy"
         }`}
       >
         <div className="container-wide">
@@ -120,7 +120,7 @@ export function Header() {
 
         {/* Mobile Menu */}
         <div
-          className={`lg:hidden absolute top-full left-0 right-0 bg-charcoal/98 backdrop-blur-md border-b border-primary-foreground/10 shadow-lg transition-all duration-300 ${
+          className={`lg:hidden absolute top-full left-0 right-0 bg-navy/98 backdrop-blur-md border-b border-primary-foreground/10 shadow-lg transition-all duration-300 ${
             isMobileMenuOpen
               ? "opacity-100 translate-y-0 pointer-events-auto"
               : "opacity-0 -translate-y-4 pointer-events-none"

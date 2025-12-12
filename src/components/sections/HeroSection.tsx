@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import signatureImage from "@/assets/signature-pen.jpg";
+import heroImage from "@/assets/hero-signature.jpg";
 
 const heroSlides = [
   {
@@ -15,11 +15,11 @@ export function HeroSection() {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          src={signatureImage}
+          src={heroImage}
           alt="Signature d'acte notarié"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-charcoal/70" />
+        <div className="absolute inset-0 bg-navy/65" />
       </div>
 
       {/* Content */}
