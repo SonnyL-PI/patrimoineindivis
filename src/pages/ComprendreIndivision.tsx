@@ -40,7 +40,7 @@ const ComprendreIndivision = () => {
                       <BookOpen className="w-7 h-7 text-accent" />
                     </div>
                     <h2 className="heading-section text-foreground !mb-0">
-                      Qu'est-ce que l'indivision ?
+                      Indivision : ce qu'il faut savoir
                     </h2>
                   </div>
                   <p className="text-muted-foreground leading-relaxed">
