@@ -6,10 +6,10 @@ import { Button } from "@/components/ui/button";
 const navLinks = [
   { href: "/", label: "Accueil" },
   { href: "/votre-situation", label: "Votre situation" },
-  { href: "/notre-approche", label: "Vos solutions" },
-  { href: "/notre-approche#proposition", label: "Notre proposition" },
-  { href: "/notre-approche#avantages", label: "Nos avantages" },
-  { href: "/comprendre-indivision", label: "Qui sommes-nous ?" },
+  { href: "/notre-approche", label: "Notre approche" },
+  { href: "/comprendre-indivision", label: "Comprendre l'indivision" },
+  { href: "/faq", label: "FAQ" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export function Header() {
@@ -29,34 +29,40 @@ export function Header() {
     setIsMobileMenuOpen(false);
   }, [location]);
 
+  const scrollToSection = (href: string) => {
+    if (href.startsWith("/#")) {
+      const sectionId = href.replace("/#", "");
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
   return (
     <>
       {/* Top Bar with Contact Info */}
-      <div className="bg-navy text-primary-foreground py-2 hidden md:block">
+      <div className="bg-navy text-primary-foreground py-2.5 hidden md:block border-b border-primary-foreground/10">
         <div className="container-wide flex items-center justify-between text-sm">
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-8">
             <div className="flex items-center gap-2">
               <MapPin className="w-4 h-4 text-accent" />
-              <span>02, rue d'Auteuil, 75016 Paris</span>
+              <span className="text-primary-foreground/80">02, rue d'Auteuil, 75016 Paris</span>
             </div>
             <div className="flex items-center gap-2">
               <Phone className="w-4 h-4 text-accent" />
-              <a href="tel:0142301000" className="hover:text-accent transition-colors">
+              <a href="tel:0142301000" className="text-primary-foreground/80 hover:text-accent transition-colors">
                 01.42.30.10.00
               </a>
             </div>
           </div>
-          <div className="flex items-center gap-4">
-            <Link to="/contact" className="hover:text-accent transition-colors">
-              CONTACT
-            </Link>
-            <span className="text-primary-foreground/30">|</span>
-            <Link to="/faq" className="hover:text-accent transition-colors">
+          <div className="flex items-center gap-6">
+            <Link to="/faq" className="text-primary-foreground/80 hover:text-accent transition-colors text-xs uppercase tracking-wide">
               FAQ
             </Link>
-            <Button variant="gold" size="sm" className="ml-4 px-4 py-1.5 text-xs font-semibold" asChild>
-              <Link to="/contact">ÉTUDE GRATUITE</Link>
-            </Button>
+            <Link to="/contact" className="text-primary-foreground/80 hover:text-accent transition-colors text-xs uppercase tracking-wide">
+              Contact
+            </Link>
           </div>
         </div>
       </div>
@@ -65,25 +71,24 @@ export function Header() {
       <header
         className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-navy/98 backdrop-blur-md shadow-md"
+            ? "bg-navy/98 backdrop-blur-md shadow-lg"
             : "bg-navy"
         }`}
       >
         <div className="container-wide">
-          <div className="flex items-center justify-between h-16 lg:h-20">
+          <div className="flex items-center justify-between h-18 lg:h-20">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-3 group">
+            <Link to="/" className="flex items-center gap-3 group flex-shrink-0">
               <div className="flex items-center">
-                <div className="flex flex-col items-center mr-2">
+                <div className="flex flex-col items-center mr-3 border-r border-primary-foreground/20 pr-3">
                   <span className="text-accent text-[10px] font-serif italic leading-none">Art.</span>
-                  <span className="text-accent text-lg font-bold leading-none">815</span>
+                  <span className="text-accent text-xl font-bold leading-none">815</span>
                 </div>
-                <div className="flex items-center font-serif">
-                  <span className="text-primary-foreground text-lg lg:text-xl tracking-wider uppercase">
+                <div className="flex flex-col">
+                  <span className="text-primary-foreground text-base lg:text-lg tracking-[0.2em] uppercase font-serif">
                     Patrimoine
                   </span>
-                  <span className="text-accent text-xl lg:text-2xl mx-0.5">/</span>
-                  <span className="text-accent text-lg lg:text-xl tracking-wider uppercase">
+                  <span className="text-accent text-base lg:text-lg tracking-[0.2em] uppercase font-serif">
                     Indivis
                   </span>
                 </div>
@@ -91,12 +96,13 @@ export function Header() {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
+            <nav className="hidden lg:flex items-center gap-8">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   to={link.href}
-                  className={`text-sm font-medium transition-colors hover:text-accent uppercase tracking-wide ${
+                  onClick={() => link.href.startsWith("/#") && scrollToSection(link.href)}
+                  className={`text-sm font-medium transition-colors hover:text-accent tracking-wide ${
                     location.pathname === link.href
                       ? "text-accent"
                       : "text-primary-foreground/80"
@@ -106,6 +112,24 @@ export function Header() {
                 </Link>
               ))}
             </nav>
+
+            {/* Desktop CTAs */}
+            <div className="hidden lg:flex items-center gap-3">
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                className="text-primary-foreground/80 hover:text-accent hover:bg-transparent text-sm"
+                asChild
+              >
+                <Link to="/contact#rappel">
+                  <Phone className="w-4 h-4 mr-2" />
+                  Être rappelé
+                </Link>
+              </Button>
+              <Button variant="gold" size="sm" className="px-5" asChild>
+                <Link to="/contact">Étude gratuite</Link>
+              </Button>
+            </div>
 
             {/* Mobile Menu Button */}
             <button
@@ -151,9 +175,14 @@ export function Header() {
                   01.42.30.10.00
                 </a>
               </div>
-              <Button variant="gold" className="mt-2" asChild>
-                <Link to="/contact">Étude gratuite</Link>
-              </Button>
+              <div className="flex gap-3 mt-2">
+                <Button variant="goldOutline" className="flex-1" asChild>
+                  <Link to="/contact#rappel">Être rappelé</Link>
+                </Button>
+                <Button variant="gold" className="flex-1" asChild>
+                  <Link to="/contact">Étude gratuite</Link>
+                </Button>
+              </div>
             </div>
           </nav>
         </div>

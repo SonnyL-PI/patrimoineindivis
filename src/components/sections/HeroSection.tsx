@@ -1,17 +1,26 @@
 import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Phone, ArrowRight, Shield, Scale, Handshake } from "lucide-react";
 import heroImage from "@/assets/hero-signature.jpg";
 
-const heroSlides = [
+const trustItems = [
   {
-    subtitle: "SORTEZ DE VOTRE INDIVISION",
-    title: "VENDEZ VOS PARTS INDIVISES",
-    description: "Nous vous rachetons vos parts d'indivision même minoritaires",
+    icon: Shield,
+    text: "100% spécialisé en parts indivises",
+  },
+  {
+    icon: Scale,
+    text: "Procédure encadrée (article 815)",
+  },
+  {
+    icon: Handshake,
+    text: "Offre ferme + accompagnement",
   },
 ];
 
 export function HeroSection() {
   return (
-    <section className="relative h-[75vh] min-h-[500px] lg:min-h-[600px] flex items-center">
+    <section className="relative min-h-[85vh] flex items-center">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
@@ -19,55 +28,83 @@ export function HeroSection() {
           alt="Signature d'acte notarié"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-navy/65" />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy/85 via-navy/75 to-navy/65" />
       </div>
 
       {/* Content */}
-      <div className="container-wide relative z-10 text-center">
-        <div className="max-w-4xl mx-auto">
+      <div className="container-wide relative z-10 py-20 lg:py-28">
+        <div className="max-w-3xl">
           {/* Subtitle */}
-          <p className="text-primary-foreground/90 text-base md:text-lg tracking-widest uppercase mb-4 animate-fade-up">
-            {heroSlides[0].subtitle}
+          <p className="text-accent text-sm md:text-base tracking-[0.2em] uppercase mb-6 animate-fade-up font-medium">
+            Sortie d'indivision
           </p>
 
           {/* Main Title */}
           <h1 
-            className="font-serif text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-primary-foreground font-normal tracking-wide uppercase mb-8 animate-fade-up"
+            className="font-serif text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-primary-foreground font-normal leading-tight mb-6 animate-fade-up"
             style={{ animationDelay: "100ms" }}
           >
-            {heroSlides[0].title}
+            Rachat de parts indivises — <br className="hidden md:block" />
+            <span className="text-accent">sortie d'indivision encadrée</span>
           </h1>
 
           {/* Description */}
           <p 
-            className="text-lg md:text-xl lg:text-2xl text-primary-foreground/80 font-light mb-4 animate-fade-up"
+            className="text-lg md:text-xl text-primary-foreground/80 leading-relaxed mb-8 animate-fade-up max-w-2xl"
             style={{ animationDelay: "200ms" }}
           >
-            {heroSlides[0].description}
+            Société 100% spécialisée. Expertise sur des milliers de cas, 
+            formalisme article 815, approche humaine et discrète.
           </p>
 
-          {/* Additional info */}
-          <p 
-            className="text-base md:text-lg text-primary-foreground/70 italic mb-2 animate-fade-up"
+          {/* CTAs */}
+          <div 
+            className="flex flex-col sm:flex-row gap-4 mb-12 animate-fade-up"
             style={{ animationDelay: "300ms" }}
           >
-            N'hésitez pas à nous contacter pour l'étude confidentielle de votre dossier
-          </p>
+            <Button variant="gold" size="lg" asChild>
+              <Link to="/contact">
+                Demander une étude gratuite
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+            </Button>
+            <Button 
+              variant="ghost" 
+              size="lg" 
+              className="text-primary-foreground border border-primary-foreground/30 hover:bg-primary-foreground/10 hover:text-primary-foreground"
+              asChild
+            >
+              <Link to="/contact#rappel">
+                <Phone className="w-5 h-5" />
+                Être rappelé
+              </Link>
+            </Button>
+          </div>
 
           {/* Legal quote */}
           <p 
-            className="text-sm md:text-base text-accent font-serif italic animate-fade-up"
+            className="text-sm text-accent font-serif italic animate-fade-up"
             style={{ animationDelay: "400ms" }}
           >
-            Nul ne peut être contraint à demeurer dans l'indivision
+            « Nul ne peut être contraint à demeurer dans l'indivision » — Art. 815 du Code civil
           </p>
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-primary-foreground/30 rounded-full flex items-start justify-center p-2">
-          <div className="w-1 h-3 bg-accent rounded-full" />
+      {/* Trust Bar */}
+      <div className="absolute bottom-0 left-0 right-0 bg-navy/95 backdrop-blur-sm border-t border-primary-foreground/10">
+        <div className="container-wide py-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {trustItems.map((item, index) => (
+              <div 
+                key={index} 
+                className="flex items-center justify-center gap-3 text-primary-foreground/90"
+              >
+                <item.icon className="w-5 h-5 text-accent flex-shrink-0" />
+                <span className="text-sm font-medium">{item.text}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
