@@ -6,59 +6,64 @@
 
 @layer base {
   :root {
-    /* Patrimoine Indivis Premium Theme */
-    /* Navy #0B1B2B = 210 60% 11% */
-    /* Off-white #F6F3EE = 40 25% 95% */
-    /* Gold #C9A24A = 43 52% 54% */
+    /* Patrimoine Indivis Official Brand Colors */
+    /* Gris Foncé: #3c3c3b (60,60,59) */
+    /* Dégradé doré: #c28e52, #a87835, #91641a, #d4b291, #b88447, #cd9b66 */
     
-    --background: 40 25% 95%;
-    --foreground: 210 60% 11%;
+    --background: 40 25% 96%;
+    --foreground: 0 1% 23%;
 
     --card: 0 0% 100%;
-    --card-foreground: 210 60% 11%;
+    --card-foreground: 0 1% 23%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 60% 11%;
+    --popover-foreground: 0 1% 23%;
 
-    --primary: 210 60% 11%;
-    --primary-foreground: 40 25% 95%;
+    --primary: 0 1% 23%;
+    --primary-foreground: 40 25% 96%;
 
     --secondary: 40 20% 92%;
-    --secondary-foreground: 210 60% 11%;
+    --secondary-foreground: 0 1% 23%;
 
     --muted: 40 15% 90%;
-    --muted-foreground: 210 20% 40%;
+    --muted-foreground: 0 1% 45%;
 
-    --accent: 43 52% 54%;
-    --accent-foreground: 210 60% 11%;
+    /* Gold accent from brand: #c28e52 = 30 49% 54% */
+    --accent: 30 49% 54%;
+    --accent-foreground: 0 1% 23%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 40 15% 85%;
     --input: 40 15% 88%;
-    --ring: 43 52% 54%;
+    --ring: 30 49% 54%;
 
     --radius: 0.75rem;
 
-    /* Custom tokens */
-    --navy: 210 60% 11%;
-    --navy-light: 210 40% 20%;
-    --offwhite: 40 25% 95%;
-    --gold: 43 52% 54%;
-    --gold-light: 43 45% 65%;
-    --gold-dark: 43 55% 42%;
-    --gray-soft: 210 15% 55%;
+    /* Custom brand tokens */
+    --charcoal: 0 1% 23%;
+    --charcoal-light: 0 0% 35%;
+    --offwhite: 40 25% 96%;
+    --cream: 40 30% 94%;
+    
+    /* Gold gradient stops from brand */
+    --gold-1: 30 49% 54%;  /* #c28e52 */
+    --gold-2: 32 52% 43%;  /* #a87835 */
+    --gold-3: 33 66% 33%;  /* #91641a */
+    --gold-4: 30 35% 70%;  /* #d4b291 */
+    --gold-5: 32 45% 50%;  /* #b88447 */
+    --gold-6: 30 42% 60%;  /* #cd9b66 */
     
     /* Gradients */
-    --gradient-gold: linear-gradient(135deg, hsl(43 52% 54%), hsl(43 45% 65%));
-    --gradient-navy: linear-gradient(180deg, hsl(210 60% 11%), hsl(210 50% 18%));
-    --gradient-hero: linear-gradient(180deg, hsl(210 60% 11%) 0%, hsl(210 50% 15%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(30 49% 54%), hsl(32 45% 50%), hsl(30 42% 60%));
+    --gradient-charcoal: linear-gradient(180deg, hsl(0 1% 23%), hsl(0 0% 30%));
+    --gradient-hero: linear-gradient(180deg, hsl(0 1% 20% / 0.85) 0%, hsl(0 1% 25% / 0.9) 100%);
     
     /* Shadows */
-    --shadow-soft: 0 4px 20px -4px hsl(210 60% 11% / 0.08);
-    --shadow-card: 0 8px 32px -8px hsl(210 60% 11% / 0.12);
-    --shadow-gold: 0 4px 24px -4px hsl(43 52% 54% / 0.35);
+    --shadow-soft: 0 4px 20px -4px hsl(0 1% 23% / 0.08);
+    --shadow-card: 0 8px 32px -8px hsl(0 1% 23% / 0.12);
+    --shadow-gold: 0 4px 24px -4px hsl(30 49% 54% / 0.35);
     
     /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -66,30 +71,30 @@
   }
 
   .dark {
-    --background: 210 60% 11%;
-    --foreground: 40 25% 95%;
+    --background: 0 1% 23%;
+    --foreground: 40 25% 96%;
 
-    --card: 210 50% 15%;
-    --card-foreground: 40 25% 95%;
+    --card: 0 0% 28%;
+    --card-foreground: 40 25% 96%;
 
-    --popover: 210 50% 15%;
-    --popover-foreground: 40 25% 95%;
+    --popover: 0 0% 28%;
+    --popover-foreground: 40 25% 96%;
 
-    --primary: 43 52% 54%;
-    --primary-foreground: 210 60% 11%;
+    --primary: 30 49% 54%;
+    --primary-foreground: 0 1% 23%;
 
-    --secondary: 210 40% 20%;
-    --secondary-foreground: 40 25% 95%;
+    --secondary: 0 0% 30%;
+    --secondary-foreground: 40 25% 96%;
 
-    --muted: 210 35% 25%;
-    --muted-foreground: 40 15% 70%;
+    --muted: 0 0% 35%;
+    --muted-foreground: 40 15% 75%;
 
-    --accent: 43 52% 54%;
-    --accent-foreground: 210 60% 11%;
+    --accent: 30 49% 54%;
+    --accent-foreground: 0 1% 23%;
 
-    --border: 210 35% 25%;
-    --input: 210 35% 25%;
-    --ring: 43 52% 54%;
+    --border: 0 0% 35%;
+    --input: 0 0% 35%;
+    --ring: 30 49% 54%;
   }
 }
 
