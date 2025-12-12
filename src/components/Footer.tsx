@@ -9,7 +9,7 @@ const footerLinks = {
     { label: "Vos solutions", href: "/notre-approche" },
     { label: "Notre approche", href: "/notre-approche" },
     
-    { label: "Qui sommes-nous ?", href: "/comprendre-indivision" },
+    { label: "Comprendre l'indivision", href: "/comprendre-indivision" },
   ],
   legal: [
     { label: "Mentions légales", href: "/mentions-legales" },
