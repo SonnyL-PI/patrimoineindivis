@@ -38,7 +38,7 @@ const steps = [
     duration: "Variable selon complexité",
     description: "La cession est réalisée dans le respect du formalisme de l'article 815 du Code civil. Nos partenaires notaires et avocats sont spécialisés dans ces opérations.",
     details: [
-      "Notification aux co-indivisaires (obligatoire)",
+      "Signification aux co-indivisaires (obligatoire)",
       "Respect du droit de préemption",
       "Rédaction des actes par notaire",
       "Médiation si nécessaire",
