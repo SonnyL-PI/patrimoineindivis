@@ -1,0 +1,249 @@
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, FileSearch, FileText, Scale, Banknote, Shield, Users, Heart } from "lucide-react";
+
+const steps = [
+  {
+    number: "01",
+    icon: FileSearch,
+    title: "Analyse de votre situation",
+    duration: "1-2 jours",
+    description: "Nous étudions votre dossier gratuitement et sans engagement. Un expert dédié analyse les documents que vous nous transmettez et évalue votre situation.",
+    details: [
+      "Entretien téléphonique ou visioconférence",
+      "Analyse des documents (acte de propriété, succession...)",
+      "Évaluation du bien et de votre quote-part",
+      "Identification des éventuels points de blocage",
+    ],
+  },
+  {
+    number: "02",
+    icon: FileText,
+    title: "Proposition de rachat",
+    duration: "48h après réception du dossier complet",
+    description: "Vous recevez une offre ferme et détaillée. Nous vous expliquons les conditions, le calendrier prévisionnel et répondons à toutes vos questions.",
+    details: [
+      "Offre écrite et détaillée",
+      "Conditions transparentes",
+      "Calendrier prévisionnel",
+      "Accompagnement dans la compréhension",
+    ],
+  },
+  {
+    number: "03",
+    icon: Scale,
+    title: "Procédure encadrée",
+    duration: "Variable selon complexité",
+    description: "La cession est réalisée dans le respect du formalisme de l'article 815 du Code civil. Nos partenaires notaires et avocats sont spécialisés dans ces opérations.",
+    details: [
+      "Notification aux co-indivisaires (obligatoire)",
+      "Respect du droit de préemption",
+      "Rédaction des actes par notaire",
+      "Médiation si nécessaire",
+    ],
+  },
+  {
+    number: "04",
+    icon: Banknote,
+    title: "Versement & clôture",
+    duration: "Dès la signature",
+    description: "Le versement est effectué dès la signature de l'acte authentique. Nous assurons un suivi jusqu'à la clôture complète du dossier.",
+    details: [
+      "Versement immédiat à la signature",
+      "Suivi personnalisé",
+      "Confidentialité garantie",
+      "Clôture administrative",
+    ],
+  },
+];
+
+const values = [
+  {
+    icon: Shield,
+    title: "Sécurité juridique",
+    description: "Nous maîtrisons parfaitement le cadre légal de l'indivision et travaillons avec des partenaires (notaires, avocats) formés à ces situations spécifiques.",
+  },
+  {
+    icon: Users,
+    title: "Expertise reconnue",
+    description: "Des centaines de dossiers traités nous permettent d'anticiper les difficultés et de proposer des solutions adaptées à chaque situation.",
+  },
+  {
+    icon: Heart,
+    title: "Approche humaine",
+    description: "Nous comprenons que l'indivision touche souvent à des situations familiales sensibles. Discrétion et empathie guident notre accompagnement.",
+  },
+];
+
+const NotreApproche = () => {
+  return (
+    <div className="min-h-screen bg-background">
+      <Header />
+      <main className="pt-20">
+        {/* Hero */}
+        <section className="section-padding bg-primary text-primary-foreground">
+          <div className="container-wide">
+            <div className="max-w-3xl">
+              <span className="inline-block text-sm font-semibold text-accent uppercase tracking-wider mb-4">
+                Méthodologie
+              </span>
+              <h1 className="heading-display text-primary-foreground mb-6">
+                Notre <span className="text-accent">approche</span>
+              </h1>
+              <p className="text-xl text-primary-foreground/80 leading-relaxed">
+                Un processus structuré, transparent et sécurisé pour vous accompagner
+                de la première prise de contact jusqu'à la clôture de votre dossier.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Process Steps */}
+        <section className="section-padding">
+          <div className="container-wide">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <h2 className="heading-section text-foreground mb-6">
+                Les 4 étapes de notre accompagnement
+              </h2>
+              <p className="text-body">
+                Un processus clair et balisé pour vous offrir sérénité et visibilité
+                tout au long de la procédure.
+              </p>
+            </div>
+
+            <div className="space-y-12">
+              {steps.map((step, index) => (
+                <div
+                  key={step.number}
+                  className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"
+                >
+                  {/* Number */}
+                  <div className="lg:col-span-1 flex lg:justify-end">
+                    <span className="text-6xl font-serif font-bold text-accent/20">
+                      {step.number}
+                    </span>
+                  </div>
+
+                  {/* Content */}
+                  <div className="lg:col-span-7 bg-card rounded-2xl p-8 border border-border/50">
+                    <div className="flex items-start gap-4 mb-6">
+                      <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
+                        <step.icon className="w-7 h-7 text-accent" />
+                      </div>
+                      <div>
+                        <h3 className="heading-card text-foreground">{step.title}</h3>
+                        <p className="text-accent text-sm font-medium mt-1">{step.duration}</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground leading-relaxed mb-6">
+                      {step.description}
+                    </p>
+                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                      {step.details.map((detail) => (
+                        <li key={detail} className="flex items-center gap-2 text-sm text-foreground">
+                          <span className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
+                          {detail}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Connector */}
+                  <div className="hidden lg:block lg:col-span-4">
+                    {index < steps.length - 1 && (
+                      <div className="h-full flex items-center justify-center">
+                        <div className="w-px h-full bg-border" />
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Values */}
+        <section className="section-padding bg-secondary/50">
+          <div className="container-wide">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <h2 className="heading-section text-foreground mb-6">
+                Nos valeurs
+              </h2>
+              <p className="text-body">
+                Ce qui nous guide au quotidien dans l'accompagnement de nos clients.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {values.map((value) => (
+                <div key={value.title} className="card-premium text-center">
+                  <div className="w-16 h-16 rounded-2xl bg-accent/10 flex items-center justify-center mx-auto mb-6">
+                    <value.icon className="w-8 h-8 text-accent" />
+                  </div>
+                  <h3 className="heading-card text-foreground mb-4">{value.title}</h3>
+                  <p className="text-muted-foreground">{value.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Article 815 */}
+        <section className="section-padding">
+          <div className="container-narrow">
+            <div className="bg-primary rounded-3xl p-10 md:p-16 text-primary-foreground">
+              <div className="flex items-center gap-4 mb-6">
+                <Scale className="w-10 h-10 text-accent" />
+                <h2 className="heading-section text-primary-foreground">
+                  L'article 815 du Code civil
+                </h2>
+              </div>
+              <blockquote className="border-l-4 border-accent pl-6 py-2 mb-6">
+                <p className="text-xl italic text-primary-foreground/90">
+                  « Nul ne peut être contraint à demeurer dans l'indivision et le partage
+                  peut toujours être provoqué, à moins qu'il n'y ait été sursis par jugement
+                  ou convention. »
+                </p>
+              </blockquote>
+              <p className="text-primary-foreground/70 leading-relaxed mb-6">
+                Ce principe fondamental du droit français garantit à chaque indivisaire le droit
+                de sortir de l'indivision. Notre expertise consiste à mettre en œuvre ce droit
+                dans le respect du formalisme légal, en protégeant vos intérêts tout en préservant
+                les relations avec les autres indivisaires.
+              </p>
+              <Button variant="hero" asChild>
+                <Link to="/comprendre-indivision">
+                  En savoir plus sur l'indivision
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="section-padding bg-primary text-primary-foreground">
+          <div className="container-narrow text-center">
+            <h2 className="heading-section text-primary-foreground mb-6">
+              Prêt à sortir de l'indivision ?
+            </h2>
+            <p className="text-primary-foreground/70 text-lg mb-8">
+              Contactez-nous pour une étude gratuite et sans engagement de votre situation.
+            </p>
+            <Button variant="hero" size="lg" asChild>
+              <Link to="/contact">
+                Demander une étude gratuite
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </Button>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </div>
+  );
+};
+
+export default NotreApproche;
