@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Logo } from "@/components/Logo";
 
 const navLinks = [
   { href: "/", label: "Accueil" },
@@ -78,31 +79,18 @@ export function Header() {
         <div className="container-wide">
           <div className="flex items-center justify-between h-18 lg:h-20">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-3 group flex-shrink-0">
-              <div className="flex items-center">
-                <div className="flex flex-col items-center mr-3 border-r border-primary-foreground/20 pr-3">
-                  <span className="text-accent text-[10px] font-serif italic leading-none">Art.</span>
-                  <span className="text-accent text-xl font-bold leading-none">815</span>
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-primary-foreground text-base lg:text-lg tracking-[0.2em] uppercase font-serif">
-                    Patrimoine
-                  </span>
-                  <span className="text-accent text-base lg:text-lg tracking-[0.2em] uppercase font-serif">
-                    Indivis
-                  </span>
-                </div>
-              </div>
-            </Link>
+            <div className="flex-shrink-0">
+              <Logo variant="light" showBadge={true} size="md" />
+            </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-8">
+            <nav className="hidden lg:flex items-center gap-6 xl:gap-8 ml-8">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   to={link.href}
                   onClick={() => link.href.startsWith("/#") && scrollToSection(link.href)}
-                  className={`text-sm font-medium transition-colors hover:text-accent tracking-wide ${
+                  className={`text-sm font-medium transition-colors hover:text-accent tracking-wide whitespace-nowrap ${
                     location.pathname === link.href
                       ? "text-accent"
                       : "text-primary-foreground/80"
