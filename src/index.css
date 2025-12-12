@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Open+Sans:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,64 +6,62 @@
 
 @layer base {
   :root {
-    /* Patrimoine Indivis Official Brand Colors */
-    /* Gris Foncé: #3c3c3b (60,60,59) */
-    /* Dégradé doré: #c28e52, #a87835, #91641a, #d4b291, #b88447, #cd9b66 */
+    /* Patrimoine Indivis - Exact colors from reference site */
+    /* Navy Blue: #232f3e (dark blue-gray header) */
+    /* Gold: #c9a961 (accent color) */
+    /* Off-white: #f5f5f5 (background) */
     
-    --background: 40 25% 96%;
-    --foreground: 0 1% 23%;
+    --background: 0 0% 96%;
+    --foreground: 215 26% 22%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 1% 23%;
+    --card-foreground: 215 26% 22%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 1% 23%;
+    --popover-foreground: 215 26% 22%;
 
-    --primary: 0 1% 23%;
-    --primary-foreground: 40 25% 96%;
+    --primary: 215 26% 22%;
+    --primary-foreground: 0 0% 96%;
 
-    --secondary: 40 20% 92%;
-    --secondary-foreground: 0 1% 23%;
+    --secondary: 0 0% 93%;
+    --secondary-foreground: 215 26% 22%;
 
-    --muted: 40 15% 90%;
-    --muted-foreground: 0 1% 45%;
+    --muted: 0 0% 90%;
+    --muted-foreground: 215 15% 40%;
 
-    /* Gold accent from brand: #c28e52 = 30 49% 54% */
-    --accent: 30 49% 54%;
-    --accent-foreground: 0 1% 23%;
+    /* Gold accent: #c9a961 = 43 45% 59% */
+    --accent: 43 45% 59%;
+    --accent-foreground: 215 26% 15%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 40 15% 85%;
-    --input: 40 15% 88%;
-    --ring: 30 49% 54%;
+    --border: 0 0% 85%;
+    --input: 0 0% 88%;
+    --ring: 43 45% 59%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
     /* Custom brand tokens */
-    --charcoal: 0 1% 23%;
-    --charcoal-light: 0 0% 35%;
-    --offwhite: 40 25% 96%;
-    --cream: 40 30% 94%;
+    --navy: 215 26% 22%;
+    --navy-dark: 215 30% 15%;
+    --navy-light: 215 20% 30%;
+    --offwhite: 0 0% 96%;
+    --cream: 40 20% 94%;
     
-    /* Gold gradient stops from brand */
-    --gold-1: 30 49% 54%;  /* #c28e52 */
-    --gold-2: 32 52% 43%;  /* #a87835 */
-    --gold-3: 33 66% 33%;  /* #91641a */
-    --gold-4: 30 35% 70%;  /* #d4b291 */
-    --gold-5: 32 45% 50%;  /* #b88447 */
-    --gold-6: 30 42% 60%;  /* #cd9b66 */
+    /* Gold from brand: #c9a961 */
+    --gold: 43 45% 59%;
+    --gold-light: 43 40% 70%;
+    --gold-dark: 43 50% 45%;
     
     /* Gradients */
-    --gradient-gold: linear-gradient(135deg, hsl(30 49% 54%), hsl(32 45% 50%), hsl(30 42% 60%));
-    --gradient-charcoal: linear-gradient(180deg, hsl(0 1% 23%), hsl(0 0% 30%));
-    --gradient-hero: linear-gradient(180deg, hsl(0 1% 20% / 0.85) 0%, hsl(0 1% 25% / 0.9) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(43 45% 59%), hsl(43 40% 65%));
+    --gradient-navy: linear-gradient(180deg, hsl(215 26% 22%), hsl(215 26% 18%));
     
     /* Shadows */
-    --shadow-soft: 0 4px 20px -4px hsl(0 1% 23% / 0.08);
-    --shadow-card: 0 8px 32px -8px hsl(0 1% 23% / 0.12);
-    --shadow-gold: 0 4px 24px -4px hsl(30 49% 54% / 0.35);
+    --shadow-soft: 0 4px 20px -4px hsl(215 26% 22% / 0.08);
+    --shadow-card: 0 8px 32px -8px hsl(215 26% 22% / 0.12);
+    --shadow-gold: 0 4px 24px -4px hsl(43 45% 59% / 0.35);
     
     /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -71,30 +69,30 @@
   }
 
   .dark {
-    --background: 0 1% 23%;
-    --foreground: 40 25% 96%;
+    --background: 215 26% 22%;
+    --foreground: 0 0% 96%;
 
-    --card: 0 0% 28%;
-    --card-foreground: 40 25% 96%;
+    --card: 215 26% 26%;
+    --card-foreground: 0 0% 96%;
 
-    --popover: 0 0% 28%;
-    --popover-foreground: 40 25% 96%;
+    --popover: 215 26% 26%;
+    --popover-foreground: 0 0% 96%;
 
-    --primary: 30 49% 54%;
-    --primary-foreground: 0 1% 23%;
+    --primary: 43 45% 59%;
+    --primary-foreground: 215 26% 15%;
 
-    --secondary: 0 0% 30%;
-    --secondary-foreground: 40 25% 96%;
+    --secondary: 215 20% 28%;
+    --secondary-foreground: 0 0% 96%;
 
-    --muted: 0 0% 35%;
-    --muted-foreground: 40 15% 75%;
+    --muted: 215 15% 35%;
+    --muted-foreground: 0 0% 75%;
 
-    --accent: 30 49% 54%;
-    --accent-foreground: 0 1% 23%;
+    --accent: 43 45% 59%;
+    --accent-foreground: 215 26% 15%;
 
-    --border: 0 0% 35%;
-    --input: 0 0% 35%;
-    --ring: 30 49% 54%;
+    --border: 215 15% 35%;
+    --input: 215 15% 35%;
+    --ring: 43 45% 59%;
   }
 }
 
@@ -109,12 +107,12 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Open Sans', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
-    @apply tracking-tight;
+    font-family: 'Cormorant Garamond', serif;
+    @apply tracking-normal;
   }
 }
 

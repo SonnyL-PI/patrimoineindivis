@@ -48,20 +48,17 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
         // Custom brand colors
-        charcoal: {
-          DEFAULT: "hsl(var(--charcoal))",
-          light: "hsl(var(--charcoal-light))",
+        navy: {
+          DEFAULT: "hsl(var(--navy))",
+          dark: "hsl(var(--navy-dark))",
+          light: "hsl(var(--navy-light))",
         },
         offwhite: "hsl(var(--offwhite))",
         cream: "hsl(var(--cream))",
         gold: {
-          1: "hsl(var(--gold-1))",
-          2: "hsl(var(--gold-2))",
-          3: "hsl(var(--gold-3))",
-          4: "hsl(var(--gold-4))",
-          5: "hsl(var(--gold-5))",
-          6: "hsl(var(--gold-6))",
-          DEFAULT: "hsl(var(--gold-1))",
+          DEFAULT: "hsl(var(--gold))",
+          light: "hsl(var(--gold-light))",
+          dark: "hsl(var(--gold-dark))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
@@ -75,8 +72,8 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        serif: ['Playfair Display', 'Georgia', 'serif'],
+        sans: ['Open Sans', 'system-ui', 'sans-serif'],
+        serif: ['Cormorant Garamond', 'Georgia', 'serif'],
       },
       borderRadius: {
         lg: "var(--radius)",
