@@ -1,4 +1,4 @@
-import { Star, Quote, Clock, FileCheck, ThumbsUp } from "lucide-react";
+import { Star, Clock, FileCheck, ThumbsUp } from "lucide-react";
 
 const stats = [
   {
@@ -20,24 +20,39 @@ const stats = [
 
 const testimonials = [
   {
-    initials: "M.D.",
-    situation: "Succession",
+    name: "Brigitte le crane",
     quote:
-      "Après des années de blocage avec mes frères et sœurs, Patrimoine Indivis m'a permis de sortir de l'indivision en quelques semaines. Professionnalisme et discrétion remarquables.",
+      "J'ai vraiment apprécié l'écoute, la compétence, la disponibilité et la bienveillance de Philippe Nogel et son équipe. Dans une situation compliquée, la prise en charge est complète et sécurisante. Je recommande vivement.",
     rating: 5,
   },
   {
-    initials: "S.L.",
-    situation: "Divorce",
+    name: "MM BIZIEN",
     quote:
-      "Dans une situation de divorce difficile, j'avais besoin de tourner la page rapidement. L'équipe a été à l'écoute et efficace. Je recommande sans hésitation.",
+      "Je ne regrette pas de m'être tourné vers Patrimoine Indivis. Je pensais la situation bloquée et finalement j'ai pu vendre mes parts d'indivision. Une équipe sérieuse et humaine pour un win-win à la clef. Merci !",
     rating: 5,
   },
   {
-    initials: "P.R.",
-    situation: "Conflit familial",
+    name: "Michel H",
     quote:
-      "Une approche humaine qui a permis de préserver les relations familiales tout en trouvant une solution équitable pour tous. Merci pour votre médiation.",
+      "Sérieux et professionnels, ils vous accompagnent et sont disponibles. Je recommande vivement cette Société pour la vente de vos parts d'indivision. Merci à eux de m'avoir accompagné et renseigné lorsque j'en avais besoin.",
+    rating: 5,
+  },
+  {
+    name: "Astrid Schauffler",
+    quote:
+      "Merci à patrimoine indivis d'exister et plus particulièrement à Monsieur SAVEAU pour son accompagnement, ses diligences, sa fiabilité et sa sympathie.",
+    rating: 5,
+  },
+  {
+    name: "Anne-Sophie Ranghiasci",
+    quote:
+      "En cas de difficulté ou de blocage concernant une sortie d'état d'indivision, je vous conseille vivement Patrimoine Indivis qui m'a permis de mettre terme à une situation complexe.",
+    rating: 5,
+  },
+  {
+    name: "Mélanie",
+    quote:
+      "Merci à toute l'équipe qui m'a sorti d'une situation complètement bloquée suite à une séparation hors mariage. Professionnalisme et accompagnement remarquables.",
     rating: 5,
   },
 ];
@@ -81,49 +96,54 @@ export function TestimonialsSection() {
         </div>
 
         {/* Testimonials */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="relative p-8 rounded-2xl bg-primary-foreground/5 border border-primary-foreground/10"
+              className="relative p-6 rounded-2xl bg-primary-foreground/5 border border-primary-foreground/10"
             >
-              {/* Quote icon */}
-              <Quote className="absolute top-6 right-6 w-8 h-8 text-accent/30" />
-
-              {/* Rating */}
-              <div className="flex gap-1 mb-4">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-accent text-accent" />
-                ))}
+              {/* Google badge */}
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex gap-1">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-accent text-accent" />
+                  ))}
+                </div>
+                <span className="text-xs text-primary-foreground/50">Avis Google</span>
               </div>
 
               {/* Quote */}
-              <blockquote className="text-primary-foreground/80 leading-relaxed mb-6">
+              <blockquote className="text-primary-foreground/80 text-sm leading-relaxed mb-4">
                 "{testimonial.quote}"
               </blockquote>
 
               {/* Author */}
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center">
-                  <span className="text-accent font-semibold">{testimonial.initials}</span>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center">
+                  <span className="text-accent font-semibold text-sm">
+                    {testimonial.name.charAt(0)}
+                  </span>
                 </div>
-                <div>
-                  <div className="font-semibold text-primary-foreground">
-                    {testimonial.initials}
-                  </div>
-                  <div className="text-sm text-primary-foreground/60">
-                    {testimonial.situation}
-                  </div>
-                </div>
+                <span className="font-medium text-primary-foreground text-sm">
+                  {testimonial.name}
+                </span>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Trust note */}
-        <p className="text-center text-primary-foreground/50 text-sm mt-12">
-          Tous les témoignages sont authentiques. Les initiales sont utilisées pour préserver la confidentialité de nos clients.
-        </p>
+        {/* Google link */}
+        <div className="text-center mt-10">
+          <a 
+            href="https://www.google.com/search?q=patrimoine+indivis+avis" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-accent hover:text-accent/80 transition-colors text-sm font-medium"
+          >
+            Voir tous nos avis sur Google
+            <span className="text-lg">→</span>
+          </a>
+        </div>
       </div>
     </section>
   );
