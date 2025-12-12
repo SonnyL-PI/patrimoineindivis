@@ -96,7 +96,7 @@ export function ContactSection() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground mb-1">
-                    Étude gratuite et sans engagement
+                    Étude de rachat sans engagement
                   </h4>
                   <p className="text-muted-foreground text-sm">
                     L'analyse de votre dossier est entièrement gratuite.
@@ -279,7 +279,7 @@ export function ContactSection() {
 
                   <Button type="submit" variant="gold" size="lg" className="w-full mt-2">
                     <Send className="w-4 h-4" />
-                    Demander une étude gratuite
+                    Demander une étude de rachat
                   </Button>
 
                   <p className="text-xs text-muted-foreground text-center flex items-center justify-center gap-2">

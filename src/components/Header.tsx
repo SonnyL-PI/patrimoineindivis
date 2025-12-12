@@ -113,7 +113,7 @@ export function Header() {
                 </Link>
               </Button>
               <Button variant="gold" size="sm" className="px-5" asChild>
-                <Link to="/contact">Étude gratuite</Link>
+                <Link to="/contact">Étude de rachat</Link>
               </Button>
             </div>
 
@@ -166,7 +166,7 @@ export function Header() {
                   <Link to="/contact#rappel">Être rappelé</Link>
                 </Button>
                 <Button variant="gold" className="flex-1" asChild>
-                  <Link to="/contact">Étude gratuite</Link>
+                  <Link to="/contact">Étude de rachat</Link>
                 </Button>
               </div>
             </div>

@@ -142,7 +142,7 @@ const VotreSituation = () => {
 
                   <Button variant="gold" asChild>
                     <Link to="/contact">
-                      Demander une étude gratuite
+                      Demander une étude de rachat
                       <ArrowRight className="w-4 h-4" />
                     </Link>
                   </Button>
