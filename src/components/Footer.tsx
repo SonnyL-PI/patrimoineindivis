@@ -8,7 +8,7 @@ const footerLinks = {
     { label: "Votre situation", href: "/votre-situation" },
     { label: "Vos solutions", href: "/notre-approche" },
     { label: "Notre approche", href: "/notre-approche" },
-    { label: "Nos avantages", href: "/notre-approche#avantages" },
+    
     { label: "Qui sommes-nous ?", href: "/comprendre-indivision" },
   ],
   legal: [
