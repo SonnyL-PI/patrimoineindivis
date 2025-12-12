@@ -23,13 +23,13 @@ const advantages = [
   },
   {
     icon: Euro,
-    title: "Sans intermédiaires et commissions",
-    description: "Nous sommes acheteur, la vente se fait donc sans intermédiaire ni commission supplémentaire.",
+    title: "Sans intermédiaires",
+    description: "Nous sommes acheteur direct, la vente se fait donc sans intermédiaire ni commission.",
   },
   {
     icon: Lock,
-    title: "Discrétion et confidentialité",
-    description: "Toutes nos transactions et actes se font devant notaires dans la plus stricte confidentialité.",
+    title: "Discrétion garantie",
+    description: "Toutes nos transactions se font devant notaires dans la plus stricte confidentialité.",
   },
 ];
 
@@ -39,26 +39,29 @@ export function AdvantagesSection() {
       <div className="container-wide">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="inline-block text-sm font-medium text-accent uppercase tracking-wider mb-4">
+            Nos atouts
+          </span>
           <h2 className="heading-section text-primary-foreground mb-4">
-            Nos Avantages
+            Les Avantages Patrimoine Indivis
           </h2>
           <div className="w-16 h-0.5 bg-accent mx-auto" />
         </div>
 
         {/* Advantages Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {advantages.map((advantage) => (
             <div
               key={advantage.title}
-              className="text-center p-8 rounded-2xl bg-primary-foreground/5 border border-primary-foreground/10 hover:bg-primary-foreground/10 transition-colors"
+              className="text-center p-8 lg:p-10 rounded-2xl bg-primary-foreground/[0.03] border border-primary-foreground/10 hover:bg-primary-foreground/[0.06] hover:border-accent/30 transition-all duration-300"
             >
-              <div className="w-16 h-16 rounded-full bg-accent/20 flex items-center justify-center mx-auto mb-6">
+              <div className="w-16 h-16 rounded-2xl bg-accent/15 flex items-center justify-center mx-auto mb-6">
                 <advantage.icon className="w-8 h-8 text-accent" />
               </div>
               <h3 className="font-serif text-xl font-semibold text-primary-foreground mb-4">
                 {advantage.title}
               </h3>
-              <p className="text-primary-foreground/70 leading-relaxed">
+              <p className="text-primary-foreground/70 leading-relaxed text-sm">
                 {advantage.description}
               </p>
             </div>
