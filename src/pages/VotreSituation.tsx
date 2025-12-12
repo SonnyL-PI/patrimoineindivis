@@ -4,10 +4,17 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Users, Heart, AlertTriangle, Lock, Wallet, CheckCircle2 } from "lucide-react";
 
+import successionImg from "@/assets/situation-succession.jpg";
+import divorceImg from "@/assets/situation-divorce.jpg";
+import conflitImg from "@/assets/situation-conflit.jpg";
+import blocageImg from "@/assets/situation-blocage.jpg";
+import liquiditeImg from "@/assets/situation-liquidite.jpg";
+
 const situations = [
   {
     id: "succession",
     icon: Users,
+    image: successionImg,
     title: "Succession",
     description: "Vous avez hérité d'un bien en indivision avec d'autres héritiers et souhaitez récupérer votre part sans attendre un accord unanime.",
     problems: [
@@ -21,6 +28,7 @@ const situations = [
   {
     id: "divorce",
     icon: Heart,
+    image: divorceImg,
     title: "Divorce",
     description: "Votre ex-conjoint détient une partie du bien commun et vous souhaitez tourner définitivement la page de cette période.",
     problems: [
@@ -34,6 +42,7 @@ const situations = [
   {
     id: "conflit",
     icon: AlertTriangle,
+    image: conflitImg,
     title: "Désaccord familial",
     description: "Les co-indivisaires ne s'entendent pas sur l'avenir du bien : vente, location, travaux... les tensions s'accumulent.",
     problems: [
@@ -47,6 +56,7 @@ const situations = [
   {
     id: "blocage",
     icon: Lock,
+    image: blocageImg,
     title: "Blocage de vente",
     description: "Un ou plusieurs indivisaires refusent de vendre malgré la volonté de la majorité. Le bien reste bloqué.",
     problems: [
@@ -60,6 +70,7 @@ const situations = [
   {
     id: "liquidite",
     icon: Wallet,
+    image: liquiditeImg,
     title: "Besoin de liquidité",
     description: "Vous souhaitez simplement transformer votre part en capital pour financer un projet ou faire face à des besoins.",
     problems: [
@@ -137,10 +148,12 @@ const VotreSituation = () => {
                   </Button>
                 </div>
 
-                <div className={`bg-secondary rounded-3xl p-10 ${index % 2 === 1 ? "lg:order-1" : ""}`}>
-                  <div className="aspect-square flex items-center justify-center">
-                    <situation.icon className="w-32 h-32 text-accent/20" />
-                  </div>
+                <div className={`rounded-3xl overflow-hidden ${index % 2 === 1 ? "lg:order-1" : ""}`}>
+                  <img 
+                    src={situation.image} 
+                    alt={situation.title}
+                    className="w-full h-full object-cover aspect-square"
+                  />
                 </div>
               </div>
             ))}
