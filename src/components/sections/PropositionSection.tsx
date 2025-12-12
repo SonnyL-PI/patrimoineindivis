@@ -100,7 +100,7 @@ export function PropositionSection() {
 
               <Button variant="gold" size="lg" asChild>
                 <Link to="/contact">
-                  Demander une étude gratuite
+                  Demander une étude de rachat
                   <ArrowRight className="w-5 h-5" />
                 </Link>
               </Button>
