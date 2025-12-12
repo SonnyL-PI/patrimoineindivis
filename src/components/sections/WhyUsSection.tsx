@@ -45,10 +45,6 @@ export function WhyUsSection() {
               key={pillar.title}
               className="relative bg-card rounded-2xl p-8 lg:p-9 border border-border/40 shadow-soft hover:shadow-card hover:border-accent/20 transition-all duration-300 group"
             >
-              {/* Number badge */}
-              <div className="absolute -top-3 -left-3 w-9 h-9 rounded-full bg-accent text-navy font-bold flex items-center justify-center text-base shadow-sm">
-                {index + 1}
-              </div>
               
               <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-6 group-hover:bg-accent/15 transition-colors">
                 <pillar.icon className="w-7 h-7 text-accent" />
