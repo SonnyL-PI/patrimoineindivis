@@ -1,97 +1,85 @@
-import { Link } from "react-router-dom";
-import { ArrowRight, Users, Heart, AlertTriangle, Lock, Wallet } from "lucide-react";
-
-const situations = [
-  {
-    icon: Users,
-    slug: "succession",
-    title: "Succession",
-    context: "Vous avez hérité d'un bien en indivision avec d'autres héritiers.",
-    benefit: "Récupérez la valeur de votre part sans attendre l'accord de tous.",
-  },
-  {
-    icon: Heart,
-    slug: "divorce",
-    title: "Divorce",
-    context: "Votre ex-conjoint détient une partie du bien commun.",
-    benefit: "Sortez de l'indivision rapidement et tournez la page.",
-  },
-  {
-    icon: AlertTriangle,
-    slug: "conflit",
-    title: "Désaccord familial",
-    context: "Les co-indivisaires ne s'entendent pas sur l'avenir du bien.",
-    benefit: "Une solution de sortie qui préserve les relations.",
-  },
-  {
-    icon: Lock,
-    slug: "blocage",
-    title: "Blocage de vente",
-    context: "Un indivisaire refuse de vendre malgré la majorité.",
-    benefit: "Débloquez la situation grâce à notre expertise juridique.",
-  },
-  {
-    icon: Wallet,
-    slug: "liquidite",
-    title: "Besoin de liquidité",
-    context: "Vous souhaitez transformer votre part en capital.",
-    benefit: "Obtenez une offre ferme dans les meilleurs délais.",
-  },
-];
-
 export function SituationsSection() {
   return (
-    <section className="section-padding bg-background">
+    <section className="section-padding bg-secondary/50" id="situation">
       <div className="container-wide">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block text-sm font-semibold text-accent uppercase tracking-wider mb-4">
-            Nous comprenons
-          </span>
+        <div className="text-center max-w-4xl mx-auto mb-12">
           <h2 className="heading-section text-foreground mb-6">
             Votre situation
           </h2>
-          <p className="text-body">
-            Chaque indivision est unique. Découvrez comment nous pouvons vous aider
-            selon votre contexte particulier.
-          </p>
+          <h3 className="text-xl md:text-2xl text-accent font-serif italic mb-8">
+            Que vous soyez en indivision familiale, maritale, amicale ou autre, vous vous trouvez peut être dans une de ces situations :
+          </h3>
         </div>
 
-        {/* Situation Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {situations.map((situation) => (
-            <Link
-              key={situation.slug}
-              to={`/votre-situation#${situation.slug}`}
-              className="card-situation group"
-            >
-              {/* Icon */}
-              <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center mb-5 group-hover:bg-accent/10 transition-colors">
-                <situation.icon className="w-6 h-6 text-accent" />
-              </div>
-
-              {/* Title */}
-              <h3 className="font-serif text-xl font-semibold text-foreground mb-3">
-                {situation.title}
-              </h3>
-
-              {/* Context */}
-              <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                {situation.context}
-              </p>
-
-              {/* Benefit */}
-              <p className="text-accent text-sm font-medium mb-4">
-                {situation.benefit}
-              </p>
-
-              {/* Link */}
-              <span className="inline-flex items-center gap-2 text-sm font-semibold text-foreground group-hover:text-accent transition-colors">
-                Voir la solution
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </span>
-            </Link>
-          ))}
+        {/* Situations List */}
+        <div className="max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3">
+                <span className="w-2 h-2 rounded-full bg-accent flex-shrink-0 mt-2" />
+                <span className="text-muted-foreground">
+                  Vous partagez la gestion de vos biens immobiliers avec vos frères et sœurs avec qui vous n'avez plus aucune relation.
+                </span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="w-2 h-2 rounded-full bg-accent flex-shrink-0 mt-2" />
+                <span className="text-muted-foreground">
+                  Vous vivez dans un bien avec votre indivisaire et la situation est devenue insupportable.
+                </span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="w-2 h-2 rounded-full bg-accent flex-shrink-0 mt-2" />
+                <span className="text-muted-foreground">
+                  Vous détenez une minorité dans l'indivision et personne ne vous considère…
+                </span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="w-2 h-2 rounded-full bg-accent flex-shrink-0 mt-2" />
+                <span className="text-muted-foreground">
+                  Vous êtes issu d'un deuxième mariage de votre père ou de votre mère et vos demis-frères et sœurs vous ignorent.
+                </span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="w-2 h-2 rounded-full bg-accent flex-shrink-0 mt-2" />
+                <span className="text-muted-foreground">
+                  Vous vivez à l'étranger et vos co-indivisaires profitent de la situation pour vous spolier.
+                </span>
+              </li>
+            </ul>
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3">
+                <span className="w-2 h-2 rounded-full bg-accent flex-shrink-0 mt-2" />
+                <span className="text-muted-foreground">
+                  Votre co-indivisaire profite du ou des biens. Vous payez la moitié des frais sans avoir le droit d'en jouir.
+                </span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="w-2 h-2 rounded-full bg-accent flex-shrink-0 mt-2" />
+                <span className="text-muted-foreground">
+                  Vous souhaitez vendre des biens mais vos co-indivisaires refusent toutes propositions car ils habitent dedans. Ils ne veulent pas racheter votre part.
+                </span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="w-2 h-2 rounded-full bg-accent flex-shrink-0 mt-2" />
+                <span className="text-muted-foreground">
+                  Vous souhaitez vendre le bien en indivision mais personne n'est d'accord sur le prix de vente et la situation est bloquée.
+                </span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="w-2 h-2 rounded-full bg-accent flex-shrink-0 mt-2" />
+                <span className="text-muted-foreground">
+                  Vous souhaitez investir dans un nouveau projet de vie mais vos co-indivisaires ne souhaitent pas vendre.
+                </span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="w-2 h-2 rounded-full bg-accent flex-shrink-0 mt-2" />
+                <span className="text-muted-foreground">
+                  Autant de situations qui vous empêchent de profiter de la valeur de ces biens, bloqué dans votre indivision.
+                </span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
