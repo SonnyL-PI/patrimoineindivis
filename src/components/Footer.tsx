@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { Logo } from "@/components/Logo";
 
 const footerLinks = {
   navigation: [
@@ -25,23 +26,9 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link to="/" className="flex items-center gap-2 mb-6">
-              <div className="flex items-center">
-                <div className="flex flex-col items-center mr-2">
-                  <span className="text-accent text-[8px] font-serif italic leading-none">Art.</span>
-                  <span className="text-accent text-sm font-bold leading-none">815</span>
-                </div>
-                <div className="flex items-center font-serif">
-                  <span className="text-primary-foreground text-sm tracking-wider uppercase">
-                    Patrimoine
-                  </span>
-                  <span className="text-accent text-base mx-0.5">/</span>
-                  <span className="text-accent text-sm tracking-wider uppercase">
-                    Indivis
-                  </span>
-                </div>
-              </div>
-            </Link>
+            <div className="mb-6">
+              <Logo variant="light" showBadge={true} size="sm" />
+            </div>
             <p className="text-primary-foreground/70 text-sm leading-relaxed mb-6">
               Société spécialisée dans le rachat de parts indivises mêmes minoritaires.
             </p>
