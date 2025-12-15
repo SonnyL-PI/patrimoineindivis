@@ -11,7 +11,7 @@ const pillars = [
     icon: Scale,
     title: "Expertise juridique",
     subtitle: "Article 815 du Code civil",
-    description: "Nos partenaires notaires et avocats sont formés sur la multitude de cas traités. Maîtrise parfaite du formalisme judiciaire.",
+    description: "Nos partenaires notaires et avocats sont formés sur la multitude de cas traités. Maîtrise parfaite du formalisme juridique.",
   },
   {
     icon: Heart,
