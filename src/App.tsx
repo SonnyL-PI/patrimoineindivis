@@ -3,6 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import Index from "./pages/Index";
 import Contact from "./pages/Contact";
@@ -15,35 +16,40 @@ import FAQ from "./pages/FAQ";
 import Ressources from "./pages/Ressources";
 import Blog from "./pages/Blog";
 import BlogArticle from "./pages/BlogArticle";
+import EtudeGratuite from "./pages/EtudeGratuite";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/votre-situation" element={<VotreSituation />} />
-          <Route path="/notre-approche" element={<NotreApproche />} />
-          <Route path="/qui-sommes-nous" element={<QuiSommesNous />} />
-          <Route path="/mentions-legales" element={<MentionsLegales />} />
-          <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
-          <Route path="/comprendre-indivision" element={<Navigate to="/blog" replace />} />
-          <Route path="/faq" element={<FAQ />} />
-          <Route path="/ressources" element={<Ressources />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:slug" element={<BlogArticle />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+  <HelmetProvider>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <ScrollToTop />
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/votre-situation" element={<VotreSituation />} />
+            <Route path="/notre-approche" element={<NotreApproche />} />
+            <Route path="/qui-sommes-nous" element={<QuiSommesNous />} />
+            <Route path="/mentions-legales" element={<MentionsLegales />} />
+            <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
+            <Route path="/comprendre-indivision" element={<Navigate to="/blog" replace />} />
+            <Route path="/faq" element={<FAQ />} />
+            <Route path="/ressources" element={<Ressources />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogArticle />} />
+            <Route path="/etude-gratuite" element={<EtudeGratuite />} />
+            <Route path="/demande-etude" element={<Navigate to="/etude-gratuite" replace />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  </HelmetProvider>
 );
 
 export default App;
