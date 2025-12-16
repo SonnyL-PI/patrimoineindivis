@@ -92,7 +92,7 @@ export const articles: Article[] = [
     date: "22 septembre 2024",
     readTime: "15 min",
     image: blogVente,
-    imageAlt: "Main tenant une clé — vendre sa part d'indivision",
+    imageAlt: "Clé sur pochette en cuir — vendre sa part d'indivision",
   },
 ];
 
