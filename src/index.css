@@ -11,6 +11,13 @@
     /* Gold: #c9a961 (accent color) */
     /* Off-white: #f5f5f5 (background) */
     
+    /* Header height for fixed positioning */
+    --header-height: 72px;
+    
+    @media (min-width: 1024px) {
+      --header-height: 80px;
+    }
+    
     --background: 0 0% 96%;
     --foreground: 215 26% 22%;
 
@@ -106,6 +113,7 @@
   html {
     scroll-behavior: smooth;
     overflow-x: hidden;
+    scroll-padding-top: var(--header-height);
   }
 
   body {
