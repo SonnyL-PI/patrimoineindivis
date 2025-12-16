@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -14,7 +16,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Logo } from "@/components/Logo";
 import {
   Phone,
   Send,
@@ -34,6 +35,7 @@ import {
   Heart,
   Banknote,
   Home,
+  AlertTriangle,
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import heroImage from "@/assets/hero-signature.jpg";
@@ -64,11 +66,11 @@ const situationsLocatives = [
 ];
 
 const situationCards = [
-  { icon: Users, label: "Succession", color: "text-accent" },
-  { icon: Heart, label: "Divorce", color: "text-accent" },
-  { icon: Banknote, label: "IFI", color: "text-accent" },
-  { icon: Scale, label: "Conflit", color: "text-accent" },
-  { icon: Home, label: "Exit Tax", color: "text-accent" },
+  { icon: Users, label: "Succession", href: "/votre-situation#succession" },
+  { icon: Heart, label: "Divorce", href: "/votre-situation#divorce" },
+  { icon: FileText, label: "IFI", href: "/votre-situation#fiscal" },
+  { icon: AlertTriangle, label: "Conflit", href: "/votre-situation#conflit" },
+  { icon: Banknote, label: "Liquidité", href: "/votre-situation#liquidite" },
 ];
 
 export default function EtudeGratuite() {
@@ -106,7 +108,7 @@ export default function EtudeGratuite() {
       return;
     }
     setStep(2);
-    window.scrollTo({ top: document.getElementById("form-section")?.offsetTop || 0, behavior: "smooth" });
+    window.scrollTo({ top: document.getElementById("formulaire")?.offsetTop ? document.getElementById("formulaire")!.offsetTop - 100 : 0, behavior: "smooth" });
   };
 
   const handleFinalSubmit = (e: React.FormEvent) => {
@@ -134,50 +136,24 @@ export default function EtudeGratuite() {
   };
 
   const scrollToForm = () => {
-    document.getElementById("form-section")?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById("formulaire")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <>
+    <div className="min-h-screen bg-background">
       <Helmet>
         <title>Étude gratuite — Patrimoine Indivis</title>
         <meta
           name="description"
           content="Demandez votre étude gratuite et confidentielle. Patrimoine Indivis, spécialiste du rachat de parts indivises, vous accompagne pour débloquer votre situation d'indivision."
         />
+        <link rel="canonical" href="https://patrimoine-indivis.fr/etude-gratuite" />
       </Helmet>
 
-      {/* Minimal Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-primary">
-        <div className="container-wide py-3 flex items-center justify-between">
-          <Link to="/" className="flex items-center">
-            <Logo className="h-10 md:h-12" />
-          </Link>
-          <div className="flex items-center gap-3 md:gap-4">
-            <a
-              href="tel:+33100000000"
-              className="hidden md:flex items-center gap-2 text-primary-foreground/90 hover:text-primary-foreground text-sm"
-            >
-              <Phone className="w-4 h-4" />
-              01 00 00 00 00
-            </a>
-            <Link
-              to="/contact#rappel"
-              className="text-sm text-primary-foreground/80 hover:text-primary-foreground hidden md:inline"
-            >
-              Être rappelé
-            </Link>
-            <Button variant="gold" size="sm" onClick={scrollToForm}>
-              <FileText className="w-4 h-4" />
-              <span className="hidden sm:inline">Demander une étude</span>
-              <span className="sm:hidden">Étude</span>
-            </Button>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       {/* Hero Section */}
-      <section className="relative pt-20 md:pt-24 min-h-[70vh] md:min-h-[80vh] flex items-center">
+      <section className="relative pt-32 md:pt-36 min-h-[60vh] md:min-h-[70vh] flex items-center">
         <div className="absolute inset-0 z-0">
           <img
             src={heroImage}
@@ -187,8 +163,11 @@ export default function EtudeGratuite() {
           <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/70" />
         </div>
 
-        <div className="container-wide relative z-10 py-12 md:py-20">
+        <div className="container-wide relative z-10 py-12 md:py-16">
           <div className="max-w-2xl">
+            <span className="inline-block text-sm font-semibold text-accent uppercase tracking-wider mb-4">
+              Étude gratuite
+            </span>
             <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-primary-foreground mb-4 md:mb-6 leading-tight">
               Débloquez votre situation d'indivision
             </h1>
@@ -212,10 +191,15 @@ export default function EtudeGratuite() {
               </span>
             </div>
 
-            <Button variant="gold" size="lg" onClick={scrollToForm} className="group">
-              Demander une étude gratuite
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Button variant="gold" size="lg" onClick={scrollToForm} className="group">
+                Demander une étude gratuite
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+              <Button variant="goldOutline" size="lg" asChild>
+                <Link to="/">Retour au site</Link>
+              </Button>
+            </div>
           </div>
         </div>
 
@@ -230,7 +214,7 @@ export default function EtudeGratuite() {
       </section>
 
       {/* How We Help Section */}
-      <section className="py-12 md:py-16 bg-secondary/30">
+      <section className="section-padding bg-secondary/30">
         <div className="container-wide">
           <div className="text-center mb-10 md:mb-12">
             <span className="inline-block text-sm font-medium text-accent uppercase tracking-wider mb-2">
@@ -327,7 +311,7 @@ export default function EtudeGratuite() {
       </section>
 
       {/* Form Section */}
-      <section id="form-section" className="py-12 md:py-16 bg-background">
+      <section id="formulaire" className="section-padding bg-background">
         <div className="container-wide">
           <div className="grid lg:grid-cols-5 gap-8 lg:gap-12">
             {/* Form */}
@@ -612,8 +596,8 @@ export default function EtudeGratuite() {
                         limitation du traitement. Vous pouvez également, pour des motifs légitimes,
                         vous opposer au traitement des données vous concernant. Pour exercer vos
                         droits, contactez-nous à{" "}
-                        <a href="mailto:contact@patrimoineindivis.fr" className="text-accent hover:underline">
-                          contact@patrimoineindivis.fr
+                        <a href="mailto:contact@patrimoine-indivis.fr" className="text-accent hover:underline">
+                          contact@patrimoine-indivis.fr
                         </a>
                         .
                       </p>
@@ -633,7 +617,7 @@ export default function EtudeGratuite() {
 
             {/* Side info */}
             <div className="lg:col-span-2 order-2 lg:order-1">
-              <div className="lg:sticky lg:top-24 space-y-6">
+              <div className="lg:sticky lg:top-32 space-y-6">
                 <div>
                   <span className="inline-block text-sm font-medium text-accent uppercase tracking-wider mb-2">
                     Étude gratuite
@@ -695,8 +679,8 @@ export default function EtudeGratuite() {
         </div>
       </section>
 
-      {/* Situations Section */}
-      <section className="py-12 md:py-16 bg-secondary/30">
+      {/* Situations Section - Clickable */}
+      <section className="section-padding bg-secondary/30">
         <div className="container-wide">
           <div className="text-center mb-8 md:mb-10">
             <span className="inline-block text-sm font-medium text-accent uppercase tracking-wider mb-2">
@@ -707,22 +691,33 @@ export default function EtudeGratuite() {
             </h2>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+          <div className="flex flex-wrap justify-center gap-4 md:gap-5 mb-8">
             {situationCards.map((card, index) => (
-              <div
+              <Link
                 key={index}
-                className="flex items-center gap-3 px-5 py-3 bg-card rounded-xl border border-border/30 hover:border-accent/30 transition-colors"
+                to={card.href}
+                className="flex items-center gap-3 px-5 py-3 bg-card rounded-xl border border-border/30 hover:border-accent/50 hover:shadow-md transition-all cursor-pointer group"
               >
-                <card.icon className={`w-5 h-5 ${card.color}`} />
+                <card.icon className="w-5 h-5 text-accent group-hover:scale-110 transition-transform" />
                 <span className="font-medium text-foreground">{card.label}</span>
-              </div>
+                <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-accent group-hover:translate-x-1 transition-all" />
+              </Link>
             ))}
+          </div>
+
+          <div className="text-center">
+            <Button variant="goldOutline" asChild>
+              <Link to="/votre-situation">
+                Voir toutes les situations
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
 
       {/* Why Us Section */}
-      <section className="py-12 md:py-16 bg-background">
+      <section className="section-padding bg-background">
         <div className="container-wide">
           <div className="text-center mb-10 md:mb-12">
             <span className="inline-block text-sm font-medium text-accent uppercase tracking-wider mb-2">
@@ -778,42 +773,7 @@ export default function EtudeGratuite() {
         </div>
       </section>
 
-      {/* Minimal Footer */}
-      <footer className="py-8 bg-primary text-primary-foreground">
-        <div className="container-wide">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="text-center md:text-left">
-              <Logo className="h-8 mb-3" />
-              <p className="text-sm text-primary-foreground/70">
-                2, rue d'Auteuil, 75016 Paris
-              </p>
-              <p className="text-sm text-primary-foreground/70">
-                <a href="mailto:contact@patrimoineindivis.fr" className="hover:text-primary-foreground">
-                  contact@patrimoineindivis.fr
-                </a>{" "}
-                •{" "}
-                <a href="tel:+33100000000" className="hover:text-primary-foreground">
-                  01 00 00 00 00
-                </a>
-              </p>
-            </div>
-            <div className="flex flex-wrap justify-center gap-4 text-sm">
-              <Link to="/" className="text-primary-foreground/70 hover:text-primary-foreground">
-                Retour au site
-              </Link>
-              <Link to="/mentions-legales" className="text-primary-foreground/70 hover:text-primary-foreground">
-                Mentions légales
-              </Link>
-              <Link to="/politique-confidentialite" className="text-primary-foreground/70 hover:text-primary-foreground">
-                Confidentialité
-              </Link>
-            </div>
-          </div>
-          <div className="mt-6 pt-6 border-t border-primary-foreground/10 text-center text-xs text-primary-foreground/50">
-            © {new Date().getFullYear()} Patrimoine Indivis. Tous droits réservés.
-          </div>
-        </div>
-      </footer>
+      <Footer />
 
       {/* Mobile sticky CTA */}
       <div className="fixed bottom-0 left-0 right-0 p-4 bg-background/95 backdrop-blur border-t border-border/30 md:hidden z-40">
@@ -822,6 +782,6 @@ export default function EtudeGratuite() {
           Demander une étude gratuite
         </Button>
       </div>
-    </>
+    </div>
   );
 }
