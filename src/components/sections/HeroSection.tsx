@@ -17,7 +17,8 @@ export function HeroSection() {
       <section
         className="hero-section md:hidden relative flex flex-col justify-end"
         style={{
-          paddingBottom: "calc(24px + env(safe-area-inset-bottom, 0px))",
+          paddingTop: "calc(80px + env(safe-area-inset-top, 0px))",
+          paddingBottom: "calc(32px + env(safe-area-inset-bottom, 0px))",
         }}
       >
         {/* Background Image */}
@@ -25,7 +26,7 @@ export function HeroSection() {
           <img
             src={heroImage}
             alt="Signature d'acte notarié"
-            className="absolute inset-0 h-full w-full object-cover object-[center_30%]"
+            className="absolute inset-0 h-full w-full object-cover object-[center_40%]"
             style={{ filter: "saturate(0.85)" }}
             loading="eager"
           />
@@ -33,13 +34,13 @@ export function HeroSection() {
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(180deg, hsl(215 30% 12% / 0.7) 0%, hsl(215 26% 18% / 0.75) 50%, hsl(215 26% 22% / 0.9) 100%)",
+                "linear-gradient(180deg, hsl(215 30% 12% / 0.65) 0%, hsl(215 26% 18% / 0.7) 40%, hsl(215 26% 22% / 0.85) 100%)",
             }}
           />
         </div>
 
         {/* Content - aligned at bottom */}
-        <div className="relative z-10 container-wide px-4 sm:px-6">
+        <div className="relative z-10 container-wide px-4 sm:px-6 pt-4">
           <PremiumPlate
             align="center"
             className="w-full max-w-[560px] mx-auto p-5 rounded-[24px] bg-navy/55 border border-accent/15 shadow-[0_18px_60px_-24px_hsl(215_26%_22%/0.65)]"
