@@ -12,6 +12,7 @@ import ComprendreIndivision from "./pages/ComprendreIndivision";
 import FAQ from "./pages/FAQ";
 import Ressources from "./pages/Ressources";
 import Blog from "./pages/Blog";
+import BlogArticle from "./pages/BlogArticle";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,7 +33,7 @@ const App = () => (
           <Route path="/faq" element={<FAQ />} />
           <Route path="/ressources" element={<Ressources />} />
           <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:slug" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogArticle />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
