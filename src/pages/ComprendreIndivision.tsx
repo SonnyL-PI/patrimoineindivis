@@ -2,10 +2,12 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, BookOpen, Scale, Users, AlertCircle, FileText, HelpCircle } from "lucide-react";
-import { BlogResourcesSection } from "@/components/sections/BlogResourcesSection";
+import { ArrowRight, BookOpen, Scale, Users, AlertCircle, FileText, HelpCircle, Calendar } from "lucide-react";
+import { articles } from "@/data/blogData";
 
 const ComprendreIndivision = () => {
+  const blogArticles = articles.slice(0, 3);
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -15,7 +17,7 @@ const ComprendreIndivision = () => {
           <div className="container-wide">
             <div className="max-w-3xl">
               <span className="inline-block text-sm font-semibold text-accent uppercase tracking-wider mb-4">
-                Guide complet
+                Blog
               </span>
               <h1 className="heading-display text-primary-foreground mb-6">
                 Comprendre <span className="text-accent">l'indivision</span>
@@ -180,6 +182,52 @@ const ComprendreIndivision = () => {
                     </div>
                   </div>
                 </article>
+
+                {/* Blog Articles Section - Integrated */}
+                <article id="articles" className="prose prose-lg max-w-none pt-8 border-t border-border/50">
+                  <div className="flex items-center justify-between mb-8">
+                    <h2 className="heading-section text-foreground !mb-0">
+                      Articles du blog
+                    </h2>
+                    <Link 
+                      to="/blog" 
+                      className="inline-flex items-center gap-1 text-sm font-medium text-accent hover:gap-2 transition-all no-underline"
+                    >
+                      Tous les articles
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </div>
+                  <div className="space-y-4 not-prose">
+                    {blogArticles.map((article) => (
+                      <Link
+                        key={article.slug}
+                        to={`/blog/${article.slug}`}
+                        className="group block bg-card rounded-xl border border-border/50 p-5 hover:shadow-card transition-all duration-300 hover:-translate-y-0.5"
+                      >
+                        <div className="flex flex-col sm:flex-row sm:items-start gap-4">
+                          <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
+                            <FileText className="w-5 h-5 text-accent" />
+                          </div>
+                          <div className="flex-grow min-w-0">
+                            <div className="flex flex-wrap items-center gap-2 mb-1.5">
+                              <span className="px-2 py-0.5 bg-accent/10 text-accent rounded-full text-xs font-medium">
+                                {article.category}
+                              </span>
+                              <span className="text-xs text-muted-foreground">{article.readTime}</span>
+                            </div>
+                            <h3 className="font-serif text-base font-semibold text-foreground mb-1 group-hover:text-accent transition-colors line-clamp-1">
+                              {article.title}
+                            </h3>
+                            <p className="text-muted-foreground text-sm leading-relaxed line-clamp-1">
+                              {article.excerpt}
+                            </p>
+                          </div>
+                          <ArrowRight className="w-4 h-4 text-accent opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0 mt-1" />
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </article>
               </div>
 
               {/* Sidebar */}
@@ -198,6 +246,7 @@ const ComprendreIndivision = () => {
                         { id: "cadre-juridique", label: "Cadre juridique" },
                         { id: "difficultes", label: "Les difficultés" },
                         { id: "solutions", label: "Les solutions" },
+                        { id: "articles", label: "Articles du blog" },
                       ].map((item) => (
                         <a
                           key={item.id}
@@ -231,9 +280,6 @@ const ComprendreIndivision = () => {
             </div>
           </div>
         </section>
-
-        {/* Blog & Ressources Section */}
-        <BlogResourcesSection />
       </main>
       <Footer />
     </div>
