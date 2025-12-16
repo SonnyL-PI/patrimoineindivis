@@ -16,7 +16,7 @@ const situations = [
     id: "succession",
     icon: Users,
     image: successionImg,
-    imageAlt: "Clés anciennes sur bureau en bois — transmission de patrimoine",
+    imageAlt: "Clés anciennes et sceau sur bureau en bois — transmission de patrimoine",
     title: "Succession",
     description: "Vous avez hérité d'un bien en indivision avec d'autres héritiers et souhaitez récupérer votre part sans attendre un accord unanime.",
     problems: [
@@ -31,7 +31,7 @@ const situations = [
     id: "divorce",
     icon: Heart,
     image: divorceImg,
-    imageAlt: "Alliances dorées sur marbre — séparation et partage de bien",
+    imageAlt: "Alliances et stylo sur papier blanc — séparation et partage de bien",
     title: "Divorce / Séparation",
     description: "Votre ex-conjoint détient une partie du bien commun et vous souhaitez tourner définitivement la page de cette période.",
     problems: [
@@ -46,7 +46,7 @@ const situations = [
     id: "conflit",
     icon: AlertTriangle,
     image: conflitImg,
-    imageAlt: "Façade en pierre avec jeux d'ombre — tension et désaccord",
+    imageAlt: "Discussion autour de documents — médiation et négociation",
     title: "Conflit entre indivisaires",
     description: "Les co-indivisaires ne s'entendent pas sur l'avenir du bien : vente, location, travaux... les tensions s'accumulent.",
     problems: [
@@ -61,7 +61,7 @@ const situations = [
     id: "blocage",
     icon: Lock,
     image: blocageImg,
-    imageAlt: "Cadenas ancien sur porte en bois — bien immobilier bloqué",
+    imageAlt: "Cadenas doré et clé ancienne — situation bloquée",
     title: "Bien occupé / Blocage",
     description: "Un ou plusieurs indivisaires refusent de vendre malgré la volonté de la majorité. Le bien reste bloqué.",
     problems: [
@@ -76,7 +76,7 @@ const situations = [
     id: "liquidite",
     icon: Wallet,
     image: liquiditeImg,
-    imageAlt: "Pièces d'or et stylo plume — capital et investissement",
+    imageAlt: "Billets et pièces sur bureau — capital et liquidité",
     title: "Besoin de liquidité",
     description: "Vous souhaitez simplement transformer votre part en capital pour financer un projet ou faire face à des besoins.",
     problems: [
@@ -91,7 +91,7 @@ const situations = [
     id: "fiscal",
     icon: FileText,
     image: fiscalImg,
-    imageAlt: "Façade haussmannienne dorée — optimisation patrimoniale",
+    imageAlt: "Calculatrice et documents sur bureau — optimisation fiscale",
     title: "IFI / Optimisation fiscale",
     description: "Vous souhaitez sortir d'une indivision pour des raisons patrimoniales ou fiscales, notamment dans le cadre de l'IFI.",
     problems: [

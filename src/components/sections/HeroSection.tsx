@@ -24,7 +24,7 @@ export function HeroSection() {
         <div className="relative w-full aspect-[16/10]">
           <img
             src={heroImage}
-            alt="Signature d'acte notarié"
+            alt="Stylo plume sur papier vierge — bureau notarial"
             className="absolute inset-0 h-full w-full object-cover object-center"
             style={{ filter: "saturate(0.85)" }}
             loading="eager"
@@ -133,7 +133,7 @@ export function HeroSection() {
         <div className="absolute inset-0 z-0">
           <img
             src={heroImage}
-            alt="Signature d'acte notarié"
+            alt="Stylo plume sur papier vierge — bureau notarial"
             className="absolute inset-0 w-full h-full object-cover"
             style={{ filter: "saturate(0.85)" }}
           />
