@@ -9,6 +9,8 @@ import Contact from "./pages/Contact";
 import VotreSituation from "./pages/VotreSituation";
 import NotreApproche from "./pages/NotreApproche";
 import QuiSommesNous from "./pages/QuiSommesNous";
+import MentionsLegales from "./pages/MentionsLegales";
+import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite";
 import FAQ from "./pages/FAQ";
 import Ressources from "./pages/Ressources";
 import Blog from "./pages/Blog";
@@ -30,6 +32,8 @@ const App = () => (
           <Route path="/votre-situation" element={<VotreSituation />} />
           <Route path="/notre-approche" element={<NotreApproche />} />
           <Route path="/qui-sommes-nous" element={<QuiSommesNous />} />
+          <Route path="/mentions-legales" element={<MentionsLegales />} />
+          <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
           <Route path="/comprendre-indivision" element={<Navigate to="/blog" replace />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/ressources" element={<Ressources />} />
