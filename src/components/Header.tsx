@@ -10,8 +10,6 @@ const navLinks = [
   { href: "/notre-approche", label: "Notre approche" },
   { href: "/qui-sommes-nous", label: "Qui sommes-nous" },
   { href: "/blog", label: "Blog" },
-  { href: "/faq", label: "FAQ" },
-  { href: "/contact", label: "Contact" },
 ];
 
 export function Header() {
@@ -43,7 +41,7 @@ export function Header() {
 
   return (
     <>
-      {/* Top Bar with Contact Info */}
+      {/* Top Bar with Contact Info - scrolls with page */}
       <div className="bg-navy text-primary-foreground py-2.5 hidden md:block border-b border-primary-foreground/10">
         <div className="container-wide flex items-center justify-between text-sm">
           <div className="flex items-center gap-8">
@@ -69,7 +67,7 @@ export function Header() {
         </div>
       </div>
 
-      {/* Main Header */}
+      {/* Main Header - sticky */}
       <header
         className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 bg-navy ${
           isScrolled ? "shadow-lg" : ""
