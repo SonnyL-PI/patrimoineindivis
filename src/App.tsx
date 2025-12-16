@@ -2,13 +2,12 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import Index from "./pages/Index";
 import Contact from "./pages/Contact";
 import VotreSituation from "./pages/VotreSituation";
 import NotreApproche from "./pages/NotreApproche";
-import ComprendreIndivision from "./pages/ComprendreIndivision";
 import FAQ from "./pages/FAQ";
 import Ressources from "./pages/Ressources";
 import Blog from "./pages/Blog";
@@ -29,7 +28,7 @@ const App = () => (
           <Route path="/contact" element={<Contact />} />
           <Route path="/votre-situation" element={<VotreSituation />} />
           <Route path="/notre-approche" element={<NotreApproche />} />
-          <Route path="/comprendre-indivision" element={<ComprendreIndivision />} />
+          <Route path="/comprendre-indivision" element={<Navigate to="/blog" replace />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/ressources" element={<Ressources />} />
           <Route path="/blog" element={<Blog />} />
