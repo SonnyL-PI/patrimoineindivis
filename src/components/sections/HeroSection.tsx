@@ -13,20 +13,19 @@ const trustItems = [
 export function HeroSection() {
   return (
     <>
-      {/* Mobile (<768px): stacked image + card (no vh, no bottom-absolute content) */}
+      {/* Mobile (<768px): 80vh, content aligned bottom */}
       <section
-        className="hero-section md:hidden"
+        className="hero-section md:hidden relative flex flex-col justify-end"
         style={{
-          paddingTop: "0px",
           paddingBottom: "calc(24px + env(safe-area-inset-bottom, 0px))",
         }}
       >
-        {/* Image block */}
-        <div className="relative z-0 aspect-[4/3]">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
           <img
             src={heroImage}
             alt="Signature d'acte notarié"
-            className="absolute inset-0 h-full w-full object-cover"
+            className="absolute inset-0 h-full w-full object-cover object-[center_30%]"
             style={{ filter: "saturate(0.85)" }}
             loading="eager"
           />
@@ -34,16 +33,16 @@ export function HeroSection() {
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(180deg, hsl(215 30% 12% / 0.85) 0%, hsl(215 26% 18% / 0.75) 50%, hsl(215 26% 22% / 0.7) 100%)",
+                "linear-gradient(180deg, hsl(215 30% 12% / 0.7) 0%, hsl(215 26% 18% / 0.75) 50%, hsl(215 26% 22% / 0.9) 100%)",
             }}
           />
         </div>
 
-        {/* Content block */}
-        <div className="container-wide px-4 sm:px-6 pb-6">
+        {/* Content - aligned at bottom */}
+        <div className="relative z-10 container-wide px-4 sm:px-6">
           <PremiumPlate
             align="center"
-            className="w-full max-w-[560px] mx-auto mt-[-24px] p-5 rounded-[24px] bg-navy/55 border border-accent/15 shadow-[0_18px_60px_-24px_hsl(var(--navy)/0.65)]"
+            className="w-full max-w-[560px] mx-auto p-5 rounded-[24px] bg-navy/55 border border-accent/15 shadow-[0_18px_60px_-24px_hsl(215_26%_22%/0.65)]"
           >
             <p className="text-accent text-xs tracking-[0.2em] uppercase mb-3 font-medium animate-fade-up">
               Sortie d'indivision
@@ -109,7 +108,7 @@ export function HeroSection() {
             </div>
           </PremiumPlate>
 
-          <p className="mt-6 text-xs text-primary/70 font-serif italic">
+          <p className="mt-4 text-xs text-primary-foreground/60 font-serif italic text-center">
             « Nul ne peut être contraint à demeurer dans l'indivision » — Art. 815 du Code civil
           </p>
         </div>

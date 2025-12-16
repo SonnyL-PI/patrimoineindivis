@@ -200,21 +200,16 @@
 }
 
 @layer utilities {
-  /* Hero section: avoid iOS Safari "vh" cropping on mobile */
+  /* Hero section heights */
   .hero-section {
-    min-height: auto;
+    min-height: 80vh;
+    min-height: 80svh;
   }
 
   @media (min-width: 768px) {
     .hero-section {
       min-height: 100vh;
-      min-height: 100dvh;
-    }
-
-    @supports (min-height: 100svh) {
-      .hero-section {
-        min-height: 100svh;
-      }
+      min-height: 100svh;
     }
   }
 
