@@ -13,80 +13,100 @@ const navLinks = [
 ];
 
 export function Header() {
+  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [location]);
 
-  const scrollToSection = (href: string) => {
-    if (href.startsWith("/#")) {
-      const sectionId = href.replace("/#", "");
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
-    }
-  };
-
   return (
-    <div className="bg-navy">
-      {/* Top Bar with Contact Info */}
-      <div className="text-primary-foreground py-2 hidden md:block border-b border-primary-foreground/10">
-        <div className="container-wide flex items-center justify-between text-sm">
+    <>
+      {/* Top Bar - scrolls away */}
+      <div className="bg-navy text-primary-foreground py-2 hidden lg:block border-b border-primary-foreground/10">
+        <div className="container-wide flex items-center justify-between text-xs">
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-2">
               <MapPin className="w-3.5 h-3.5 text-accent" />
-              <span className="text-primary-foreground/70 text-xs">02, rue d'Auteuil, 75016 Paris</span>
+              <span className="text-primary-foreground/70">02, rue d'Auteuil, 75016 Paris</span>
             </div>
             <div className="flex items-center gap-2">
               <Phone className="w-3.5 h-3.5 text-accent" />
-              <a href="tel:0142301000" className="text-primary-foreground/70 hover:text-accent transition-colors text-xs">
+              <a href="tel:0142301000" className="text-primary-foreground/70 hover:text-accent transition-colors">
                 01.42.30.10.00
               </a>
             </div>
           </div>
           <div className="flex items-center gap-5">
-            <Link to="/faq" className="text-primary-foreground/70 hover:text-accent transition-colors text-xs uppercase tracking-wide">
+            <Link to="/faq" className="text-primary-foreground/70 hover:text-accent transition-colors uppercase tracking-wide">
               FAQ
             </Link>
-            <Link to="/contact" className="text-primary-foreground/70 hover:text-accent transition-colors text-xs uppercase tracking-wide">
+            <Link to="/contact" className="text-primary-foreground/70 hover:text-accent transition-colors uppercase tracking-wide">
               Contact
             </Link>
           </div>
         </div>
       </div>
 
-      {/* Main Header */}
-      <header className="relative">
+      {/* Main Header - Sticky */}
+      <header
+        className={`sticky top-0 z-50 bg-navy transition-all duration-300 ${
+          isScrolled 
+            ? "shadow-lg shadow-black/20 py-2" 
+            : "py-3 lg:py-4"
+        }`}
+      >
         <div className="container-wide">
-          <div className="flex items-center justify-between h-16 lg:h-18">
-            {/* Logo */}
+          <div className="flex items-center justify-between">
+            {/* Logo - Left */}
             <Link to="/" className="flex-shrink-0">
-              <img src={logo} alt="Patrimoine Indivis" className="h-9 lg:h-11 w-auto" />
+              <img 
+                src={logo} 
+                alt="Patrimoine Indivis" 
+                className={`w-auto transition-all duration-300 ${
+                  isScrolled ? "h-8 lg:h-9" : "h-9 lg:h-11"
+                }`} 
+              />
             </Link>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-5 xl:gap-7 ml-8">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  to={link.href}
-                  onClick={() => link.href.startsWith("/#") && scrollToSection(link.href)}
-                  className={`text-sm font-medium transition-colors hover:text-accent tracking-wide whitespace-nowrap ${
-                    location.pathname === link.href
-                      ? "text-accent"
-                      : "text-primary-foreground/80"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
+            {/* Desktop Navigation - Center */}
+            <nav className="hidden lg:flex items-center justify-center flex-1 mx-8">
+              <div className="flex items-center gap-7 xl:gap-9">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    to={link.href}
+                    className={`relative text-sm font-medium transition-colors whitespace-nowrap py-1 ${
+                      location.pathname === link.href
+                        ? "text-accent"
+                        : "text-primary-foreground/80 hover:text-accent"
+                    }`}
+                  >
+                    {link.label}
+                    {/* Active/hover underline */}
+                    <span 
+                      className={`absolute bottom-0 left-0 h-0.5 bg-accent transition-all duration-300 ${
+                        location.pathname === link.href 
+                          ? "w-full" 
+                          : "w-0 group-hover:w-full"
+                      }`} 
+                    />
+                  </Link>
+                ))}
+              </div>
             </nav>
 
-            {/* Desktop CTAs */}
-            <div className="hidden lg:flex items-center gap-3">
+            {/* Desktop CTAs - Right */}
+            <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
               <Button 
                 variant="ghost" 
                 size="sm" 
@@ -99,7 +119,7 @@ export function Header() {
                 </Link>
               </Button>
               <Button variant="gold" size="sm" className="px-5" asChild>
-                <Link to="/contact">Étude de rachat</Link>
+                <Link to="/etude-gratuite">Étude de rachat</Link>
               </Button>
             </div>
 
@@ -116,7 +136,7 @@ export function Header() {
 
         {/* Mobile Menu */}
         <div
-          className={`lg:hidden absolute top-full left-0 right-0 bg-navy border-b border-primary-foreground/10 shadow-lg z-50 transition-all duration-300 ${
+          className={`lg:hidden absolute top-full left-0 right-0 bg-navy border-b border-primary-foreground/10 shadow-lg transition-all duration-300 ${
             isMobileMenuOpen
               ? "opacity-100 translate-y-0 pointer-events-auto"
               : "opacity-0 -translate-y-4 pointer-events-none"
@@ -152,13 +172,13 @@ export function Header() {
                   <Link to="/contact#rappel">Être rappelé</Link>
                 </Button>
                 <Button variant="gold" className="flex-1" asChild>
-                  <Link to="/contact">Étude de rachat</Link>
+                  <Link to="/etude-gratuite">Étude de rachat</Link>
                 </Button>
               </div>
             </div>
           </nav>
         </div>
       </header>
-    </div>
+    </>
   );
 }
