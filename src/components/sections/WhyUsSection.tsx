@@ -23,34 +23,33 @@ const pillars = [
 
 export function WhyUsSection() {
   return (
-    <section className="py-16 md:py-20 bg-secondary/50" id="pourquoi">
+    <section className="py-12 md:py-16 bg-secondary/50" id="pourquoi">
       <div className="container-wide">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
+        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-12">
           <span className="inline-block text-sm font-medium text-accent uppercase tracking-wider mb-3">
             Nos engagements
           </span>
-          <h2 className="font-serif text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground mb-5">
+          <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mb-4">
             Pourquoi Patrimoine Indivis ?
           </h2>
-          <p className="text-base text-muted-foreground">
+          <p className="text-sm md:text-base text-muted-foreground max-w-xl mx-auto">
             Trois piliers fondamentaux qui font notre différence sur le marché du rachat de parts indivises.
           </p>
         </div>
 
         {/* Pillars Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-5">
           {pillars.map((pillar, index) => (
             <div
               key={pillar.title}
-              className="relative bg-card rounded-2xl p-8 lg:p-9 border border-border/40 shadow-soft hover:shadow-card hover:border-accent/20 transition-all duration-300 group"
+              className="relative card-premium"
             >
-              
-              <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-6 group-hover:bg-accent/15 transition-colors">
-                <pillar.icon className="w-7 h-7 text-accent" />
+              <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-5 group-hover:bg-accent/15 transition-colors">
+                <pillar.icon className="w-6 h-6 text-accent" />
               </div>
               
-              <h3 className="font-serif text-xl font-semibold text-foreground mb-2">
+              <h3 className="font-serif text-lg md:text-xl font-semibold text-foreground mb-1">
                 {pillar.title}
               </h3>
               <p className="text-accent text-xs font-medium uppercase tracking-wide mb-3">

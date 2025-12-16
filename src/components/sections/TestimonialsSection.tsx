@@ -59,36 +59,36 @@ const testimonials = [
 
 export function TestimonialsSection() {
   return (
-    <section className="section-padding bg-primary text-primary-foreground">
+    <section className="py-12 md:py-16 bg-primary text-primary-foreground">
       <div className="container-wide">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block text-sm font-semibold text-accent uppercase tracking-wider mb-4">
+        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-12">
+          <span className="inline-block text-sm font-semibold text-accent uppercase tracking-wider mb-3">
             Ils nous font confiance
           </span>
-          <h2 className="heading-section text-primary-foreground mb-6">
-            Preuves & réassurance
+          <h2 className="font-serif text-2xl md:text-3xl font-semibold text-primary-foreground mb-4">
+            Preuves & Réassurance
           </h2>
-          <p className="text-primary-foreground/70 text-lg">
+          <p className="text-primary-foreground/75 text-sm md:text-base max-w-xl mx-auto">
             Discrétion, respect des procédures et accompagnement humain :
             découvrez les retours de nos clients.
           </p>
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10 md:mb-12">
           {stats.map((stat) => (
             <div
               key={stat.label}
-              className="text-center p-8 rounded-2xl bg-primary-foreground/5 border border-primary-foreground/10"
+              className="text-center p-6 rounded-2xl bg-primary-foreground/[0.06] border border-primary-foreground/[0.1]"
             >
-              <div className="w-14 h-14 rounded-xl bg-accent/20 flex items-center justify-center mx-auto mb-4">
-                <stat.icon className="w-7 h-7 text-accent" />
+              <div className="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center mx-auto mb-3">
+                <stat.icon className="w-6 h-6 text-accent" />
               </div>
-              <div className="text-4xl font-serif font-bold text-primary-foreground mb-2">
+              <div className="text-3xl md:text-4xl font-serif font-bold text-primary-foreground mb-1">
                 {stat.value}
               </div>
-              <div className="text-primary-foreground/60 text-sm font-medium">
+              <div className="text-primary-foreground/70 text-sm font-medium">
                 {stat.label}
               </div>
             </div>
@@ -96,15 +96,15 @@ export function TestimonialsSection() {
         </div>
 
         {/* Testimonials */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="relative p-6 rounded-2xl bg-primary-foreground/5 border border-primary-foreground/10"
+              className="relative p-5 md:p-6 rounded-2xl bg-primary-foreground/[0.06] border border-primary-foreground/[0.1] hover:bg-primary-foreground/[0.08] transition-all duration-300"
             >
               {/* Google badge */}
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex gap-1">
+              <div className="flex items-center justify-between mb-3">
+                <div className="flex gap-0.5">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <Star key={i} className="w-4 h-4 fill-accent text-accent" />
                   ))}
@@ -113,13 +113,13 @@ export function TestimonialsSection() {
               </div>
 
               {/* Quote */}
-              <blockquote className="text-primary-foreground/80 text-sm leading-relaxed mb-4">
+              <blockquote className="text-primary-foreground/85 text-sm leading-relaxed mb-4">
                 "{testimonial.quote}"
               </blockquote>
 
               {/* Author */}
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center">
+                <div className="w-9 h-9 rounded-full bg-accent/20 flex items-center justify-center">
                   <span className="text-accent font-semibold text-sm">
                     {testimonial.name.charAt(0)}
                   </span>
@@ -133,7 +133,7 @@ export function TestimonialsSection() {
         </div>
 
         {/* Google link */}
-        <div className="text-center mt-10">
+        <div className="text-center mt-8">
           <a 
             href="https://www.google.com/search?q=patrimoine+indivis+avis" 
             target="_blank" 

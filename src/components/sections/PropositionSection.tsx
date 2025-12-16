@@ -54,7 +54,7 @@ export function PropositionSection() {
   return (
     <>
       {/* Main Proposition - Photo background + Premium Plate */}
-      <section className="relative min-h-[70vh] flex items-center" id="proposition">
+      <section className="relative min-h-[60vh] flex items-center" id="proposition">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img
@@ -73,32 +73,32 @@ export function PropositionSection() {
         </div>
 
         {/* Content */}
-        <div className="container-wide relative z-10 py-20 lg:py-28">
+        <div className="container-wide relative z-10 py-16 lg:py-20">
           <div className="max-w-4xl mx-auto">
             <PremiumPlate className="max-w-2xl" align="center">
-              <span className="inline-block text-sm font-medium text-accent uppercase tracking-wider mb-4">
+              <span className="inline-block text-sm font-medium text-accent uppercase tracking-wider mb-3">
                 Notre offre
               </span>
-              <h2 className="font-serif text-2xl md:text-3xl lg:text-4xl text-primary-foreground font-semibold mb-8">
+              <h2 className="font-serif text-2xl md:text-3xl text-primary-foreground font-semibold mb-6">
                 Notre Proposition
               </h2>
 
-              <div className="space-y-4 mb-8">
+              <div className="space-y-3 mb-6">
                 {benefits.map((benefit, index) => (
                   <div key={index} className="flex items-start gap-3">
                     <div className="w-5 h-5 rounded-full bg-accent/25 flex items-center justify-center flex-shrink-0 mt-0.5">
                       <Check className="w-3 h-3 text-accent" />
                     </div>
-                    <p className="text-primary-foreground/90 text-sm md:text-base leading-relaxed">{benefit}</p>
+                    <p className="text-primary-foreground/90 text-sm leading-relaxed">{benefit}</p>
                   </div>
                 ))}
               </div>
 
-              <p className="text-lg text-accent font-serif italic mb-8">
+              <p className="text-base text-accent font-serif italic mb-6">
                 Une équipe à votre service, dans la plus stricte confidentialité.
               </p>
 
-              <Button variant="gold" size="lg" asChild>
+              <Button variant="gold" size="lg" className="w-full sm:w-auto" asChild>
                 <Link to="/contact">
                   Demander une étude de rachat
                   <ArrowRight className="w-5 h-5" />
@@ -110,24 +110,24 @@ export function PropositionSection() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-16 md:py-20 bg-background">
+      <section className="py-12 md:py-16 bg-background">
         <div className="container-wide">
-          <div className="text-center mb-12">
-            <h3 className="font-serif text-2xl md:text-3xl text-foreground mb-4">
+          <div className="text-center mb-10">
+            <h3 className="font-serif text-2xl md:text-3xl text-foreground mb-3">
               Ils nous ont fait confiance
             </h3>
-            <div className="w-16 h-0.5 bg-accent mx-auto" />
+            <div className="w-12 h-0.5 bg-accent mx-auto" />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-5">
             {testimonials.map((testimonial, index) => (
               <div 
                 key={index}
-                className="bg-card rounded-2xl p-8 border border-border/40 shadow-soft relative group hover:shadow-card hover:border-accent/20 transition-all duration-300"
+                className="card-premium relative group"
               >
-                <Quote className="w-7 h-7 text-accent/25 absolute top-6 right-6" />
-                <div className="flex items-center gap-4 mb-5">
-                  <div className="w-11 h-11 rounded-full bg-accent/15 flex items-center justify-center">
+                <Quote className="w-6 h-6 text-accent/20 absolute top-5 right-5" />
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-accent/15 flex items-center justify-center">
                     <span className="text-accent font-semibold text-sm">{testimonial.initials}</span>
                   </div>
                   <span className="text-xs text-accent font-medium uppercase tracking-wide">
@@ -144,22 +144,22 @@ export function PropositionSection() {
       </section>
 
       {/* Recent Cases */}
-      <section className="py-16 md:py-20 bg-secondary/40">
+      <section className="py-12 md:py-16 bg-secondary/40">
         <div className="container-wide">
-          <div className="text-center mb-12">
-            <h3 className="font-serif text-2xl md:text-3xl text-foreground mb-4">
+          <div className="text-center mb-10">
+            <h3 className="font-serif text-2xl md:text-3xl text-foreground mb-3">
               Cas récents
             </h3>
-            <div className="w-16 h-0.5 bg-accent mx-auto" />
+            <div className="w-12 h-0.5 bg-accent mx-auto" />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-5">
             {recentCases.map((caseItem, index) => (
               <div 
                 key={index}
-                className="bg-card rounded-2xl p-6 border border-border/40 shadow-soft hover:shadow-card transition-all duration-300"
+                className="card-situation"
               >
-                <h4 className="font-serif text-lg font-semibold text-foreground mb-2">
+                <h4 className="font-serif text-base md:text-lg font-semibold text-foreground mb-1">
                   {caseItem.type}
                 </h4>
                 <p className="text-sm text-muted-foreground mb-3">
@@ -168,15 +168,15 @@ export function PropositionSection() {
                 <div className="flex items-center justify-between text-sm">
                   <span className="text-accent font-medium">Quote-part : {caseItem.quotepart}</span>
                 </div>
-                <p className="text-sm text-foreground font-medium mt-3 pt-3 border-t border-border/40">
+                <p className="text-sm text-foreground font-medium mt-3 pt-3 border-t border-border/30">
                   ✓ {caseItem.result}
                 </p>
               </div>
             ))}
           </div>
 
-          <div className="text-center mt-10">
-            <Button variant="goldOutline" size="lg" asChild>
+          <div className="text-center mt-8">
+            <Button variant="goldOutline" size="lg" className="w-full sm:w-auto" asChild>
               <Link to="/contact">
                 Étudier mon dossier
                 <ArrowRight className="w-5 h-5" />

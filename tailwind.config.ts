@@ -86,6 +86,7 @@ export default {
       boxShadow: {
         'soft': 'var(--shadow-soft)',
         'card': 'var(--shadow-card)',
+        'card-hover': 'var(--shadow-card-hover)',
         'gold': 'var(--shadow-gold)',
       },
       keyframes: {

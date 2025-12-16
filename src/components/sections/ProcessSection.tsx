@@ -37,24 +37,23 @@ const steps = [
 
 export function ProcessSection() {
   return (
-    <section className="section-padding bg-background">
+    <section className="py-12 md:py-16 bg-background">
       <div className="container-wide">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block text-sm font-semibold text-accent uppercase tracking-wider mb-4">
+        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-12">
+          <span className="inline-block text-sm font-semibold text-accent uppercase tracking-wider mb-3">
             Notre processus
           </span>
-          <h2 className="heading-section text-foreground mb-6">
+          <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mb-4">
             Comment ça se passe ?
           </h2>
-          <p className="text-body">
+          <p className="text-sm md:text-base text-muted-foreground max-w-xl mx-auto">
             Un accompagnement structuré, du premier contact jusqu'à la clôture du dossier.
-            Chaque étape est pensée pour vous simplifier la vie.
           </p>
         </div>
 
         {/* Steps */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
           {steps.map((step, index) => (
             <div
               key={step.number}
@@ -65,19 +64,19 @@ export function ProcessSection() {
                 <div className="hidden lg:block absolute top-10 left-1/2 w-full h-px bg-border" />
               )}
               
-              <div className="relative bg-card rounded-2xl p-8 border border-border/50 h-full transition-all duration-300 hover:shadow-card hover:-translate-y-1 hover:border-accent/30">
+              <div className="relative card-premium h-full pt-8">
                 {/* Number badge */}
-                <div className="absolute -top-4 left-8 px-3 py-1 bg-accent text-primary text-sm font-bold rounded-lg">
+                <div className="absolute -top-3 left-6 px-3 py-1 bg-accent text-primary text-sm font-bold rounded-lg">
                   {step.number}
                 </div>
 
                 {/* Icon */}
-                <div className="w-14 h-14 rounded-xl bg-secondary flex items-center justify-center mb-6 group-hover:bg-accent/10 transition-colors">
-                  <step.icon className="w-7 h-7 text-accent" />
+                <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center mb-4 group-hover:bg-accent/10 transition-colors">
+                  <step.icon className="w-6 h-6 text-accent" />
                 </div>
 
                 {/* Content */}
-                <h3 className="heading-card text-foreground mb-3">{step.title}</h3>
+                <h3 className="font-serif text-base md:text-lg font-semibold text-foreground mb-2">{step.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed mb-4">
                   {step.description}
                 </p>

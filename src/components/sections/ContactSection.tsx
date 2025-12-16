@@ -87,30 +87,45 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="section-padding bg-secondary/30">
+    <section id="contact" className="py-12 md:py-16 bg-secondary/30">
       <div className="container-wide">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+        {/* Microcopy Banner */}
+        <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8 mb-8 md:mb-10 py-3 px-4 bg-accent/10 rounded-xl border border-accent/20">
+          <span className="flex items-center gap-2 text-sm font-medium text-foreground">
+            <Lock className="w-4 h-4 text-accent" />
+            Confidentiel
+          </span>
+          <span className="flex items-center gap-2 text-sm font-medium text-foreground">
+            <FileText className="w-4 h-4 text-accent" />
+            Sans engagement
+          </span>
+          <span className="flex items-center gap-2 text-sm font-medium text-foreground">
+            <Phone className="w-4 h-4 text-accent" />
+            Réponse sous 48h
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
           {/* Left: Info */}
           <div>
-            <span className="inline-block text-sm font-medium text-accent uppercase tracking-wider mb-4">
+            <span className="inline-block text-sm font-medium text-accent uppercase tracking-wider mb-3">
               Contactez-nous
             </span>
-            <h2 className="heading-section text-foreground mb-6">
+            <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mb-4">
               Parlons de votre situation
             </h2>
-            <p className="text-lg text-muted-foreground mb-10">
+            <p className="text-base text-muted-foreground mb-8 max-w-lg">
               Que vous souhaitiez une offre de rachat ou simplement être rappelé
               pour discuter de votre situation, nous sommes à votre écoute.
             </p>
-
             {/* Benefits */}
-            <div className="space-y-6">
+            <div className="space-y-5">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
-                  <Lock className="w-6 h-6 text-accent" />
+                <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
+                  <Lock className="w-5 h-5 text-accent" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-foreground mb-1">
+                  <h4 className="font-semibold text-foreground text-sm mb-0.5">
                     Confidentialité garantie
                   </h4>
                   <p className="text-muted-foreground text-sm">
@@ -119,11 +134,11 @@ export function ContactSection() {
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
-                  <FileText className="w-6 h-6 text-accent" />
+                <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
+                  <FileText className="w-5 h-5 text-accent" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-foreground mb-1">
+                  <h4 className="font-semibold text-foreground text-sm mb-0.5">
                     Étude de rachat sans engagement
                   </h4>
                   <p className="text-muted-foreground text-sm">
@@ -132,11 +147,11 @@ export function ContactSection() {
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-6 h-6 text-accent" />
+                <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
+                  <Phone className="w-5 h-5 text-accent" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-foreground mb-1">
+                  <h4 className="font-semibold text-foreground text-sm mb-0.5">
                     Réponse sous 48h
                   </h4>
                   <p className="text-muted-foreground text-sm">
@@ -148,19 +163,19 @@ export function ContactSection() {
           </div>
 
           {/* Right: Form */}
-          <div className="bg-card rounded-3xl p-8 md:p-10 border border-border/50 shadow-card">
+          <div className="bg-card rounded-2xl p-6 md:p-8 border border-border/30 shadow-soft">
             <Tabs value={activeTab} onValueChange={setActiveTab}>
-              <TabsList className="grid grid-cols-2 mb-8 bg-secondary rounded-xl p-1.5">
+              <TabsList className="grid grid-cols-2 mb-6 bg-secondary rounded-xl p-1">
                 <TabsTrigger
                   value="offre"
-                  className="rounded-lg data-[state=active]:bg-card data-[state=active]:shadow-sm font-medium py-3"
+                  className="rounded-lg data-[state=active]:bg-card data-[state=active]:shadow-sm font-medium py-2.5 text-sm"
                 >
                   <FileText className="w-4 h-4 mr-2" />
                   Je veux une offre
                 </TabsTrigger>
                 <TabsTrigger
                   value="rappel"
-                  className="rounded-lg data-[state=active]:bg-card data-[state=active]:shadow-sm font-medium py-3"
+                  className="rounded-lg data-[state=active]:bg-card data-[state=active]:shadow-sm font-medium py-2.5 text-sm"
                 >
                   <Phone className="w-4 h-4 mr-2" />
                   Être rappelé
@@ -325,15 +340,10 @@ export function ContactSection() {
                     </label>
                   </div>
 
-                  <Button type="submit" variant="gold" size="lg" className="w-full mt-2">
+                  <Button type="submit" variant="gold" size="lg" className="w-full">
                     <Send className="w-4 h-4" />
                     Demander une étude de rachat
                   </Button>
-
-                  <p className="text-xs text-muted-foreground text-center">
-                    <Shield className="w-3 h-3 inline mr-1" />
-                    Confidentiel – sans engagement. Vos données sont protégées.
-                  </p>
                 </form>
               </TabsContent>
 
@@ -399,11 +409,6 @@ export function ContactSection() {
                     <Phone className="w-4 h-4" />
                     Demander à être rappelé
                   </Button>
-
-                  <p className="text-xs text-muted-foreground text-center">
-                    <Shield className="w-3 h-3 inline mr-1" />
-                    Confidentiel – sans engagement. Vos données sont protégées.
-                  </p>
                 </form>
               </TabsContent>
             </Tabs>
