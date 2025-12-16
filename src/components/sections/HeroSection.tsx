@@ -13,16 +13,15 @@ const trustItems = [
 export function HeroSection() {
   return (
     <>
-      {/* Mobile (<768px): 80vh, content centered */}
+      {/* Mobile (<768px): Stacked layout - Image block + Content block */}
       <section
-        className="hero-section md:hidden relative flex flex-col justify-center"
+        className="md:hidden flex flex-col w-full overflow-hidden"
         style={{
-          paddingTop: "calc(80px + env(safe-area-inset-top, 0px))",
-          paddingBottom: "calc(32px + env(safe-area-inset-bottom, 0px))",
+          paddingTop: "calc(72px + env(safe-area-inset-top, 0px))",
         }}
       >
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
+        {/* Block A: Image with overlay (16:9 ratio) */}
+        <div className="relative w-full aspect-[16/10]">
           <img
             src={heroImage}
             alt="Signature d'acte notarié"
@@ -30,27 +29,33 @@ export function HeroSection() {
             style={{ filter: "saturate(0.85)" }}
             loading="eager"
           />
+          {/* Navy gradient overlay - stronger at bottom for card transition */}
           <div
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(180deg, hsl(215 30% 12% / 0.65) 0%, hsl(215 26% 18% / 0.7) 40%, hsl(215 26% 22% / 0.85) 100%)",
+                "linear-gradient(180deg, hsl(215 30% 12% / 0.5) 0%, hsl(215 26% 18% / 0.65) 60%, hsl(215 26% 18% / 0.95) 100%)",
             }}
           />
         </div>
 
-        {/* Content - centered */}
-        <div className="relative z-10 container-wide px-4 sm:px-6">
+        {/* Block B: Content card in document flow */}
+        <div 
+          className="relative z-10 w-full px-4 bg-navy"
+          style={{
+            paddingBottom: "calc(24px + env(safe-area-inset-bottom, 0px))",
+          }}
+        >
           <PremiumPlate
             align="center"
-            className="w-full max-w-[560px] mx-auto p-5 rounded-[24px] bg-navy/55 border border-accent/15 shadow-[0_18px_60px_-24px_hsl(215_26%_22%/0.65)]"
+            className="w-full max-w-[560px] mx-auto -mt-6 p-[18px] sm:p-5 rounded-[22px] bg-[rgba(11,27,43,0.55)] backdrop-blur-md border border-accent/15 shadow-[0_18px_60px_-24px_hsl(215_26%_22%/0.65)]"
           >
             <p className="text-accent text-xs tracking-[0.2em] uppercase mb-3 font-medium animate-fade-up">
               Sortie d'indivision
             </p>
 
             <h1
-              className="font-serif text-[1.875rem] text-primary-foreground font-semibold leading-tight mb-4 animate-fade-up"
+              className="font-serif text-[1.75rem] sm:text-[1.875rem] text-primary-foreground font-semibold leading-tight mb-3 sm:mb-4 animate-fade-up"
               style={{ animationDelay: "100ms" }}
             >
               Rachat de parts indivises —{" "}
@@ -58,7 +63,7 @@ export function HeroSection() {
             </h1>
 
             <p
-              className="text-[1rem] text-primary-foreground/85 leading-relaxed mb-6 animate-fade-up"
+              className="text-[0.9375rem] sm:text-[1rem] text-primary-foreground/85 leading-relaxed mb-5 sm:mb-6 animate-fade-up"
               style={{ animationDelay: "200ms" }}
             >
               Société 100% spécialisée. Expertise fondée sur des milliers de cas,
@@ -66,7 +71,7 @@ export function HeroSection() {
             </p>
 
             <div
-              className="flex flex-col gap-3 mb-6 animate-fade-up"
+              className="flex flex-col gap-3 mb-5 animate-fade-up"
               style={{ animationDelay: "300ms" }}
             >
               <Button
@@ -93,17 +98,18 @@ export function HeroSection() {
               </Button>
             </div>
 
+            {/* Trust bar inside card */}
             <div
-              className="flex flex-wrap items-center gap-x-5 gap-y-2 pt-4 border-t border-primary-foreground/15 animate-fade-up"
+              className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 pt-4 border-t border-primary-foreground/15 animate-fade-up"
               style={{ animationDelay: "400ms" }}
             >
               {trustItems.map((item, index) => (
                 <div
                   key={index}
-                  className="flex items-center gap-2 text-primary-foreground/80"
+                  className="flex items-center gap-1.5 text-primary-foreground/80"
                 >
-                  <item.icon className="w-4 h-4 text-accent flex-shrink-0" />
-                  <span className="text-[0.8125rem] font-medium">{item.text}</span>
+                  <item.icon className="w-3.5 h-3.5 text-accent flex-shrink-0" />
+                  <span className="text-[0.75rem] sm:text-[0.8125rem] font-medium whitespace-nowrap">{item.text}</span>
                 </div>
               ))}
             </div>
