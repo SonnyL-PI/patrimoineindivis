@@ -3,6 +3,8 @@ import blogPratique from "@/assets/blog/blog-pratique.jpg";
 import blogSuccession from "@/assets/blog/blog-succession.jpg";
 import blogDivorce from "@/assets/blog/blog-divorce.jpg";
 import blogIndivision from "@/assets/blog/blog-indivision.jpg";
+import blogVente from "@/assets/blog/blog-vente.jpg";
+import blogChoix from "@/assets/blog/blog-choix.jpg";
 
 export interface Article {
   slug: string;
@@ -56,8 +58,8 @@ export const articles: Article[] = [
     tags: ["Pratique", "Juridique"],
     date: "15 novembre 2024",
     readTime: "12 min",
-    image: blogPratique,
-    imageAlt: "Stylo plume — formalités de sortie d'indivision",
+    image: blogChoix,
+    imageAlt: "Chemins divergents — choisir sa voie de sortie d'indivision",
   },
   {
     slug: "succession-indivision-heritiers",
@@ -89,8 +91,8 @@ export const articles: Article[] = [
     tags: ["Pratique", "Juridique"],
     date: "22 septembre 2024",
     readTime: "15 min",
-    image: blogPratique,
-    imageAlt: "Stylo plume — vendre sa part d'indivision",
+    image: blogVente,
+    imageAlt: "Main tenant une clé — vendre sa part d'indivision",
   },
 ];
 
