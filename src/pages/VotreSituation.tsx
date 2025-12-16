@@ -110,7 +110,7 @@ const VotreSituation = () => {
       <Header />
       <main>
         {/* Hero */}
-        <section className="section-padding pt-28 md:pt-32 bg-primary text-primary-foreground">
+        <section className="pt-20 md:pt-24 pb-12 md:pb-16 lg:pb-20 bg-primary text-primary-foreground">
           <div className="container-wide">
             <div className="max-w-3xl">
               <span className="inline-block text-sm font-semibold text-accent uppercase tracking-wider mb-4">
