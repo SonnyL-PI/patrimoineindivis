@@ -13,17 +13,8 @@ const navLinks = [
 ];
 
 export function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 40);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
@@ -40,48 +31,44 @@ export function Header() {
   };
 
   return (
-    <>
-      {/* Top Bar with Contact Info - scrolls with page */}
-      <div className="bg-navy text-primary-foreground py-2.5 hidden md:block border-b border-primary-foreground/10">
+    <div className="bg-navy">
+      {/* Top Bar with Contact Info */}
+      <div className="text-primary-foreground py-2 hidden md:block border-b border-primary-foreground/10">
         <div className="container-wide flex items-center justify-between text-sm">
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-6">
             <div className="flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-accent" />
-              <span className="text-primary-foreground/80">02, rue d'Auteuil, 75016 Paris</span>
+              <MapPin className="w-3.5 h-3.5 text-accent" />
+              <span className="text-primary-foreground/70 text-xs">02, rue d'Auteuil, 75016 Paris</span>
             </div>
             <div className="flex items-center gap-2">
-              <Phone className="w-4 h-4 text-accent" />
-              <a href="tel:0142301000" className="text-primary-foreground/80 hover:text-accent transition-colors">
+              <Phone className="w-3.5 h-3.5 text-accent" />
+              <a href="tel:0142301000" className="text-primary-foreground/70 hover:text-accent transition-colors text-xs">
                 01.42.30.10.00
               </a>
             </div>
           </div>
-          <div className="flex items-center gap-6">
-            <Link to="/faq" className="text-primary-foreground/80 hover:text-accent transition-colors text-xs uppercase tracking-wide">
+          <div className="flex items-center gap-5">
+            <Link to="/faq" className="text-primary-foreground/70 hover:text-accent transition-colors text-xs uppercase tracking-wide">
               FAQ
             </Link>
-            <Link to="/contact" className="text-primary-foreground/80 hover:text-accent transition-colors text-xs uppercase tracking-wide">
+            <Link to="/contact" className="text-primary-foreground/70 hover:text-accent transition-colors text-xs uppercase tracking-wide">
               Contact
             </Link>
           </div>
         </div>
       </div>
 
-      {/* Main Header - sticky */}
-      <header
-        className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 bg-navy ${
-          isScrolled ? "shadow-lg" : ""
-        }`}
-      >
+      {/* Main Header */}
+      <header className="relative">
         <div className="container-wide">
-          <div className="flex items-center justify-between h-18 lg:h-20">
+          <div className="flex items-center justify-between h-16 lg:h-18">
             {/* Logo */}
             <Link to="/" className="flex-shrink-0">
-              <img src={logo} alt="Patrimoine Indivis" className="h-10 lg:h-12 w-auto" />
+              <img src={logo} alt="Patrimoine Indivis" className="h-9 lg:h-11 w-auto" />
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-6 xl:gap-8 ml-8">
+            <nav className="hidden lg:flex items-center gap-5 xl:gap-7 ml-8">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
@@ -129,18 +116,18 @@ export function Header() {
 
         {/* Mobile Menu */}
         <div
-          className={`lg:hidden absolute top-full left-0 right-0 bg-navy border-b border-primary-foreground/10 shadow-lg transition-all duration-300 ${
+          className={`lg:hidden absolute top-full left-0 right-0 bg-navy border-b border-primary-foreground/10 shadow-lg z-50 transition-all duration-300 ${
             isMobileMenuOpen
               ? "opacity-100 translate-y-0 pointer-events-auto"
               : "opacity-0 -translate-y-4 pointer-events-none"
           }`}
         >
-          <nav className="container-wide py-6 flex flex-col gap-1">
+          <nav className="container-wide py-5 flex flex-col gap-1">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
-                className={`text-base font-medium py-3 px-4 rounded-lg transition-colors hover:bg-primary-foreground/5 hover:text-accent ${
+                className={`text-base font-medium py-2.5 px-4 rounded-lg transition-colors hover:bg-primary-foreground/5 hover:text-accent ${
                   location.pathname === link.href
                     ? "text-accent bg-primary-foreground/5"
                     : "text-primary-foreground/80"
@@ -149,7 +136,7 @@ export function Header() {
                 {link.label}
               </Link>
             ))}
-            <div className="flex flex-col gap-3 pt-4 mt-4 border-t border-primary-foreground/10">
+            <div className="flex flex-col gap-3 pt-4 mt-3 border-t border-primary-foreground/10">
               <div className="flex items-center gap-2 px-4 text-primary-foreground/70">
                 <MapPin className="w-4 h-4 text-accent" />
                 <span className="text-sm">02, rue d'Auteuil, 75016 Paris</span>
@@ -172,6 +159,6 @@ export function Header() {
           </nav>
         </div>
       </header>
-    </>
+    </div>
   );
 }
