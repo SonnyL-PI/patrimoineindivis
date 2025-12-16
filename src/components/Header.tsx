@@ -65,6 +65,10 @@ export function Header() {
             : "py-3 lg:py-4"
         }`}
       >
+        {/* Premium gold separator */}
+        <div className="absolute bottom-0 left-0 right-0 h-px">
+          <div className="h-full bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
+        </div>
         <div className="container-wide">
           <div className="flex items-center justify-between">
             {/* Logo - Left */}

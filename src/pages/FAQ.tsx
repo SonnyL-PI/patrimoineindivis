@@ -93,9 +93,9 @@ const FAQ = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main className="pt-20">
+      <main>
         {/* Hero */}
-        <section className="section-padding bg-primary text-primary-foreground">
+        <section className="section-padding pt-28 md:pt-32 bg-primary text-primary-foreground">
           <div className="container-wide">
             <div className="max-w-3xl">
               <span className="inline-block text-sm font-semibold text-accent uppercase tracking-wider mb-4">
