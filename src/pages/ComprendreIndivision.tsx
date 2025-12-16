@@ -3,6 +3,7 @@ import { Footer } from "@/components/Footer";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, BookOpen, Scale, Users, AlertCircle, FileText, HelpCircle } from "lucide-react";
+import { BlogResourcesSection } from "@/components/sections/BlogResourcesSection";
 
 const ComprendreIndivision = () => {
   return (
@@ -230,6 +231,9 @@ const ComprendreIndivision = () => {
             </div>
           </div>
         </section>
+
+        {/* Blog & Ressources Section */}
+        <BlogResourcesSection />
       </main>
       <Footer />
     </div>
