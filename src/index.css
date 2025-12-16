@@ -58,10 +58,11 @@
     --gradient-gold: linear-gradient(135deg, hsl(43 45% 59%), hsl(43 40% 65%));
     --gradient-navy: linear-gradient(180deg, hsl(215 26% 22%), hsl(215 26% 18%));
     
-    /* Shadows */
-    --shadow-soft: 0 4px 20px -4px hsl(215 26% 22% / 0.08);
-    --shadow-card: 0 8px 32px -8px hsl(215 26% 22% / 0.12);
-    --shadow-gold: 0 4px 24px -4px hsl(43 45% 59% / 0.35);
+    /* Shadows - more subtle for premium feel */
+    --shadow-soft: 0 2px 12px -2px hsl(215 26% 22% / 0.06);
+    --shadow-card: 0 4px 20px -4px hsl(215 26% 22% / 0.1);
+    --shadow-card-hover: 0 8px 30px -6px hsl(215 26% 22% / 0.14);
+    --shadow-gold: 0 4px 20px -4px hsl(43 45% 59% / 0.3);
     
     /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -146,22 +147,31 @@
            focus:outline-none focus:ring-2 focus:ring-offwhite/30 focus:ring-offset-2 focus:ring-offset-navy;
   }
 
-  /* Card styles */
+  /* Card styles - premium refined */
   .card-premium {
-    @apply bg-card rounded-2xl p-8 shadow-card border border-border/50
-           transition-all duration-300 ease-out
-           hover:shadow-lg hover:-translate-y-1;
+    @apply bg-card rounded-2xl p-7 md:p-8 border border-border/30
+           transition-all duration-300 ease-out;
+    box-shadow: var(--shadow-soft);
+  }
+  .card-premium:hover {
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-2px);
   }
 
   .card-situation {
-    @apply bg-card rounded-2xl p-6 shadow-soft border border-border/50
-           transition-all duration-300 ease-out cursor-pointer
-           hover:shadow-card hover:-translate-y-1 hover:border-accent/30;
+    @apply bg-card rounded-2xl p-6 md:p-7 border border-border/30
+           transition-all duration-300 ease-out cursor-pointer;
+    box-shadow: var(--shadow-soft);
+  }
+  .card-situation:hover {
+    box-shadow: var(--shadow-card);
+    transform: translateY(-2px);
+    @apply border-accent/20;
   }
 
-  /* Section styles */
+  /* Section styles - tighter rhythm */
   .section-padding {
-    @apply py-14 md:py-20 lg:py-24;
+    @apply py-12 md:py-16 lg:py-20;
   }
 
   .container-narrow {
@@ -172,25 +182,26 @@
     @apply max-w-7xl mx-auto px-6;
   }
 
-  /* Text styles */
+  /* Text styles - improved hierarchy & readability */
   .text-balance {
     text-wrap: balance;
   }
 
   .heading-display {
-    @apply text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight text-foreground;
+    @apply text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight text-foreground;
   }
 
   .heading-section {
-    @apply text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight text-foreground;
+    @apply text-2xl md:text-3xl font-semibold leading-snug text-foreground;
   }
 
   .heading-card {
-    @apply text-xl md:text-2xl font-semibold text-foreground;
+    @apply text-lg md:text-xl font-semibold text-foreground;
   }
 
   .text-body {
-    @apply text-base md:text-lg text-muted-foreground leading-relaxed;
+    @apply text-base text-muted-foreground leading-relaxed;
+    max-width: 65ch;
   }
 
   /* Divider */

@@ -16,7 +16,7 @@ const buttonVariants = cva(
         ghost: "hover:bg-accent/10 hover:text-accent-foreground rounded-xl",
         link: "text-primary underline-offset-4 hover:underline",
         // Premium variants
-        gold: "bg-accent text-primary font-semibold rounded-xl shadow-soft hover:shadow-gold hover:scale-[1.02] active:scale-[0.98]",
+        gold: "bg-accent text-primary font-semibold rounded-xl hover:shadow-gold hover:scale-[1.02] active:scale-[0.98]",
         goldOutline: "border-2 border-accent text-accent bg-transparent rounded-xl hover:bg-accent hover:text-primary",
         hero: "bg-accent text-primary font-semibold rounded-xl shadow-gold hover:shadow-lg hover:scale-[1.02] active:scale-[0.98]",
         heroOutline: "border-2 border-primary-foreground/30 text-primary-foreground bg-transparent rounded-xl hover:bg-primary-foreground/10 hover:border-primary-foreground/50",
@@ -25,8 +25,8 @@ const buttonVariants = cva(
       size: {
         default: "h-11 px-6 py-2",
         sm: "h-9 rounded-lg px-4 text-xs",
-        lg: "h-14 rounded-xl px-10 text-base",
-        xl: "h-16 rounded-xl px-12 text-lg",
+        lg: "h-12 rounded-xl px-8 text-sm",
+        xl: "h-14 rounded-xl px-10 text-base",
         icon: "h-10 w-10 rounded-lg",
       },
     },
