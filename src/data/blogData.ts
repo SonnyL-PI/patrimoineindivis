@@ -1,3 +1,9 @@
+import blogJuridique from "@/assets/blog/blog-juridique.jpg";
+import blogPratique from "@/assets/blog/blog-pratique.jpg";
+import blogSuccession from "@/assets/blog/blog-succession.jpg";
+import blogDivorce from "@/assets/blog/blog-divorce.jpg";
+import blogIndivision from "@/assets/blog/blog-indivision.jpg";
+
 export interface Article {
   slug: string;
   title: string;
@@ -6,7 +12,18 @@ export interface Article {
   tags: string[];
   date: string;
   readTime: string;
+  image: string;
+  imageAlt: string;
 }
+
+// Map categories to images
+export const categoryImages: Record<string, { image: string; alt: string }> = {
+  "Comprendre l'indivision": { image: blogIndivision, alt: "Façade haussmannienne — patrimoine immobilier" },
+  "Juridique": { image: blogJuridique, alt: "Livre de droit ouvert — cadre juridique" },
+  "Succession": { image: blogSuccession, alt: "Clés anciennes et sceau — transmission de patrimoine" },
+  "Divorce": { image: blogDivorce, alt: "Alliances dorées sur marbre — séparation" },
+  "Pratique": { image: blogPratique, alt: "Stylo plume élégant — formalités" },
+};
 
 export const articles: Article[] = [
   {
@@ -17,6 +34,8 @@ export const articles: Article[] = [
     tags: ["Comprendre l'indivision", "Pratique"],
     date: "10 décembre 2024",
     readTime: "10 min",
+    image: blogIndivision,
+    imageAlt: "Façade haussmannienne — comprendre l'indivision immobilière",
   },
   {
     slug: "article-815-code-civil-explique",
@@ -26,6 +45,8 @@ export const articles: Article[] = [
     tags: ["Juridique", "Comprendre l'indivision"],
     date: "28 novembre 2024",
     readTime: "8 min",
+    image: blogJuridique,
+    imageAlt: "Livre de droit — article 815 du Code civil",
   },
   {
     slug: "sortie-amiable-partage-judiciaire",
@@ -35,6 +56,8 @@ export const articles: Article[] = [
     tags: ["Pratique", "Juridique"],
     date: "15 novembre 2024",
     readTime: "12 min",
+    image: blogPratique,
+    imageAlt: "Stylo plume — formalités de sortie d'indivision",
   },
   {
     slug: "succession-indivision-heritiers",
@@ -44,6 +67,8 @@ export const articles: Article[] = [
     tags: ["Succession", "Comprendre l'indivision"],
     date: "28 octobre 2024",
     readTime: "12 min",
+    image: blogSuccession,
+    imageAlt: "Clés et sceau — héritage et succession",
   },
   {
     slug: "divorce-bien-immobilier-indivis",
@@ -53,6 +78,8 @@ export const articles: Article[] = [
     tags: ["Divorce", "Pratique"],
     date: "10 octobre 2024",
     readTime: "10 min",
+    image: blogDivorce,
+    imageAlt: "Alliances — partage du bien immobilier lors d'un divorce",
   },
   {
     slug: "vendre-part-indivision",
@@ -62,6 +89,8 @@ export const articles: Article[] = [
     tags: ["Pratique", "Juridique"],
     date: "22 septembre 2024",
     readTime: "15 min",
+    image: blogPratique,
+    imageAlt: "Stylo plume — vendre sa part d'indivision",
   },
 ];
 
