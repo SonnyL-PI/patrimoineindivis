@@ -9,7 +9,7 @@ import divorceImg from "@/assets/situation-divorce.jpg";
 import conflitImg from "@/assets/situation-conflit.jpg";
 import blocageImg from "@/assets/situation-blocage.jpg";
 import liquiditeImg from "@/assets/situation-liquidite.jpg";
-import buildingImg from "@/assets/building-illustration.png";
+import fiscalImg from "@/assets/situation-fiscal.jpg";
 
 const situations = [
   {
@@ -90,7 +90,7 @@ const situations = [
   {
     id: "fiscal",
     icon: FileText,
-    image: buildingImg,
+    image: fiscalImg,
     imageAlt: "Immeuble symbolisant l'optimisation patrimoniale et fiscale",
     title: "IFI / Optimisation fiscale",
     description: "Vous souhaitez sortir d'une indivision pour des raisons patrimoniales ou fiscales, notamment dans le cadre de l'IFI.",
