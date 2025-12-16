@@ -435,7 +435,7 @@ const BlogArticle = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main className="pt-20">
+      <main>
         {/* Hero */}
         <section className="section-padding bg-primary text-primary-foreground">
           <div className="container-wide">

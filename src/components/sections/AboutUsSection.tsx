@@ -42,7 +42,7 @@ const teamMembers = [
 
 export function AboutUsSection() {
   return (
-    <section className="relative pt-20 md:pt-24 pb-20 md:pb-28 overflow-hidden">
+    <section className="relative py-16 md:py-20 lg:py-24 overflow-hidden">
       {/* Background Image + Overlay */}
       <div className="absolute inset-0 z-0">
         <img
