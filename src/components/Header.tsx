@@ -9,6 +9,7 @@ const navLinks = [
   { href: "/votre-situation", label: "Votre situation" },
   { href: "/notre-approche", label: "Notre approche" },
   { href: "/comprendre-indivision", label: "Comprendre l'indivision" },
+  { href: "/blog", label: "Blog" },
   { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact" },
 ];

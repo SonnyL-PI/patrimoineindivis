@@ -6,10 +6,9 @@ const footerLinks = {
   navigation: [
     { label: "Accueil", href: "/" },
     { label: "Votre situation", href: "/votre-situation" },
-    { label: "Vos solutions", href: "/notre-approche" },
     { label: "Notre approche", href: "/notre-approche" },
-    
     { label: "Comprendre l'indivision", href: "/comprendre-indivision" },
+    { label: "Blog", href: "/blog" },
   ],
   legal: [
     { label: "Mentions légales", href: "/mentions-legales" },
