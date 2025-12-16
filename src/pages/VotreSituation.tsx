@@ -2,19 +2,21 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Users, Heart, AlertTriangle, Lock, Wallet, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Users, Heart, AlertTriangle, Lock, Wallet, FileText, CheckCircle2 } from "lucide-react";
 
 import successionImg from "@/assets/situation-succession.jpg";
 import divorceImg from "@/assets/situation-divorce.jpg";
 import conflitImg from "@/assets/situation-conflit.jpg";
 import blocageImg from "@/assets/situation-blocage.jpg";
 import liquiditeImg from "@/assets/situation-liquidite.jpg";
+import buildingImg from "@/assets/building-illustration.png";
 
 const situations = [
   {
     id: "succession",
     icon: Users,
     image: successionImg,
+    imageAlt: "Documents et clés symbolisant une succession immobilière",
     title: "Succession",
     description: "Vous avez hérité d'un bien en indivision avec d'autres héritiers et souhaitez récupérer votre part sans attendre un accord unanime.",
     problems: [
@@ -29,7 +31,8 @@ const situations = [
     id: "divorce",
     icon: Heart,
     image: divorceImg,
-    title: "Divorce",
+    imageAlt: "Illustration symbolisant la séparation d'un bien immobilier lors d'un divorce",
+    title: "Divorce / Séparation",
     description: "Votre ex-conjoint détient une partie du bien commun et vous souhaitez tourner définitivement la page de cette période.",
     problems: [
       "Procédure de divorce longue et complexe",
@@ -43,7 +46,8 @@ const situations = [
     id: "conflit",
     icon: AlertTriangle,
     image: conflitImg,
-    title: "Désaccord familial",
+    imageAlt: "Image abstraite représentant un conflit entre indivisaires",
+    title: "Conflit entre indivisaires",
     description: "Les co-indivisaires ne s'entendent pas sur l'avenir du bien : vente, location, travaux... les tensions s'accumulent.",
     problems: [
       "Conflits récurrents entre indivisaires",
@@ -57,7 +61,8 @@ const situations = [
     id: "blocage",
     icon: Lock,
     image: blocageImg,
-    title: "Blocage de vente",
+    imageAlt: "Bien immobilier bloqué par un refus de vente",
+    title: "Bien occupé / Blocage",
     description: "Un ou plusieurs indivisaires refusent de vendre malgré la volonté de la majorité. Le bien reste bloqué.",
     problems: [
       "Minorité de blocage empêchant toute décision",
@@ -71,6 +76,7 @@ const situations = [
     id: "liquidite",
     icon: Wallet,
     image: liquiditeImg,
+    imageAlt: "Capital et investissement représentant le besoin de liquidité",
     title: "Besoin de liquidité",
     description: "Vous souhaitez simplement transformer votre part en capital pour financer un projet ou faire face à des besoins.",
     problems: [
@@ -80,6 +86,21 @@ const situations = [
       "Besoin d'argent à court terme",
     ],
     solution: "Nous vous faisons une offre ferme sous 48h et procédons au versement dès la signature. Une solution rapide et discrète.",
+  },
+  {
+    id: "fiscal",
+    icon: FileText,
+    image: buildingImg,
+    imageAlt: "Immeuble symbolisant l'optimisation patrimoniale et fiscale",
+    title: "IFI / Optimisation fiscale",
+    description: "Vous souhaitez sortir d'une indivision pour des raisons patrimoniales ou fiscales, notamment dans le cadre de l'IFI.",
+    problems: [
+      "Patrimoine immobilier soumis à l'IFI",
+      "Part indivise difficile à valoriser fiscalement",
+      "Besoin d'optimiser votre patrimoine global",
+      "Restructuration patrimoniale complexe",
+    ],
+    solution: "Nous vous permettons de céder votre part rapidement et de réorganiser votre patrimoine de manière optimale sur le plan fiscal.",
   },
 ];
 
@@ -151,7 +172,7 @@ const VotreSituation = () => {
                 <div className={`rounded-3xl overflow-hidden ${index % 2 === 1 ? "lg:order-1" : ""}`}>
                   <img 
                     src={situation.image} 
-                    alt={situation.title}
+                    alt={situation.imageAlt}
                     className="w-full h-full object-cover aspect-square"
                   />
                 </div>
