@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
   Select,
   SelectContent,
@@ -49,9 +51,35 @@ export function ContactSection() {
   const { toast } = useToast();
   const [activeTab, setActiveTab] = useState("offre");
   const [showStep2, setShowStep2] = useState(false);
+  const [consentOffre, setConsentOffre] = useState(false);
+  const [consentRappel, setConsentRappel] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmitOffre = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!consentOffre) {
+      toast({
+        title: "Consentement requis",
+        description: "Veuillez accepter la politique de confidentialité pour continuer.",
+        variant: "destructive",
+      });
+      return;
+    }
+    toast({
+      title: "Demande envoyée",
+      description: "Nous vous recontacterons dans les plus brefs délais.",
+    });
+  };
+
+  const handleSubmitRappel = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!consentRappel) {
+      toast({
+        title: "Consentement requis",
+        description: "Veuillez accepter la politique de confidentialité pour continuer.",
+        variant: "destructive",
+      });
+      return;
+    }
     toast({
       title: "Demande envoyée",
       description: "Nous vous recontacterons dans les plus brefs délais.",
@@ -141,7 +169,7 @@ export function ContactSection() {
 
               {/* Tab: Offre */}
               <TabsContent value="offre">
-                <form onSubmit={handleSubmit} className="space-y-5">
+                <form onSubmit={handleSubmitOffre} className="space-y-5">
                   {/* Step 1 */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
@@ -277,24 +305,41 @@ export function ContactSection() {
                     </div>
                   )}
 
+                  {/* Consent checkbox */}
+                  <div className="flex items-start space-x-3">
+                    <Checkbox
+                      id="consent-offre"
+                      checked={consentOffre}
+                      onCheckedChange={(checked) => setConsentOffre(checked as boolean)}
+                      className="mt-1"
+                    />
+                    <label
+                      htmlFor="consent-offre"
+                      className="text-sm text-muted-foreground leading-relaxed cursor-pointer"
+                    >
+                      J'accepte que mes données soient traitées conformément à la{" "}
+                      <Link to="/politique-confidentialite" className="text-accent hover:underline">
+                        Politique de confidentialité
+                      </Link>{" "}
+                      de Patrimoine Indivis. *
+                    </label>
+                  </div>
+
                   <Button type="submit" variant="gold" size="lg" className="w-full mt-2">
                     <Send className="w-4 h-4" />
                     Demander une étude de rachat
                   </Button>
 
-                  <p className="text-xs text-muted-foreground text-center flex items-center justify-center gap-2">
-                    <Shield className="w-3 h-3" />
-                    Confidentiel – sans engagement.{" "}
-                    <a href="/politique-confidentialite" className="text-accent hover:underline">
-                      Politique de confidentialité
-                    </a>
+                  <p className="text-xs text-muted-foreground text-center">
+                    <Shield className="w-3 h-3 inline mr-1" />
+                    Confidentiel – sans engagement. Vos données sont protégées.
                   </p>
                 </form>
               </TabsContent>
 
               {/* Tab: Rappel */}
               <TabsContent value="rappel" id="rappel">
-                <form onSubmit={handleSubmit} className="space-y-5">
+                <form onSubmit={handleSubmitRappel} className="space-y-5">
                   <div className="space-y-2">
                     <Label htmlFor="telephone-rappel">Téléphone *</Label>
                     <Input
@@ -330,17 +375,34 @@ export function ContactSection() {
                     />
                   </div>
 
+                  {/* Consent checkbox */}
+                  <div className="flex items-start space-x-3">
+                    <Checkbox
+                      id="consent-rappel"
+                      checked={consentRappel}
+                      onCheckedChange={(checked) => setConsentRappel(checked as boolean)}
+                      className="mt-1"
+                    />
+                    <label
+                      htmlFor="consent-rappel"
+                      className="text-sm text-muted-foreground leading-relaxed cursor-pointer"
+                    >
+                      J'accepte que mes données soient traitées conformément à la{" "}
+                      <Link to="/politique-confidentialite" className="text-accent hover:underline">
+                        Politique de confidentialité
+                      </Link>{" "}
+                      de Patrimoine Indivis. *
+                    </label>
+                  </div>
+
                   <Button type="submit" variant="gold" size="lg" className="w-full">
                     <Phone className="w-4 h-4" />
                     Demander à être rappelé
                   </Button>
 
-                  <p className="text-xs text-muted-foreground text-center flex items-center justify-center gap-2">
-                    <Shield className="w-3 h-3" />
-                    Confidentiel – sans engagement.{" "}
-                    <a href="/politique-confidentialite" className="text-accent hover:underline">
-                      Politique de confidentialité
-                    </a>
+                  <p className="text-xs text-muted-foreground text-center">
+                    <Shield className="w-3 h-3 inline mr-1" />
+                    Confidentiel – sans engagement. Vos données sont protégées.
                   </p>
                 </form>
               </TabsContent>
