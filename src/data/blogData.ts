@@ -11,7 +11,7 @@ export interface Article {
 export const articles: Article[] = [
   {
     slug: "indivision-definition-sortie",
-    title: "Indivision : qu'est-ce que c'est et comment en sortir ?",
+    title: "Indivision : ce qu'il faut savoir",
     excerpt: "Définition, fonctionnement et solutions concrètes pour sortir d'une situation d'indivision. Guide complet pour comprendre vos droits.",
     category: "Comprendre l'indivision",
     tags: ["Comprendre l'indivision", "Pratique"],
