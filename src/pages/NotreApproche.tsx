@@ -113,51 +113,32 @@ const NotreApproche = () => {
               </p>
             </div>
 
-            <div className="space-y-12">
-              {steps.map((step, index) => (
+            <div className="space-y-8 max-w-3xl mx-auto">
+              {steps.map((step) => (
                 <div
                   key={step.number}
-                  className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"
+                  className="bg-card rounded-2xl p-8 border border-border/50"
                 >
-                  {/* Number */}
-                  <div className="lg:col-span-1 flex lg:justify-end">
-                    <span className="text-6xl font-serif font-bold text-accent/20">
-                      {step.number}
-                    </span>
-                  </div>
-
-                  {/* Content */}
-                  <div className="lg:col-span-7 bg-card rounded-2xl p-8 border border-border/50">
-                    <div className="flex items-start gap-4 mb-6">
-                      <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
-                        <step.icon className="w-7 h-7 text-accent" />
-                      </div>
-                      <div>
-                        <h3 className="heading-card text-foreground">{step.title}</h3>
-                        <p className="text-accent text-sm font-medium mt-1">{step.duration}</p>
-                      </div>
+                  <div className="flex items-start gap-4 mb-6">
+                    <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
+                      <step.icon className="w-7 h-7 text-accent" />
                     </div>
-                    <p className="text-muted-foreground leading-relaxed mb-6">
-                      {step.description}
-                    </p>
-                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                      {step.details.map((detail) => (
-                        <li key={detail} className="flex items-center gap-2 text-sm text-foreground">
-                          <span className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
-                          {detail}
-                        </li>
-                      ))}
-                    </ul>
+                    <div>
+                      <h3 className="heading-card text-foreground">{step.title}</h3>
+                      <p className="text-accent text-sm font-medium mt-1">{step.duration}</p>
+                    </div>
                   </div>
-
-                  {/* Connector */}
-                  <div className="hidden lg:block lg:col-span-4">
-                    {index < steps.length - 1 && (
-                      <div className="h-full flex items-center justify-center">
-                        <div className="w-px h-full bg-border" />
-                      </div>
-                    )}
-                  </div>
+                  <p className="text-muted-foreground leading-relaxed mb-6">
+                    {step.description}
+                  </p>
+                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    {step.details.map((detail) => (
+                      <li key={detail} className="flex items-center gap-2 text-sm text-foreground">
+                        <span className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
+                        {detail}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               ))}
             </div>
