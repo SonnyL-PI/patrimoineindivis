@@ -13,9 +13,9 @@ const trustItems = [
 export function HeroSection() {
   return (
     <>
-      {/* Mobile (<768px): 80vh, content aligned bottom */}
+      {/* Mobile (<768px): 80vh, content centered */}
       <section
-        className="hero-section md:hidden relative flex flex-col justify-end"
+        className="hero-section md:hidden relative flex flex-col justify-center"
         style={{
           paddingTop: "calc(80px + env(safe-area-inset-top, 0px))",
           paddingBottom: "calc(32px + env(safe-area-inset-bottom, 0px))",
@@ -26,7 +26,7 @@ export function HeroSection() {
           <img
             src={heroImage}
             alt="Signature d'acte notarié"
-            className="absolute inset-0 h-full w-full object-cover object-[center_40%]"
+            className="absolute inset-0 h-full w-full object-cover object-center"
             style={{ filter: "saturate(0.85)" }}
             loading="eager"
           />
@@ -39,8 +39,8 @@ export function HeroSection() {
           />
         </div>
 
-        {/* Content - aligned at bottom */}
-        <div className="relative z-10 container-wide px-4 sm:px-6 pt-4">
+        {/* Content - centered */}
+        <div className="relative z-10 container-wide px-4 sm:px-6">
           <PremiumPlate
             align="center"
             className="w-full max-w-[560px] mx-auto p-5 rounded-[24px] bg-navy/55 border border-accent/15 shadow-[0_18px_60px_-24px_hsl(215_26%_22%/0.65)]"
