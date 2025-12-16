@@ -320,8 +320,12 @@ const Blog = () => {
                     key={article.slug}
                     className="group bg-card rounded-2xl border border-border/50 overflow-hidden hover:shadow-card transition-all duration-300 hover:-translate-y-1"
                   >
-                    <div className="aspect-[16/9] bg-secondary flex items-center justify-center">
-                      <FileText className="w-12 h-12 text-accent/30" />
+                    <div className="aspect-[16/9] overflow-hidden">
+                      <img 
+                        src={article.image} 
+                        alt={article.imageAlt}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
                     </div>
                     <div className="p-6">
                       <div className="flex flex-wrap items-center gap-2 mb-4">
