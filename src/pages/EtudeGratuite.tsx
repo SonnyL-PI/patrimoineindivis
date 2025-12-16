@@ -153,7 +153,7 @@ export default function EtudeGratuite() {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative pt-32 md:pt-36 min-h-[60vh] md:min-h-[70vh] flex items-center">
+      <section className="relative pt-8 md:pt-12 min-h-[60vh] md:min-h-[70vh] flex items-center">
         <div className="absolute inset-0 z-0">
           <img
             src={heroImage}
