@@ -24,27 +24,6 @@ const recentCases = [
     quotepart: "33%",
     result: "Médiation réussie",
   },
-  {
-    id: "villa-nice",
-    title: "Villa Nice",
-    situation: "Succession",
-    quotepart: "75%",
-    result: "Offre acceptée en 2 semaines",
-  },
-  {
-    id: "appartement-marseille",
-    title: "Appartement Marseille",
-    situation: "Besoin de liquidité",
-    quotepart: "50%",
-    result: "Clôture en 4 semaines",
-  },
-  {
-    id: "maison-toulouse",
-    title: "Maison Toulouse",
-    situation: "Conflit familial",
-    quotepart: "67%",
-    result: "Médiation réussie",
-  },
 ];
 
 export function RecentCasesSection() {
