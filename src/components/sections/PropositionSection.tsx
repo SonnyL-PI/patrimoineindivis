@@ -196,7 +196,7 @@ export function PropositionSection() {
           {/* Link to all reviews */}
           <div className="text-center mt-8">
             <a 
-              href="https://www.google.com/search?q=patrimoine+indivis+avis" 
+              href="https://share.google/Mns4nXOvAarToXWs2" 
               target="_blank" 
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-sm text-accent hover:text-accent/80 transition-colors font-medium"
