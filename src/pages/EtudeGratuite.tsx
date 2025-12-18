@@ -142,10 +142,10 @@ export default function EtudeGratuite() {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>Étude gratuite — Patrimoine Indivis</title>
+        <title>Étude de rachat — Patrimoine Indivis</title>
         <meta
           name="description"
-          content="Demandez votre étude gratuite et confidentielle. Patrimoine Indivis, spécialiste du rachat de parts indivises, vous accompagne pour débloquer votre situation d'indivision."
+          content="Demandez votre étude de rachat gratuite et confidentielle. Patrimoine Indivis, spécialiste du rachat de parts indivises, vous accompagne pour débloquer votre situation d'indivision."
         />
         <link rel="canonical" href="https://patrimoine-indivis.fr/etude-gratuite" />
       </Helmet>
@@ -166,13 +166,13 @@ export default function EtudeGratuite() {
         <div className="container-wide relative z-10 py-12 md:py-16">
           <div className="max-w-2xl">
             <span className="inline-block text-sm font-semibold text-accent uppercase tracking-wider mb-4">
-              Étude gratuite
+              Étude de rachat
             </span>
             <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-primary-foreground mb-4 md:mb-6 leading-tight">
               Débloquez votre situation d'indivision
             </h1>
             <p className="text-lg md:text-xl text-primary-foreground/90 mb-6 md:mb-8">
-              Étude gratuite, confidentielle et sans engagement
+              Étude de rachat gratuite, confidentielle et sans engagement
             </p>
 
             {/* Trust chips */}
@@ -193,7 +193,7 @@ export default function EtudeGratuite() {
 
             <div className="flex flex-col sm:flex-row gap-3">
               <Button variant="gold" size="lg" onClick={scrollToForm} className="group">
-                Demander une étude gratuite
+                Demander une étude de rachat
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button variant="goldOutline" size="lg" asChild>
@@ -620,7 +620,7 @@ export default function EtudeGratuite() {
               <div className="lg:sticky lg:top-32 space-y-6">
                 <div>
                   <span className="inline-block text-sm font-medium text-accent uppercase tracking-wider mb-2">
-                    Étude gratuite
+                    Étude de rachat
                   </span>
                   <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mb-4">
                     Demandez votre analyse personnalisée
@@ -655,7 +655,7 @@ export default function EtudeGratuite() {
                         Sans engagement
                       </h4>
                       <p className="text-muted-foreground text-sm">
-                        Étude gratuite, vous restez libre de votre décision.
+                        Étude de rachat gratuite, vous restez libre de votre décision.
                       </p>
                     </div>
                   </div>
@@ -779,7 +779,7 @@ export default function EtudeGratuite() {
       <div className="fixed bottom-0 left-0 right-0 p-4 bg-background/95 backdrop-blur border-t border-border/30 md:hidden z-40">
         <Button variant="gold" size="lg" className="w-full" onClick={scrollToForm}>
           <FileText className="w-4 h-4" />
-          Demander une étude gratuite
+          Demander une étude de rachat
         </Button>
       </div>
     </div>
