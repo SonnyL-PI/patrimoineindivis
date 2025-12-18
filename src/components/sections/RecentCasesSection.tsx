@@ -1,14 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Check, X } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
   DialogDescription,
-  DialogClose,
 } from "@/components/ui/dialog";
 import salleReunion from "@/assets/salle-reunion.png";
 
@@ -144,22 +143,12 @@ export function RecentCasesSection() {
       <Dialog open={!!selectedCase} onOpenChange={(open) => !open && setSelectedCase(null)}>
         <DialogContent className="max-w-[720px] w-[calc(100%-2rem)] max-h-[85vh] overflow-y-auto bg-background border-border/30 rounded-2xl shadow-xl p-0">
           <DialogHeader className="p-6 pb-4 border-b border-border/20">
-            <div className="flex items-start justify-between">
-              <div>
-                <DialogTitle className="font-serif text-xl md:text-2xl font-semibold text-foreground">
-                  {selectedCase?.name}
-                </DialogTitle>
-                <DialogDescription className="text-accent font-semibold mt-2 text-base">
-                  Quote-part : {selectedCase?.quotepart}
-                </DialogDescription>
-              </div>
-              <DialogClose 
-                className="rounded-full p-2 hover:bg-muted/50 transition-colors -mt-1 -mr-1"
-                aria-label="Fermer"
-              >
-                <X className="w-5 h-5 text-muted-foreground" />
-              </DialogClose>
-            </div>
+            <DialogTitle className="font-serif text-xl md:text-2xl font-semibold text-foreground">
+              {selectedCase?.name}
+            </DialogTitle>
+            <DialogDescription className="text-accent font-semibold mt-2 text-base">
+              Quote-part : {selectedCase?.quotepart}
+            </DialogDescription>
           </DialogHeader>
           <div className="p-6 pt-5">
             <p className="text-foreground/90 leading-relaxed text-base">
