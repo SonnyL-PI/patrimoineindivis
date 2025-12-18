@@ -173,11 +173,11 @@ export function AboutUsSection() {
               {teamMembers.map((member, index) => (
                 <div
                   key={index}
-                  className="group text-center"
+                  className="group"
                   style={{ animationDelay: `${200 + index * 50}ms` }}
                 >
                   <div
-                    className="relative w-24 h-24 sm:w-28 sm:h-28 mx-auto mb-3 rounded-2xl overflow-hidden"
+                    className="relative w-24 h-24 sm:w-28 sm:h-28 mx-auto rounded-2xl overflow-hidden"
                     style={{
                       border: "2px solid hsl(var(--accent) / 0.3)",
                       boxShadow: "0 8px 24px -8px hsl(215 30% 8% / 0.6)",
@@ -185,16 +185,12 @@ export function AboutUsSection() {
                   >
                     <img
                       src={member.photo}
-                      alt={member.name}
+                      alt="Associé Patrimoine Indivis"
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     {/* Subtle overlay on hover */}
                     <div className="absolute inset-0 bg-accent/0 group-hover:bg-accent/10 transition-colors duration-300" />
                   </div>
-                  <p className="text-primary-foreground font-medium text-sm">
-                    {member.name}
-                  </p>
-                  <p className="text-primary-foreground/50 text-xs">{member.role}</p>
                 </div>
               ))}
             </div>
