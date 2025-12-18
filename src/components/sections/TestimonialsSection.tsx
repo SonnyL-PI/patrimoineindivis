@@ -135,7 +135,7 @@ export function TestimonialsSection() {
         {/* Google link */}
         <div className="text-center mt-8">
           <a 
-            href="https://www.google.com/search?q=patrimoine+indivis+avis" 
+            href="https://share.google/Mns4nXOvAarToXWs2" 
             target="_blank" 
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-accent hover:text-accent/80 transition-colors text-sm font-medium"
