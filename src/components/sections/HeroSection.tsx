@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Phone, ArrowRight, Shield, Scale, Handshake } from "lucide-react";
 import { PremiumPlate } from "@/components/ui/PremiumPlate";
-import heroImage from "@/assets/salle-reunion.png";
+import heroImage from "@/assets/hero-signature.jpg";
 
 const trustItems = [
   { icon: Shield, text: "100% spécialisé" },
@@ -24,7 +24,7 @@ export function HeroSection() {
         <div className="relative w-full aspect-[16/10]">
           <img
             src={heroImage}
-            alt="Salle de réunion – Patrimoine Indivis"
+            alt="Stylo plume sur document notarial"
             className="absolute inset-0 h-full w-full object-cover object-center"
             style={{ filter: "saturate(0.85)" }}
             loading="eager"
@@ -133,7 +133,7 @@ export function HeroSection() {
         <div className="absolute inset-0 z-0">
           <img
             src={heroImage}
-            alt="Salle de réunion – Patrimoine Indivis"
+            alt="Stylo plume sur document notarial"
             className="absolute inset-0 w-full h-full object-cover"
             style={{ filter: "saturate(0.85)" }}
           />
