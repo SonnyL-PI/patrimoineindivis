@@ -1,10 +1,10 @@
-import blogJuridique from "@/assets/blog/blog-juridique.jpg";
-import blogPratique from "@/assets/blog/blog-pratique.jpg";
-import blogSuccession from "@/assets/blog/blog-succession.jpg";
-import blogDivorce from "@/assets/blog/blog-divorce.jpg";
-import blogIndivision from "@/assets/blog/blog-indivision.jpg";
-import blogVente from "@/assets/blog/blog-vente.jpg";
-import blogChoix from "@/assets/blog/blog-choix.jpg";
+import blogJuridique from "@/assets/blog/blog-juridique-new.jpg";
+import blogPratique from "@/assets/blog/blog-pratique-new.jpg";
+import blogSuccession from "@/assets/blog/blog-succession-new.jpg";
+import blogDivorce from "@/assets/blog/blog-divorce-new.jpg";
+import blogIndivision from "@/assets/blog/blog-indivision-new.jpg";
+import blogVente from "@/assets/blog/blog-vente-new.jpg";
+import blogChoix from "@/assets/blog/blog-choix-new.jpg";
 
 export interface Article {
   slug: string;
@@ -20,11 +20,11 @@ export interface Article {
 
 // Map categories to images
 export const categoryImages: Record<string, { image: string; alt: string }> = {
-  "Comprendre l'indivision": { image: blogIndivision, alt: "Façade haussmannienne — patrimoine immobilier" },
-  "Juridique": { image: blogJuridique, alt: "Livre de droit ouvert — cadre juridique" },
-  "Succession": { image: blogSuccession, alt: "Clés anciennes et sceau — transmission de patrimoine" },
-  "Divorce": { image: blogDivorce, alt: "Alliances dorées sur marbre — séparation" },
-  "Pratique": { image: blogPratique, alt: "Stylo plume élégant — formalités" },
+  "Comprendre l'indivision": { image: blogIndivision, alt: "Dossier d'indivision sur bureau" },
+  "Juridique": { image: blogJuridique, alt: "Classeur de pièces – sortie d'indivision" },
+  "Succession": { image: blogSuccession, alt: "Archives de dossiers – Patrimoine Indivis" },
+  "Divorce": { image: blogDivorce, alt: "Salle de réunion – médiation" },
+  "Pratique": { image: blogPratique, alt: "Documents administratifs – Patrimoine Indivis" },
 };
 
 export const articles: Article[] = [
@@ -37,7 +37,7 @@ export const articles: Article[] = [
     date: "10 décembre 2024",
     readTime: "10 min",
     image: blogIndivision,
-    imageAlt: "Façade haussmannienne — comprendre l'indivision immobilière",
+    imageAlt: "Dossier d'indivision sur bureau",
   },
   {
     slug: "article-815-code-civil-explique",
@@ -48,7 +48,7 @@ export const articles: Article[] = [
     date: "28 novembre 2024",
     readTime: "8 min",
     image: blogJuridique,
-    imageAlt: "Livre de droit — article 815 du Code civil",
+    imageAlt: "Classeur de pièces – sortie d'indivision",
   },
   {
     slug: "sortie-amiable-partage-judiciaire",
@@ -59,7 +59,7 @@ export const articles: Article[] = [
     date: "15 novembre 2024",
     readTime: "12 min",
     image: blogChoix,
-    imageAlt: "Chemins divergents — choisir sa voie de sortie d'indivision",
+    imageAlt: "Plan de bien immobilier sur table",
   },
   {
     slug: "succession-indivision-heritiers",
@@ -70,7 +70,7 @@ export const articles: Article[] = [
     date: "28 octobre 2024",
     readTime: "12 min",
     image: blogSuccession,
-    imageAlt: "Clés et sceau — héritage et succession",
+    imageAlt: "Archives de dossiers – Patrimoine Indivis",
   },
   {
     slug: "divorce-bien-immobilier-indivis",
@@ -81,7 +81,7 @@ export const articles: Article[] = [
     date: "10 octobre 2024",
     readTime: "10 min",
     image: blogDivorce,
-    imageAlt: "Alliances — partage du bien immobilier lors d'un divorce",
+    imageAlt: "Salle de réunion – médiation",
   },
   {
     slug: "vendre-part-indivision",
@@ -92,7 +92,7 @@ export const articles: Article[] = [
     date: "22 septembre 2024",
     readTime: "15 min",
     image: blogVente,
-    imageAlt: "Clé sur pochette en cuir — vendre sa part d'indivision",
+    imageAlt: "Courrier administratif sur bureau",
   },
 ];
 
