@@ -5,10 +5,6 @@ import { ArrowRight, Shield, Scale, Heart } from "lucide-react";
 // Team photos
 import team1 from "@/assets/team/team-1.jpg";
 import team2 from "@/assets/team/team-2.jpg";
-import team3 from "@/assets/team/team-3.jpg";
-import team4 from "@/assets/team/team-4.jpg";
-import team5 from "@/assets/team/team-5.jpg";
-import team6 from "@/assets/team/team-6.jpg";
 
 // Background
 import bgImage from "@/assets/hero-building.jpg";
@@ -32,12 +28,8 @@ const pillars = [
 ];
 
 const teamMembers = [
-  { photo: team1, name: "Associé", role: "Direction" },
-  { photo: team2, name: "Associée", role: "Juridique" },
-  { photo: team3, name: "Associé", role: "Immobilier" },
-  { photo: team4, name: "Associée", role: "Fiscalité" },
-  { photo: team5, name: "Associé", role: "Relations" },
-  { photo: team6, name: "Associée", role: "Opérations" },
+  { photo: team1, name: "Philippe Rogel", role: "Associé fondateur" },
+  { photo: team2, name: "Franck Saveau", role: "Associé" },
 ];
 
 export function AboutUsSection() {
@@ -169,7 +161,7 @@ export function AboutUsSection() {
               Les associés
             </h3>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6">
+            <div className="flex flex-wrap justify-center gap-8 sm:gap-12">
               {teamMembers.map((member, index) => (
                 <div
                   key={index}
