@@ -17,6 +17,7 @@ import Ressources from "./pages/Ressources";
 import Blog from "./pages/Blog";
 import BlogArticle from "./pages/BlogArticle";
 import EtudeGratuite from "./pages/EtudeGratuite";
+import LandingPage from "./pages/LandingPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -43,6 +44,7 @@ const App = () => (
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogArticle />} />
             <Route path="/etude-gratuite" element={<EtudeGratuite />} />
+            <Route path="/lp" element={<LandingPage />} />
             <Route path="/demande-etude" element={<Navigate to="/etude-gratuite" replace />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
