@@ -15,6 +15,7 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { FileText, Phone, Send, Shield, ChevronDown, ChevronUp, Upload, Lock } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import salleReunion2 from "@/assets/salle-reunion-2.png";
 
 const situations = [
   { value: "succession", label: "Succession" },
@@ -159,6 +160,16 @@ export function ContactSection() {
                   </p>
                 </div>
               </div>
+            </div>
+
+            {/* Image d'accompagnement */}
+            <div className="mt-8">
+              <img
+                src={salleReunion2}
+                alt="Espace d'accueil – Patrimoine Indivis"
+                className="w-full aspect-[16/10] object-cover rounded-2xl shadow-soft"
+                loading="lazy"
+              />
             </div>
           </div>
 
