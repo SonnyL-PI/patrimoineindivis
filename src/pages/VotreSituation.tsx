@@ -4,19 +4,19 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Users, Heart, AlertTriangle, Lock, Wallet, FileText, CheckCircle2 } from "lucide-react";
 
-import successionImg from "@/assets/situation-succession.jpg";
-import divorceImg from "@/assets/situation-divorce.jpg";
-import conflitImg from "@/assets/situation-conflit.jpg";
-import blocageImg from "@/assets/situation-blocage.jpg";
-import liquiditeImg from "@/assets/situation-liquidite.jpg";
-import fiscalImg from "@/assets/situation-fiscal.jpg";
+import successionImg from "@/assets/situation-succession-new.jpg";
+import divorceImg from "@/assets/situation-divorce-new.jpg";
+import conflitImg from "@/assets/situation-conflit-new.jpg";
+import blocageImg from "@/assets/situation-blocage-new.jpg";
+import liquiditeImg from "@/assets/situation-liquidite-new.jpg";
+import fiscalImg from "@/assets/situation-fiscal-new.jpg";
 
 const situations = [
   {
     id: "succession",
     icon: Users,
     image: successionImg,
-    imageAlt: "Clés anciennes et sceau sur bureau en bois — transmission de patrimoine",
+    imageAlt: "Dossier d'indivision",
     title: "Succession",
     description: "Vous avez hérité d'un bien en indivision avec d'autres héritiers et souhaitez récupérer votre part sans attendre un accord unanime.",
     problems: [
@@ -31,7 +31,7 @@ const situations = [
     id: "divorce",
     icon: Heart,
     image: divorceImg,
-    imageAlt: "Alliances et stylo sur papier blanc — séparation et partage de bien",
+    imageAlt: "Clés et dossier",
     title: "Divorce / Séparation",
     description: "Votre ex-conjoint détient une partie du bien commun et vous souhaitez tourner définitivement la page de cette période.",
     problems: [
@@ -46,7 +46,7 @@ const situations = [
     id: "conflit",
     icon: AlertTriangle,
     image: conflitImg,
-    imageAlt: "Discussion autour de documents — médiation et négociation",
+    imageAlt: "Classeur et pièces",
     title: "Conflit entre indivisaires",
     description: "Les co-indivisaires ne s'entendent pas sur l'avenir du bien : vente, location, travaux... les tensions s'accumulent.",
     problems: [
@@ -61,7 +61,7 @@ const situations = [
     id: "blocage",
     icon: Lock,
     image: blocageImg,
-    imageAlt: "Cadenas doré et clé ancienne — situation bloquée",
+    imageAlt: "Plan cadastral",
     title: "Bien occupé / Blocage",
     description: "Un ou plusieurs indivisaires refusent de vendre malgré la volonté de la majorité. Le bien reste bloqué.",
     problems: [
@@ -76,7 +76,7 @@ const situations = [
     id: "liquidite",
     icon: Wallet,
     image: liquiditeImg,
-    imageAlt: "Billets et pièces sur bureau — capital et liquidité",
+    imageAlt: "Archives de dossiers",
     title: "Besoin de liquidité",
     description: "Vous souhaitez simplement transformer votre part en capital pour financer un projet ou faire face à des besoins.",
     problems: [
@@ -91,7 +91,7 @@ const situations = [
     id: "fiscal",
     icon: FileText,
     image: fiscalImg,
-    imageAlt: "Calculatrice et documents sur bureau — optimisation fiscale",
+    imageAlt: "Salle de réunion",
     title: "IFI / Optimisation fiscale",
     description: "Vous souhaitez sortir d'une indivision pour des raisons patrimoniales ou fiscales, notamment dans le cadre de l'IFI.",
     problems: [
@@ -173,7 +173,7 @@ const VotreSituation = () => {
                   <img 
                     src={situation.image} 
                     alt={situation.imageAlt}
-                    className="w-full h-full object-cover aspect-square"
+                    className="w-full h-full object-cover aspect-[4/3]"
                   />
                 </div>
               </div>
