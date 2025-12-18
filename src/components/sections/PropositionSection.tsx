@@ -29,27 +29,6 @@ const testimonials = [
   },
 ];
 
-const recentCases = [
-  {
-    type: "Appartement Paris 16e",
-    situation: "Succession conflictuelle",
-    quotepart: "25%",
-    result: "Offre acceptée en 3 semaines",
-  },
-  {
-    type: "Maison Bordeaux",
-    situation: "Divorce",
-    quotepart: "50%",
-    result: "Clôture en 6 semaines",
-  },
-  {
-    type: "Immeuble Lyon",
-    situation: "Indivision bloquée",
-    quotepart: "33%",
-    result: "Médiation réussie",
-  },
-];
-
 export function PropositionSection() {
   return (
     <>
@@ -139,49 +118,6 @@ export function PropositionSection() {
                 </p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Recent Cases */}
-      <section className="py-12 md:py-16 bg-secondary/40">
-        <div className="container-wide">
-          <div className="text-center mb-10">
-            <h3 className="font-serif text-2xl md:text-3xl text-foreground mb-3">
-              Cas récents
-            </h3>
-            <div className="w-12 h-0.5 bg-accent mx-auto" />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-5">
-            {recentCases.map((caseItem, index) => (
-              <div 
-                key={index}
-                className="card-situation"
-              >
-                <h4 className="font-serif text-base md:text-lg font-semibold text-foreground mb-1">
-                  {caseItem.type}
-                </h4>
-                <p className="text-sm text-muted-foreground mb-3">
-                  {caseItem.situation}
-                </p>
-                <div className="flex items-center justify-between text-sm">
-                  <span className="text-accent font-medium">Quote-part : {caseItem.quotepart}</span>
-                </div>
-                <p className="text-sm text-foreground font-medium mt-3 pt-3 border-t border-border/30">
-                  ✓ {caseItem.result}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-8">
-            <Button variant="goldOutline" size="lg" className="w-full sm:w-auto" asChild>
-              <Link to="/contact">
-                Étudier mon dossier
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-            </Button>
           </div>
         </div>
       </section>
