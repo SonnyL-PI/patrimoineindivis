@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Phone, ArrowRight, Shield, Scale, Handshake } from "lucide-react";
 import { PremiumPlate } from "@/components/ui/PremiumPlate";
-import heroImage from "@/assets/hero-building.jpg";
+import heroImage from "@/assets/hero-haussmann.jpg";
 
 const trustItems = [
   { icon: Shield, text: "100% spécialisé" },
