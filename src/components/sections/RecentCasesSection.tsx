@@ -92,8 +92,8 @@ export function RecentCasesSection() {
         {/* CTA */}
         <div className="text-center mt-12 md:mt-14">
           <Button variant="goldOutline" size="lg" asChild>
-            <Link to="/cas-recents">
-              Voir tous les cas
+            <Link to="/contact">
+              Étudier mon dossier
               <ArrowRight className="w-4 h-4" />
             </Link>
           </Button>
