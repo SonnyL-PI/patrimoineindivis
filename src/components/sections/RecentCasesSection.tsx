@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check } from "lucide-react";
+import salleReunion3 from "@/assets/salle-reunion-3.png";
 
 const recentCases = [
   {
@@ -51,6 +52,16 @@ export function RecentCasesSection() {
   return (
     <section className="py-16 md:py-20 lg:py-24 bg-secondary/30" id="cas-recents">
       <div className="container-wide">
+        {/* Vignette Image */}
+        <div className="flex justify-center mb-10 md:mb-12">
+          <img
+            src={salleReunion3}
+            alt="Salle de réunion – Patrimoine Indivis"
+            className="w-full max-w-md aspect-[16/9] object-cover rounded-2xl shadow-soft"
+            loading="lazy"
+          />
+        </div>
+
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-14">
           <span className="text-accent text-xs font-semibold tracking-[0.2em] uppercase mb-3 block">
