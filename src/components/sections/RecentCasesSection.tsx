@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check } from "lucide-react";
-import salleReunion3 from "@/assets/salle-reunion-3.png";
+import salleReunion from "@/assets/salle-reunion.png";
 
 const recentCases = [
   {
@@ -52,29 +52,31 @@ export function RecentCasesSection() {
   return (
     <section className="py-16 md:py-20 lg:py-24 bg-secondary/30" id="cas-recents">
       <div className="container-wide">
-        {/* Vignette Image */}
-        <div className="flex justify-center mb-10 md:mb-12">
-          <img
-            src={salleReunion3}
-            alt="Salle de réunion – Patrimoine Indivis"
-            className="w-full max-w-md aspect-[16/9] object-cover rounded-2xl shadow-soft"
-            loading="lazy"
-          />
-        </div>
+        {/* Header - 2 columns layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-12 md:mb-14">
+          {/* Left: Text */}
+          <div className="text-center lg:text-left">
+            <span className="text-accent text-xs font-semibold tracking-[0.2em] uppercase mb-3 block">
+              Cas récents
+            </span>
+            <h2 className="font-serif text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground mb-4">
+              Quelques exemples de dossiers
+            </h2>
+            <p className="text-muted-foreground text-sm md:text-base max-w-lg mx-auto lg:mx-0">
+              Exemples anonymisés. Chaque situation est unique.
+            </p>
+          </div>
 
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-14">
-          <span className="text-accent text-xs font-semibold tracking-[0.2em] uppercase mb-3 block">
-            Cas récents
-          </span>
-          <h2 className="font-serif text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground mb-4">
-            Quelques exemples de dossiers
-          </h2>
-          <p className="text-muted-foreground text-sm md:text-base">
-            Exemples anonymisés. Chaque situation est unique.
-          </p>
+          {/* Right: Image */}
+          <div className="order-first lg:order-last">
+            <img
+              src={salleReunion}
+              alt="Salle de réunion – Patrimoine Indivis"
+              className="w-full h-[280px] md:h-[340px] lg:h-[360px] object-cover rounded-2xl shadow-soft"
+              loading="lazy"
+            />
+          </div>
         </div>
-
         {/* Cases Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
           {recentCases.map((caseItem) => (
