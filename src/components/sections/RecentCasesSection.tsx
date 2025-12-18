@@ -1,54 +1,80 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check, X } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogClose,
+} from "@/components/ui/dialog";
 import salleReunion from "@/assets/salle-reunion.png";
 
-const recentCases = [
+interface CaseData {
+  id: string;
+  name: string;
+  quotepart: string;
+  location: string;
+  result: string;
+  fullText: string;
+}
+
+const recentCases: CaseData[] = [
   {
     id: "marilyne-t",
     name: "Marilyne T.",
     quotepart: "50%",
-    location: "Paris (75)",
+    location: "Île-de-France",
     result: "Clôture en 4 semaines",
+    fullText: "Après dix-sept ans de procédure, Marilyne a pu sortir de son indivision avec sa sœur. Patrimoine Indivis a acheté ses parts indivises et l'a accompagnée dans son nouveau projet pour acquérir la maison de ses rêves.",
   },
   {
     id: "helene-k",
     name: "Hélène K.",
     quotepart: "50%",
     location: "Paris (75)",
-    result: "Offre acceptée en 3 semaines",
+    result: "Offre acceptée en 3 mois",
+    fullText: "En indivision sur un bel appartement parisien avec sa belle-mère à 50% depuis le décès de son père, elle payait toutes les charges de la copropriété et les travaux (les indivisaires étant solidaires devant la copropriété). Elle souhaitait sortir de l'indivision pour récupérer son actif et aider ses enfants dans leurs études. Mais sa belle-mère refusait de vendre l'appartement. Elle a contacté Patrimoine Indivis et a vendu ses parts en l'espace de trois mois.",
   },
   {
     id: "bertrand-d",
     name: "Bertrand D.",
     quotepart: "67%",
-    location: "Paris (75)",
-    result: "Médiation réussie",
+    location: "Normandie / PACA / Paris",
+    result: "Négociation en cours",
+    fullText: "À la suite d'une succession, Bertrand s'est retrouvé en indivision avec des cousins plutôt pas sympathiques. Une propriété en Normandie, un appartement à Saint-Raphaël et deux petits appartements loués à Paris. Sous pression de ses cousins et ne pouvant pas utiliser les biens, il a décidé de vendre ses parts indivises. Patrimoine Indivis a acheté les parts de Bertrand et nous sommes actuellement en négociation avec nos coindivisaires (les cousins).",
   },
   {
-    id: "laure-m",
-    name: "Laure M.",
-    quotepart: "25%",
+    id: "laurence-pierre-m",
+    name: "Laurence et Pierre M.",
+    quotepart: "20% chacun",
     location: "Lyon (69)",
-    result: "Clôture en 5 semaines",
+    result: "Rachat des parts",
+    fullText: "Issus d'une fratrie de cinq, ils étaient propriétaires de 20% chacun d'un immeuble à Lyon. Toutes les décisions étaient prises par les autres coindivisaires et ils ne percevaient que très peu de loyers. Ils ont tenté à l'amiable de vendre leurs parts à leurs frères et sœurs, mais impossible de trouver une solution amiable. Puis ils ont entamé une procédure en partage qui dure depuis 7 ans, sans sortie en vue. Nous avons travaillé avec Laurence et Pierre pour finalement trouver une solution et racheter leurs parts indivises.",
   },
   {
-    id: "philippe-r",
-    name: "Philippe R.",
-    quotepart: "33%",
-    location: "Bordeaux (33)",
-    result: "Offre acceptée en 2 semaines",
+    id: "jacques-a",
+    name: "Jacques A.",
+    quotepart: "50%",
+    location: "Île-de-France",
+    result: "Médiation puis rachat",
+    fullText: "Jacques est en situation de handicap et il souhaite s'acheter une petite maison en province pour sa retraite. Mais sa sœur souhaite garder la maison familiale en région parisienne pour en profiter pendant les vacances. Patrimoine Indivis a tenté, pour le compte de Jacques, de trouver une médiation mais sans succès. Il a vendu ses parts à Patrimoine Indivis et est sorti de l'indivision.",
   },
   {
-    id: "catherine-b",
-    name: "Catherine B.",
-    quotepart: "75%",
-    location: "Nice (06)",
-    result: "Clôture en 6 semaines",
+    id: "malika-b",
+    name: "Malika B.",
+    quotepart: "30%",
+    location: "Alpes-Maritimes (06)",
+    result: "Rachat + procédure en cours",
+    fullText: "En indivision avec son ex-mari, après une ordonnance de non-conciliation, elle souhaite vendre ses parts. Son avocat nous a contactés pour nous demander d'étudier ce dossier. L'appartement, dans les Alpes-Maritimes, était occupé par l'ex-mari qui ne souhaitait pas vendre. Patrimoine Indivis a acheté les parts de Malika, qui a pu reprendre sa liberté. Nous sommes actuellement en procédure avec le mari.",
   },
 ];
 
 export function RecentCasesSection() {
+  const [selectedCase, setSelectedCase] = useState<CaseData | null>(null);
+
   return (
     <section className="py-16 md:py-20 lg:py-24 bg-secondary/30" id="cas-recents">
       <div className="container-wide">
@@ -77,13 +103,14 @@ export function RecentCasesSection() {
             />
           </div>
         </div>
+
         {/* Cases Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
           {recentCases.map((caseItem) => (
-            <Link
+            <button
               key={caseItem.id}
-              to="/cas-recents"
-              className="group bg-card rounded-2xl p-6 border border-border/20 shadow-sm hover:shadow-md hover:border-accent/30 transition-all duration-300"
+              onClick={() => setSelectedCase(caseItem)}
+              className="group bg-card rounded-2xl p-6 border border-border/20 shadow-sm hover:shadow-md hover:border-accent/30 transition-all duration-300 text-left cursor-pointer"
             >
               <h3 className="font-serif text-lg font-semibold text-foreground mb-2 group-hover:text-accent transition-colors">
                 {caseItem.name}
@@ -98,7 +125,7 @@ export function RecentCasesSection() {
                 <Check className="w-4 h-4 text-accent" />
                 <span className="text-sm">{caseItem.result}</span>
               </div>
-            </Link>
+            </button>
           ))}
         </div>
 
@@ -112,6 +139,35 @@ export function RecentCasesSection() {
           </Button>
         </div>
       </div>
+
+      {/* Modal */}
+      <Dialog open={!!selectedCase} onOpenChange={(open) => !open && setSelectedCase(null)}>
+        <DialogContent className="max-w-[720px] w-[calc(100%-2rem)] max-h-[85vh] overflow-y-auto bg-background border-border/30 rounded-2xl shadow-xl p-0">
+          <DialogHeader className="p-6 pb-4 border-b border-border/20">
+            <div className="flex items-start justify-between">
+              <div>
+                <DialogTitle className="font-serif text-xl md:text-2xl font-semibold text-foreground">
+                  {selectedCase?.name}
+                </DialogTitle>
+                <DialogDescription className="text-accent font-semibold mt-2 text-base">
+                  Quote-part : {selectedCase?.quotepart}
+                </DialogDescription>
+              </div>
+              <DialogClose 
+                className="rounded-full p-2 hover:bg-muted/50 transition-colors -mt-1 -mr-1"
+                aria-label="Fermer"
+              >
+                <X className="w-5 h-5 text-muted-foreground" />
+              </DialogClose>
+            </div>
+          </DialogHeader>
+          <div className="p-6 pt-5">
+            <p className="text-foreground/90 leading-relaxed text-base">
+              {selectedCase?.fullText}
+            </p>
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }
