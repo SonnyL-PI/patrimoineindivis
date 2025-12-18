@@ -1,7 +1,14 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Check, ArrowRight, Quote, Star } from "lucide-react";
 import { PremiumPlate } from "@/components/ui/PremiumPlate";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import heroBuilding from "@/assets/hero-building.jpg";
 
 const benefits = [
@@ -56,7 +63,12 @@ const googleReviews = [
   },
 ];
 
+// Threshold for showing "Lire la suite" (~4 lines of text)
+const TRUNCATE_THRESHOLD = 140;
+
 export function PropositionSection() {
+  const [selectedReview, setSelectedReview] = useState<typeof googleReviews[0] | null>(null);
+
   return (
     <>
       {/* Main Proposition - Photo background + Premium Plate */}
@@ -126,45 +138,59 @@ export function PropositionSection() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
-            {googleReviews.map((review, index) => (
-              <div 
-                key={index}
-                className="card-premium relative group"
-              >
-                <Quote className="w-6 h-6 text-accent/20 absolute top-5 right-5" />
-                
-                {/* Header with initials and Google tag */}
-                <div className="flex items-center justify-between mb-3">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-accent/15 flex items-center justify-center">
-                      <span className="text-accent font-semibold text-sm">{review.initials}</span>
+            {googleReviews.map((review, index) => {
+              const isTruncated = review.quote.length > TRUNCATE_THRESHOLD;
+              
+              return (
+                <div 
+                  key={index}
+                  className="card-premium relative group"
+                >
+                  <Quote className="w-6 h-6 text-accent/20 absolute top-5 right-5" />
+                  
+                  {/* Header with initials and Google tag */}
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-accent/15 flex items-center justify-center">
+                        <span className="text-accent font-semibold text-sm">{review.initials}</span>
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium text-foreground">{review.author}</p>
+                        <p className="text-xs text-muted-foreground">Visité en {review.visited}</p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="text-sm font-medium text-foreground">{review.author}</p>
-                      <p className="text-xs text-muted-foreground">Visité en {review.visited}</p>
-                    </div>
+                    <span className="text-[10px] text-accent/80 font-semibold uppercase tracking-wider bg-accent/10 px-2 py-1 rounded">
+                      Avis Google
+                    </span>
                   </div>
-                  <span className="text-[10px] text-accent/80 font-semibold uppercase tracking-wider bg-accent/10 px-2 py-1 rounded">
-                    Avis Google
-                  </span>
-                </div>
 
-                {/* Stars */}
-                <div className="flex gap-0.5 mb-3">
-                  {[...Array(5)].map((_, i) => (
-                    <Star 
-                      key={i} 
-                      className={`w-4 h-4 ${i < review.rating ? 'text-accent fill-accent' : 'text-muted-foreground/30'}`} 
-                    />
-                  ))}
-                </div>
+                  {/* Stars */}
+                  <div className="flex gap-0.5 mb-3">
+                    {[...Array(5)].map((_, i) => (
+                      <Star 
+                        key={i} 
+                        className={`w-4 h-4 ${i < review.rating ? 'text-accent fill-accent' : 'text-muted-foreground/30'}`} 
+                      />
+                    ))}
+                  </div>
 
-                {/* Quote - clamped to 4 lines */}
-                <p className="text-muted-foreground italic leading-relaxed text-sm line-clamp-4">
-                  "{review.quote}"
-                </p>
-              </div>
-            ))}
+                  {/* Quote - clamped to 4 lines */}
+                  <p className="text-muted-foreground italic leading-relaxed text-sm line-clamp-4">
+                    "{review.quote}"
+                  </p>
+
+                  {/* "Lire la suite" link - only if truncated */}
+                  {isTruncated && (
+                    <button
+                      onClick={() => setSelectedReview(review)}
+                      className="mt-3 text-xs text-accent hover:text-accent/80 transition-colors font-medium cursor-pointer"
+                    >
+                      Lire la suite →
+                    </button>
+                  )}
+                </div>
+              );
+            })}
           </div>
 
           {/* Link to all reviews */}
@@ -181,6 +207,47 @@ export function PropositionSection() {
           </div>
         </div>
       </section>
+
+      {/* Review Modal */}
+      <Dialog open={!!selectedReview} onOpenChange={(open) => !open && setSelectedReview(null)}>
+        <DialogContent className="max-w-lg w-[calc(100%-2rem)] bg-background border-border/30 rounded-2xl shadow-xl p-0">
+          <DialogHeader className="p-6 pb-4 border-b border-border/20">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-full bg-accent/15 flex items-center justify-center">
+                  <span className="text-accent font-semibold">{selectedReview?.initials}</span>
+                </div>
+                <div>
+                  <DialogTitle className="font-serif text-lg font-semibold text-foreground">
+                    {selectedReview?.author}
+                  </DialogTitle>
+                  <p className="text-sm text-muted-foreground">Visité en {selectedReview?.visited}</p>
+                </div>
+              </div>
+              <span className="text-[10px] text-accent/80 font-semibold uppercase tracking-wider bg-accent/10 px-2 py-1 rounded">
+                Avis Google
+              </span>
+            </div>
+            
+            {/* Stars */}
+            <div className="flex gap-0.5 mt-3">
+              {[...Array(5)].map((_, i) => (
+                <Star 
+                  key={i} 
+                  className={`w-4 h-4 ${selectedReview && i < selectedReview.rating ? 'text-accent fill-accent' : 'text-muted-foreground/30'}`} 
+                />
+              ))}
+              <span className="ml-2 text-sm text-muted-foreground">{selectedReview?.rating}/5</span>
+            </div>
+          </DialogHeader>
+          
+          <div className="p-6 pt-5">
+            <p className="text-foreground/90 italic leading-relaxed">
+              "{selectedReview?.quote}"
+            </p>
+          </div>
+        </DialogContent>
+      </Dialog>
     </>
   );
 }
