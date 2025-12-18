@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Check, ArrowRight, Quote } from "lucide-react";
+import { Check, ArrowRight, Quote, Star } from "lucide-react";
 import { PremiumPlate } from "@/components/ui/PremiumPlate";
 import heroBuilding from "@/assets/hero-building.jpg";
 
@@ -11,21 +11,48 @@ const benefits = [
   "Étude réalisée dans la plus stricte confidentialité",
 ];
 
-const testimonials = [
+const googleReviews = [
   {
-    initials: "M.D.",
-    situation: "Succession",
-    quote: "Après 3 ans de blocage avec mes frères et sœurs, Patrimoine Indivis m'a permis de récupérer ma part en moins de 2 mois.",
+    initials: "C.B.",
+    author: "Christine BASSI",
+    rating: 5,
+    visited: "mai",
+    quote: "Une aide précieuse et un accompagnement de qualité qui m'ont permis de sortir d'une situation difficile. Mention spéciale à Franck SAVEAU pour sa disponibilité et sa bienveillance.",
   },
   {
-    initials: "S.L.",
-    situation: "Divorce",
-    quote: "Professionnalisme et discrétion remarquables. L'équipe a su gérer une situation très tendue avec mon ex-conjoint.",
+    initials: "B.L.",
+    author: "Brigitte le crane",
+    rating: 5,
+    visited: "mars",
+    quote: "J'ai vraiment apprécié l'écoute, la compétence, la disponibilité et la bienveillance de Philippe Rogel et son équipe. Dans une situation compliquée, la prise en charge est complète et sécurisante.",
   },
   {
-    initials: "P.R.",
-    situation: "Conflit familial",
-    quote: "Je recommande vivement. Ils ont su trouver une solution alors que je pensais être dans une impasse totale.",
+    initials: "J.P.",
+    author: "Jean-Pierre Augé",
+    rating: 5,
+    visited: "juin 2024",
+    quote: "Toute ma reconnaissance à monsieur Saveau qui, avec délicatesse et efficacité, a permis à mon épouse de sortir d'une indivision problématique.",
+  },
+  {
+    initials: "M.B.",
+    author: "MM BIZIEN",
+    rating: 5,
+    visited: "juin 2022",
+    quote: "Je pensais la situation bloquée et finalement j'ai pu vendre mes parts d'indivision. Une équipe sérieuse et humaine pour un win-win.",
+  },
+  {
+    initials: "P.C.",
+    author: "patricia cauvin",
+    rating: 4,
+    visited: "février 2023",
+    quote: "Un grand merci à Patrimoine Indivis pour m'avoir permis de sortir d'une situation familiale trop conflictuelle et de vendre ma nue-propriété.",
+  },
+  {
+    initials: "C.G.",
+    author: "Charles Gonzal",
+    rating: 5,
+    visited: "avril 2022",
+    quote: "Très bon service, belle écoute et très professionnel. Équipe dynamique et orientée solution. Je recommande vivement !",
   },
 ];
 
@@ -88,7 +115,7 @@ export function PropositionSection() {
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* Google Reviews */}
       <section className="py-12 md:py-16 bg-background">
         <div className="container-wide">
           <div className="text-center mb-10">
@@ -98,26 +125,59 @@ export function PropositionSection() {
             <div className="w-12 h-0.5 bg-accent mx-auto" />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-5">
-            {testimonials.map((testimonial, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
+            {googleReviews.map((review, index) => (
               <div 
                 key={index}
                 className="card-premium relative group"
               >
                 <Quote className="w-6 h-6 text-accent/20 absolute top-5 right-5" />
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-full bg-accent/15 flex items-center justify-center">
-                    <span className="text-accent font-semibold text-sm">{testimonial.initials}</span>
+                
+                {/* Header with initials and Google tag */}
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-accent/15 flex items-center justify-center">
+                      <span className="text-accent font-semibold text-sm">{review.initials}</span>
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium text-foreground">{review.author}</p>
+                      <p className="text-xs text-muted-foreground">Visité en {review.visited}</p>
+                    </div>
                   </div>
-                  <span className="text-xs text-accent font-medium uppercase tracking-wide">
-                    {testimonial.situation}
+                  <span className="text-[10px] text-accent/80 font-semibold uppercase tracking-wider bg-accent/10 px-2 py-1 rounded">
+                    Avis Google
                   </span>
                 </div>
-                <p className="text-muted-foreground italic leading-relaxed text-sm">
-                  "{testimonial.quote}"
+
+                {/* Stars */}
+                <div className="flex gap-0.5 mb-3">
+                  {[...Array(5)].map((_, i) => (
+                    <Star 
+                      key={i} 
+                      className={`w-4 h-4 ${i < review.rating ? 'text-accent fill-accent' : 'text-muted-foreground/30'}`} 
+                    />
+                  ))}
+                </div>
+
+                {/* Quote - clamped to 4 lines */}
+                <p className="text-muted-foreground italic leading-relaxed text-sm line-clamp-4">
+                  "{review.quote}"
                 </p>
               </div>
             ))}
+          </div>
+
+          {/* Link to all reviews */}
+          <div className="text-center mt-8">
+            <a 
+              href="https://www.google.com/search?q=patrimoine+indivis+avis" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm text-accent hover:text-accent/80 transition-colors font-medium"
+            >
+              Lire tous les avis sur Google
+              <ArrowRight className="w-4 h-4" />
+            </a>
           </div>
         </div>
       </section>
