@@ -64,7 +64,7 @@ const googleReviews = [
 ];
 
 // Threshold for showing "Lire la suite" (~4 lines of text)
-const TRUNCATE_THRESHOLD = 140;
+const TRUNCATE_THRESHOLD = 175;
 
 export function PropositionSection() {
   const [selectedReview, setSelectedReview] = useState<typeof googleReviews[0] | null>(null);
