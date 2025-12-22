@@ -65,7 +65,7 @@ const values = [
   },
   {
     icon: Users,
-    title: "L'accompagnement",
+    title: "Accompagnement",
     description: "Des centaines de dossiers traités nous permettent d'anticiper les difficultés et de proposer des solutions adaptées à chaque situation.",
   },
   {
