@@ -150,7 +150,7 @@ const NotreApproche = () => {
               <h2 className="heading-section text-foreground mb-6">
                 Nos valeurs
               </h2>
-              <p className="text-body">
+              <p className="text-body text-center mx-auto">
                 Ce qui nous guide au quotidien dans l'accompagnement de nos clients.
               </p>
             </div>
