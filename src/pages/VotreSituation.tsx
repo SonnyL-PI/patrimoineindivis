@@ -15,7 +15,7 @@ const situations = [{
   image: successionImg,
   imageAlt: "Dossier d'indivision",
   title: "Succession",
-  description: "Vous avez hérité d'un bien en indivision avec d'autres héritiers et souhaitez récupérer votre part sans attendre un accord unanime.",
+  description: "Vous avez hérité d'un bien en indivision avec d'autres héritiers et souhaitez sortir de l'indivision.",
   problems: ["Désaccord entre héritiers sur le devenir du bien", "Délais de succession qui s'allongent indéfiniment", "Besoin de récupérer votre part d'héritage", "Frais de succession à payer"],
   solution: "Nous rachetons votre part dans le respect du cadre légal (article 815), vous permettant de sortir de l'indivision rapidement tout en préservant les relations familiales."
 }, {
