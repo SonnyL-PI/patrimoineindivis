@@ -31,9 +31,6 @@ export function Header() {
 
   return (
     <>
-      {/* Spacer to reserve space for fixed header */}
-      <div className="h-[72px] lg:h-[80px]" />
-      
       {/* Main Header - Fixed */}
       <header
         className={`fixed top-0 left-0 right-0 z-[9999] bg-navy transition-all duration-300 ${
