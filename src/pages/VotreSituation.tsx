@@ -25,7 +25,7 @@ const situations = [{
   imageAlt: "Clés et dossier",
   title: "Divorce / Séparation",
   description: "Votre divorce a été prononcé. Une ordonnance de non-conciliation a également été rendue.",
-  problems: ["Procédure de divorce longue et complexe", "Une ordonnance de non conciliation a été prononcée", "Le conjoint occupe le bien et vous payez les charges", "Besoin de liquidité pour repartir"],
+  problems: ["Procédure de divorce longue et complexe", "Une ordonnance de non conciliation a été prononcée", "Le conjoint occupe le bien et vous payez les charges", "Votre conjoint refuse de vendre et le bien se dégrade"],
   solution: "Notre intervention permet de débloquer la situation et de transformer rapidement votre part en capital, sans dépendre de l'accord de votre ex-conjoint."
 }, {
   id: "conflit",
