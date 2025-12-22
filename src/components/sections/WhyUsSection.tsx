@@ -5,7 +5,7 @@ const pillars = [
     icon: Award,
     title: "1ère société française",
     subtitle: "100% dédiée au rachat",
-    description: "Première société française exclusivement spécialisée dans le rachat de parts indivises. Notre unique métier, notre seule expertise.",
+    description: "Première société française exclusivement spécialisée dans le rachat de parts indivises. Notre unique métier, une vraie expertise.",
   },
   {
     icon: Scale,
