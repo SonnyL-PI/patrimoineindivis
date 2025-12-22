@@ -32,7 +32,7 @@ const situations = [
   {
     icon: Home,
     title: "Bien occupé / Blocage",
-    description: "Un indivisaire occupe le bien et refuse la vente ou le partage.",
+    description: "Un indivisaire occupe le bien et ne paye aucune indemnité d'occupation, alors que vous participez aux charges.",
     link: "/votre-situation#blocage",
   },
   {
