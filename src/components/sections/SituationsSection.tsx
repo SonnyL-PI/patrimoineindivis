@@ -20,7 +20,7 @@ const situations = [
   {
     icon: Heart,
     title: "Divorce / Séparation",
-    description: "Vous êtes en instance de divorce et devez partager un bien immobilier.",
+    description: "Vous êtes divorcé en indivision post communautaire même si la conciliation n'a pas été prononcée.",
     link: "/votre-situation#divorce",
   },
   {
