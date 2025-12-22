@@ -129,7 +129,7 @@ const VotreSituation = () => {
         <section className="section-padding bg-primary text-primary-foreground">
           <div className="container-narrow text-center">
             <h2 className="heading-section text-primary-foreground mb-6">
-              Vous ne trouvez pas votre situation ?
+              Vous êtes dans une situation d’indivision conflictuelle ?
             </h2>
             <p className="text-primary-foreground/70 text-lg mb-8">
               Chaque cas est unique. Contactez-nous pour en discuter, nous trouverons ensemble
