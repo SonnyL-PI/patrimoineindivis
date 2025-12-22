@@ -52,9 +52,7 @@ const steps = [
     description: "Un acte authentique signé devant notaire dans les 3 mois après la fin de du droit de préemption des coindivisaires",
     details: [
       "Sans condition de financement",
-      "Suivi personnalisé",
       "Confidentialité garantie",
-      "Clôture administrative",
     ],
   },
 ];
