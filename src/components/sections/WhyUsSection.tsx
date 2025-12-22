@@ -17,7 +17,7 @@ const pillars = [
     icon: Heart,
     title: "Efficacité et empathie",
     subtitle: "Médiation et discrétion",
-    description: "Nous excellons sur les indivisions complexes grâce à notre approche humaine, notre capacité de médiation et notre totale confidentialité.",
+    description: "Notre réussite est aussi due à notre approche humaine, notre capacité de médiation et notre totale confidentialité.",
   },
 ];
 
