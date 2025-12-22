@@ -47,7 +47,7 @@ const steps = [
   {
     number: "04",
     icon: Banknote,
-    title: "Versement & clôture",
+    title: "Acte authentique",
     duration: "Dès la signature",
     description: "Le versement est effectué dès la signature de l'acte authentique. Nous assurons un suivi jusqu'à la clôture complète du dossier.",
     details: [
