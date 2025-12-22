@@ -60,7 +60,7 @@ const situations = [{
   image: fiscalImg,
   imageAlt: "Salle de réunion",
   title: "IFI / Optimisation fiscale",
-  description: "Vous souhaitez sortir d'une indivision pour des raisons patrimoniales ou fiscales, notamment dans le cadre de l'IFI.",
+  description: "Vous souhaitez sortir d'une indivision pour des raisons patrimoniales ou fiscales, notamment dans le cadre de l'IFI ou de l'Exit Taxe.",
   problems: ["Patrimoine immobilier soumis à l'IFI", "Part indivise difficile à valoriser fiscalement", "Besoin d'optimiser votre patrimoine global", "Restructuration patrimoniale complexe"],
   solution: "Nous vous permettons de céder votre part rapidement et de réorganiser votre patrimoine de manière optimale sur le plan fiscal."
 }];
