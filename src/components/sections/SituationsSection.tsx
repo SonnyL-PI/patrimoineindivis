@@ -14,7 +14,7 @@ const situations = [
   {
     icon: Users,
     title: "Succession",
-    description: "Vous avez hérité d'un bien en indivision et souhaitez récupérer votre part.",
+    description: "Vous avez hérité d'un bien en indivision et souhaitez sortir de l'indivision.",
     link: "/votre-situation#succession",
   },
   {
