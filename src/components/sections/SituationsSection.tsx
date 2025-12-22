@@ -26,7 +26,7 @@ const situations = [
   {
     icon: MessageSquareWarning,
     title: "Conflit entre indivisaires",
-    description: "Des désaccords bloquent toute décision concernant le bien indivis.",
+    description: "Un des indivisaires refuse toutes les offres d'acheteurs.",
     link: "/votre-situation#conflit",
   },
   {
