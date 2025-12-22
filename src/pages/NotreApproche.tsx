@@ -65,7 +65,7 @@ const values = [
   },
   {
     icon: Users,
-    title: "Expertise reconnue",
+    title: "L'accompagnement",
     description: "Des centaines de dossiers traités nous permettent d'anticiper les difficultés et de proposer des solutions adaptées à chaque situation.",
   },
   {
