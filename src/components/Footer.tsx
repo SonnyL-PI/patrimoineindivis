@@ -95,7 +95,7 @@ export function Footer() {
         {/* Bottom */}
         <div className="mt-12 pt-8 border-t border-primary-foreground/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-primary-foreground/50">
-            © {new Date().getFullYear()} Patrimoine Indivis. Tous droits réservés.
+            © 2014-{new Date().getFullYear()} Patrimoine Indivis. Tous droits réservés.
           </p>
           <p className="text-xs text-primary-foreground/40 italic">
             "Nul ne peut être contraint à demeurer dans l'indivision" - Article 815 du Code civil
