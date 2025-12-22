@@ -34,7 +34,7 @@ const steps = [
   {
     number: "03",
     icon: Scale,
-    title: "Procédure encadrée",
+    title: "Procédure d'exercice du droit de préemption",
     duration: "Variable selon complexité",
     description: "La cession est réalisée dans le respect du formalisme de l'article 815 du Code civil. Nos partenaires notaires et avocats sont spécialisés dans ces opérations.",
     details: [
