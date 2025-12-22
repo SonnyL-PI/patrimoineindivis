@@ -4,7 +4,7 @@ const advantages = [
   {
     icon: Award,
     title: "Une véritable expertise",
-    description: "Notre expertise et notre savoir-faire nous permettent de prendre des décisions rapides.",
+    description: "Notre expertise et notre savoir-faire nous permettent de résoudre toutes les difficultés juridiques de l'indivision.",
   },
   {
     icon: Zap,
