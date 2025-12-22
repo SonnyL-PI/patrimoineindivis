@@ -72,7 +72,7 @@ export function PropositionSection() {
   return (
     <>
       {/* Main Proposition - Photo background + Premium Plate */}
-      <section className="relative min-h-[60vh] flex items-center" id="proposition">
+      <section className="relative min-h-0 md:min-h-[60vh] flex items-center" id="proposition">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img
