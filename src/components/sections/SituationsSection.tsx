@@ -44,7 +44,7 @@ const situations = [
   {
     icon: FileText,
     title: "IFI / Optimisation fiscale",
-    description: "Vous souhaitez sortir d'une indivision pour des raisons patrimoniales.",
+    description: "Vous êtes assujetti à l'IFI et vous souhaitez sortir d'une indivision afin de payer moins d'impôt sur un bien non rentable.",
     link: "/votre-situation#fiscal",
   },
 ];
