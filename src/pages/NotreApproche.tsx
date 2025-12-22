@@ -51,7 +51,7 @@ const steps = [
     duration: "Devant notaire",
     description: "Un acte authentique signé devant notaire dans les 3 mois après la fin de du droit de préemption des coindivisaires",
     details: [
-      "Versement immédiat à la signature",
+      "Sans conditions de financement",
       "Suivi personnalisé",
       "Confidentialité garantie",
       "Clôture administrative",
