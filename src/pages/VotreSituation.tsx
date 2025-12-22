@@ -43,7 +43,7 @@ const situations = [{
   imageAlt: "Plan cadastral",
   title: "Bien occupé / Blocage",
   description: "Un ou plusieurs indivisaires refusent de vendre malgré la volonté de la majorité. Le bien reste bloqué.",
-  problems: ["Aucune indemnité d'occupation payé par l'occupant", "Procédures judiciaires longues et coûteuses", "Bien qui se dégrade faute d'entretien", "Charges et impôts fonciers importants alors que vous n'en profitez pas"],
+  problems: ["Aucune indemnité d'occupation payé par l'occupant", "Bien qui se dégrade faute d'entretien", "Charges et impôts fonciers importants alors que vous n'en profitez pas"],
   solution: "Grâce à notre expertise de l'article 815 et notre réseau de partenaires juridiques, nous pouvons vous proposer une sortie encadrée et sécurisée."
 }, {
   id: "liquidite",
