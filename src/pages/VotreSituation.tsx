@@ -3,110 +3,69 @@ import { Footer } from "@/components/Footer";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Users, Heart, AlertTriangle, Lock, Wallet, FileText, CheckCircle2 } from "lucide-react";
-
 import successionImg from "@/assets/situation-succession-new.jpg";
 import divorceImg from "@/assets/situation-divorce-new.jpg";
 import conflitImg from "@/assets/situation-conflit-new.jpg";
 import blocageImg from "@/assets/situation-blocage-new.jpg";
 import liquiditeImg from "@/assets/situation-liquidite-new.jpg";
 import fiscalImg from "@/assets/situation-fiscal-new.jpg";
-
-const situations = [
-  {
-    id: "succession",
-    icon: Users,
-    image: successionImg,
-    imageAlt: "Dossier d'indivision",
-    title: "Succession",
-    description: "Vous avez hérité d'un bien en indivision avec d'autres héritiers et souhaitez récupérer votre part sans attendre un accord unanime.",
-    problems: [
-      "Désaccord entre héritiers sur le devenir du bien",
-      "Délais de succession qui s'allongent indéfiniment",
-      "Besoin de récupérer votre part d'héritage",
-      "Frais de succession à payer",
-    ],
-    solution: "Nous rachetons votre part dans le respect du cadre légal (article 815), vous permettant de sortir de l'indivision rapidement tout en préservant les relations familiales.",
-  },
-  {
-    id: "divorce",
-    icon: Heart,
-    image: divorceImg,
-    imageAlt: "Clés et dossier",
-    title: "Divorce / Séparation",
-    description: "Votre ex-conjoint détient une partie du bien commun et vous souhaitez tourner définitivement la page de cette période.",
-    problems: [
-      "Procédure de divorce longue et complexe",
-      "Désaccord sur la valeur du bien",
-      "Impossibilité de racheter la part de l'ex-conjoint",
-      "Besoin de liquidité pour repartir",
-    ],
-    solution: "Notre intervention permet de débloquer la situation et de transformer rapidement votre part en capital, sans dépendre de l'accord de votre ex-conjoint.",
-  },
-  {
-    id: "conflit",
-    icon: AlertTriangle,
-    image: conflitImg,
-    imageAlt: "Classeur et pièces",
-    title: "Conflit entre indivisaires",
-    description: "Les co-indivisaires ne s'entendent pas sur l'avenir du bien : vente, location, travaux... les tensions s'accumulent.",
-    problems: [
-      "Conflits récurrents entre indivisaires",
-      "Décisions bloquées faute de majorité",
-      "Dégradation des relations familiales",
-      "Situation qui s'enlise depuis des années",
-    ],
-    solution: "Notre approche inclut, si nécessaire, une médiation pour préserver les relations tout en vous permettant de sortir de l'impasse.",
-  },
-  {
-    id: "blocage",
-    icon: Lock,
-    image: blocageImg,
-    imageAlt: "Plan cadastral",
-    title: "Bien occupé / Blocage",
-    description: "Un ou plusieurs indivisaires refusent de vendre malgré la volonté de la majorité. Le bien reste bloqué.",
-    problems: [
-      "Minorité de blocage empêchant toute décision",
-      "Procédures judiciaires longues et coûteuses",
-      "Bien qui se dégrade faute d'entretien",
-      "Frustration et sentiment d'impuissance",
-    ],
-    solution: "Grâce à notre expertise de l'article 815 et notre réseau de partenaires juridiques, nous pouvons vous proposer une sortie encadrée et sécurisée.",
-  },
-  {
-    id: "liquidite",
-    icon: Wallet,
-    image: liquiditeImg,
-    imageAlt: "Archives de dossiers",
-    title: "Besoin de liquidité",
-    description: "Vous souhaitez simplement transformer votre part en capital pour financer un projet ou faire face à des besoins.",
-    problems: [
-      "Capital immobilisé dans le bien indivis",
-      "Projet professionnel ou personnel à financer",
-      "Autres indivisaires qui ne souhaitent pas vendre",
-      "Besoin d'argent à court terme",
-    ],
-    solution: "Nous vous faisons une offre ferme sous 48h et procédons au versement dès la signature. Une solution rapide et discrète.",
-  },
-  {
-    id: "fiscal",
-    icon: FileText,
-    image: fiscalImg,
-    imageAlt: "Salle de réunion",
-    title: "IFI / Optimisation fiscale",
-    description: "Vous souhaitez sortir d'une indivision pour des raisons patrimoniales ou fiscales, notamment dans le cadre de l'IFI.",
-    problems: [
-      "Patrimoine immobilier soumis à l'IFI",
-      "Part indivise difficile à valoriser fiscalement",
-      "Besoin d'optimiser votre patrimoine global",
-      "Restructuration patrimoniale complexe",
-    ],
-    solution: "Nous vous permettons de céder votre part rapidement et de réorganiser votre patrimoine de manière optimale sur le plan fiscal.",
-  },
-];
-
+const situations = [{
+  id: "succession",
+  icon: Users,
+  image: successionImg,
+  imageAlt: "Dossier d'indivision",
+  title: "Succession",
+  description: "Vous avez hérité d'un bien en indivision avec d'autres héritiers et souhaitez récupérer votre part sans attendre un accord unanime.",
+  problems: ["Désaccord entre héritiers sur le devenir du bien", "Délais de succession qui s'allongent indéfiniment", "Besoin de récupérer votre part d'héritage", "Frais de succession à payer"],
+  solution: "Nous rachetons votre part dans le respect du cadre légal (article 815), vous permettant de sortir de l'indivision rapidement tout en préservant les relations familiales."
+}, {
+  id: "divorce",
+  icon: Heart,
+  image: divorceImg,
+  imageAlt: "Clés et dossier",
+  title: "Divorce / Séparation",
+  description: "Votre ex-conjoint détient une partie du bien commun et vous souhaitez tourner définitivement la page de cette période.",
+  problems: ["Procédure de divorce longue et complexe", "Désaccord sur la valeur du bien", "Impossibilité de racheter la part de l'ex-conjoint", "Besoin de liquidité pour repartir"],
+  solution: "Notre intervention permet de débloquer la situation et de transformer rapidement votre part en capital, sans dépendre de l'accord de votre ex-conjoint."
+}, {
+  id: "conflit",
+  icon: AlertTriangle,
+  image: conflitImg,
+  imageAlt: "Classeur et pièces",
+  title: "Conflit entre indivisaires",
+  description: "Les co-indivisaires ne s'entendent pas sur l'avenir du bien : vente, location, travaux... les tensions s'accumulent.",
+  problems: ["Conflits récurrents entre indivisaires", "Décisions bloquées faute de majorité", "Dégradation des relations familiales", "Situation qui s'enlise depuis des années"],
+  solution: "Notre approche inclut, si nécessaire, une médiation pour préserver les relations tout en vous permettant de sortir de l'impasse."
+}, {
+  id: "blocage",
+  icon: Lock,
+  image: blocageImg,
+  imageAlt: "Plan cadastral",
+  title: "Bien occupé / Blocage",
+  description: "Un ou plusieurs indivisaires refusent de vendre malgré la volonté de la majorité. Le bien reste bloqué.",
+  problems: ["Minorité de blocage empêchant toute décision", "Procédures judiciaires longues et coûteuses", "Bien qui se dégrade faute d'entretien", "Frustration et sentiment d'impuissance"],
+  solution: "Grâce à notre expertise de l'article 815 et notre réseau de partenaires juridiques, nous pouvons vous proposer une sortie encadrée et sécurisée."
+}, {
+  id: "liquidite",
+  icon: Wallet,
+  image: liquiditeImg,
+  imageAlt: "Archives de dossiers",
+  title: "Besoin de liquidité",
+  description: "Vous souhaitez simplement transformer votre part en capital pour financer un projet ou faire face à des besoins.",
+  problems: ["Capital immobilisé dans le bien indivis", "Projet professionnel ou personnel à financer", "Autres indivisaires qui ne souhaitent pas vendre", "Besoin d'argent à court terme"],
+  solution: "Nous vous faisons une offre ferme sous 48h et procédons au versement dès la signature. Une solution rapide et discrète."
+}, {
+  id: "fiscal",
+  icon: FileText,
+  image: fiscalImg,
+  imageAlt: "Salle de réunion",
+  title: "IFI / Optimisation fiscale",
+  description: "Vous souhaitez sortir d'une indivision pour des raisons patrimoniales ou fiscales, notamment dans le cadre de l'IFI.",
+  problems: ["Patrimoine immobilier soumis à l'IFI", "Part indivise difficile à valoriser fiscalement", "Besoin d'optimiser votre patrimoine global", "Restructuration patrimoniale complexe"],
+  solution: "Nous vous permettons de céder votre part rapidement et de réorganiser votre patrimoine de manière optimale sur le plan fiscal."
+}];
 const VotreSituation = () => {
-  return (
-    <div className="min-h-screen bg-background">
+  return <div className="min-h-screen bg-background">
       <Header />
       <main>
         {/* Hero */}
@@ -120,8 +79,7 @@ const VotreSituation = () => {
                 Votre <span className="text-accent">situation</span>
               </h1>
               <p className="text-xl text-primary-foreground/80 leading-relaxed">
-                Chaque situation d'indivision est unique. Découvrez comment nous pouvons
-                vous aider selon votre contexte particulier.
+                Chaque situation d'indivision est unique et notre approche s'adapte en fonction de chaque cas rencontré.
               </p>
             </div>
           </div>
@@ -130,14 +88,7 @@ const VotreSituation = () => {
         {/* Situations */}
         <section className="section-padding">
           <div className="container-wide space-y-20">
-            {situations.map((situation, index) => (
-              <div
-                key={situation.id}
-                id={situation.id}
-                className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
-                  index % 2 === 1 ? "lg:flex-row-reverse" : ""
-                }`}
-              >
+            {situations.map((situation, index) => <div key={situation.id} id={situation.id} className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? "lg:flex-row-reverse" : ""}`}>
                 <div className={index % 2 === 1 ? "lg:order-2" : ""}>
                   <div className="w-16 h-16 rounded-2xl bg-accent/10 flex items-center justify-center mb-6">
                     <situation.icon className="w-8 h-8 text-accent" />
@@ -147,12 +98,10 @@ const VotreSituation = () => {
                   
                   <h3 className="font-semibold text-foreground mb-4">Les problèmes courants :</h3>
                   <ul className="space-y-3 mb-8">
-                    {situation.problems.map((problem) => (
-                      <li key={problem} className="flex items-start gap-3 text-muted-foreground">
+                    {situation.problems.map(problem => <li key={problem} className="flex items-start gap-3 text-muted-foreground">
                         <span className="w-1.5 h-1.5 rounded-full bg-destructive mt-2.5 flex-shrink-0" />
                         {problem}
-                      </li>
-                    ))}
+                      </li>)}
                   </ul>
 
                   <h3 className="font-semibold text-foreground mb-4">Notre solution :</h3>
@@ -170,14 +119,9 @@ const VotreSituation = () => {
                 </div>
 
                 <div className={`rounded-3xl overflow-hidden ${index % 2 === 1 ? "lg:order-1" : ""}`}>
-                  <img 
-                    src={situation.image} 
-                    alt={situation.imageAlt}
-                    className="w-full h-full object-cover aspect-[4/3]"
-                  />
+                  <img src={situation.image} alt={situation.imageAlt} className="w-full h-full object-cover aspect-[4/3]" />
                 </div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </section>
 
@@ -201,8 +145,6 @@ const VotreSituation = () => {
         </section>
       </main>
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default VotreSituation;
