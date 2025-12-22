@@ -132,8 +132,7 @@ const VotreSituation = () => {
               Vous êtes dans une situation d’indivision conflictuelle ?
             </h2>
             <p className="text-primary-foreground/70 text-lg mb-8">
-              Chaque cas est unique. Contactez-nous pour en discuter, nous trouverons ensemble
-              la meilleure solution.
+              Contactez-nous pour en parler, nous trouverons ensemble la meilleure solution.
             </p>
             <Button variant="hero" size="lg" asChild>
               <Link to="/contact">
