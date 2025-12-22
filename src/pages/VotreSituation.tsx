@@ -24,7 +24,7 @@ const situations = [{
   image: divorceImg,
   imageAlt: "Clés et dossier",
   title: "Divorce / Séparation",
-  description: "Votre ex-conjoint détient une partie du bien commun et vous souhaitez tourner définitivement la page de cette période.",
+  description: "Votre divorce a été prononcé. Une ordonnance de non-conciliation a également été rendue.",
   problems: ["Procédure de divorce longue et complexe", "Désaccord sur la valeur du bien", "Impossibilité de racheter la part de l'ex-conjoint", "Besoin de liquidité pour repartir"],
   solution: "Notre intervention permet de débloquer la situation et de transformer rapidement votre part en capital, sans dépendre de l'accord de votre ex-conjoint."
 }, {
