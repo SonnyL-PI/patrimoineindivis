@@ -34,7 +34,7 @@ const situations = [{
   imageAlt: "Classeur et pièces",
   title: "Conflit entre indivisaires",
   description: "Les co-indivisaires ne s'entendent pas sur l'avenir du bien : vente, location, travaux... les tensions s'accumulent.",
-  problems: ["Conflits récurrents entre indivisaires", "Décisions bloquées faute de majorité", "Dégradation des relations familiales", "Situation qui s'enlise depuis des années"],
+  problems: ["Refus de vendre le bien par un des coindivisaires", "Décisions bloquées faute de majorité", "Dégradation des relations familiales", "Situation qui s'enlise depuis des années"],
   solution: "Notre approche inclut, si nécessaire, une médiation pour préserver les relations tout en vous permettant de sortir de l'impasse."
 }, {
   id: "blocage",
