@@ -49,7 +49,7 @@ const steps = [
     icon: Banknote,
     title: "Acte authentique",
     duration: "Devant notaire",
-    description: "Le versement est effectué dès la signature de l'acte authentique. Nous assurons un suivi jusqu'à la clôture complète du dossier.",
+    description: "Un acte authentique signé devant notaire dans les 3 mois après la fin de du droit de préemption des coindivisaires",
     details: [
       "Versement immédiat à la signature",
       "Suivi personnalisé",
