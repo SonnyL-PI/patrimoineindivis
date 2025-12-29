@@ -15,7 +15,7 @@ const steps = [{
   icon: FileText,
   title: "Proposition de rachat",
   duration: "48h après réception du dossier complet",
-  description: "Vous recevez une offre ferme et détaillée. Nous vous expliquons les conditions, le calendrier prévisionnel et répondons à toutes vos questions.",
+  description: "Nous vous transmettons une offre ferme et détaillée. Nous vous expliquons les conditions, le calendrier prévisionnel, et nous répondons à toutes vos questions.",
   details: ["Offre écrite et détaillée", "Conditions transparentes", "Calendrier prévisionnel", "Accompagnement dans la compréhension"]
 }, {
   number: "03",
