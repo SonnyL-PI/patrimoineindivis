@@ -43,7 +43,7 @@ const values = [{
 }, {
   icon: Heart,
   title: "Approche humaine",
-  description: "Nous comprenons que l'indivision touche souvent à des situations familiales sensibles. Discrétion et empathie guident notre accompagnement."
+  description: "Nous savons que sortir d'une indivision peut être délicat : cela touche souvent à la famille, et l'émotionnel n'est jamais loin.\nC'est pourquoi nous cherchons des solutions avec écoute, expertise et empathie. C'est aussi ce qui fait notre différence."
 }];
 const NotreApproche = () => {
   return <div className="min-h-screen bg-background">
