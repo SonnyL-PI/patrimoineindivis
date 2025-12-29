@@ -5,90 +5,111 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { FileText, Phone, Send, Shield, ChevronDown, ChevronUp, Upload, Lock } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import salleReunion2 from "@/assets/salle-reunion-2.png";
-
-const situations = [
-  { value: "succession", label: "Succession" },
-  { value: "divorce", label: "Divorce" },
-  { value: "conflit", label: "Désaccord familial" },
-  { value: "blocage", label: "Blocage de vente" },
-  { value: "liquidite", label: "Besoin de liquidité" },
-  { value: "autre", label: "Autre situation" },
-];
-
-const typeBiens = [
-  { value: "appartement", label: "Appartement" },
-  { value: "maison", label: "Maison" },
-  { value: "immeuble", label: "Immeuble" },
-  { value: "terrain", label: "Terrain" },
-  { value: "local", label: "Local commercial" },
-  { value: "autre", label: "Autre" },
-];
-
-const situationsLocatives = [
-  { value: "libre", label: "Libre" },
-  { value: "occupe-proprietaire", label: "Occupé par un indivisaire" },
-  { value: "loue", label: "Loué" },
-  { value: "autre", label: "Autre" },
-];
-
-const creneaux = [
-  { value: "matin", label: "Matin (9h-12h)" },
-  { value: "apresmidi", label: "Après-midi (14h-18h)" },
-  { value: "soir", label: "Fin de journée (18h-20h)" },
-];
-
+const situations = [{
+  value: "succession",
+  label: "Succession"
+}, {
+  value: "divorce",
+  label: "Divorce"
+}, {
+  value: "conflit",
+  label: "Désaccord familial"
+}, {
+  value: "blocage",
+  label: "Blocage de vente"
+}, {
+  value: "liquidite",
+  label: "Besoin de liquidité"
+}, {
+  value: "autre",
+  label: "Autre situation"
+}];
+const typeBiens = [{
+  value: "appartement",
+  label: "Appartement"
+}, {
+  value: "maison",
+  label: "Maison"
+}, {
+  value: "immeuble",
+  label: "Immeuble"
+}, {
+  value: "terrain",
+  label: "Terrain"
+}, {
+  value: "local",
+  label: "Local commercial"
+}, {
+  value: "autre",
+  label: "Autre"
+}];
+const situationsLocatives = [{
+  value: "libre",
+  label: "Libre"
+}, {
+  value: "occupe-proprietaire",
+  label: "Occupé par un indivisaire"
+}, {
+  value: "loue",
+  label: "Loué"
+}, {
+  value: "autre",
+  label: "Autre"
+}];
+const creneaux = [{
+  value: "matin",
+  label: "Matin (9h-12h)"
+}, {
+  value: "apresmidi",
+  label: "Après-midi (14h-18h)"
+}, {
+  value: "soir",
+  label: "Fin de journée (18h-20h)"
+}];
 export function ContactSection() {
-  const { toast } = useToast();
+  const {
+    toast
+  } = useToast();
   const [activeTab, setActiveTab] = useState("offre");
   const [showStep2, setShowStep2] = useState(false);
   const [consentOffre, setConsentOffre] = useState(false);
   const [consentRappel, setConsentRappel] = useState(false);
-
   const handleSubmitOffre = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!consentOffre) {
       toast({
         title: "Consentement requis",
         description: "Veuillez accepter la politique de confidentialité pour continuer.",
-        variant: "destructive",
+        variant: "destructive"
       });
       return;
     }
     toast({
       title: "Demande envoyée",
-      description: "Nous vous recontacterons dans les plus brefs délais.",
+      description: "Nous vous recontacterons dans les plus brefs délais."
     });
   };
-
   const handleSubmitRappel = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!consentRappel) {
       toast({
         title: "Consentement requis",
         description: "Veuillez accepter la politique de confidentialité pour continuer.",
-        variant: "destructive",
+        variant: "destructive"
       });
       return;
     }
     toast({
       title: "Demande envoyée",
-      description: "Nous vous recontacterons dans les plus brefs délais.",
+      description: "Nous vous recontacterons dans les plus brefs délais."
     });
   };
-
-  return (
-    <section id="contact" className="py-12 md:py-16 bg-secondary/30">
+  return <section id="contact" className="py-12 md:py-16 bg-secondary/30">
       <div className="container-wide">
         {/* Microcopy Banner */}
         <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8 mb-8 md:mb-10 py-3 px-4 bg-accent/10 rounded-xl border border-accent/20">
@@ -116,8 +137,7 @@ export function ContactSection() {
               Parlons de votre situation
             </h2>
             <p className="text-base text-muted-foreground mb-8 max-w-lg">
-              Que vous souhaitiez une offre de rachat ou simplement être rappelé
-              pour discuter de votre situation, nous sommes à votre écoute.
+              Que vous souhaitiez une offre de rachat ou simplement être rappelé pour discuter de votre situation, dans tous les cas nous sommes à votre écoute.
             </p>
             {/* Benefits */}
             <div className="space-y-5">
@@ -164,12 +184,7 @@ export function ContactSection() {
 
             {/* Image d'accompagnement */}
             <div className="mt-8">
-              <img
-                src={salleReunion2}
-                alt="Espace d'accueil – Patrimoine Indivis"
-                className="w-full aspect-[16/10] object-cover rounded-2xl shadow-soft"
-                loading="lazy"
-              />
+              <img src={salleReunion2} alt="Espace d'accueil – Patrimoine Indivis" className="w-full aspect-[16/10] object-cover rounded-2xl shadow-soft" loading="lazy" />
             </div>
           </div>
 
@@ -177,17 +192,11 @@ export function ContactSection() {
           <div className="bg-card rounded-2xl p-6 md:p-8 border border-border/30 shadow-soft">
             <Tabs value={activeTab} onValueChange={setActiveTab}>
               <TabsList className="grid grid-cols-2 mb-6 bg-secondary rounded-xl p-1">
-                <TabsTrigger
-                  value="offre"
-                  className="rounded-lg data-[state=active]:bg-card data-[state=active]:shadow-sm font-medium py-2.5 text-sm"
-                >
+                <TabsTrigger value="offre" className="rounded-lg data-[state=active]:bg-card data-[state=active]:shadow-sm font-medium py-2.5 text-sm">
                   <FileText className="w-4 h-4 mr-2" />
                   Je veux une offre
                 </TabsTrigger>
-                <TabsTrigger
-                  value="rappel"
-                  className="rounded-lg data-[state=active]:bg-card data-[state=active]:shadow-sm font-medium py-2.5 text-sm"
-                >
+                <TabsTrigger value="rappel" className="rounded-lg data-[state=active]:bg-card data-[state=active]:shadow-sm font-medium py-2.5 text-sm">
                   <Phone className="w-4 h-4 mr-2" />
                   Être rappelé
                 </TabsTrigger>
@@ -227,11 +236,9 @@ export function ContactSection() {
                           <SelectValue placeholder="Sélectionnez" />
                         </SelectTrigger>
                         <SelectContent>
-                          {situations.map((s) => (
-                            <SelectItem key={s.value} value={s.value}>
+                          {situations.map(s => <SelectItem key={s.value} value={s.value}>
                               {s.label}
-                            </SelectItem>
-                          ))}
+                            </SelectItem>)}
                         </SelectContent>
                       </Select>
                     </div>
@@ -242,27 +249,18 @@ export function ContactSection() {
                   </div>
 
                   {/* Toggle Step 2 */}
-                  <button
-                    type="button"
-                    onClick={() => setShowStep2(!showStep2)}
-                    className="w-full flex items-center justify-center gap-2 py-3 text-sm text-accent hover:text-accent/80 transition-colors border border-dashed border-accent/30 rounded-xl hover:border-accent/50"
-                  >
-                    {showStep2 ? (
-                      <>
+                  <button type="button" onClick={() => setShowStep2(!showStep2)} className="w-full flex items-center justify-center gap-2 py-3 text-sm text-accent hover:text-accent/80 transition-colors border border-dashed border-accent/30 rounded-xl hover:border-accent/50">
+                    {showStep2 ? <>
                         <ChevronUp className="w-4 h-4" />
                         Masquer les détails optionnels
-                      </>
-                    ) : (
-                      <>
+                      </> : <>
                         <ChevronDown className="w-4 h-4" />
                         Ajouter des détails (optionnel)
-                      </>
-                    )}
+                      </>}
                   </button>
 
                   {/* Step 2 - Optional */}
-                  {showStep2 && (
-                    <div className="space-y-4 pt-4 border-t border-border/50">
+                  {showStep2 && <div className="space-y-4 pt-4 border-t border-border/50">
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div className="space-y-2">
                           <Label htmlFor="typeBien">Type de bien</Label>
@@ -271,11 +269,9 @@ export function ContactSection() {
                               <SelectValue placeholder="Sélectionnez" />
                             </SelectTrigger>
                             <SelectContent>
-                              {typeBiens.map((t) => (
-                                <SelectItem key={t.value} value={t.value}>
+                              {typeBiens.map(t => <SelectItem key={t.value} value={t.value}>
                                   {t.label}
-                                </SelectItem>
-                              ))}
+                                </SelectItem>)}
                             </SelectContent>
                           </Select>
                         </div>
@@ -297,11 +293,9 @@ export function ContactSection() {
                               <SelectValue placeholder="Sélectionnez" />
                             </SelectTrigger>
                             <SelectContent>
-                              {situationsLocatives.map((s) => (
-                                <SelectItem key={s.value} value={s.value}>
+                              {situationsLocatives.map(s => <SelectItem key={s.value} value={s.value}>
                                   {s.label}
-                                </SelectItem>
-                              ))}
+                                </SelectItem>)}
                             </SelectContent>
                           </Select>
                         </div>
@@ -309,11 +303,7 @@ export function ContactSection() {
 
                       <div className="space-y-2">
                         <Label htmlFor="description">Description de votre situation</Label>
-                        <Textarea
-                          id="description"
-                          placeholder="Décrivez brièvement votre situation..."
-                          rows={3}
-                        />
+                        <Textarea id="description" placeholder="Décrivez brièvement votre situation..." rows={3} />
                       </div>
 
                       <div className="space-y-2">
@@ -328,21 +318,12 @@ export function ContactSection() {
                           </p>
                         </div>
                       </div>
-                    </div>
-                  )}
+                    </div>}
 
                   {/* Consent checkbox */}
                   <div className="flex items-start space-x-3">
-                    <Checkbox
-                      id="consent-offre"
-                      checked={consentOffre}
-                      onCheckedChange={(checked) => setConsentOffre(checked as boolean)}
-                      className="mt-1"
-                    />
-                    <label
-                      htmlFor="consent-offre"
-                      className="text-sm text-muted-foreground leading-relaxed cursor-pointer"
-                    >
+                    <Checkbox id="consent-offre" checked={consentOffre} onCheckedChange={checked => setConsentOffre(checked as boolean)} className="mt-1" />
+                    <label htmlFor="consent-offre" className="text-sm text-muted-foreground leading-relaxed cursor-pointer">
                       J'accepte que mes données soient traitées conformément à la{" "}
                       <Link to="/politique-confidentialite" className="text-accent hover:underline">
                         Politique de confidentialité
@@ -363,12 +344,7 @@ export function ContactSection() {
                 <form onSubmit={handleSubmitRappel} className="space-y-5">
                   <div className="space-y-2">
                     <Label htmlFor="telephone-rappel">Téléphone *</Label>
-                    <Input
-                      id="telephone-rappel"
-                      type="tel"
-                      placeholder="06 00 00 00 00"
-                      required
-                    />
+                    <Input id="telephone-rappel" type="tel" placeholder="06 00 00 00 00" required />
                   </div>
 
                   <div className="space-y-2">
@@ -378,36 +354,22 @@ export function ContactSection() {
                         <SelectValue placeholder="Sélectionnez un créneau" />
                       </SelectTrigger>
                       <SelectContent>
-                        {creneaux.map((c) => (
-                          <SelectItem key={c.value} value={c.value}>
+                        {creneaux.map(c => <SelectItem key={c.value} value={c.value}>
                             {c.label}
-                          </SelectItem>
-                        ))}
+                          </SelectItem>)}
                       </SelectContent>
                     </Select>
                   </div>
 
                   <div className="space-y-2">
                     <Label htmlFor="message">Message (optionnel)</Label>
-                    <Textarea
-                      id="message"
-                      placeholder="Décrivez brièvement votre situation..."
-                      rows={4}
-                    />
+                    <Textarea id="message" placeholder="Décrivez brièvement votre situation..." rows={4} />
                   </div>
 
                   {/* Consent checkbox */}
                   <div className="flex items-start space-x-3">
-                    <Checkbox
-                      id="consent-rappel"
-                      checked={consentRappel}
-                      onCheckedChange={(checked) => setConsentRappel(checked as boolean)}
-                      className="mt-1"
-                    />
-                    <label
-                      htmlFor="consent-rappel"
-                      className="text-sm text-muted-foreground leading-relaxed cursor-pointer"
-                    >
+                    <Checkbox id="consent-rappel" checked={consentRappel} onCheckedChange={checked => setConsentRappel(checked as boolean)} className="mt-1" />
+                    <label htmlFor="consent-rappel" className="text-sm text-muted-foreground leading-relaxed cursor-pointer">
                       J'accepte que mes données soient traitées conformément à la{" "}
                       <Link to="/politique-confidentialite" className="text-accent hover:underline">
                         Politique de confidentialité
@@ -426,6 +388,5 @@ export function ContactSection() {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 }
