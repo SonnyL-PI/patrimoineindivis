@@ -155,7 +155,7 @@ export function PropositionSection() {
                         <span className="text-accent font-semibold text-sm">{review.initials}</span>
                       </div>
                       <div>
-                        <p className="text-sm font-medium text-foreground">{review.author}</p>
+                        <p className="text-sm font-medium text-foreground">{review.initials}</p>
                         <p className="text-xs text-muted-foreground">Visité en {review.visited}</p>
                       </div>
                     </div>
