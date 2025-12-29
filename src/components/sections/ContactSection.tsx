@@ -384,7 +384,7 @@ export function ContactSection() {
 
                   {/* Quote-part - mandatory with format selector */}
                   <div className="space-y-3">
-                    <Label>Votre quote-part (obligatoire) *</Label>
+                    <Label>Votre quote-part *</Label>
                     <RadioGroup 
                       value={quotePartFormat} 
                       onValueChange={(value: "percent" | "fraction") => {
