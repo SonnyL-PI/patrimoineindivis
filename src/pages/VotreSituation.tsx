@@ -17,7 +17,7 @@ const situations = [{
   title: "Succession",
   description: "Vous avez hérité d'un bien en indivision avec d'autres héritiers et souhaitez sortir de l'indivision.",
   problems: ["Désaccord entre héritiers sur le devenir du bien", "La succession n'est toujours pas close alors que vous avez l'attestation de notoriété", "Un des héritiers occupe le bien et bloque la vente de celui ci", "Un ou plusieurs héritiers fixent la valeur du bien hors marché, le bien devient invendable", "Frais de succession à payer"],
-  solution: "Nous rachetons votre part dans le respect du cadre légal (article 815), vous permettant de sortir de l'indivision rapidement tout en préservant les relations familiales."
+  solution: "Notre intervention permet de débloquer la situation et de transformer rapidement votre part en capital, sans dépendre de l'accord des autres héritiers."
 }, {
   id: "divorce",
   icon: Heart,
@@ -26,7 +26,7 @@ const situations = [{
   title: "Divorce / Séparation",
   description: "Votre divorce a été prononcé. Une ordonnance de non-conciliation a également été rendue.",
   problems: ["Procédure de divorce longue et complexe", "Une ordonnance de non conciliation a été prononcée", "Le conjoint occupe le bien et vous payez les charges", "Votre conjoint refuse de vendre et le bien se dégrade"],
-  solution: "Notre intervention permet de débloquer la situation et de transformer rapidement votre part en capital, sans dépendre de l'accord de votre ex-conjoint."
+  solution: "Nous rachetons votre part dans le respect du cadre légal (article 815), vous permettant de sortir de l'indivision rapidement."
 }, {
   id: "conflit",
   icon: AlertTriangle,
