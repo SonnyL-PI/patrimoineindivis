@@ -35,7 +35,7 @@ const steps = [{
 const values = [{
   icon: Shield,
   title: "Sécurité juridique",
-  description: "Nous maîtrisons parfaitement le cadre légal de l'indivision et travaillons avec des partenaires (notaires, avocats) formés à ces situations spécifiques."
+  description: "Nous maîtrisons parfaitement le cadre légal de l'indivision et travaillons avec des partenaires expérimentés (notaires, avocats), rompus aux sorties d'indivision, aux clôtures et au rachat de parts indivises."
 }, {
   icon: Users,
   title: "Accompagnement",
