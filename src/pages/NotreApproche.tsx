@@ -8,7 +8,7 @@ const steps = [{
   icon: FileSearch,
   title: "Analyse de votre situation",
   duration: "1-2 jours",
-  description: "Nous étudions votre dossier gratuitement et sans engagement. Un expert dédié analyse les documents que vous nous transmettez et évalue votre situation.",
+  description: "Nous vous écoutons et échangeons avec vous pour comprendre votre situation, ensuite un expert dédié analyse les documents que vous nous transmettez et évalue votre situation.",
   details: ["Entretien téléphonique ou visioconférence", "Analyse des documents (acte de propriété, succession...)", "Évaluation du bien et de votre quote-part", "Identification des éventuels points de blocage"]
 }, {
   number: "02",
