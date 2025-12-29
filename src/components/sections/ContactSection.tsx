@@ -7,9 +7,11 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { FileText, Phone, Send, Shield, ChevronDown, ChevronUp, Upload, Lock } from "lucide-react";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { FileText, Phone, Send, Shield, Upload, Lock } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import salleReunion2 from "@/assets/salle-reunion-2.png";
+
 const situations = [{
   value: "succession",
   label: "Succession"
@@ -29,6 +31,7 @@ const situations = [{
   value: "autre",
   label: "Autre situation"
 }];
+
 const typeBiens = [{
   value: "appartement",
   label: "Appartement"
@@ -48,6 +51,7 @@ const typeBiens = [{
   value: "autre",
   label: "Autre"
 }];
+
 const situationsLocatives = [{
   value: "libre",
   label: "Libre"
@@ -61,6 +65,7 @@ const situationsLocatives = [{
   value: "autre",
   label: "Autre"
 }];
+
 const creneaux = [{
   value: "matin",
   label: "Matin (9h-12h)"
@@ -71,16 +76,81 @@ const creneaux = [{
   value: "soir",
   label: "Fin de journée (18h-20h)"
 }];
+
+// French phone validation regex
+const frenchPhoneRegex = /^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/;
+
+// Fraction validation
+const validateFraction = (value: string): boolean => {
+  const match = value.match(/^(\d+)\/(\d+)$/);
+  if (!match) return false;
+  const [, numerator, denominator] = match;
+  const num = parseInt(numerator, 10);
+  const den = parseInt(denominator, 10);
+  if (den === 0) return false;
+  if (num / den <= 0 || num / den > 1) return false;
+  return true;
+};
+
 export function ContactSection() {
-  const {
-    toast
-  } = useToast();
+  const { toast } = useToast();
   const [activeTab, setActiveTab] = useState("offre");
-  const [showStep2, setShowStep2] = useState(false);
   const [consentOffre, setConsentOffre] = useState(false);
   const [consentRappel, setConsentRappel] = useState(false);
+  
+  // Form state for offre
+  const [telephonePrincipal, setTelephonePrincipal] = useState("");
+  const [telephoneSecondaire, setTelephoneSecondaire] = useState("");
+  const [quotePartFormat, setQuotePartFormat] = useState<"percent" | "fraction">("percent");
+  const [quotePartValue, setQuotePartValue] = useState("");
+  
+  // Validation errors
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
+  const validatePhoneNumber = (phone: string): boolean => {
+    if (!phone) return false;
+    return frenchPhoneRegex.test(phone.trim());
+  };
+
+  const validateQuotePart = (): { valid: boolean; error?: string } => {
+    if (!quotePartValue.trim()) {
+      return { valid: false, error: "La quote-part est obligatoire" };
+    }
+
+    if (quotePartFormat === "percent") {
+      const numValue = parseFloat(quotePartValue.replace(",", "."));
+      if (isNaN(numValue) || numValue <= 0 || numValue > 100) {
+        return { valid: false, error: "Entrez un pourcentage entre 0 et 100" };
+      }
+    } else {
+      if (!validateFraction(quotePartValue.trim())) {
+        return { valid: false, error: "Format invalide. Ex: 1/2, 3/8 (valeur ≤ 1)" };
+      }
+    }
+
+    return { valid: true };
+  };
+
   const handleSubmitOffre = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const newErrors: Record<string, string> = {};
+
+    // Validate phone principal
+    if (!validatePhoneNumber(telephonePrincipal)) {
+      newErrors.telephonePrincipal = "Numéro de téléphone invalide";
+    }
+
+    // Validate phone secondaire if filled
+    if (telephoneSecondaire && !validatePhoneNumber(telephoneSecondaire)) {
+      newErrors.telephoneSecondaire = "Numéro de téléphone invalide";
+    }
+
+    // Validate quote-part
+    const quotePartValidation = validateQuotePart();
+    if (!quotePartValidation.valid) {
+      newErrors.quotePart = quotePartValidation.error || "Quote-part invalide";
+    }
+
     if (!consentOffre) {
       toast({
         title: "Consentement requis",
@@ -89,11 +159,35 @@ export function ContactSection() {
       });
       return;
     }
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      toast({
+        title: "Erreur de validation",
+        description: "Veuillez corriger les erreurs dans le formulaire.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    setErrors({});
+
+    // Prepare normalized quote-part data
+    const quotePartData = {
+      type: quotePartFormat,
+      value: quotePartFormat === "percent" 
+        ? parseFloat(quotePartValue.replace(",", ".")) 
+        : quotePartValue.trim()
+    };
+
+    console.log("Quote-part data:", quotePartData);
+
     toast({
       title: "Demande envoyée",
       description: "Nous vous recontacterons dans les plus brefs délais."
     });
   };
+
   const handleSubmitRappel = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!consentRappel) {
@@ -109,7 +203,9 @@ export function ContactSection() {
       description: "Nous vous recontacterons dans les plus brefs délais."
     });
   };
-  return <section id="contact" className="py-12 md:py-16 bg-secondary/30">
+
+  return (
+    <section id="contact" className="py-12 md:py-16 bg-secondary/30">
       <div className="container-wide">
         {/* Microcopy Banner */}
         <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8 mb-8 md:mb-10 py-3 px-4 bg-accent/10 rounded-xl border border-accent/20">
@@ -217,14 +313,50 @@ export function ContactSection() {
                     </div>
                   </div>
 
+                  <div className="space-y-2">
+                    <Label htmlFor="email">Email *</Label>
+                    <Input id="email" type="email" placeholder="votre@email.fr" required />
+                  </div>
+
+                  {/* Two phone numbers */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="email">Email *</Label>
-                      <Input id="email" type="email" placeholder="votre@email.fr" required />
+                      <Label htmlFor="telephone-principal">Téléphone principal *</Label>
+                      <Input 
+                        id="telephone-principal" 
+                        type="tel" 
+                        placeholder="06 00 00 00 00" 
+                        value={telephonePrincipal}
+                        onChange={(e) => {
+                          setTelephonePrincipal(e.target.value);
+                          if (errors.telephonePrincipal) {
+                            setErrors(prev => ({ ...prev, telephonePrincipal: "" }));
+                          }
+                        }}
+                        required 
+                      />
+                      {errors.telephonePrincipal && (
+                        <p className="text-sm text-destructive">{errors.telephonePrincipal}</p>
+                      )}
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="telephone">Téléphone *</Label>
-                      <Input id="telephone" type="tel" placeholder="06 00 00 00 00" required />
+                      <Label htmlFor="telephone-secondaire">Téléphone secondaire</Label>
+                      <Input 
+                        id="telephone-secondaire" 
+                        type="tel" 
+                        placeholder="06 00 00 00 00"
+                        value={telephoneSecondaire}
+                        onChange={(e) => {
+                          setTelephoneSecondaire(e.target.value);
+                          if (errors.telephoneSecondaire) {
+                            setErrors(prev => ({ ...prev, telephoneSecondaire: "" }));
+                          }
+                        }}
+                      />
+                      <p className="text-xs text-muted-foreground">(Optionnel)</p>
+                      {errors.telephoneSecondaire && (
+                        <p className="text-sm text-destructive">{errors.telephoneSecondaire}</p>
+                      )}
                     </div>
                   </div>
 
@@ -236,9 +368,11 @@ export function ContactSection() {
                           <SelectValue placeholder="Sélectionnez" />
                         </SelectTrigger>
                         <SelectContent>
-                          {situations.map(s => <SelectItem key={s.value} value={s.value}>
+                          {situations.map(s => (
+                            <SelectItem key={s.value} value={s.value}>
                               {s.label}
-                            </SelectItem>)}
+                            </SelectItem>
+                          ))}
                         </SelectContent>
                       </Select>
                     </div>
@@ -248,81 +382,145 @@ export function ContactSection() {
                     </div>
                   </div>
 
-                  {/* Toggle Step 2 */}
-                  <button type="button" onClick={() => setShowStep2(!showStep2)} className="w-full flex items-center justify-center gap-2 py-3 text-sm text-accent hover:text-accent/80 transition-colors border border-dashed border-accent/30 rounded-xl hover:border-accent/50">
-                    {showStep2 ? <>
-                        <ChevronUp className="w-4 h-4" />
-                        Masquer les détails optionnels
-                      </> : <>
-                        <ChevronDown className="w-4 h-4" />
-                        Ajouter des détails (optionnel)
-                      </>}
-                  </button>
-
-                  {/* Step 2 - Optional */}
-                  {showStep2 && <div className="space-y-4 pt-4 border-t border-border/50">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="space-y-2">
-                          <Label htmlFor="typeBien">Type de bien</Label>
-                          <Select>
-                            <SelectTrigger>
-                              <SelectValue placeholder="Sélectionnez" />
-                            </SelectTrigger>
-                            <SelectContent>
-                              {typeBiens.map(t => <SelectItem key={t.value} value={t.value}>
-                                  {t.label}
-                                </SelectItem>)}
-                            </SelectContent>
-                          </Select>
-                        </div>
-                        <div className="space-y-2">
-                          <Label htmlFor="estimation">Estimation du bien (€)</Label>
-                          <Input id="estimation" type="text" placeholder="Ex: 300 000" />
-                        </div>
+                  {/* Quote-part - mandatory with format selector */}
+                  <div className="space-y-3">
+                    <Label>Votre quote-part (obligatoire) *</Label>
+                    <RadioGroup 
+                      value={quotePartFormat} 
+                      onValueChange={(value: "percent" | "fraction") => {
+                        setQuotePartFormat(value);
+                        setQuotePartValue("");
+                        if (errors.quotePart) {
+                          setErrors(prev => ({ ...prev, quotePart: "" }));
+                        }
+                      }}
+                      className="flex gap-4"
+                    >
+                      <div className="flex items-center space-x-2">
+                        <RadioGroupItem value="percent" id="format-percent" />
+                        <Label htmlFor="format-percent" className="font-normal cursor-pointer">
+                          Pourcentage (%)
+                        </Label>
                       </div>
-
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="space-y-2">
-                          <Label htmlFor="quotepart">Votre quote-part (%)</Label>
-                          <Input id="quotepart" type="text" placeholder="Ex: 25" />
-                        </div>
-                        <div className="space-y-2">
-                          <Label htmlFor="situationLocative">Situation locative</Label>
-                          <Select>
-                            <SelectTrigger>
-                              <SelectValue placeholder="Sélectionnez" />
-                            </SelectTrigger>
-                            <SelectContent>
-                              {situationsLocatives.map(s => <SelectItem key={s.value} value={s.value}>
-                                  {s.label}
-                                </SelectItem>)}
-                            </SelectContent>
-                          </Select>
-                        </div>
+                      <div className="flex items-center space-x-2">
+                        <RadioGroupItem value="fraction" id="format-fraction" />
+                        <Label htmlFor="format-fraction" className="font-normal cursor-pointer">
+                          Fraction (ex: 1/2)
+                        </Label>
                       </div>
+                    </RadioGroup>
+                    
+                    {quotePartFormat === "percent" ? (
+                      <div className="space-y-1">
+                        <Input 
+                          id="quotepart-percent"
+                          type="text"
+                          placeholder="Ex: 25"
+                          value={quotePartValue}
+                          onChange={(e) => {
+                            setQuotePartValue(e.target.value);
+                            if (errors.quotePart) {
+                              setErrors(prev => ({ ...prev, quotePart: "" }));
+                            }
+                          }}
+                          required
+                        />
+                        <p className="text-xs text-muted-foreground">Valeur entre 0 et 100</p>
+                      </div>
+                    ) : (
+                      <div className="space-y-1">
+                        <Input 
+                          id="quotepart-fraction"
+                          type="text"
+                          placeholder="Ex: 1/2 ou 3/8"
+                          value={quotePartValue}
+                          onChange={(e) => {
+                            setQuotePartValue(e.target.value);
+                            if (errors.quotePart) {
+                              setErrors(prev => ({ ...prev, quotePart: "" }));
+                            }
+                          }}
+                          required
+                        />
+                        <p className="text-xs text-muted-foreground">Format a/b (ex: 1/2, 3/8)</p>
+                      </div>
+                    )}
+                    {errors.quotePart && (
+                      <p className="text-sm text-destructive">{errors.quotePart}</p>
+                    )}
+                  </div>
 
+                  {/* Optional details - visible by default */}
+                  <div className="space-y-4 pt-4 border-t border-border/50">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="space-y-2">
-                        <Label htmlFor="description">Description de votre situation</Label>
-                        <Textarea id="description" placeholder="Décrivez brièvement votre situation..." rows={3} />
+                        <Label htmlFor="typeBien">Type de bien</Label>
+                        <Select>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Sélectionnez" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            {typeBiens.map(t => (
+                              <SelectItem key={t.value} value={t.value}>
+                                {t.label}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
                       </div>
-
                       <div className="space-y-2">
-                        <Label htmlFor="documents">Documents / Photos (optionnel)</Label>
-                        <div className="border-2 border-dashed border-border/50 rounded-xl p-6 text-center hover:border-accent/30 transition-colors cursor-pointer">
-                          <Upload className="w-8 h-8 text-muted-foreground mx-auto mb-2" />
-                          <p className="text-sm text-muted-foreground">
-                            Glissez vos fichiers ici ou cliquez pour sélectionner
-                          </p>
-                          <p className="text-xs text-muted-foreground/70 mt-1">
-                            PDF, JPG, PNG (max 10 Mo)
-                          </p>
-                        </div>
+                        <Label htmlFor="estimation">Estimation du bien (€)</Label>
+                        <Input id="estimation" type="text" placeholder="Ex: 300 000" />
                       </div>
-                    </div>}
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="situationLocative">Situation locative</Label>
+                      <Select>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Sélectionnez" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {situationsLocatives.map(s => (
+                            <SelectItem key={s.value} value={s.value}>
+                              {s.label}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="description">Détails complémentaires (optionnel)</Label>
+                      <Textarea 
+                        id="description" 
+                        placeholder="Expliquez brièvement la situation, nombre d'indivisaires, blocages, etc." 
+                        rows={3} 
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="documents">Documents / Photos (optionnel)</Label>
+                      <div className="border-2 border-dashed border-border/50 rounded-xl p-6 text-center hover:border-accent/30 transition-colors cursor-pointer">
+                        <Upload className="w-8 h-8 text-muted-foreground mx-auto mb-2" />
+                        <p className="text-sm text-muted-foreground">
+                          Glissez vos fichiers ici ou cliquez pour sélectionner
+                        </p>
+                        <p className="text-xs text-muted-foreground/70 mt-1">
+                          PDF, JPG, PNG (max 10 Mo)
+                        </p>
+                      </div>
+                    </div>
+                  </div>
 
                   {/* Consent checkbox */}
                   <div className="flex items-start space-x-3">
-                    <Checkbox id="consent-offre" checked={consentOffre} onCheckedChange={checked => setConsentOffre(checked as boolean)} className="mt-1" />
+                    <Checkbox 
+                      id="consent-offre" 
+                      checked={consentOffre} 
+                      onCheckedChange={checked => setConsentOffre(checked as boolean)} 
+                      className="mt-1" 
+                    />
                     <label htmlFor="consent-offre" className="text-sm text-muted-foreground leading-relaxed cursor-pointer">
                       J'accepte que mes données soient traitées conformément à la{" "}
                       <Link to="/politique-confidentialite" className="text-accent hover:underline">
@@ -336,6 +534,20 @@ export function ContactSection() {
                     <Send className="w-4 h-4" />
                     Demander une étude de rachat
                   </Button>
+
+                  {/* RGPD Notice */}
+                  <div className="text-xs text-muted-foreground/80 space-y-1 pt-2">
+                    <p>
+                      Vos données personnelles sont utilisées exclusivement pour traiter votre demande et vous recontacter. 
+                      Elles sont conservées le temps nécessaire au traitement de votre dossier.
+                    </p>
+                    <p>
+                      Pour en savoir plus, consultez notre{" "}
+                      <Link to="/politique-confidentialite" className="text-accent hover:underline">
+                        Politique de confidentialité
+                      </Link>.
+                    </p>
+                  </div>
                 </form>
               </TabsContent>
 
@@ -354,9 +566,11 @@ export function ContactSection() {
                         <SelectValue placeholder="Sélectionnez un créneau" />
                       </SelectTrigger>
                       <SelectContent>
-                        {creneaux.map(c => <SelectItem key={c.value} value={c.value}>
+                        {creneaux.map(c => (
+                          <SelectItem key={c.value} value={c.value}>
                             {c.label}
-                          </SelectItem>)}
+                          </SelectItem>
+                        ))}
                       </SelectContent>
                     </Select>
                   </div>
@@ -368,7 +582,12 @@ export function ContactSection() {
 
                   {/* Consent checkbox */}
                   <div className="flex items-start space-x-3">
-                    <Checkbox id="consent-rappel" checked={consentRappel} onCheckedChange={checked => setConsentRappel(checked as boolean)} className="mt-1" />
+                    <Checkbox 
+                      id="consent-rappel" 
+                      checked={consentRappel} 
+                      onCheckedChange={checked => setConsentRappel(checked as boolean)} 
+                      className="mt-1" 
+                    />
                     <label htmlFor="consent-rappel" className="text-sm text-muted-foreground leading-relaxed cursor-pointer">
                       J'accepte que mes données soient traitées conformément à la{" "}
                       <Link to="/politique-confidentialite" className="text-accent hover:underline">
@@ -382,11 +601,26 @@ export function ContactSection() {
                     <Phone className="w-4 h-4" />
                     Demander à être rappelé
                   </Button>
+
+                  {/* RGPD Notice */}
+                  <div className="text-xs text-muted-foreground/80 space-y-1 pt-2">
+                    <p>
+                      Vos données personnelles sont utilisées exclusivement pour traiter votre demande et vous recontacter. 
+                      Elles sont conservées le temps nécessaire au traitement de votre dossier.
+                    </p>
+                    <p>
+                      Pour en savoir plus, consultez notre{" "}
+                      <Link to="/politique-confidentialite" className="text-accent hover:underline">
+                        Politique de confidentialité
+                      </Link>.
+                    </p>
+                  </div>
                 </form>
               </TabsContent>
             </Tabs>
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 }
