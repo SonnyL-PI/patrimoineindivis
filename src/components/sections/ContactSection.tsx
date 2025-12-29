@@ -92,6 +92,21 @@ const validateFraction = (value: string): boolean => {
   return true;
 };
 
+// Format number with thousand separators (spaces)
+const formatNumberWithSpaces = (value: string): string => {
+  // Remove all non-digit characters except decimal separator
+  const cleanValue = value.replace(/[^\d]/g, "");
+  if (!cleanValue) return "";
+  // Add spaces every 3 digits from the right
+  return cleanValue.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+};
+
+// Parse formatted number to raw number
+const parseFormattedNumber = (value: string): number => {
+  const cleanValue = value.replace(/\s/g, "");
+  return parseInt(cleanValue, 10) || 0;
+};
+
 export function ContactSection() {
   const { toast } = useToast();
   const [activeTab, setActiveTab] = useState("offre");
@@ -103,6 +118,7 @@ export function ContactSection() {
   const [telephoneSecondaire, setTelephoneSecondaire] = useState("");
   const [quotePartFormat, setQuotePartFormat] = useState<"percent" | "fraction">("percent");
   const [quotePartValue, setQuotePartValue] = useState("");
+  const [estimationValue, setEstimationValue] = useState("");
   
   // Validation errors
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -469,8 +485,21 @@ export function ContactSection() {
                         </Select>
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="estimation">Estimation du bien (€)</Label>
-                        <Input id="estimation" type="text" placeholder="Ex: 300 000" />
+                        <Label htmlFor="estimation">Estimation du bien (sans engagement)</Label>
+                        <div className="relative">
+                          <Input 
+                            id="estimation" 
+                            type="text" 
+                            placeholder="Ex: 300 000"
+                            value={estimationValue}
+                            onChange={(e) => {
+                              const formatted = formatNumberWithSpaces(e.target.value);
+                              setEstimationValue(formatted);
+                            }}
+                            className="pr-8"
+                          />
+                          <span className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground">€</span>
+                        </div>
                       </div>
                     </div>
 
@@ -501,15 +530,25 @@ export function ContactSection() {
 
                     <div className="space-y-2">
                       <Label htmlFor="documents">Documents / Photos (optionnel)</Label>
-                      <div className="border-2 border-dashed border-border/50 rounded-xl p-6 text-center hover:border-accent/30 transition-colors cursor-pointer">
+                      <label 
+                        htmlFor="file-upload" 
+                        className="border-2 border-dashed border-border/50 rounded-xl p-6 text-center hover:border-accent/30 transition-colors cursor-pointer block"
+                      >
                         <Upload className="w-8 h-8 text-muted-foreground mx-auto mb-2" />
                         <p className="text-sm text-muted-foreground">
                           Glissez vos fichiers ici ou cliquez pour sélectionner
                         </p>
                         <p className="text-xs text-muted-foreground/70 mt-1">
-                          PDF, JPG, PNG (max 10 Mo)
+                          Formats acceptés : PDF, Word, Excel
                         </p>
-                      </div>
+                        <input 
+                          id="file-upload"
+                          type="file"
+                          multiple
+                          accept=".pdf,.doc,.docx,.xls,.xlsx,.csv,.jpg,.jpeg,.png,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,text/csv,image/jpeg,image/png"
+                          className="hidden"
+                        />
+                      </label>
                     </div>
                   </div>
 
