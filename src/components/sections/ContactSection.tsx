@@ -468,11 +468,11 @@ export function ContactSection() {
 
                   {/* Optional details - visible by default */}
                   <div className="space-y-4 pt-4 border-t border-border/50">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-end">
                       <div className="space-y-2">
                         <Label htmlFor="typeBien">Type de bien</Label>
                         <Select>
-                          <SelectTrigger>
+                          <SelectTrigger className="h-10">
                             <SelectValue placeholder="Sélectionnez" />
                           </SelectTrigger>
                           <SelectContent>
@@ -496,7 +496,7 @@ export function ContactSection() {
                               const formatted = formatNumberWithSpaces(e.target.value);
                               setEstimationValue(formatted);
                             }}
-                            className="pr-8"
+                            className="pr-8 h-10"
                           />
                           <span className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground">€</span>
                         </div>
