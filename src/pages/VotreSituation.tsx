@@ -41,7 +41,7 @@ const situations = [{
   icon: Lock,
   image: blocageImg,
   imageAlt: "Plan cadastral",
-  title: "Bien occupé / Blocage",
+  title: "Bien occupé ou vide / Blocage",
   description: "Un ou plusieurs indivisaires refusent de vendre malgré la volonté de la majorité ou de la minorité. Le bien reste bloqué.",
   problems: ["Aucune indemnité d'occupation payé par l'occupant", "Bien qui se dégrade faute d'entretien", "Charges et impôts fonciers importants alors que vous n'en profitez pas", "Travaux à prévoir DPE F ou G"],
   solution: "Grâce à notre expertise de l'article 815 et notre réseau de partenaires juridiques, nous pouvons vous proposer une sortie encadrée et sécurisée."
