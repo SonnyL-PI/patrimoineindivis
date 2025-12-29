@@ -17,7 +17,7 @@ const pillars = [
   {
     icon: Shield,
     title: "Spécialiste exclusif",
-    description: "Rachat de parts indivises uniquement — aucune autre activité",
+    description: "Rachat de parts indivises uniquement",
   },
   {
     icon: Scale,
