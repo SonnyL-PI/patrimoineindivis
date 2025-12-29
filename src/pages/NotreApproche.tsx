@@ -168,7 +168,7 @@ const NotreApproche = () => {
               Prêt à sortir de l'indivision ?
             </h2>
             <p className="text-primary-foreground/70 text-lg mb-8">
-              Contactez-nous pour une étude de rachat sans engagement de votre situation.
+              Contactez nous pour une étude de rachat gratuite 
             </p>
             <Button variant="hero" size="lg" asChild>
               <Link to="/contact">
