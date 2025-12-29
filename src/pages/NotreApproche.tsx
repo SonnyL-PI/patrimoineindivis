@@ -23,7 +23,7 @@ const steps = [{
   title: "Procédure d'exercice du droit de préemption",
   duration: "Attention aux pièges",
   description: "La cession est réalisée dans le respect du formalisme de l'article 815 du Code civil. Nos partenaires notaires et avocats sont spécialisés dans ces opérations.",
-  details: ["Signification aux co-indivisaires (obligatoire)", "Respect du droit de préemption", "Rédaction des actes par notaire", "Médiation si nécessaire"]
+  details: ["Signification aux coindivisaires par commissaire de justice", "Respect du droit de préemption", "Rédaction des actes par notaire", "Médiation si nécessaire"]
 }, {
   number: "04",
   icon: Banknote,
