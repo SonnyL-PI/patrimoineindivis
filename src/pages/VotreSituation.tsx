@@ -16,7 +16,7 @@ const situations = [{
   imageAlt: "Dossier d'indivision",
   title: "Succession",
   description: "Vous avez hérité d'un bien en indivision avec d'autres héritiers et souhaitez sortir de l'indivision.",
-  problems: ["Désaccord entre héritiers sur le devenir du bien", "La succession n'est toujours pas close alors que vous avez l'attestation de notoriété", "Un des héritiers occupe le bien et bloque la vente de celui ci", "Frais de succession à payer"],
+  problems: ["Désaccord entre héritiers sur le devenir du bien", "La succession n'est toujours pas close alors que vous avez l'attestation de notoriété", "Un des héritiers occupe le bien et bloque la vente de celui ci", "Un ou plusieurs héritiers fixent la valeur du bien hors marché, le bien devient invendable", "Frais de succession à payer"],
   solution: "Nous rachetons votre part dans le respect du cadre légal (article 815), vous permettant de sortir de l'indivision rapidement tout en préservant les relations familiales."
 }, {
   id: "divorce",
