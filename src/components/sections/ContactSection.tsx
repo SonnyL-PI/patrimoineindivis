@@ -173,7 +173,7 @@ export function ContactSection() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground text-sm mb-0.5">
-                    Réponse sous 48h
+                    Réponse dans les meilleurs délais      
                   </h4>
                   <p className="text-muted-foreground text-sm">
                     Notre équipe vous recontacte dans les meilleurs délais.
