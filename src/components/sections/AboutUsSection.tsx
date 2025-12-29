@@ -22,7 +22,7 @@ const pillars = [
   {
     icon: Scale,
     title: "Expertise juridique",
-    description: "Partenaires formés sur des milliers de cas, formalisme article 815",
+    description: "Une équipe forgée par des milliers de cas réels, en collaboration étroite avec des partenaires d'excellence sélectionnés avec exigence.",
   },
   {
     icon: Heart,
