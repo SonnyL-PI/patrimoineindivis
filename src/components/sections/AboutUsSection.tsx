@@ -16,8 +16,8 @@ import bgImage from "@/assets/hero-building.jpg";
 const pillars = [
   {
     icon: Shield,
-    title: "Spécialiste exclusif",
-    description: "Rachat de parts indivises uniquement",
+    title: "Notre métier",
+    description: "Nous achetons exclusivement des parts indivises - un processus parfaitement maîtrisé",
   },
   {
     icon: Scale,
