@@ -3,81 +3,50 @@ import { Footer } from "@/components/Footer";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, FileSearch, FileText, Scale, Banknote, Shield, Users, Heart } from "lucide-react";
-
-const steps = [
-  {
-    number: "01",
-    icon: FileSearch,
-    title: "Analyse de votre situation",
-    duration: "1-2 jours",
-    description: "Nous étudions votre dossier gratuitement et sans engagement. Un expert dédié analyse les documents que vous nous transmettez et évalue votre situation.",
-    details: [
-      "Entretien téléphonique ou visioconférence",
-      "Analyse des documents (acte de propriété, succession...)",
-      "Évaluation du bien et de votre quote-part",
-      "Identification des éventuels points de blocage",
-    ],
-  },
-  {
-    number: "02",
-    icon: FileText,
-    title: "Proposition de rachat",
-    duration: "48h après réception du dossier complet",
-    description: "Vous recevez une offre ferme et détaillée. Nous vous expliquons les conditions, le calendrier prévisionnel et répondons à toutes vos questions.",
-    details: [
-      "Offre écrite et détaillée",
-      "Conditions transparentes",
-      "Calendrier prévisionnel",
-      "Accompagnement dans la compréhension",
-    ],
-  },
-  {
-    number: "03",
-    icon: Scale,
-    title: "Procédure d'exercice du droit de préemption",
-    duration: "Attention aux pièges",
-    description: "La cession est réalisée dans le respect du formalisme de l'article 815 du Code civil. Nos partenaires notaires et avocats sont spécialisés dans ces opérations.",
-    details: [
-      "Signification aux co-indivisaires (obligatoire)",
-      "Respect du droit de préemption",
-      "Rédaction des actes par notaire",
-      "Médiation si nécessaire",
-    ],
-  },
-  {
-    number: "04",
-    icon: Banknote,
-    title: "Acte authentique",
-    duration: "Devant notaire",
-    description: "Un acte authentique signé devant notaire dans les 3 mois après la fin de du droit de préemption des coindivisaires",
-    details: [
-      "Sans condition de financement",
-      "Confidentialité garantie",
-    ],
-  },
-];
-
-const values = [
-  {
-    icon: Shield,
-    title: "Sécurité juridique",
-    description: "Nous maîtrisons parfaitement le cadre légal de l'indivision et travaillons avec des partenaires (notaires, avocats) formés à ces situations spécifiques.",
-  },
-  {
-    icon: Users,
-    title: "Accompagnement",
-    description: "Nous vous accompagnons dans l'ensemble des démarches liées à la sortie d'indivision, en intégrant ses conséquences financières, fiscales, juridiques ainsi que les solutions de relogement si nécessaire.",
-  },
-  {
-    icon: Heart,
-    title: "Approche humaine",
-    description: "Nous comprenons que l'indivision touche souvent à des situations familiales sensibles. Discrétion et empathie guident notre accompagnement.",
-  },
-];
-
+const steps = [{
+  number: "01",
+  icon: FileSearch,
+  title: "Analyse de votre situation",
+  duration: "1-2 jours",
+  description: "Nous étudions votre dossier gratuitement et sans engagement. Un expert dédié analyse les documents que vous nous transmettez et évalue votre situation.",
+  details: ["Entretien téléphonique ou visioconférence", "Analyse des documents (acte de propriété, succession...)", "Évaluation du bien et de votre quote-part", "Identification des éventuels points de blocage"]
+}, {
+  number: "02",
+  icon: FileText,
+  title: "Proposition de rachat",
+  duration: "48h après réception du dossier complet",
+  description: "Vous recevez une offre ferme et détaillée. Nous vous expliquons les conditions, le calendrier prévisionnel et répondons à toutes vos questions.",
+  details: ["Offre écrite et détaillée", "Conditions transparentes", "Calendrier prévisionnel", "Accompagnement dans la compréhension"]
+}, {
+  number: "03",
+  icon: Scale,
+  title: "Procédure d'exercice du droit de préemption",
+  duration: "Attention aux pièges",
+  description: "La cession est réalisée dans le respect du formalisme de l'article 815 du Code civil. Nos partenaires notaires et avocats sont spécialisés dans ces opérations.",
+  details: ["Signification aux co-indivisaires (obligatoire)", "Respect du droit de préemption", "Rédaction des actes par notaire", "Médiation si nécessaire"]
+}, {
+  number: "04",
+  icon: Banknote,
+  title: "Acte authentique",
+  duration: "Devant notaire",
+  description: "Un acte authentique signé devant notaire dans les 3 mois après la fin de du droit de préemption des coindivisaires",
+  details: ["Sans condition de financement", "Confidentialité garantie"]
+}];
+const values = [{
+  icon: Shield,
+  title: "Sécurité juridique",
+  description: "Nous maîtrisons parfaitement le cadre légal de l'indivision et travaillons avec des partenaires (notaires, avocats) formés à ces situations spécifiques."
+}, {
+  icon: Users,
+  title: "Accompagnement",
+  description: "Nous vous accompagnons dans l'ensemble des démarches liées à la sortie d'indivision, en intégrant ses conséquences financières, fiscales, juridiques ainsi que les solutions de relogement si nécessaire."
+}, {
+  icon: Heart,
+  title: "Approche humaine",
+  description: "Nous comprenons que l'indivision touche souvent à des situations familiales sensibles. Discrétion et empathie guident notre accompagnement."
+}];
 const NotreApproche = () => {
-  return (
-    <div className="min-h-screen bg-background">
+  return <div className="min-h-screen bg-background">
       <Header />
       <main>
         {/* Hero */}
@@ -91,8 +60,7 @@ const NotreApproche = () => {
                 Notre <span className="text-accent">approche</span>
               </h1>
               <p className="text-xl text-primary-foreground/80 leading-relaxed">
-                Un processus structuré, transparent et sécurisé pour vous accompagner
-                de la première prise de contact jusqu'à la clôture de votre dossier.
+                Chacun de nos conseillers prendra le temps nécessaire pour échanger avec vous, comprendre votre situation et étudier votre dossier.
               </p>
             </div>
           </div>
@@ -112,11 +80,7 @@ const NotreApproche = () => {
             </div>
 
             <div className="space-y-8 max-w-3xl mx-auto">
-              {steps.map((step) => (
-                <div
-                  key={step.number}
-                  className="bg-card rounded-2xl p-8 border border-border/50"
-                >
+              {steps.map(step => <div key={step.number} className="bg-card rounded-2xl p-8 border border-border/50">
                   <div className="flex items-start gap-4 mb-6">
                     <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
                       <step.icon className="w-7 h-7 text-accent" />
@@ -130,15 +94,12 @@ const NotreApproche = () => {
                     {step.description}
                   </p>
                   <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    {step.details.map((detail) => (
-                      <li key={detail} className="flex items-center gap-2 text-sm text-foreground">
+                    {step.details.map(detail => <li key={detail} className="flex items-center gap-2 text-sm text-foreground">
                         <span className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
                         {detail}
-                      </li>
-                    ))}
+                      </li>)}
                   </ul>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
         </section>
@@ -156,15 +117,13 @@ const NotreApproche = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {values.map((value) => (
-                <div key={value.title} className="card-premium text-center">
+              {values.map(value => <div key={value.title} className="card-premium text-center">
                   <div className="w-16 h-16 rounded-2xl bg-accent/10 flex items-center justify-center mx-auto mb-6">
                     <value.icon className="w-8 h-8 text-accent" />
                   </div>
                   <h3 className="heading-card text-foreground mb-4">{value.title}</h3>
                   <p className="text-muted-foreground">{value.description}</p>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
         </section>
@@ -221,8 +180,6 @@ const NotreApproche = () => {
         </section>
       </main>
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default NotreApproche;
