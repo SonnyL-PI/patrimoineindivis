@@ -73,16 +73,71 @@ const situationCards = [
   { icon: Banknote, label: "Liquidité", href: "/votre-situation#liquidite" },
 ];
 
+// Format phone number as 06 12 34 56 78 or +33 6 12 34 56 78
+const formatPhoneNumber = (value: string): string => {
+  // Remove all non-digit characters except +
+  let cleaned = value.replace(/[^\d+]/g, "");
+  
+  // Handle +33 format
+  if (cleaned.startsWith("+33")) {
+    const rest = cleaned.slice(3);
+    const formatted = rest.replace(/(\d{1})(\d{2})?(\d{2})?(\d{2})?(\d{2})?/, (_, a, b, c, d, e) => 
+      [a, b, c, d, e].filter(Boolean).join(" ")
+    );
+    return "+33 " + formatted;
+  }
+  
+  // Handle 0X format
+  if (cleaned.startsWith("0")) {
+    return cleaned.replace(/(\d{2})(\d{2})?(\d{2})?(\d{2})?(\d{2})?/, (_, a, b, c, d, e) => 
+      [a, b, c, d, e].filter(Boolean).join(" ")
+    );
+  }
+  
+  return cleaned;
+};
+
+// Format number with thousand separators (spaces)
+const formatNumberWithSpaces = (value: string): string => {
+  const cleanValue = value.replace(/[^\d]/g, "");
+  if (!cleanValue) return "";
+  return cleanValue.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+};
+
+// Parse formatted number to raw number
+const parseFormattedNumber = (value: string): number => {
+  const cleanValue = value.replace(/\s/g, "");
+  return parseInt(cleanValue, 10) || 0;
+};
+
+// French phone validation regex
+const frenchPhoneRegex = /^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/;
+
+// Fraction validation
+const validateFraction = (value: string): boolean => {
+  const match = value.match(/^(\d+)\/(\d+)$/);
+  if (!match) return false;
+  const [, numerator, denominator] = match;
+  const num = parseInt(numerator, 10);
+  const den = parseInt(denominator, 10);
+  if (den === 0) return false;
+  if (num / den <= 0 || num / den > 1) return false;
+  return true;
+};
+
 export default function EtudeGratuite() {
   const { toast } = useToast();
   const [step, setStep] = useState(1);
   const [consent, setConsent] = useState(false);
   const [rdv, setRdv] = useState<string>("");
+  const [quotePartFormat, setQuotePartFormat] = useState<"percent" | "fraction">("percent");
+  const [errors, setErrors] = useState<Record<string, string>>({});
   const [formData, setFormData] = useState({
     nom: "",
     prenom: "",
     email: "",
-    telephone: "",
+    telephonePrincipal: "",
+    telephoneSecondaire: "",
     situation: "",
     departement: "",
     estimation: "",
@@ -95,11 +150,35 @@ export default function EtudeGratuite() {
 
   const handleInputChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
+    if (errors[field]) {
+      setErrors(prev => ({ ...prev, [field]: "" }));
+    }
+  };
+
+  const validateQuotePart = (): { valid: boolean; error?: string } => {
+    if (!formData.quotepart.trim()) {
+      return { valid: false, error: "La quote-part est obligatoire" };
+    }
+
+    if (quotePartFormat === "percent") {
+      const numValue = parseFloat(formData.quotepart.replace(",", "."));
+      if (isNaN(numValue) || numValue <= 0 || numValue > 100) {
+        return { valid: false, error: "Entrez un pourcentage entre 0 et 100" };
+      }
+    } else {
+      if (!validateFraction(formData.quotepart.trim())) {
+        return { valid: false, error: "Format invalide. Ex: 1/2, 3/8 (valeur ≤ 1)" };
+      }
+    }
+
+    return { valid: true };
   };
 
   const handleStep1Submit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.nom || !formData.prenom || !formData.email || !formData.telephone || !formData.situation || !formData.departement) {
+    const newErrors: Record<string, string> = {};
+    
+    if (!formData.nom || !formData.prenom || !formData.email || !formData.situation || !formData.departement) {
       toast({
         title: "Champs requis",
         description: "Veuillez remplir tous les champs obligatoires.",
@@ -107,12 +186,52 @@ export default function EtudeGratuite() {
       });
       return;
     }
+
+    // Validate phone principal
+    if (!frenchPhoneRegex.test(formData.telephonePrincipal.trim())) {
+      newErrors.telephonePrincipal = "Numéro de téléphone invalide";
+    }
+
+    // Validate phone secondaire if filled
+    if (formData.telephoneSecondaire && !frenchPhoneRegex.test(formData.telephoneSecondaire.trim())) {
+      newErrors.telephoneSecondaire = "Numéro de téléphone invalide";
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      toast({
+        title: "Erreur de validation",
+        description: "Veuillez corriger les erreurs dans le formulaire.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setErrors({});
     setStep(2);
     window.scrollTo({ top: document.getElementById("formulaire")?.offsetTop ? document.getElementById("formulaire")!.offsetTop - 100 : 0, behavior: "smooth" });
   };
 
   const handleFinalSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const newErrors: Record<string, string> = {};
+
+    // Validate quote-part
+    const quotePartValidation = validateQuotePart();
+    if (!quotePartValidation.valid) {
+      newErrors.quotepart = quotePartValidation.error || "Quote-part invalide";
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      toast({
+        title: "Erreur de validation",
+        description: "Veuillez corriger les erreurs dans le formulaire.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     if (!consent) {
       toast({
         title: "Consentement requis",
@@ -129,6 +248,19 @@ export default function EtudeGratuite() {
       });
       return;
     }
+
+    // Prepare normalized data
+    const quotePartData = {
+      type: quotePartFormat,
+      value: quotePartFormat === "percent" 
+        ? parseFloat(formData.quotepart.replace(",", ".")) 
+        : formData.quotepart.trim()
+    };
+    const estimationValue = parseFormattedNumber(formData.estimation);
+
+    console.log("Quote-part data:", quotePartData);
+    console.log("Estimation value:", estimationValue);
+
     toast({
       title: "Demande envoyée avec succès",
       description: "Nous vous recontacterons dans les 48h.",
@@ -366,28 +498,51 @@ export default function EtudeGratuite() {
                       </div>
                     </div>
 
+                    <div className="space-y-2">
+                      <Label htmlFor="email">Email *</Label>
+                      <Input
+                        id="email"
+                        type="email"
+                        placeholder="votre@email.fr"
+                        value={formData.email}
+                        onChange={(e) => handleInputChange("email", e.target.value)}
+                        required
+                      />
+                    </div>
+
+                    {/* Two phone numbers */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="space-y-2">
-                        <Label htmlFor="email">Email *</Label>
+                        <Label htmlFor="telephone-principal">Téléphone principal *</Label>
                         <Input
-                          id="email"
-                          type="email"
-                          placeholder="votre@email.fr"
-                          value={formData.email}
-                          onChange={(e) => handleInputChange("email", e.target.value)}
+                          id="telephone-principal"
+                          type="tel"
+                          value={formData.telephonePrincipal}
+                          onChange={(e) => {
+                            const formatted = formatPhoneNumber(e.target.value);
+                            handleInputChange("telephonePrincipal", formatted);
+                          }}
                           required
                         />
+                        {errors.telephonePrincipal && (
+                          <p className="text-sm text-destructive">{errors.telephonePrincipal}</p>
+                        )}
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="telephone">Téléphone *</Label>
+                        <Label htmlFor="telephone-secondaire">Téléphone secondaire</Label>
                         <Input
-                          id="telephone"
+                          id="telephone-secondaire"
                           type="tel"
-                          placeholder="06 00 00 00 00"
-                          value={formData.telephone}
-                          onChange={(e) => handleInputChange("telephone", e.target.value)}
-                          required
+                          value={formData.telephoneSecondaire}
+                          onChange={(e) => {
+                            const formatted = formatPhoneNumber(e.target.value);
+                            handleInputChange("telephoneSecondaire", formatted);
+                          }}
                         />
+                        <p className="text-xs text-muted-foreground">(Optionnel)</p>
+                        {errors.telephoneSecondaire && (
+                          <p className="text-sm text-destructive">{errors.telephoneSecondaire}</p>
+                        )}
                       </div>
                     </div>
 
@@ -445,15 +600,22 @@ export default function EtudeGratuite() {
                       </button>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-end">
                       <div className="space-y-2">
-                        <Label htmlFor="estimation">Estimation de la valeur du bien (€)</Label>
-                        <Input
-                          id="estimation"
-                          placeholder="Ex: 300 000"
-                          value={formData.estimation}
-                          onChange={(e) => handleInputChange("estimation", e.target.value)}
-                        />
+                        <Label htmlFor="estimation">Estimation du bien (sans engagement)</Label>
+                        <div className="relative">
+                          <Input
+                            id="estimation"
+                            placeholder="Ex: 300 000"
+                            value={formData.estimation}
+                            onChange={(e) => {
+                              const formatted = formatNumberWithSpaces(e.target.value);
+                              handleInputChange("estimation", formatted);
+                            }}
+                            className="pr-8 h-10"
+                          />
+                          <span className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground">€</span>
+                        </div>
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="typeBien">Type de bien *</Label>
@@ -461,7 +623,7 @@ export default function EtudeGratuite() {
                           value={formData.typeBien}
                           onValueChange={(value) => handleInputChange("typeBien", value)}
                         >
-                          <SelectTrigger>
+                          <SelectTrigger className="h-10">
                             <SelectValue placeholder="Sélectionnez" />
                           </SelectTrigger>
                           <SelectContent>
@@ -475,34 +637,78 @@ export default function EtudeGratuite() {
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="quotepart">Quote-part d'indivision (%)</Label>
-                        <Input
-                          id="quotepart"
-                          placeholder="Ex: 25"
-                          value={formData.quotepart}
-                          onChange={(e) => handleInputChange("quotepart", e.target.value)}
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="situationLocative">Situation locative du bien</Label>
-                        <Select
-                          value={formData.situationLocative}
-                          onValueChange={(value) => handleInputChange("situationLocative", value)}
-                        >
-                          <SelectTrigger>
-                            <SelectValue placeholder="Sélectionnez" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            {situationsLocatives.map((s) => (
-                              <SelectItem key={s.value} value={s.value}>
-                                {s.label}
-                              </SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
-                      </div>
+                    {/* Quote-part - mandatory with format selector */}
+                    <div className="space-y-3">
+                      <Label>Votre quote-part *</Label>
+                      <RadioGroup 
+                        value={quotePartFormat} 
+                        onValueChange={(value: "percent" | "fraction") => {
+                          setQuotePartFormat(value);
+                          handleInputChange("quotepart", "");
+                        }}
+                        className="flex gap-4"
+                      >
+                        <div className="flex items-center space-x-2">
+                          <RadioGroupItem value="percent" id="format-percent-etude" />
+                          <Label htmlFor="format-percent-etude" className="font-normal cursor-pointer">
+                            Pourcentage (%)
+                          </Label>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <RadioGroupItem value="fraction" id="format-fraction-etude" />
+                          <Label htmlFor="format-fraction-etude" className="font-normal cursor-pointer">
+                            Fraction (ex: 1/2)
+                          </Label>
+                        </div>
+                      </RadioGroup>
+                      
+                      {quotePartFormat === "percent" ? (
+                        <div className="space-y-1">
+                          <Input 
+                            id="quotepart-percent"
+                            type="text"
+                            placeholder="Ex: 25"
+                            value={formData.quotepart}
+                            onChange={(e) => handleInputChange("quotepart", e.target.value)}
+                            required
+                          />
+                          <p className="text-xs text-muted-foreground">Valeur entre 0 et 100</p>
+                        </div>
+                      ) : (
+                        <div className="space-y-1">
+                          <Input 
+                            id="quotepart-fraction"
+                            type="text"
+                            placeholder="Ex: 1/2 ou 3/8"
+                            value={formData.quotepart}
+                            onChange={(e) => handleInputChange("quotepart", e.target.value)}
+                            required
+                          />
+                          <p className="text-xs text-muted-foreground">Format a/b (ex: 1/2, 3/8)</p>
+                        </div>
+                      )}
+                      {errors.quotepart && (
+                        <p className="text-sm text-destructive">{errors.quotepart}</p>
+                      )}
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="situationLocative">Situation locative du bien</Label>
+                      <Select
+                        value={formData.situationLocative}
+                        onValueChange={(value) => handleInputChange("situationLocative", value)}
+                      >
+                        <SelectTrigger>
+                          <SelectValue placeholder="Sélectionnez" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {situationsLocatives.map((s) => (
+                            <SelectItem key={s.value} value={s.value}>
+                              {s.label}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
                     </div>
 
                     <div className="space-y-2">
@@ -532,15 +738,25 @@ export default function EtudeGratuite() {
                     {/* File upload */}
                     <div className="space-y-2">
                       <Label>Photos / Documents (optionnel)</Label>
-                      <div className="border-2 border-dashed border-border/50 rounded-xl p-6 text-center hover:border-accent/30 transition-colors cursor-pointer">
+                      <label 
+                        htmlFor="file-upload-etude" 
+                        className="border-2 border-dashed border-border/50 rounded-xl p-6 text-center hover:border-accent/30 transition-colors cursor-pointer block"
+                      >
                         <Upload className="w-8 h-8 text-muted-foreground mx-auto mb-2" />
                         <p className="text-sm text-muted-foreground">
                           Glissez vos fichiers ici ou cliquez pour sélectionner
                         </p>
                         <p className="text-xs text-muted-foreground/70 mt-1">
-                          PDF, JPG, PNG (max 10 Mo)
+                          Formats acceptés : PDF, Word, Excel, PNG, JPG/JPEG
                         </p>
-                      </div>
+                        <input 
+                          id="file-upload-etude"
+                          type="file"
+                          multiple
+                          accept=".pdf,.doc,.docx,.xls,.xlsx,.csv,.jpg,.jpeg,.png,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,text/csv,image/jpeg,image/png"
+                          className="hidden"
+                        />
+                      </label>
                     </div>
 
                     {/* RDV */}
