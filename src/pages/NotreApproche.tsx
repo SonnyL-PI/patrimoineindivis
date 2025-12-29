@@ -29,7 +29,7 @@ const steps = [{
   icon: Banknote,
   title: "Acte authentique",
   duration: "Devant notaire",
-  description: "Un acte authentique signé devant notaire dans les 3 mois après la fin de du droit de préemption des coindivisaires",
+  description: "Un acte authentique est signé chez le notaire dans un délai de 3 mois, une fois les droits de préemption des coindivisaires purgés.",
   details: ["Sans condition de financement", "Confidentialité garantie"]
 }];
 const values = [{
