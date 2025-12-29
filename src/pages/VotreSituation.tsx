@@ -53,7 +53,7 @@ const situations = [{
   title: "Besoin de liquidité",
   description: "Vous souhaitez transformer votre part en capital pour financer un projet, faire face à des besoins ou simplement aider vos enfants.",
   problems: ["Capital immobilisé dans le bien indivis", "Projet professionnel ou personnel à financer", "Autres indivisaires qui ne souhaitent pas vendre", "Besoin d'argent à court terme", "Vous souhaitez faire des donations à vos enfants en numéraire"],
-  solution: "Nous vous faisons une offre ferme sous 48h et procédons au versement dès la signature. Une solution rapide et discrète."
+  solution: "Tenant compte de votre situation d'urgence, nous nous engageons à étudier votre dossier et à vous faire une offre ferme dans les plus brefs délais vous permettant d'entrevoir une solution directe."
 }, {
   id: "fiscal",
   icon: FileText,
