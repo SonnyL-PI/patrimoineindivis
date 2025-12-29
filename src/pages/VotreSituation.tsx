@@ -25,7 +25,7 @@ const situations = [{
   imageAlt: "Clés et dossier",
   title: "Divorce / Séparation",
   description: "Votre divorce a été prononcé. Une ordonnance de non-conciliation a également été rendue.",
-  problems: ["Procédure de divorce longue et complexe", "Une ordonnance de non conciliation a été prononcée", "Le conjoint occupe le bien et vous payez les charges", "Votre conjoint refuse de vendre et le bien se dégrade"],
+  problems: ["Procédure de divorce longue et complexe", "Une ordonnance de non conciliation a été prononcée", "Le conjoint occupe le bien et vous payez les charges", "Votre conjoint refuse de vendre et le bien se dégrade", "Votre ex conjoint(e) fixe la valeur du bien hors marché et le bien devient invendable", "Vous perdez de l'argent car le bien se dégrade"],
   solution: "Nous rachetons votre part dans le respect du cadre légal (article 815), vous permettant de sortir de l'indivision rapidement."
 }, {
   id: "conflit",
