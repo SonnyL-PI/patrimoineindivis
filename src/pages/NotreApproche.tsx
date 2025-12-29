@@ -29,7 +29,7 @@ const steps = [{
   icon: Banknote,
   title: "Acte authentique",
   duration: "Devant notaire",
-  description: "Un acte authentique est signé chez le notaire dans un délai de 3 mois, une fois les droits de préemption des coindivisaires purgés.",
+  description: "Tous nos actes sont notariés. La signature se fait chez le notaire de votre choix, dans un délai de 3 mois, dès que le droit de préemption des coindivisaires a été purgé.",
   details: ["Sans condition de financement", "Confidentialité garantie"]
 }];
 const values = [{
