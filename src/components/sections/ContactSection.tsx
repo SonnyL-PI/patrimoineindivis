@@ -176,7 +176,7 @@ export function ContactSection() {
                     Réponse dans les meilleurs délais      
                   </h4>
                   <p className="text-muted-foreground text-sm">
-                    Notre équipe vous recontacte dans les meilleurs délais.
+                    Notre équipe vous recontacte dans les 48h.
                   </p>
                 </div>
               </div>
