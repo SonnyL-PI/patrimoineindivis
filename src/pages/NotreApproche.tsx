@@ -101,11 +101,11 @@ const NotreApproche = () => {
         {/* Process Steps */}
         <section className="section-padding">
           <div className="container-wide">
-            <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="max-w-3xl mx-auto mb-16 text-center">
               <h2 className="heading-section text-foreground mb-6">
                 Les 4 étapes de notre accompagnement
               </h2>
-              <p className="text-body text-center">
+              <p className="text-muted-foreground text-lg leading-relaxed">
                 Un processus clair et balisé pour vous offrir sérénité et visibilité
                 tout au long de la procédure.
               </p>
