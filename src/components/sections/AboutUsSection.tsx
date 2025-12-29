@@ -135,9 +135,9 @@ export function AboutUsSection() {
               </div>
               <div>
                 <p className="text-accent font-serif text-2xl sm:text-3xl font-semibold">
-                  100%
+                  150M€
                 </p>
-                <p className="text-primary-foreground/60 text-sm">spécialisé indivision</p>
+                <p className="text-primary-foreground/60 text-sm">de parts indivises acquises</p>
               </div>
             </div>
 
