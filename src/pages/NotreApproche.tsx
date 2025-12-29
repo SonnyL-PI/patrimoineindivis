@@ -105,7 +105,7 @@ const NotreApproche = () => {
               <h2 className="heading-section text-foreground mb-6">
                 Les 4 étapes de notre accompagnement
               </h2>
-              <p className="text-body">
+              <p className="text-body text-center">
                 Un processus clair et balisé pour vous offrir sérénité et visibilité
                 tout au long de la procédure.
               </p>
