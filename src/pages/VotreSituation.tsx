@@ -61,7 +61,7 @@ const situations = [{
   imageAlt: "Salle de réunion",
   title: "IFI / Optimisation fiscale",
   description: "Vous souhaitez sortir d'une indivision pour des raisons patrimoniales ou fiscales, notamment dans le cadre de l'IFI ou de l'Exit Taxe.",
-  problems: ["Patrimoine immobilier soumis à l'IFI alors que vous n'avez que des parts indivises", "Vous souhaitez rendre vos parts indivises liquides", "Vous résidez à l'étranger et vous ne souhaitez plus être lié fiscalement à la France"],
+  problems: ["Patrimoine soumis à l'IFI pour un ou des biens qui vous rapportent peu voire rien", "Vous souhaitez rendre vos parts indivises liquides", "Vous résidez à l'étranger et vous ne souhaitez plus être lié fiscalement à la France"],
   solution: "Nous vous permettons de céder votre part rapidement et de réorganiser votre patrimoine de manière optimale sur le plan fiscal."
 }];
 const VotreSituation = () => {
