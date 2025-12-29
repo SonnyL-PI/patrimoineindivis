@@ -6,7 +6,7 @@ import { ArrowRight, FileSearch, FileText, Scale, Banknote, Shield, Users, Heart
 const steps = [{
   number: "01",
   icon: FileSearch,
-  title: "Analyse de votre situation",
+  title: "Analyse de votre situation (gratuite et sans engagement)",
   duration: "1-2 jours",
   description: "Nous vous écoutons et échangeons avec vous pour comprendre votre situation, ensuite un expert dédié analyse les documents que vous nous transmettez et évalue votre situation.",
   details: ["Entretien téléphonique ou visioconférence", "Analyse des documents (acte de propriété, succession...)", "Évaluation du bien et de votre quote-part", "Identification des éventuels points de blocage"]
