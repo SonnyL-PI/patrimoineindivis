@@ -3,91 +3,63 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Check, ArrowRight, Quote, Star } from "lucide-react";
 import { PremiumPlate } from "@/components/ui/PremiumPlate";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import heroBuilding from "@/assets/hero-building.jpg";
-
-const benefits = [
-  "Proposition de rachat après étude par nos équipes, notaires et avocats",
-  "Offres fermes et sans conditions suspensives de crédit",
-  "Accompagnement complet jusqu'à l'acquisition de vos parts devant notaire",
-  "Étude réalisée gratuitement et sans engagement",
-];
-
-const googleReviews = [
-  {
-    initials: "C.B.",
-    author: "Christine BASSI",
-    rating: 5,
-    visited: "mai",
-    quote: "Une aide précieuse et un accompagnement de qualité qui m'ont permis de sortir d'une situation difficile. Mention spéciale à Franck SAVEAU pour sa disponibilité et sa bienveillance.",
-  },
-  {
-    initials: "B.L.",
-    author: "Brigitte le crane",
-    rating: 5,
-    visited: "mars",
-    quote: "J'ai vraiment apprécié l'écoute, la compétence, la disponibilité et la bienveillance de Philippe Rogel et son équipe. Dans une situation compliquée, la prise en charge est complète et sécurisante.",
-  },
-  {
-    initials: "J.P.",
-    author: "Jean-Pierre Augé",
-    rating: 5,
-    visited: "juin 2024",
-    quote: "Toute ma reconnaissance à monsieur Saveau qui, avec délicatesse et efficacité, a permis à mon épouse de sortir d'une indivision problématique.",
-  },
-  {
-    initials: "M.B.",
-    author: "MM BIZIEN",
-    rating: 5,
-    visited: "juin 2022",
-    quote: "Je pensais la situation bloquée et finalement j'ai pu vendre mes parts d'indivision. Une équipe sérieuse et humaine pour un win-win.",
-  },
-  {
-    initials: "P.C.",
-    author: "patricia cauvin",
-    rating: 4,
-    visited: "février 2023",
-    quote: "Un grand merci à Patrimoine Indivis pour m'avoir permis de sortir d'une situation familiale trop conflictuelle et de vendre ma nue-propriété.",
-  },
-  {
-    initials: "C.G.",
-    author: "Charles Gonzal",
-    rating: 5,
-    visited: "avril 2022",
-    quote: "Très bon service, belle écoute et très professionnel. Équipe dynamique et orientée solution. Je recommande vivement !",
-  },
-];
+const benefits = ["Proposition de rachat après étude par nos équipes, notaires et avocats", "Offres fermes et sans conditions suspensives de crédit", "Accompagnement complet jusqu'à l'acquisition de vos parts devant notaire", "Étude réalisée gratuitement et sans engagement"];
+const googleReviews = [{
+  initials: "C.B.",
+  author: "Christine BASSI",
+  rating: 5,
+  visited: "mai",
+  quote: "Une aide précieuse et un accompagnement de qualité qui m'ont permis de sortir d'une situation difficile. Mention spéciale à Franck SAVEAU pour sa disponibilité et sa bienveillance."
+}, {
+  initials: "B.L.",
+  author: "Brigitte le crane",
+  rating: 5,
+  visited: "mars",
+  quote: "J'ai vraiment apprécié l'écoute, la compétence, la disponibilité et la bienveillance de Philippe Rogel et son équipe. Dans une situation compliquée, la prise en charge est complète et sécurisante."
+}, {
+  initials: "J.P.",
+  author: "Jean-Pierre Augé",
+  rating: 5,
+  visited: "juin 2024",
+  quote: "Toute ma reconnaissance à monsieur Saveau qui, avec délicatesse et efficacité, a permis à mon épouse de sortir d'une indivision problématique."
+}, {
+  initials: "M.B.",
+  author: "MM BIZIEN",
+  rating: 5,
+  visited: "juin 2022",
+  quote: "Je pensais la situation bloquée et finalement j'ai pu vendre mes parts d'indivision. Une équipe sérieuse et humaine pour un win-win."
+}, {
+  initials: "P.C.",
+  author: "patricia cauvin",
+  rating: 4,
+  visited: "février 2023",
+  quote: "Un grand merci à Patrimoine Indivis pour m'avoir permis de sortir d'une situation familiale trop conflictuelle et de vendre ma nue-propriété."
+}, {
+  initials: "C.G.",
+  author: "Charles Gonzal",
+  rating: 5,
+  visited: "avril 2022",
+  quote: "Très bon service, belle écoute et très professionnel. Équipe dynamique et orientée solution. Je recommande vivement !"
+}];
 
 // Threshold for showing "Lire la suite" (~4 lines of text)
 const TRUNCATE_THRESHOLD = 175;
-
 export function PropositionSection() {
   const [selectedReview, setSelectedReview] = useState<typeof googleReviews[0] | null>(null);
-
-  return (
-    <>
+  return <>
       {/* Main Proposition - Photo background + Premium Plate */}
       <section className="relative min-h-0 md:min-h-[60vh] flex items-center" id="proposition">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
-          <img
-            src={heroBuilding}
-            alt="Immeuble haussmannien"
-            className="absolute inset-0 w-full h-full object-cover"
-            style={{ filter: "saturate(0.8)" }}
-          />
+          <img src={heroBuilding} alt="Immeuble haussmannien" className="absolute inset-0 w-full h-full object-cover" style={{
+          filter: "saturate(0.8)"
+        }} />
           {/* Navy gradient overlay */}
-          <div 
-            className="absolute inset-0"
-            style={{
-              background: "linear-gradient(180deg, hsl(215 30% 14% / 0.88) 0%, hsl(215 26% 20% / 0.8) 60%, hsl(215 26% 22% / 0.75) 100%)",
-            }}
-          />
+          <div className="absolute inset-0" style={{
+          background: "linear-gradient(180deg, hsl(215 30% 14% / 0.88) 0%, hsl(215 26% 20% / 0.8) 60%, hsl(215 26% 22% / 0.75) 100%)"
+        }} />
         </div>
 
         {/* Content */}
@@ -102,18 +74,16 @@ export function PropositionSection() {
               </h2>
 
               <div className="space-y-3 mb-6">
-                {benefits.map((benefit, index) => (
-                  <div key={index} className="flex items-start gap-3">
+                {benefits.map((benefit, index) => <div key={index} className="flex items-start gap-3">
                     <div className="w-5 h-5 rounded-full bg-accent/25 flex items-center justify-center flex-shrink-0 mt-0.5">
                       <Check className="w-3 h-3 text-accent" />
                     </div>
                     <p className="text-primary-foreground/90 text-sm leading-relaxed">{benefit}</p>
-                  </div>
-                ))}
+                  </div>)}
               </div>
 
               <p className="text-base text-accent font-serif italic mb-6">
-                Une équipe à votre service, dans la plus stricte confidentialité.
+                Une équipe dédiée à votre service, avec la plus grande confidentialité.
               </p>
 
               <Button variant="gold" size="lg" className="w-full sm:w-auto" asChild>
@@ -139,13 +109,8 @@ export function PropositionSection() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
             {googleReviews.map((review, index) => {
-              const isTruncated = review.quote.length > TRUNCATE_THRESHOLD;
-              
-              return (
-                <div 
-                  key={index}
-                  className="card-premium relative group"
-                >
+            const isTruncated = review.quote.length > TRUNCATE_THRESHOLD;
+            return <div key={index} className="card-premium relative group">
                   <Quote className="w-6 h-6 text-accent/20 absolute top-5 right-5" />
                   
                   {/* Header with initials and Google tag */}
@@ -166,12 +131,7 @@ export function PropositionSection() {
 
                   {/* Stars */}
                   <div className="flex gap-0.5 mb-3">
-                    {[...Array(5)].map((_, i) => (
-                      <Star 
-                        key={i} 
-                        className={`w-4 h-4 ${i < review.rating ? 'text-accent fill-accent' : 'text-muted-foreground/30'}`} 
-                      />
-                    ))}
+                    {[...Array(5)].map((_, i) => <Star key={i} className={`w-4 h-4 ${i < review.rating ? 'text-accent fill-accent' : 'text-muted-foreground/30'}`} />)}
                   </div>
 
                   {/* Quote - clamped to 4 lines */}
@@ -180,27 +140,16 @@ export function PropositionSection() {
                   </p>
 
                   {/* "Lire la suite" link - only if truncated */}
-                  {isTruncated && (
-                    <button
-                      onClick={() => setSelectedReview(review)}
-                      className="mt-3 text-xs text-accent hover:text-accent/80 transition-colors font-medium cursor-pointer"
-                    >
+                  {isTruncated && <button onClick={() => setSelectedReview(review)} className="mt-3 text-xs text-accent hover:text-accent/80 transition-colors font-medium cursor-pointer">
                       Lire la suite →
-                    </button>
-                  )}
-                </div>
-              );
-            })}
+                    </button>}
+                </div>;
+          })}
           </div>
 
           {/* Link to all reviews */}
           <div className="text-center mt-8">
-            <a 
-              href="https://share.google/Mns4nXOvAarToXWs2" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm text-accent hover:text-accent/80 transition-colors font-medium"
-            >
+            <a href="https://share.google/Mns4nXOvAarToXWs2" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm text-accent hover:text-accent/80 transition-colors font-medium">
               Lire tous les avis sur Google
               <ArrowRight className="w-4 h-4" />
             </a>
@@ -209,7 +158,7 @@ export function PropositionSection() {
       </section>
 
       {/* Review Modal */}
-      <Dialog open={!!selectedReview} onOpenChange={(open) => !open && setSelectedReview(null)}>
+      <Dialog open={!!selectedReview} onOpenChange={open => !open && setSelectedReview(null)}>
         <DialogContent className="max-w-lg w-[calc(100%-2rem)] bg-background border-border/30 rounded-2xl shadow-xl p-0">
           <DialogHeader className="p-6 pb-4 border-b border-border/20">
             <div className="flex items-center justify-between">
@@ -231,12 +180,7 @@ export function PropositionSection() {
             
             {/* Stars */}
             <div className="flex gap-0.5 mt-3">
-              {[...Array(5)].map((_, i) => (
-                <Star 
-                  key={i} 
-                  className={`w-4 h-4 ${selectedReview && i < selectedReview.rating ? 'text-accent fill-accent' : 'text-muted-foreground/30'}`} 
-                />
-              ))}
+              {[...Array(5)].map((_, i) => <Star key={i} className={`w-4 h-4 ${selectedReview && i < selectedReview.rating ? 'text-accent fill-accent' : 'text-muted-foreground/30'}`} />)}
               <span className="ml-2 text-sm text-muted-foreground">{selectedReview?.rating}/5</span>
             </div>
           </DialogHeader>
@@ -248,6 +192,5 @@ export function PropositionSection() {
           </div>
         </DialogContent>
       </Dialog>
-    </>
-  );
+    </>;
 }
