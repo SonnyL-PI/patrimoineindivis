@@ -94,9 +94,9 @@ const NotreApproche = () => {
                     {step.description}
                   </p>
                   <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    {step.details.map(detail => <li key={detail} className="flex items-center gap-2 text-sm text-foreground">
-                        <span className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
-                        {detail}
+                    {step.details.map(detail => <li key={detail} className="flex items-start gap-2 text-sm text-foreground">
+                        <span className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0 mt-1.5" />
+                        <span>{detail}</span>
                       </li>)}
                   </ul>
                 </div>)}
