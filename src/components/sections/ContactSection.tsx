@@ -341,7 +341,7 @@ export function ContactSection() {
                       <Input 
                         id="telephone-principal" 
                         type="tel" 
-                        placeholder="06 00 00 00 00" 
+                        placeholder="" 
                         value={telephonePrincipal}
                         onChange={(e) => {
                           setTelephonePrincipal(e.target.value);
@@ -360,7 +360,7 @@ export function ContactSection() {
                       <Input 
                         id="telephone-secondaire" 
                         type="tel" 
-                        placeholder="06 00 00 00 00"
+                        placeholder=""
                         value={telephoneSecondaire}
                         onChange={(e) => {
                           setTelephoneSecondaire(e.target.value);
@@ -539,7 +539,7 @@ export function ContactSection() {
                           Glissez vos fichiers ici ou cliquez pour sélectionner
                         </p>
                         <p className="text-xs text-muted-foreground/70 mt-1">
-                          Formats acceptés : PDF, Word, Excel
+                          Formats acceptés : PDF, Word, Excel, JPG, PNG
                         </p>
                         <input 
                           id="file-upload"
@@ -595,7 +595,7 @@ export function ContactSection() {
                 <form onSubmit={handleSubmitRappel} className="space-y-5">
                   <div className="space-y-2">
                     <Label htmlFor="telephone-rappel">Téléphone *</Label>
-                    <Input id="telephone-rappel" type="tel" placeholder="06 00 00 00 00" required />
+                    <Input id="telephone-rappel" type="tel" placeholder="" required />
                   </div>
 
                   <div className="space-y-2">
