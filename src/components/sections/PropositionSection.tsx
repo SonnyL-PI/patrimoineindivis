@@ -15,7 +15,7 @@ const benefits = [
   "Proposition de rachat après étude par nos équipes, notaires et avocats",
   "Offres fermes et sans conditions suspensives de crédit",
   "Accompagnement complet jusqu'à la clôture avec étude notariale",
-  "Étude réalisée dans la plus stricte confidentialité",
+  "Étude réalisée gratuitement et sans engagement",
 ];
 
 const googleReviews = [
