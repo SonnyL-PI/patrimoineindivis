@@ -39,7 +39,7 @@ const values = [{
 }, {
   icon: Users,
   title: "Accompagnement",
-  description: "Nous vous accompagnons dans l'ensemble des démarches liées à la sortie d'indivision, en intégrant ses conséquences financières, fiscales, juridiques ainsi que les solutions de relogement si nécessaire."
+  description: "Nous vous accompagnons dans l'ensemble des démarches liées à la sortie de l'indivision, en intégrant pour vous ses conséquences financières, fiscales, juridiques ainsi que les solutions de relogement si nécessaire."
 }, {
   icon: Heart,
   title: "Approche humaine",
