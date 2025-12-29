@@ -22,7 +22,7 @@ const pillars = [
   {
     icon: Scale,
     title: "Expertise juridique",
-    description: "Une équipe forgée par des milliers de cas réels, en collaboration étroite avec des partenaires d'excellence sélectionnés avec exigence.",
+    description: "Équipe formée sur des milliers de cas réels, avec des partenaires experts triés sur le volet.",
   },
   {
     icon: Heart,
