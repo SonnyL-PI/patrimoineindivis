@@ -58,7 +58,7 @@ const faqCategories = [
     questions: [
       {
         question: "Quelle différence avec une agence immobilière ?",
-        answer: "Une agence immobilière ne peut vendre que le bien dans son intégralité, ce qui nécessite l'accord de tous les indivisaires. Nous, nous rachetons votre part uniquement, sans avoir besoin de l'accord des autres.",
+        answer: "Contrairement aux agences immobilières ou aux marchands de biens, nous sommes 100% spécialisés dans le rachat de parts indivises. Cette expertise exclusive nous permet de traiter des situations que d'autres acteurs refusent, avec une connaissance approfondie du cadre juridique grâce à l'expérience tirée de centaines d'acquisitions déjà réalisées.",
       },
       {
         question: "Quelle différence avec un marchand de biens ?",
