@@ -4,7 +4,7 @@ const pillars = [
   {
     icon: Award,
     title: "Leader par le volume et l'expérience",
-    subtitle: "1er acteur du marché",
+    subtitle: "Premier acteur du marché",
     description: "Nous avons créé un métier : le rachat de parts indivises. Des milliers de cas traités et une spécialisation totale font de nous le leader incontestable du marché.",
   },
   {
