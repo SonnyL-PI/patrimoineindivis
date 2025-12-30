@@ -18,7 +18,8 @@
       --header-height: 80px;
     }
     
-    --background: 0 0% 96%;
+    /* Brighter background for a more luminous feel */
+    --background: 0 0% 99%;
     --foreground: 215 26% 22%;
 
     --card: 0 0% 100%;
@@ -28,13 +29,14 @@
     --popover-foreground: 215 26% 22%;
 
     --primary: 215 26% 22%;
-    --primary-foreground: 0 0% 96%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 0 0% 93%;
+    /* Lighter secondary for brighter sections */
+    --secondary: 40 15% 97%;
     --secondary-foreground: 215 26% 22%;
 
-    --muted: 0 0% 90%;
-    --muted-foreground: 215 15% 40%;
+    --muted: 40 10% 94%;
+    --muted-foreground: 215 15% 45%;
 
     /* Gold accent: #c9a961 = 43 45% 59% */
     --accent: 43 45% 59%;
@@ -49,12 +51,12 @@
 
     --radius: 0.5rem;
 
-    /* Custom brand tokens */
-    --navy: 215 26% 22%;
-    --navy-dark: 215 30% 15%;
-    --navy-light: 215 20% 30%;
-    --offwhite: 0 0% 96%;
-    --cream: 40 20% 94%;
+    /* Custom brand tokens - brighter */
+    --navy: 215 26% 24%;
+    --navy-dark: 215 30% 18%;
+    --navy-light: 215 20% 32%;
+    --offwhite: 0 0% 99%;
+    --cream: 40 25% 96%;
     
     /* Gold from brand: #c9a961 */
     --gold: 43 45% 59%;

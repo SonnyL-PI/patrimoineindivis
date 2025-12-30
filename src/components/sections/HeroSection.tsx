@@ -1,68 +1,123 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Phone, ArrowRight, Shield, Scale, Handshake } from "lucide-react";
-import { PremiumPlate } from "@/components/ui/PremiumPlate";
+import { Phone, ArrowRight, Award, CheckCircle2, MapPin, Calendar } from "lucide-react";
 import heroImage from "@/assets/hero-haussmann.jpg";
-const trustItems = [{
-  icon: Shield,
-  text: "100% spécialisé"
-}, {
-  icon: Scale,
-  text: "Article 815"
-}, {
-  icon: Handshake,
-  text: "Offre ferme + accompagnement"
-}];
+
+const trustBadges = [
+  {
+    icon: Calendar,
+    text: "Créé en 2017",
+  },
+  {
+    icon: Award,
+    text: "N°1 du marché",
+  },
+  {
+    icon: CheckCircle2,
+    text: "100% dédié",
+  },
+  {
+    icon: MapPin,
+    text: "Tout le territoire",
+  },
+];
+
 export function HeroSection() {
-  return <>
-      {/* Mobile (<768px): Stacked layout - Image block + Content block */}
-      <section className="md:hidden flex flex-col w-full overflow-hidden" style={{
-      paddingTop: "calc(72px + env(safe-area-inset-top, 0px))"
-    }}>
-        {/* Block A: Image with overlay (16:9 ratio) */}
+  return (
+    <>
+      {/* Mobile (<768px): Stacked layout */}
+      <section
+        className="md:hidden flex flex-col w-full overflow-hidden bg-background"
+        style={{
+          paddingTop: "calc(72px + env(safe-area-inset-top, 0px))",
+        }}
+      >
+        {/* Image with lighter overlay */}
         <div className="relative w-full aspect-[16/10]">
-          <img src={heroImage} alt="Façade immeuble haussmannien – Paris" className="absolute inset-0 h-full w-full object-cover object-center" style={{
-          filter: "saturate(0.85)"
-        }} loading="eager" />
-          {/* Navy gradient overlay - stronger at bottom for card transition */}
-          <div className="absolute inset-0" style={{
-          background: "linear-gradient(180deg, hsl(215 30% 12% / 0.5) 0%, hsl(215 26% 18% / 0.65) 60%, hsl(215 26% 18% / 0.95) 100%)"
-        }} />
+          <img
+            src={heroImage}
+            alt="Façade immeuble haussmannien – Paris"
+            className="absolute inset-0 h-full w-full object-cover object-center"
+            style={{
+              filter: "brightness(1.05) saturate(1.1)",
+            }}
+            loading="eager"
+          />
+          {/* Much lighter overlay - just for text readability */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(180deg, hsl(215 30% 20% / 0.25) 0%, hsl(215 26% 22% / 0.35) 70%, hsl(215 26% 22% / 0.6) 100%)",
+            }}
+          />
         </div>
 
-        {/* Block B: Content card in document flow */}
-        <div className="relative z-10 w-full px-4 bg-navy" style={{
-        paddingBottom: "calc(24px + env(safe-area-inset-bottom, 0px))"
-      }}>
-          <PremiumPlate align="center" className="w-full max-w-[560px] mx-auto -mt-6 p-[18px] sm:p-5 rounded-[22px] bg-[rgba(11,27,43,0.55)] backdrop-blur-md border border-accent/15 shadow-[0_18px_60px_-24px_hsl(215_26%_22%/0.65)]">
-            <p className="text-accent text-xs tracking-[0.2em] uppercase mb-3 font-medium animate-fade-up">
-              Sortie d'indivision
+        {/* Content Card - brighter and more finished */}
+        <div
+          className="relative z-10 w-full px-4 -mt-12"
+          style={{
+            paddingBottom: "calc(32px + env(safe-area-inset-bottom, 0px))",
+          }}
+        >
+          <div className="w-full max-w-[560px] mx-auto p-6 sm:p-7 rounded-2xl bg-white shadow-xl border border-border/50">
+            {/* Sur-titre */}
+            <div className="inline-block px-3 py-1 rounded-full bg-accent/15 mb-3 animate-fade-up">
+              <p className="text-accent text-xs tracking-[0.15em] uppercase font-bold">
+                Sortir de l'indivision
+              </p>
+            </div>
+
+            {/* Accroche */}
+            <p
+              className="text-foreground/80 text-sm mb-3 animate-fade-up"
+              style={{ animationDelay: "50ms" }}
+            >
+              Vous souhaitez sortir de l'indivision ?
             </p>
 
-            <h1 className="font-serif text-[1.75rem] sm:text-[1.875rem] text-primary-foreground font-semibold leading-tight mb-3 sm:mb-4 animate-fade-up" style={{
-            animationDelay: "100ms"
-          }}>
-              Rachat de parts indivises —{" "}
-              <span className="text-accent">sortie d'indivision encadrée</span>
+            {/* H1 */}
+            <h1
+              className="font-serif text-2xl sm:text-[1.75rem] text-foreground font-bold leading-tight mb-2 animate-fade-up"
+              style={{ animationDelay: "100ms" }}
+            >
+              Vendez vos parts indivises
             </h1>
 
-            <p className="text-[0.9375rem] sm:text-[1rem] text-primary-foreground/85 leading-relaxed mb-5 sm:mb-6 animate-fade-up" style={{
-            animationDelay: "200ms"
-          }}>
-              Société 100% spécialisée. Expertise fondée sur des milliers de cas,
-              formalisme article 815, approche humaine et discrète.
+            {/* Ligne clé */}
+            <p
+              className="text-accent font-semibold text-base mb-4 animate-fade-up"
+              style={{ animationDelay: "150ms" }}
+            >
+              Achat ou rachat de parts indivises
             </p>
 
-            <div className="flex flex-col gap-3 mb-5 animate-fade-up" style={{
-            animationDelay: "300ms"
-          }}>
+            {/* Description */}
+            <p
+              className="text-sm text-muted-foreground leading-relaxed mb-5 animate-fade-up"
+              style={{ animationDelay: "200ms" }}
+            >
+              Patrimoine Indivis, première société créée en France pour l'achat
+              de parts indivises. Leader incontesté du marché.
+            </p>
+
+            {/* CTAs */}
+            <div
+              className="flex flex-col gap-3 mb-4 animate-fade-up"
+              style={{ animationDelay: "250ms" }}
+            >
               <Button variant="gold" size="lg" className="w-full min-h-12" asChild>
                 <Link to="/contact">
-                  Demander une étude de rachat
+                  Demander une étude
                   <ArrowRight className="w-5 h-5" />
                 </Link>
               </Button>
-              <Button variant="ghost" size="lg" className="w-full min-h-12 text-primary-foreground border border-primary-foreground/30 hover:bg-primary-foreground/10 hover:text-primary-foreground" asChild>
+              <Button
+                variant="outline"
+                size="lg"
+                className="w-full min-h-12"
+                asChild
+              >
                 <Link to="/contact#rappel">
                   <Phone className="w-5 h-5" />
                   Être rappelé
@@ -70,74 +125,136 @@ export function HeroSection() {
               </Button>
             </div>
 
-            {/* Trust bar inside card */}
-            <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 pt-4 border-t border-primary-foreground/15 animate-fade-up" style={{
-            animationDelay: "400ms"
-          }}>
-              {trustItems.map((item, index) => <div key={index} className="flex items-center gap-1.5 text-primary-foreground/80">
-                  <item.icon className="w-3.5 h-3.5 text-accent flex-shrink-0" />
-                  <span className="text-[0.75rem] sm:text-[0.8125rem] font-medium whitespace-nowrap">{item.text}</span>
-                </div>)}
-            </div>
-          </PremiumPlate>
+            {/* Micro-ligne */}
+            <p
+              className="text-xs text-muted-foreground text-center mb-5 animate-fade-up"
+              style={{ animationDelay: "300ms" }}
+            >
+              Étude confidentielle — Réponse rapide
+            </p>
 
-          <p className="mt-4 text-xs text-primary-foreground/60 font-serif italic text-center">
-            « Nul ne peut être contraint à demeurer dans l'indivision » — Art. 815 du Code civil
+            {/* Trust badges */}
+            <div
+              className="grid grid-cols-2 gap-3 pt-4 border-t border-border animate-fade-up"
+              style={{ animationDelay: "350ms" }}
+            >
+              {trustBadges.map((badge, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-2 text-foreground/80"
+                >
+                  <badge.icon className="w-4 h-4 text-accent flex-shrink-0" />
+                  <span className="text-xs font-medium">{badge.text}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Legal quote */}
+          <p className="mt-5 text-xs text-muted-foreground font-serif italic text-center">
+            « Nul ne peut être contraint à demeurer dans l'indivision » — Art.
+            815 du Code civil
           </p>
         </div>
       </section>
 
-      {/* Desktop (>=768px): keep existing layout */}
-      <section className="relative hidden md:flex flex-col justify-center hero-section" style={{
-      paddingTop: "calc(80px + env(safe-area-inset-top, 0px))",
-      paddingBottom: "calc(24px + env(safe-area-inset-bottom, 0px))"
-    }}>
-        {/* Background Image with Overlay */}
+      {/* Desktop (>=768px): Full hero with lighter overlay */}
+      <section
+        className="relative hidden md:flex flex-col justify-center min-h-[90vh]"
+        style={{
+          paddingTop: "calc(80px + env(safe-area-inset-top, 0px))",
+          paddingBottom: "calc(40px + env(safe-area-inset-bottom, 0px))",
+        }}
+      >
+        {/* Background Image with much lighter overlay */}
         <div className="absolute inset-0 z-0">
-          <img src={heroImage} alt="Façade immeuble haussmannien – Paris" className="absolute inset-0 w-full h-full object-cover" style={{
-          filter: "saturate(0.85)"
-        }} />
-          {/* Navy gradient overlay - darker at top */}
-          <div className="absolute inset-0" style={{
-          background: "linear-gradient(180deg, hsl(215 30% 12% / 0.85) 0%, hsl(215 26% 18% / 0.75) 50%, hsl(215 26% 22% / 0.7) 100%)"
-        }} />
+          <img
+            src={heroImage}
+            alt="Façade immeuble haussmannien – Paris"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{
+              filter: "brightness(1.08) saturate(1.05)",
+            }}
+          />
+          {/* Much lighter gradient overlay */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(135deg, hsl(215 30% 20% / 0.45) 0%, hsl(215 26% 25% / 0.35) 50%, hsl(215 26% 30% / 0.3) 100%)",
+            }}
+          />
         </div>
 
         {/* Content */}
-        <div className="container-wide relative z-10 py-8 md:py-12 lg:py-16">
-          <PremiumPlate className="w-full max-w-2xl lg:max-w-3xl mx-4 sm:mx-0" align="left">
-            {/* Subtitle */}
-            <p className="text-accent text-xs sm:text-sm tracking-[0.2em] uppercase mb-3 sm:mb-4 font-medium animate-fade-up">
-              Sortie d'indivision
+        <div className="container-wide relative z-10 py-12 lg:py-16">
+          {/* Hero Card - bright and polished */}
+          <div className="w-full max-w-2xl lg:max-w-[680px] mx-8 sm:mx-0 p-8 md:p-10 lg:p-12 rounded-3xl bg-white/95 backdrop-blur-sm shadow-2xl border border-white/50">
+            {/* Sur-titre */}
+            <div className="inline-block px-4 py-1.5 rounded-full bg-accent/15 mb-4 animate-fade-up">
+              <p className="text-accent text-sm tracking-[0.15em] uppercase font-bold">
+                Sortir de l'indivision
+              </p>
+            </div>
+
+            {/* Accroche */}
+            <p
+              className="text-foreground/70 text-base md:text-lg mb-3 animate-fade-up"
+              style={{ animationDelay: "50ms" }}
+            >
+              Vous souhaitez sortir de l'indivision ?
             </p>
 
-            {/* Main Title */}
-            <h1 className="font-serif text-[1.625rem] sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-primary-foreground font-semibold leading-tight mb-4 sm:mb-5 animate-fade-up" style={{
-            animationDelay: "100ms"
-          }}>
-              Rachat de parts indivises —{" "}
-              <span className="text-accent">sortie d'indivision en toute sérénité </span>
+            {/* H1 */}
+            <h1
+              className="font-serif text-3xl md:text-4xl lg:text-[2.75rem] text-foreground font-bold leading-tight mb-3 animate-fade-up"
+              style={{ animationDelay: "100ms" }}
+            >
+              Vendez vos parts indivises
             </h1>
 
+            {/* Ligne clé */}
+            <p
+              className="text-accent font-bold text-lg md:text-xl mb-5 animate-fade-up"
+              style={{ animationDelay: "150ms" }}
+            >
+              Achat ou rachat de parts indivises
+            </p>
+
             {/* Description */}
-            <p className="text-[0.9375rem] sm:text-base md:text-lg text-primary-foreground/85 leading-relaxed mb-6 sm:mb-8 animate-fade-up" style={{
-            animationDelay: "200ms"
-          }}>
-              Société 100% spécialisée. Expertise fondée sur des milliers de cas, formalisme article 815,
-              approche humaine et discrète.
+            <p
+              className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8 animate-fade-up"
+              style={{ animationDelay: "200ms" }}
+            >
+              Patrimoine Indivis, première société créée en France pour l'achat
+              de parts indivises. 100% dédié à l'achat de vos parts indivises.{" "}
+              <span className="font-semibold text-foreground">
+                Leader incontesté du marché.
+              </span>
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8 animate-fade-up" style={{
-            animationDelay: "300ms"
-          }}>
-              <Button variant="gold" size="lg" className="w-full sm:w-auto" asChild>
+            <div
+              className="flex flex-col sm:flex-row gap-4 mb-4 animate-fade-up"
+              style={{ animationDelay: "250ms" }}
+            >
+              <Button
+                variant="gold"
+                size="xl"
+                className="w-full sm:w-auto px-8"
+                asChild
+              >
                 <Link to="/contact">
-                  Demander une étude de rachat
+                  Demander une étude
                   <ArrowRight className="w-5 h-5" />
                 </Link>
               </Button>
-              <Button variant="ghost" size="lg" className="w-full sm:w-auto text-primary-foreground border border-primary-foreground/30 hover:bg-primary-foreground/10 hover:text-primary-foreground" asChild>
+              <Button
+                variant="outline"
+                size="xl"
+                className="w-full sm:w-auto px-8"
+                asChild
+              >
                 <Link to="/contact#rappel">
                   <Phone className="w-5 h-5" />
                   Être rappelé
@@ -145,26 +262,42 @@ export function HeroSection() {
               </Button>
             </div>
 
-            {/* Trust Bar - inside plate */}
-            <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3 sm:gap-x-6 sm:gap-y-3 pt-5 sm:pt-6 border-t border-primary-foreground/15 animate-fade-up" style={{
-            animationDelay: "400ms"
-          }}>
-              {trustItems.map((item, index) => <div key={index} className="flex items-center gap-2 text-primary-foreground/80">
-                  <item.icon className="w-4 h-4 text-accent flex-shrink-0" />
-                  <span className="text-sm font-medium">{item.text}</span>
-                </div>)}
+            {/* Micro-ligne */}
+            <p
+              className="text-sm text-muted-foreground mb-8 animate-fade-up"
+              style={{ animationDelay: "300ms" }}
+            >
+              Étude confidentielle — Réponse rapide
+            </p>
+
+            {/* Trust badges */}
+            <div
+              className="flex flex-wrap items-center gap-x-6 gap-y-3 pt-6 border-t border-border animate-fade-up"
+              style={{ animationDelay: "350ms" }}
+            >
+              {trustBadges.map((badge, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-2 text-foreground/80"
+                >
+                  <badge.icon className="w-5 h-5 text-accent flex-shrink-0" />
+                  <span className="text-sm font-medium">{badge.text}</span>
+                </div>
+              ))}
             </div>
-          </PremiumPlate>
+          </div>
         </div>
 
-        {/* Legal quote - in flow, not absolute */}
+        {/* Legal quote */}
         <div className="relative z-10 mt-auto">
-          <div className="container-wide py-4 sm:py-5">
-            <p className="text-xs sm:text-sm text-primary-foreground/60 font-serif italic">
-              « Nul ne peut être contraint à demeurer dans l'indivision » — Art. 815 du Code civil
+          <div className="container-wide py-5">
+            <p className="text-sm text-white/80 font-serif italic drop-shadow-md">
+              « Nul ne peut être contraint à demeurer dans l'indivision » — Art.
+              815 du Code civil
             </p>
           </div>
         </div>
       </section>
-    </>;
+    </>
+  );
 }

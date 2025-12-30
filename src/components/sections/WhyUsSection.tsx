@@ -23,7 +23,7 @@ const pillars = [
 
 export function WhyUsSection() {
   return (
-    <section className="py-16 md:py-20 bg-secondary/50" id="pourquoi">
+    <section className="py-16 md:py-20 bg-gradient-to-b from-secondary/30 to-white" id="pourquoi">
       <div className="container-wide">
         {/* Header */}
         <div className="text-center max-w-4xl mx-auto mb-12 md:mb-16">

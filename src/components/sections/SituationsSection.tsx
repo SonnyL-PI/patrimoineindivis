@@ -51,7 +51,7 @@ const situations = [
 
 export function SituationsSection() {
   return (
-    <section className="py-12 md:py-16 bg-background" id="situation">
+    <section className="py-14 md:py-20 bg-white" id="situation">
       <div className="container-wide">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 md:mb-12">
