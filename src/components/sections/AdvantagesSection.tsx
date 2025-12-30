@@ -28,7 +28,7 @@ const advantages = [
   },
   {
     icon: Lock,
-    title: "Discrétion garantie",
+    title: "Confidentialité garantie",
     description: "Toutes nos transactions se font devant notaires dans la plus stricte confidentialité.",
   },
 ];
