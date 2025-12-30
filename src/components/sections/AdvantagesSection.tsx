@@ -9,7 +9,7 @@ const advantages = [
   {
     icon: Zap,
     title: "Offre ferme et décision rapide",
-    description: "Des offres sans conditions suspensives de crédit proposées grâce à notre surface financière.",
+    description: "Nos offres sont sans condition suspensive de financement ou de crédit grâce à notre surface financière.",
   },
   {
     icon: Building,
