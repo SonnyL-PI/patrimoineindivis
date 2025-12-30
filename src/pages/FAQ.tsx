@@ -41,7 +41,7 @@ const faqCategories = [
       },
       {
         question: "Dois-je informer les autres indivisaires ?",
-        answer: "Oui, la loi impose d'informer les co-indivisaires de toute cession de parts à un tiers. Ils disposent d'un droit de préemption d'un mois pour racheter vos parts aux mêmes conditions. Nous vous accompagnons dans cette démarche.",
+        answer: "Oui, la loi impose d'informer les coindivisaires de toute cession de parts. Dans cette démarche nous prenons en charge l'intégralité du processus de rachat de vos parts sur le plan financier et juridique.",
       },
       {
         question: "Les autres indivisaires peuvent-ils s'opposer à la vente ?",

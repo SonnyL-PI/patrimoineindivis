@@ -27,7 +27,7 @@ const faqs = [
   {
     question: "Dois-je informer les autres indivisaires ?",
     answer:
-      "Oui, la loi impose d'informer les co-indivisaires de toute cession de parts. Nous vous accompagnons dans cette démarche et, si nécessaire, proposons une médiation pour faciliter les échanges.",
+      "Oui, la loi impose d'informer les coindivisaires de toute cession de parts. Dans cette démarche nous prenons en charge l'intégralité du processus de rachat de vos parts sur le plan financier et juridique.",
   },
   {
     question: "Quelle différence avec une agence ou un marchand de biens ?",
