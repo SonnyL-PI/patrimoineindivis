@@ -38,21 +38,21 @@ export function HeroSection() {
           alt="Façade immeuble haussmannien – Paris"
           className="absolute inset-0 h-full w-full object-cover object-center"
           style={{
-            filter: "brightness(1.05) saturate(1.05)",
+            filter: "brightness(1.02) saturate(1.02)",
           }}
           loading="eager"
         />
 
-        {/* Full-height overlay - uniform reading zone */}
+        {/* Strong overlay for mobile */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
             background: `
               linear-gradient(180deg,
-                hsl(215 32% 10% / 0.7) 0%,
-                hsl(215 30% 12% / 0.75) 40%,
-                hsl(215 28% 10% / 0.85) 70%,
-                hsl(215 30% 8% / 0.92) 100%
+                hsl(215 32% 8% / 0.65) 0%,
+                hsl(215 30% 10% / 0.75) 35%,
+                hsl(215 28% 8% / 0.88) 65%,
+                hsl(215 30% 6% / 0.95) 100%
               )
             `,
           }}
@@ -80,10 +80,10 @@ export function HeroSection() {
 
           {/* H1 */}
           <h1
-            className="font-serif text-[1.875rem] text-white font-bold leading-[1.1] mb-3 animate-fade-up tracking-[-0.01em]"
+            className="font-serif text-[2rem] text-white font-bold leading-[1.08] mb-3 animate-fade-up"
             style={{
               animationDelay: "100ms",
-              textShadow: "0 2px 8px rgba(0,0,0,0.4)",
+              textShadow: "0 3px 12px rgba(0,0,0,0.5), 0 1px 3px rgba(0,0,0,0.3)",
             }}
           >
             Vendez vos parts indivises
@@ -91,21 +91,21 @@ export function HeroSection() {
 
           {/* Sous-titre */}
           <p
-            className="text-white font-semibold text-lg mb-5 animate-fade-up"
+            className="text-accent font-bold text-xl mb-5 animate-fade-up"
             style={{
               animationDelay: "150ms",
-              textShadow: "0 1px 4px rgba(0,0,0,0.3)",
+              textShadow: "0 2px 8px rgba(0,0,0,0.4)",
             }}
           >
-            <span className="text-accent">Achat ou rachat</span> de parts indivises
+            Rachat de parts indivises
           </p>
 
-          {/* Paragraphe - 2 lignes visuelles */}
-          <div className="mb-6 animate-fade-up max-w-[340px]" style={{ animationDelay: "200ms" }}>
-            <p className="text-[15px] text-white leading-[1.65] mb-2">
+          {/* Paragraphe - 2 lignes */}
+          <div className="mb-6 animate-fade-up max-w-[360px]" style={{ animationDelay: "200ms" }}>
+            <p className="text-[15px] text-white leading-[1.7] mb-2">
               Patrimoine Indivis, première société en France dans le volume d'achat de parts indivises.
             </p>
-            <p className="text-[15px] text-white leading-[1.65]">
+            <p className="text-[15px] text-white leading-[1.7]">
               100% dédié à l'achat de vos parts indivises. 95% des biens achetés en indivision sur tout le territoire.
             </p>
           </div>
@@ -115,7 +115,7 @@ export function HeroSection() {
             <Button
               variant="gold"
               size="lg"
-              className="w-full min-h-[52px] text-[15px] font-semibold shadow-lg"
+              className="w-full min-h-[56px] text-base font-bold shadow-xl"
               asChild
             >
               <Link to="/contact">
@@ -125,7 +125,7 @@ export function HeroSection() {
             </Button>
             <Button
               size="lg"
-              className="w-full min-h-[52px] text-[15px] font-semibold text-white bg-white/20 border-2 border-white/70 hover:bg-white/30 hover:border-white shadow-md backdrop-blur-sm"
+              className="w-full min-h-[56px] text-base font-semibold text-white bg-white/25 border-2 border-white hover:bg-white/35 shadow-lg backdrop-blur-sm"
               asChild
             >
               <Link to="/contact#rappel">
@@ -145,7 +145,7 @@ export function HeroSection() {
 
           {/* Trust badges */}
           <div
-            className="grid grid-cols-2 gap-x-5 gap-y-3 pt-5 border-t border-white/30 animate-fade-up"
+            className="grid grid-cols-2 gap-x-5 gap-y-3 pt-5 border-t border-white/35 animate-fade-up"
             style={{ animationDelay: "350ms" }}
           >
             {trustBadges.map((badge, index) => (
@@ -158,120 +158,128 @@ export function HeroSection() {
         </div>
       </section>
 
-      {/* Desktop (>=768px) */}
+      {/* Desktop (>=768px) - BIGGER & MORE IMPACTFUL */}
       <section
-        className="relative hidden md:flex flex-col justify-center min-h-[100svh] overflow-hidden"
+        className="relative hidden md:flex flex-col justify-center overflow-hidden"
         style={{
+          minHeight: "90vh",
           paddingTop: "calc(80px + env(safe-area-inset-top, 0px))",
-          paddingBottom: "calc(32px + env(safe-area-inset-bottom, 0px))",
+          paddingBottom: "calc(40px + env(safe-area-inset-bottom, 0px))",
         }}
       >
-        {/* Background Image */}
+        {/* Background Image with subtle blur in text zone */}
         <img
           src={heroImage}
           alt="Façade immeuble haussmannien – Paris"
           className="absolute inset-0 w-full h-full object-cover"
           style={{
-            filter: "brightness(1.05) saturate(1.02)",
+            filter: "brightness(1.0) saturate(1.0)",
           }}
         />
 
-        {/* Reading zone overlay - strong left side gradient */}
+        {/* Strong reading zone overlay */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
             background: `
-              linear-gradient(100deg,
-                hsl(215 32% 8% / 0.92) 0%,
-                hsl(215 30% 10% / 0.88) 15%,
-                hsl(215 28% 12% / 0.8) 28%,
-                hsl(215 26% 15% / 0.65) 40%,
-                hsl(215 24% 18% / 0.45) 52%,
-                hsl(215 22% 22% / 0.2) 65%,
-                transparent 80%
+              linear-gradient(98deg,
+                hsl(215 35% 5% / 0.95) 0%,
+                hsl(215 32% 8% / 0.92) 18%,
+                hsl(215 30% 10% / 0.85) 32%,
+                hsl(215 28% 12% / 0.7) 45%,
+                hsl(215 26% 15% / 0.5) 55%,
+                hsl(215 24% 18% / 0.25) 68%,
+                transparent 85%
               )
             `,
           }}
         />
 
-        {/* Additional bottom fade for badges area */}
+        {/* Bottom fade for badges */}
         <div
-          className="absolute bottom-0 left-0 right-0 h-48 pointer-events-none"
+          className="absolute bottom-0 left-0 right-0 h-56 pointer-events-none"
           style={{
-            background: "linear-gradient(to top, hsl(215 30% 10% / 0.6) 0%, transparent 100%)",
+            background: "linear-gradient(to top, hsl(215 32% 8% / 0.7) 0%, transparent 100%)",
           }}
         />
 
-        {/* Content - left aligned */}
-        <div className="container-wide relative z-10 py-12 lg:py-16">
-          <div className="max-w-[540px] lg:max-w-[580px]">
+        {/* Content - larger zone */}
+        <div className="container-wide relative z-10 py-16 lg:py-20">
+          <div className="max-w-2xl lg:max-w-[720px] xl:max-w-[800px]">
             {/* Sur-titre */}
-            <p className="text-accent text-sm tracking-[0.2em] uppercase font-bold mb-4 animate-fade-up">
+            <p className="text-accent text-sm lg:text-base tracking-[0.2em] uppercase font-bold mb-4 animate-fade-up">
               Sortir de l'indivision
             </p>
 
             {/* Accroche */}
             <p
-              className="text-white text-lg md:text-xl font-medium mb-3 animate-fade-up"
+              className="text-white text-xl lg:text-2xl font-medium mb-4 animate-fade-up"
               style={{ animationDelay: "50ms" }}
             >
               Vous souhaitez sortir de l'indivision ?
             </p>
 
-            {/* H1 */}
+            {/* H1 - BIGGER */}
             <h1
-              className="font-serif text-[2.75rem] md:text-[3.25rem] lg:text-[3.75rem] xl:text-[4.25rem] text-white font-bold leading-[1.05] mb-4 animate-fade-up tracking-[-0.015em]"
+              className="font-serif text-[3.5rem] md:text-[4rem] lg:text-[4.75rem] xl:text-[5.5rem] text-white font-bold leading-[1.02] mb-5 animate-fade-up"
               style={{
                 animationDelay: "100ms",
-                textShadow: "0 3px 12px rgba(0,0,0,0.35)",
+                textShadow: "0 4px 20px rgba(0,0,0,0.5), 0 2px 6px rgba(0,0,0,0.35)",
               }}
             >
               Vendez vos parts indivises
             </h1>
 
-            {/* Sous-titre */}
+            {/* Sous-titre - prominent */}
             <p
-              className="text-white font-semibold text-xl md:text-2xl lg:text-[1.625rem] mb-6 animate-fade-up"
+              className="text-accent font-bold text-2xl lg:text-3xl xl:text-[2rem] mb-8 animate-fade-up"
               style={{
                 animationDelay: "150ms",
-                textShadow: "0 2px 6px rgba(0,0,0,0.25)",
+                textShadow: "0 2px 10px rgba(0,0,0,0.45)",
               }}
             >
-              <span className="text-accent">Achat ou rachat</span> de parts indivises
+              Rachat de parts indivises
             </p>
 
-            {/* Paragraphe - 2 lignes visuelles */}
+            {/* Paragraphe with subtle highlight band */}
             <div
-              className="mb-8 animate-fade-up max-w-[480px]"
+              className="mb-10 animate-fade-up max-w-xl lg:max-w-2xl relative"
               style={{ animationDelay: "200ms" }}
             >
-              <p className="text-[17px] md:text-lg text-white leading-[1.7] mb-2">
-                Patrimoine Indivis, première société en France dans le volume d'achat de parts indivises.
-              </p>
-              <p className="text-[17px] md:text-lg text-white leading-[1.7]">
-                100% dédié à l'achat de vos parts indivises. 95% des biens achetés en indivision sur tout le territoire.
-              </p>
+              {/* Subtle reading band behind paragraph */}
+              <div
+                className="absolute -inset-x-4 -inset-y-3 rounded-lg pointer-events-none"
+                style={{
+                  background: "linear-gradient(90deg, hsl(215 30% 8% / 0.4) 0%, hsl(215 30% 10% / 0.2) 70%, transparent 100%)",
+                }}
+              />
+              <div className="relative">
+                <p className="text-lg lg:text-xl text-white leading-[1.75] mb-3">
+                  Patrimoine Indivis, première société en France dans le volume d'achat de parts indivises.
+                </p>
+                <p className="text-lg lg:text-xl text-white leading-[1.75]">
+                  100% dédié à l'achat de vos parts indivises. 95% des biens achetés en indivision sur tout le territoire.
+                </p>
+              </div>
             </div>
 
-            {/* CTAs */}
+            {/* CTAs - BIGGER */}
             <div
-              className="flex flex-col sm:flex-row gap-4 mb-4 animate-fade-up"
+              className="flex flex-col sm:flex-row gap-5 mb-5 animate-fade-up"
               style={{ animationDelay: "250ms" }}
             >
               <Button
                 variant="gold"
-                size="xl"
-                className="w-full sm:w-auto px-8 text-base font-semibold shadow-xl"
+                className="w-full sm:w-auto px-10 py-5 text-lg font-bold shadow-2xl min-h-[60px]"
                 asChild
               >
                 <Link to="/contact">
                   Demander une étude
-                  <ArrowRight className="w-5 h-5" />
+                  <ArrowRight className="w-6 h-6" />
                 </Link>
               </Button>
               <Button
-                size="xl"
-                className="w-full sm:w-auto px-8 text-base font-semibold text-white bg-white/20 border-2 border-white/80 hover:bg-white/30 hover:border-white shadow-lg backdrop-blur-sm"
+                className="w-full sm:w-auto px-10 py-5 text-lg font-semibold text-white bg-white/25 border-2 border-white hover:bg-white/40 shadow-xl backdrop-blur-sm min-h-[60px]"
                 asChild
               >
                 <Link to="/contact#rappel">
@@ -283,21 +291,21 @@ export function HeroSection() {
 
             {/* Micro-texte */}
             <p
-              className="text-[15px] text-white font-medium mb-8 animate-fade-up"
+              className="text-base text-white font-medium mb-10 animate-fade-up"
               style={{ animationDelay: "300ms" }}
             >
               Étude confidentielle — Réponse rapide
             </p>
 
-            {/* Trust badges */}
+            {/* Trust badges - bigger */}
             <div
-              className="flex flex-wrap items-center gap-x-8 gap-y-3 pt-6 border-t border-white/40 animate-fade-up"
+              className="flex flex-wrap items-center gap-x-10 gap-y-4 pt-7 border-t border-white/40 animate-fade-up"
               style={{ animationDelay: "350ms" }}
             >
               {trustBadges.map((badge, index) => (
-                <div key={index} className="flex items-center gap-2.5">
-                  <badge.icon className="w-5 h-5 text-accent flex-shrink-0" />
-                  <span className="text-[15px] text-white font-semibold">{badge.text}</span>
+                <div key={index} className="flex items-center gap-3">
+                  <badge.icon className="w-6 h-6 text-accent flex-shrink-0" />
+                  <span className="text-base lg:text-lg text-white font-semibold">{badge.text}</span>
                 </div>
               ))}
             </div>
@@ -306,8 +314,8 @@ export function HeroSection() {
 
         {/* Legal quote - bottom */}
         <div className="relative z-10 mt-auto">
-          <div className="container-wide py-4">
-            <p className="text-sm text-white/70 font-serif italic">
+          <div className="container-wide py-5">
+            <p className="text-base text-white/70 font-serif italic">
               « Nul ne peut être contraint à demeurer dans l'indivision » — Art. 815 du Code civil
             </p>
           </div>
