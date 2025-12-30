@@ -203,9 +203,9 @@ export function HeroSection() {
           }}
         />
 
-        {/* Content - larger zone */}
-        <div className="container-wide relative z-10 py-16 lg:py-20">
-          <div className="max-w-2xl lg:max-w-[720px] xl:max-w-[800px]">
+        {/* Content - wider zone for single-line H1 */}
+        <div className="relative z-10 py-16 lg:py-20 px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 max-w-[1600px] mx-auto w-full">
+          <div className="max-w-4xl lg:max-w-5xl xl:max-w-6xl">
             {/* Sur-titre */}
             <p className="text-accent text-sm lg:text-base tracking-[0.2em] uppercase font-bold mb-4 animate-fade-up">
               Sortir de l'indivision
@@ -213,15 +213,15 @@ export function HeroSection() {
 
             {/* Accroche */}
             <p
-              className="text-white text-xl lg:text-2xl font-medium mb-4 animate-fade-up"
+              className="text-white text-lg lg:text-xl xl:text-2xl font-medium mb-4 animate-fade-up"
               style={{ animationDelay: "50ms" }}
             >
               Vous souhaitez sortir de l'indivision ?
             </p>
 
-            {/* H1 - BIGGER */}
+            {/* H1 - sized to fit on ONE line */}
             <h1
-              className="font-serif text-[3.5rem] md:text-[4rem] lg:text-[4.75rem] xl:text-[5.5rem] text-white font-bold leading-[1.02] mb-5 animate-fade-up"
+              className="font-serif text-[2.75rem] md:text-[3.25rem] lg:text-[3.75rem] xl:text-[4.25rem] 2xl:text-[4.75rem] text-white font-bold leading-[1.0] mb-5 animate-fade-up whitespace-nowrap"
               style={{
                 animationDelay: "100ms",
                 textShadow: "0 4px 20px rgba(0,0,0,0.5), 0 2px 6px rgba(0,0,0,0.35)",
@@ -230,9 +230,9 @@ export function HeroSection() {
               Vendez vos parts indivises
             </h1>
 
-            {/* Sous-titre - prominent */}
+            {/* Sous-titre */}
             <p
-              className="text-accent font-bold text-2xl lg:text-3xl xl:text-[2rem] mb-8 animate-fade-up"
+              className="text-accent font-bold text-xl lg:text-2xl xl:text-[1.75rem] mb-8 animate-fade-up"
               style={{
                 animationDelay: "150ms",
                 textShadow: "0 2px 10px rgba(0,0,0,0.45)",
@@ -241,45 +241,45 @@ export function HeroSection() {
               Rachat de parts indivises
             </p>
 
-            {/* Paragraphe with subtle highlight band */}
+            {/* Paragraphe */}
             <div
-              className="mb-10 animate-fade-up max-w-xl lg:max-w-2xl relative"
+              className="mb-10 animate-fade-up max-w-2xl relative"
               style={{ animationDelay: "200ms" }}
             >
-              {/* Subtle reading band behind paragraph */}
+              {/* Subtle reading band */}
               <div
                 className="absolute -inset-x-4 -inset-y-3 rounded-lg pointer-events-none"
                 style={{
-                  background: "linear-gradient(90deg, hsl(215 30% 8% / 0.4) 0%, hsl(215 30% 10% / 0.2) 70%, transparent 100%)",
+                  background: "linear-gradient(90deg, hsl(215 30% 8% / 0.35) 0%, hsl(215 30% 10% / 0.15) 70%, transparent 100%)",
                 }}
               />
               <div className="relative">
-                <p className="text-lg lg:text-xl text-white leading-[1.75] mb-3">
+                <p className="text-base lg:text-lg xl:text-xl text-white leading-[1.75] mb-2">
                   Patrimoine Indivis, première société en France dans le volume d'achat de parts indivises.
                 </p>
-                <p className="text-lg lg:text-xl text-white leading-[1.75]">
+                <p className="text-base lg:text-lg xl:text-xl text-white leading-[1.75]">
                   100% dédié à l'achat de vos parts indivises. 95% des biens achetés en indivision sur tout le territoire.
                 </p>
               </div>
             </div>
 
-            {/* CTAs - BIGGER */}
+            {/* CTAs */}
             <div
-              className="flex flex-col sm:flex-row gap-5 mb-5 animate-fade-up"
+              className="flex flex-col sm:flex-row gap-4 mb-5 animate-fade-up"
               style={{ animationDelay: "250ms" }}
             >
               <Button
                 variant="gold"
-                className="w-full sm:w-auto px-10 py-5 text-lg font-bold shadow-2xl min-h-[60px]"
+                className="w-full sm:w-auto px-8 lg:px-10 py-4 lg:py-5 text-base lg:text-lg font-bold shadow-2xl min-h-[56px]"
                 asChild
               >
                 <Link to="/contact">
                   Demander une étude
-                  <ArrowRight className="w-6 h-6" />
+                  <ArrowRight className="w-5 h-5 lg:w-6 lg:h-6" />
                 </Link>
               </Button>
               <Button
-                className="w-full sm:w-auto px-10 py-5 text-lg font-semibold text-white bg-white/25 border-2 border-white hover:bg-white/40 shadow-xl backdrop-blur-sm min-h-[60px]"
+                className="w-full sm:w-auto px-8 lg:px-10 py-4 lg:py-5 text-base lg:text-lg font-semibold text-white bg-white/25 border-2 border-white hover:bg-white/40 shadow-xl backdrop-blur-sm min-h-[56px]"
                 asChild
               >
                 <Link to="/contact#rappel">
@@ -291,21 +291,21 @@ export function HeroSection() {
 
             {/* Micro-texte */}
             <p
-              className="text-base text-white font-medium mb-10 animate-fade-up"
+              className="text-sm lg:text-base text-white font-medium mb-8 animate-fade-up"
               style={{ animationDelay: "300ms" }}
             >
               Étude confidentielle — Réponse rapide
             </p>
 
-            {/* Trust badges - bigger */}
+            {/* Trust badges */}
             <div
-              className="flex flex-wrap items-center gap-x-10 gap-y-4 pt-7 border-t border-white/40 animate-fade-up"
+              className="flex flex-wrap items-center gap-x-8 lg:gap-x-10 gap-y-3 pt-6 border-t border-white/40 animate-fade-up"
               style={{ animationDelay: "350ms" }}
             >
               {trustBadges.map((badge, index) => (
-                <div key={index} className="flex items-center gap-3">
-                  <badge.icon className="w-6 h-6 text-accent flex-shrink-0" />
-                  <span className="text-base lg:text-lg text-white font-semibold">{badge.text}</span>
+                <div key={index} className="flex items-center gap-2.5">
+                  <badge.icon className="w-5 h-5 lg:w-6 lg:h-6 text-accent flex-shrink-0" />
+                  <span className="text-sm lg:text-base text-white font-semibold">{badge.text}</span>
                 </div>
               ))}
             </div>
