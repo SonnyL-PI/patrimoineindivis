@@ -20,7 +20,7 @@ const faqCategories = [
       },
       {
         question: "Combien de temps prend une offre ?",
-        answer: "Une fois votre dossier complet reçu, nous vous adressons une offre ferme sous 48 heures ouvrées. La durée totale de la procédure dépend ensuite de la complexité du dossier et de la réactivité des différentes parties.",
+        answer: "Une fois votre dossier complet reçu, nous vous adressons une offre ferme sous 3-4 jours ouvrés. La durée totale de la procédure dépend ensuite de la complexité du dossier et de la réactivité des différentes parties.",
       },
       {
         question: "Comment est déterminé le prix de rachat ?",
