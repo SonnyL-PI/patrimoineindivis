@@ -29,7 +29,7 @@ const advantages = [
   {
     icon: Lock,
     title: "Confidentialité garantie",
-    description: "Toutes nos transactions se font devant notaires dans la plus stricte confidentialité.",
+    description: "Dans l'intérêt commun et réciproque, nos transactions seront confidentielles et sécurisées.",
   },
 ];
 
