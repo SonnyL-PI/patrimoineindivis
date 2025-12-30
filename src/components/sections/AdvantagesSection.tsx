@@ -23,7 +23,7 @@ const advantages = [
   },
   {
     icon: Euro,
-    title: "Sans intermédiaires",
+    title: "Sans intermédiaire",
     description: "Nous sommes acheteur direct, la vente se fait donc sans intermédiaire ni commission.",
   },
   {
