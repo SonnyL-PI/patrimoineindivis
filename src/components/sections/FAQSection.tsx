@@ -32,7 +32,7 @@ const faqs = [
   {
     question: "Quelle différence avec une agence ou un marchand de biens ?",
     answer:
-      "Contrairement aux agences immobilières classiques ou aux marchands de biens, nous sommes 100% spécialisés dans le rachat de parts indivises. Cette expertise exclusive nous permet de traiter des situations que d'autres acteurs refusent, avec une connaissance approfondie du cadre juridique.",
+      "Contrairement aux agences immobilières ou aux marchands de biens, nous sommes 100% spécialisés dans le rachat de parts indivises. Cette expertise exclusive nous permet de traiter des situations que d'autres acteurs refusent, avec une connaissance approfondie du cadre juridique grâce à l'expérience tirée de centaines d'acquisitions déjà réalisées.",
   },
   {
     question: "Quels documents sont nécessaires ?",
