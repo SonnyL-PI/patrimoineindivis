@@ -14,7 +14,7 @@ const advantages = [
   {
     icon: Building,
     title: "Évaluation immobilière",
-    description: "Notre connaissance du marché immobilier nous donne l'expertise pour valoriser les biens.",
+    description: "Grâce à l'algorithme exclusif de Patrimoine Indivis, nous pouvons estimer avec vous la valeur de vos biens, selon votre localisation et en temps réel.",
   },
   {
     icon: Users,
