@@ -72,7 +72,7 @@ export function SituationsSection() {
           {situations.map((situation) => (
             <div
               key={situation.title}
-              className="group card-situation"
+              className="group card-situation flex flex-col h-full"
             >
               <div className="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/15 transition-colors">
                 <situation.icon className="w-5 h-5 text-accent" />
@@ -80,12 +80,12 @@ export function SituationsSection() {
               <h3 className="font-serif text-base md:text-lg font-semibold text-foreground mb-2">
                 {situation.title}
               </h3>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+              <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-grow">
                 {situation.description}
               </p>
               <Link 
                 to={situation.link}
-                className="inline-flex items-center gap-2 text-accent text-sm font-medium hover:gap-3 transition-all"
+                className="inline-flex items-center gap-2 text-accent text-sm font-medium hover:gap-3 transition-all mt-auto"
               >
                 Voir la solution
                 <ArrowRight className="w-4 h-4" />
