@@ -75,7 +75,7 @@ export function RecentCasesSection() {
   const [selectedCase, setSelectedCase] = useState<CaseData | null>(null);
 
   return (
-    <section className="py-16 md:py-20 lg:py-24 bg-secondary/30" id="cas-recents">
+    <section className="py-16 md:py-20 lg:py-24 bg-gradient-to-b from-white to-secondary/40" id="cas-recents">
       <div className="container-wide">
         {/* Header - 2 columns layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-12 md:mb-14">

@@ -54,11 +54,11 @@ export function PropositionSection() {
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img src={heroBuilding} alt="Immeuble haussmannien" className="absolute inset-0 w-full h-full object-cover" style={{
-          filter: "saturate(0.8)"
+          filter: "brightness(1.1) saturate(1.05)"
         }} />
-          {/* Navy gradient overlay */}
+          {/* Lighter navy gradient overlay */}
           <div className="absolute inset-0" style={{
-          background: "linear-gradient(180deg, hsl(215 30% 14% / 0.88) 0%, hsl(215 26% 20% / 0.8) 60%, hsl(215 26% 22% / 0.75) 100%)"
+          background: "linear-gradient(180deg, hsl(215 30% 20% / 0.7) 0%, hsl(215 26% 25% / 0.65) 60%, hsl(215 26% 28% / 0.6) 100%)"
         }} />
         </div>
 
