@@ -29,7 +29,7 @@ export function HeroSection() {
       <section
         className="md:hidden relative w-full min-h-[100svh] flex flex-col justify-end overflow-hidden"
         style={{
-          paddingTop: "calc(72px + env(safe-area-inset-top, 0px))",
+          paddingTop: "calc(88px + env(safe-area-inset-top, 0px))",
         }}
       >
         {/* Background Image */}
@@ -60,9 +60,9 @@ export function HeroSection() {
 
         {/* Content */}
         <div
-          className="relative z-10 px-6 pb-6"
+          className="relative z-10 px-6 pt-6 pb-6"
           style={{
-            paddingBottom: "calc(24px + env(safe-area-inset-bottom, 0px))",
+            paddingBottom: "calc(28px + env(safe-area-inset-bottom, 0px))",
           }}
         >
           {/* Sur-titre */}
