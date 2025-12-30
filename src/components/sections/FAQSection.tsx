@@ -37,7 +37,7 @@ const faqs = [
   {
     question: "Quels documents sont nécessaires ?",
     answer:
-      "Pour établir une offre, nous avons besoin de l'acte de propriété, de l'attestation notariée d'indivision (ou acte de succession), d'une pièce d'identité et d'informations sur le bien. Notre équipe vous guide dans la constitution du dossier.",
+      "Pour établir une offre, nous avons besoin de la copie du titre de propriété, ou de l'acte de notoriété, la répartition entre indivisaires et idéalement la valeur du ou des biens.",
   },
 ];
 
