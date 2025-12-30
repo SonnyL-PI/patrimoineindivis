@@ -19,7 +19,7 @@ const advantages = [
   {
     icon: Users,
     title: "Négociation et médiation",
-    description: "Une approche humaine qui passe par la médiation dans des contextes parfois difficiles.",
+    description: "L'humain est notre ADN, par notre écoute et notre partage nous mettrons tout en œuvre pour trouver une solution dans le traitement de votre cas particulier.",
   },
   {
     icon: Euro,
