@@ -100,13 +100,16 @@ export function HeroSection() {
             Rachat de parts indivises
           </p>
 
-          {/* Paragraphe - 2 lignes */}
+          {/* Paragraphe - 3 lignes */}
           <div className="mb-6 animate-fade-up max-w-[360px]" style={{ animationDelay: "200ms" }}>
             <p className="text-[15px] text-white leading-[1.7] mb-2">
-              Patrimoine Indivis, première société en France dans le volume d'achat de parts indivises.
+              Patrimoine Indivis, première société en France en volume d'achat de parts indivises.
+            </p>
+            <p className="text-[15px] text-white leading-[1.7] mb-2">
+              100% dédié à l'achat de vos parts indivises. 100% dédié à l'accompagnement des indivisaires.
             </p>
             <p className="text-[15px] text-white leading-[1.7]">
-              100% dédié à l'achat de vos parts indivises. 95% des biens achetés en indivision sur tout le territoire.
+              Achat de parts indivises mêmes minoritaires sur tout le territoire.
             </p>
           </div>
 
@@ -255,10 +258,13 @@ export function HeroSection() {
               />
               <div className="relative">
                 <p className="text-base lg:text-lg xl:text-xl text-white leading-[1.75] mb-2">
-                  Patrimoine Indivis, première société en France dans le volume d'achat de parts indivises.
+                  Patrimoine Indivis, première société en France en volume d'achat de parts indivises.
+                </p>
+                <p className="text-base lg:text-lg xl:text-xl text-white leading-[1.75] mb-2">
+                  100% dédié à l'achat de vos parts indivises. 100% dédié à l'accompagnement des indivisaires.
                 </p>
                 <p className="text-base lg:text-lg xl:text-xl text-white leading-[1.75]">
-                  100% dédié à l'achat de vos parts indivises. 95% des biens achetés en indivision sur tout le territoire.
+                  Achat de parts indivises mêmes minoritaires sur tout le territoire.
                 </p>
               </div>
             </div>
