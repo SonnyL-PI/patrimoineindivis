@@ -1,23 +1,29 @@
-import { Award, ShieldCheck, Heart } from "lucide-react";
+import { Award, ShieldCheck, Heart, Users } from "lucide-react";
 
 const pillars = [
   {
-    icon: Award,
-    title: "Leader par le volume et l'expérience",
-    subtitle: "Premier acteur du marché",
-    description: "Nous avons créé un métier : le rachat de parts indivises. Des milliers de cas traités et une spécialisation totale font de nous le leader incontestable du marché.",
-  },
-  {
     icon: ShieldCheck,
-    title: "Un process qualité, rapide et confidentiel",
-    subtitle: "Étude précise de votre dossier",
-    description: "Un process développé et affiné depuis des années pour analyser votre situation rapidement, en toute confidentialité, et produire une étude précise au plus près de votre demande.",
+    title: "Une approche précise, rapide et confidentiel",
+    subtitle: "Étude complète de votre dossier",
+    description: "Une méthode d'analyse précise en immobilier, juridique et financière. Proposition de rachat ou de solution de sortie rapide, sans engagement.",
   },
   {
     icon: Heart,
     title: "Une solution au plus près de votre situation",
-    subtitle: "Sur-mesure et humain",
-    description: "Notre expérience nous permet d'identifier la solution la plus juste selon votre contexte d'indivision, avec médiation, discrétion et une approche profondément humaine.",
+    subtitle: "Réconcilier patrimoine et paix familiale",
+    description: "Notre expérience nous permet d'identifier la solution la plus juste et la plus sereine avec médiation, discrétion et une approche profondément humaine.",
+  },
+  {
+    icon: Award,
+    title: "Leader par l'expérience et le volume",
+    subtitle: "Premier acteur du marché",
+    description: "Pionnier du rachat de parts indivises. Des milliers de cas traités et une spécialisation totale font de nous le leader incontestable du marché.",
+  },
+  {
+    icon: Users,
+    title: "Un accompagnement dans toutes les étapes",
+    subtitle: "Un suivi de bout en bout",
+    description: "Nous travaillons avec des partenaires, notaires, avocats, agences immobilières. Notre objectif commun : débloquer des indivisions avec méthode et respect du droit.",
   },
 ];
 
@@ -34,15 +40,15 @@ export function WhyUsSection() {
             Pourquoi Patrimoine Indivis ?
           </h2>
           <p className="text-base md:text-lg text-muted-foreground mb-4">
-            Trois vraies raisons de choisir Patrimoine Indivis.
+            Quatre vraies raisons de choisir Patrimoine Indivis.
           </p>
           <p className="text-sm md:text-base text-muted-foreground/80 max-w-2xl mx-auto leading-relaxed">
             Première société française 100% dédiée au rachat de parts indivises — et 1er acteur du marché par le volume et l'expérience.
           </p>
         </div>
 
-        {/* Pillars Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+        {/* Pillars Grid - 4 cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {pillars.map((pillar) => (
             <div
               key={pillar.title}
