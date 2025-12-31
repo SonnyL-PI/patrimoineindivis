@@ -2,10 +2,10 @@ import { Award, ShieldCheck, Heart, Users } from "lucide-react";
 
 const pillars = [
   {
-    icon: ShieldCheck,
-    title: "Une approche précise, rapide et confidentiel",
-    subtitle: "Étude complète de votre dossier",
-    description: "Une méthode d'analyse précise en immobilier, juridique et financière. Proposition de rachat ou de solution de sortie rapide, sans engagement.",
+    icon: Award,
+    title: "Leader par l'expérience et le volume",
+    subtitle: "Premier acteur du marché",
+    description: "Pionnier du rachat de parts indivises. Des milliers de cas traités et une spécialisation totale font de nous le leader incontestable du marché.",
   },
   {
     icon: Heart,
@@ -14,10 +14,10 @@ const pillars = [
     description: "Notre expérience nous permet d'identifier la solution la plus juste et la plus sereine avec médiation, discrétion et une approche profondément humaine.",
   },
   {
-    icon: Award,
-    title: "Leader par l'expérience et le volume",
-    subtitle: "Premier acteur du marché",
-    description: "Pionnier du rachat de parts indivises. Des milliers de cas traités et une spécialisation totale font de nous le leader incontestable du marché.",
+    icon: ShieldCheck,
+    title: "Une approche précise, rapide et confidentiel",
+    subtitle: "Étude complète de votre dossier",
+    description: "Une méthode d'analyse précise en immobilier, juridique et financière. Proposition de rachat ou de solution de sortie rapide, sans engagement.",
   },
   {
     icon: Users,
