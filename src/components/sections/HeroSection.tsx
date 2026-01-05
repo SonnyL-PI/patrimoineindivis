@@ -14,7 +14,7 @@ const trustBadges = [
   },
   {
     icon: CheckCircle2,
-    text: "100% dédié",
+    text: "Expertise unique",
   },
   {
     icon: MapPin,
