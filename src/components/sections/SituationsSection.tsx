@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import { 
   Users, 
   Heart, 
@@ -54,7 +55,7 @@ export function SituationsSection() {
     <section className="py-14 md:py-20 bg-white" id="situation">
       <div className="container-wide">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-12">
+        <RevealOnScroll className="text-center max-w-3xl mx-auto mb-10 md:mb-12">
           <span className="inline-block text-sm font-medium text-accent uppercase tracking-wider mb-3">
             Votre situation
           </span>
@@ -65,32 +66,31 @@ export function SituationsSection() {
             Que vous soyez en indivision familiale, maritale ou autre, 
             nous avons une solution adaptée à votre cas.
           </p>
-        </div>
+        </RevealOnScroll>
 
         {/* Situations Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
-          {situations.map((situation) => (
-            <div
-              key={situation.title}
-              className="group card-situation flex flex-col h-full"
-            >
-              <div className="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/15 transition-colors">
-                <situation.icon className="w-5 h-5 text-accent" />
+          {situations.map((situation, index) => (
+            <RevealOnScroll key={situation.title} delay={index * 80}>
+              <div className="group card-situation flex flex-col h-full">
+                <div className="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/15 transition-colors">
+                  <situation.icon className="w-5 h-5 text-accent" />
+                </div>
+                <h3 className="font-serif text-base md:text-lg font-semibold text-foreground mb-2">
+                  {situation.title}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-grow">
+                  {situation.description}
+                </p>
+                <Link 
+                  to={situation.link}
+                  className="inline-flex items-center gap-2 text-accent text-sm font-medium hover:gap-3 transition-all mt-auto"
+                >
+                  Voir la solution
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
               </div>
-              <h3 className="font-serif text-base md:text-lg font-semibold text-foreground mb-2">
-                {situation.title}
-              </h3>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-grow">
-                {situation.description}
-              </p>
-              <Link 
-                to={situation.link}
-                className="inline-flex items-center gap-2 text-accent text-sm font-medium hover:gap-3 transition-all mt-auto"
-              >
-                Voir la solution
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
+            </RevealOnScroll>
           ))}
         </div>
 

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import { Check, ArrowRight, Quote, Star } from "lucide-react";
 import { PremiumPlate } from "@/components/ui/PremiumPlate";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
@@ -65,7 +66,8 @@ export function PropositionSection() {
         {/* Content */}
         <div className="container-wide relative z-10 py-16 lg:py-20">
           <div className="max-w-4xl mx-auto">
-            <PremiumPlate className="max-w-2xl" align="center">
+            <RevealOnScroll>
+              <PremiumPlate className="max-w-2xl" align="center">
               <span className="inline-block text-sm font-medium text-accent uppercase tracking-wider mb-3">
                 Notre offre
               </span>
@@ -92,7 +94,8 @@ export function PropositionSection() {
                   <ArrowRight className="w-5 h-5" />
                 </Link>
               </Button>
-            </PremiumPlate>
+              </PremiumPlate>
+            </RevealOnScroll>
           </div>
         </div>
       </section>
@@ -100,17 +103,18 @@ export function PropositionSection() {
       {/* Google Reviews */}
       <section className="py-12 md:py-16 bg-background">
         <div className="container-wide">
-          <div className="text-center mb-10">
+          <RevealOnScroll className="text-center mb-10">
             <h3 className="font-serif text-2xl md:text-3xl text-foreground mb-3">
               Ils nous ont fait confiance
             </h3>
             <div className="w-12 h-0.5 bg-accent mx-auto" />
-          </div>
+          </RevealOnScroll>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
             {googleReviews.map((review, index) => {
             const isTruncated = review.quote.length > TRUNCATE_THRESHOLD;
-            return <div key={index} className="card-premium relative group">
+            return <RevealOnScroll key={index} delay={index * 80}>
+              <div className="card-premium relative group h-full">
                   <Quote className="w-6 h-6 text-accent/20 absolute top-5 right-5" />
                   
                   {/* Header with initials and Google tag */}
@@ -143,7 +147,8 @@ export function PropositionSection() {
                   {isTruncated && <button onClick={() => setSelectedReview(review)} className="mt-3 text-xs text-accent hover:text-accent/80 transition-colors font-medium cursor-pointer">
                       Lire la suite →
                     </button>}
-                </div>;
+                </div>
+              </RevealOnScroll>;
           })}
           </div>
 

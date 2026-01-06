@@ -8,6 +8,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import { FileText, Phone, Send, Shield, Upload, Lock } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import salleReunion2 from "@/assets/salle-reunion-2.png";
@@ -241,7 +242,7 @@ export function ContactSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
           {/* Left: Info */}
-          <div>
+          <RevealOnScroll>
             <span className="inline-block text-sm font-medium text-accent uppercase tracking-wider mb-3">
               Contactez-nous
             </span>
@@ -298,7 +299,7 @@ export function ContactSection() {
             <div className="mt-8">
               <img src={salleReunion2} alt="Espace d'accueil – Patrimoine Indivis" className="w-full aspect-[16/10] object-cover rounded-2xl shadow-soft" loading="lazy" />
             </div>
-          </div>
+          </RevealOnScroll>
 
           {/* Right: Form */}
           <div className="bg-card rounded-2xl p-6 md:p-8 border border-border/30 shadow-soft">
