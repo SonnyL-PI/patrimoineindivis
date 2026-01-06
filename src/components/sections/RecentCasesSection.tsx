@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import { ArrowRight, Check } from "lucide-react";
 import {
   Dialog,
@@ -80,7 +81,7 @@ export function RecentCasesSection() {
         {/* Header - 2 columns layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-12 md:mb-14">
           {/* Left: Text */}
-          <div className="text-center lg:text-left">
+          <RevealOnScroll className="text-center lg:text-left">
             <span className="text-accent text-xs font-semibold tracking-[0.2em] uppercase mb-3 block">
               Cas récents
             </span>
@@ -90,41 +91,42 @@ export function RecentCasesSection() {
             <p className="text-muted-foreground text-sm md:text-base max-w-lg mx-auto lg:mx-0">
               Exemples anonymisés. Chaque situation est unique.
             </p>
-          </div>
+          </RevealOnScroll>
 
           {/* Right: Image */}
-          <div className="order-first lg:order-last">
+          <RevealOnScroll delay={100} className="order-first lg:order-last">
             <img
               src={salleReunion}
               alt="Salle de réunion – Patrimoine Indivis"
               className="w-full h-[280px] md:h-[340px] lg:h-[360px] object-cover rounded-2xl shadow-soft"
               loading="lazy"
             />
-          </div>
+          </RevealOnScroll>
         </div>
 
         {/* Cases Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
-          {recentCases.map((caseItem) => (
-            <button
-              key={caseItem.id}
-              onClick={() => setSelectedCase(caseItem)}
-              className="group bg-card rounded-2xl p-6 border border-border/20 shadow-sm hover:shadow-md hover:border-accent/30 transition-all duration-300 text-left cursor-pointer"
-            >
-              <h3 className="font-serif text-lg font-semibold text-foreground mb-2 group-hover:text-accent transition-colors">
-                {caseItem.name}
-              </h3>
-              <p className="text-accent font-semibold mb-2">
-                Quote-part : {caseItem.quotepart}
-              </p>
-              <p className="text-sm text-muted-foreground mb-4">
-                {caseItem.location}
-              </p>
-              <div className="flex items-center gap-2 text-foreground/80">
-                <Check className="w-4 h-4 text-accent" />
-                <span className="text-sm">{caseItem.result}</span>
-              </div>
-            </button>
+          {recentCases.map((caseItem, index) => (
+            <RevealOnScroll key={caseItem.id} delay={index * 80}>
+              <button
+                onClick={() => setSelectedCase(caseItem)}
+                className="group bg-card rounded-2xl p-6 border border-border/20 shadow-sm hover:shadow-md hover:border-accent/30 transition-all duration-300 text-left cursor-pointer w-full h-full"
+              >
+                <h3 className="font-serif text-lg font-semibold text-foreground mb-2 group-hover:text-accent transition-colors">
+                  {caseItem.name}
+                </h3>
+                <p className="text-accent font-semibold mb-2">
+                  Quote-part : {caseItem.quotepart}
+                </p>
+                <p className="text-sm text-muted-foreground mb-4">
+                  {caseItem.location}
+                </p>
+                <div className="flex items-center gap-2 text-foreground/80">
+                  <Check className="w-4 h-4 text-accent" />
+                  <span className="text-sm">{caseItem.result}</span>
+                </div>
+              </button>
+            </RevealOnScroll>
           ))}
         </div>
 
