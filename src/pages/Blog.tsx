@@ -40,8 +40,7 @@ const Blog = () => {
                 Comprendre <span className="text-accent">l'indivision</span>
               </h1>
               <p className="text-xl text-primary-foreground/80 leading-relaxed">
-                Tout ce que vous devez savoir sur l'indivision, son cadre juridique,
-                ses implications et les solutions pour en sortir.
+                Un bien indivis est détenu par plusieurs personnes, sans division matérielle : chacun possède une quote-part et des droits/obligations proportionnels. Comprenez les règles de décision, les risques de blocage et les solutions pour en sortir.
               </p>
             </div>
           </div>
@@ -64,15 +63,32 @@ const Blog = () => {
                     </h2>
                   </div>
                   <p className="text-muted-foreground leading-relaxed">
-                    L'indivision est une situation juridique dans laquelle plusieurs personnes 
-                    (appelées indivisaires ou co-indivisaires) sont propriétaires ensemble d'un même bien, 
-                    sans que leurs parts respectives soient matériellement divisées.
+                    Lorsqu'un bien est en indivision, il appartient à plusieurs personnes simultanément, sans que leurs parts soient matérialisées dans le bien. Chaque indivisaire détient une quote-part et un droit de jouissance indivis.
                   </p>
                   <p className="text-muted-foreground leading-relaxed">
-                    Chaque indivisaire possède une quote-part (par exemple 1/3, 1/4, 50%...) 
-                    qui représente ses droits sur l'ensemble du bien, mais aucun ne peut prétendre 
-                    à une portion spécifique du bien tant que l'indivision n'est pas résolue.
+                    Cette situation apparaît le plus souvent après une succession ou un achat en commun. La gestion est collective : selon la nature de l'acte (vente, travaux, investissements…), certaines décisions exigent l'unanimité ou une majorité, ce qui peut créer des blocages. Les charges, revenus locatifs et plus-values sont répartis au prorata des quotes-parts.
                   </p>
+                  <div className="mt-6 p-5 bg-accent/5 rounded-xl border border-accent/20">
+                    <h4 className="font-semibold text-foreground mb-3">À retenir</h4>
+                    <ul className="space-y-2">
+                      <li className="flex items-start gap-3 text-muted-foreground">
+                        <span className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
+                        <span>Chaque indivisaire a une quote-part, mais aucune portion « physique » du bien.</span>
+                      </li>
+                      <li className="flex items-start gap-3 text-muted-foreground">
+                        <span className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
+                        <span>Les décisions importantes se prennent ensemble (unanimité/majorité selon les actes).</span>
+                      </li>
+                      <li className="flex items-start gap-3 text-muted-foreground">
+                        <span className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
+                        <span>Fiscalité et charges suivent les quotes-parts (revenus, travaux, impôts).</span>
+                      </li>
+                      <li className="flex items-start gap-3 text-muted-foreground">
+                        <span className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
+                        <span>En cas de vente de parts, les autres indivisaires disposent d'une priorité d'achat.</span>
+                      </li>
+                    </ul>
+                  </div>
                 </article>
 
                 {/* Origins */}
