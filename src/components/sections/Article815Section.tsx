@@ -6,27 +6,48 @@ import article815Bg from "@/assets/article-815-bg.jpg";
 export function Article815Section() {
   return (
     <section className="relative overflow-hidden">
-      {/* Background Image */}
+      {/* Background Image - blurred to hide document text */}
       <img
         src={article815Bg}
         alt=""
         aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover object-center"
         style={{
-          filter: "saturate(0.7) blur(1px)",
+          filter: "saturate(0.7) blur(4px)",
         }}
       />
       
-      {/* Overlay - Dark layer + gradient */}
+      {/* "ARTICLE 815" watermark in background */}
+      <div 
+        className="absolute inset-0 flex items-start justify-start pointer-events-none select-none"
+        aria-hidden="true"
+      >
+        <span
+          className="mt-12 ml-8 md:mt-16 md:ml-12 lg:mt-20 lg:ml-16"
+          style={{
+            fontFamily: "'Cormorant Garamond', serif",
+            fontSize: "clamp(2.5rem, 6vw, 5rem)",
+            fontWeight: 600,
+            letterSpacing: "0.08em",
+            color: "rgba(255, 255, 255, 0.22)",
+            mixBlendMode: "soft-light",
+            textTransform: "uppercase",
+          }}
+        >
+          Article 815
+        </span>
+      </div>
+      
+      {/* Overlay - Light layer + gradient (max 35-40%) */}
       <div 
         className="absolute inset-0"
         style={{
           background: `
             linear-gradient(
               180deg,
-              hsla(215, 26%, 18%, 0.75) 0%,
-              hsla(215, 26%, 22%, 0.60) 50%,
-              hsla(215, 26%, 18%, 0.70) 100%
+              hsla(215, 26%, 18%, 0.40) 0%,
+              hsla(215, 26%, 22%, 0.32) 50%,
+              hsla(215, 26%, 18%, 0.38) 100%
             )
           `,
         }}
