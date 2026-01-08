@@ -6,7 +6,7 @@ import article815Bg from "@/assets/article-815-bg.jpg";
 export function Article815Section() {
   return (
     <section className="relative overflow-hidden">
-      {/* Background Image - Zoomed, blurred, desaturated */}
+      {/* === LAYER 1: Background Image - Zoomed, heavily blurred, desaturated === */}
       <div className="absolute inset-0">
         <img
           src={article815Bg}
@@ -14,61 +14,65 @@ export function Article815Section() {
           aria-hidden="true"
           className="absolute inset-0 w-full h-full object-cover"
           style={{
-            transform: "scale(1.25)",
+            transform: "scale(1.45)",
             transformOrigin: "center center",
-            objectPosition: "65% 45%",
-            filter: "blur(3px) grayscale(55%) saturate(0.6)",
+            objectPosition: "70% 40%",
+            filter: "blur(5px) grayscale(55%) saturate(0.9) contrast(0.95)",
           }}
         />
       </div>
       
-      {/* Dark overlay - Stronger opacity */}
+      {/* === LAYER 2: "ARTICLE 815" watermark - UNDER the overlay === */}
       <div 
-        className="absolute inset-0"
-        style={{
-          background: `
-            linear-gradient(
-              180deg,
-              hsla(215, 26%, 12%, 0.78) 0%,
-              hsla(215, 26%, 15%, 0.68) 50%,
-              hsla(215, 26%, 10%, 0.80) 100%
-            )
-          `,
-        }}
-      />
-      
-      {/* Subtle noise/grain overlay */}
-      <div 
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
-          opacity: 0.04,
-          mixBlendMode: "overlay",
-        }}
-      />
-      
-      {/* Watermark "ARTICLE 815" - Decorative filigrane */}
-      <div 
-        className="absolute inset-0 pointer-events-none flex items-end justify-end overflow-hidden"
+        className="absolute inset-0 pointer-events-none flex items-end justify-start overflow-hidden"
         aria-hidden="true"
       >
         <span
-          className="text-white select-none whitespace-nowrap"
           style={{
             fontFamily: "'Cormorant Garamond', serif",
-            fontSize: "clamp(6rem, 18vw, 16rem)",
-            fontWeight: 600,
-            letterSpacing: "0.08em",
-            opacity: 0.08,
-            transform: "translate(5%, 15%) rotate(-3deg)",
+            fontSize: "clamp(8rem, 22vw, 20rem)",
+            fontWeight: 700,
+            letterSpacing: "0.12em",
+            opacity: 0.10,
+            color: "rgba(255, 255, 255, 0.9)",
+            filter: "blur(0.8px)",
+            transform: "translate(-3%, 18%)",
             textTransform: "uppercase",
+            mixBlendMode: "overlay",
+            maskImage: "linear-gradient(to right, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%)",
+            WebkitMaskImage: "linear-gradient(to right, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%)",
           }}
         >
           Article 815
         </span>
       </div>
       
-      {/* Content */}
+      {/* === LAYER 3: Dark overlay + gradient (covers the watermark) === */}
+      <div 
+        className="absolute inset-0"
+        style={{
+          background: `
+            linear-gradient(
+              180deg,
+              hsla(215, 28%, 8%, 0.82) 0%,
+              hsla(215, 26%, 12%, 0.70) 45%,
+              hsla(215, 28%, 8%, 0.78) 100%
+            )
+          `,
+        }}
+      />
+      
+      {/* Subtle noise/grain texture */}
+      <div 
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+          opacity: 0.035,
+          mixBlendMode: "overlay",
+        }}
+      />
+      
+      {/* === LAYER 4: Content (on top of everything) === */}
       <div className="relative z-10 py-20 md:py-28 lg:py-32">
         <div className="container-wide">
           <div className="max-w-2xl">
@@ -77,7 +81,7 @@ export function Article815Section() {
               className="text-5xl md:text-6xl lg:text-7xl font-semibold text-white mb-6"
               style={{
                 fontFamily: "'Cormorant Garamond', serif",
-                textShadow: "0 2px 16px rgba(0,0,0,0.4)",
+                textShadow: "0 2px 20px rgba(0,0,0,0.5)",
               }}
             >
               Article 815
