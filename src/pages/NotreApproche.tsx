@@ -3,6 +3,8 @@ import { Footer } from "@/components/Footer";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, FileSearch, FileText, Scale, Banknote, Shield, Users, Heart } from "lucide-react";
+import { Article815Section } from "@/components/sections/Article815Section";
+
 const steps = [{
   number: "01",
   icon: FileSearch,
@@ -128,38 +130,8 @@ const NotreApproche = () => {
           </div>
         </section>
 
-        {/* Article 815 */}
-        <section className="section-padding">
-          <div className="container-narrow">
-            <div className="bg-primary rounded-3xl p-10 md:p-16 text-primary-foreground">
-              <div className="flex items-center gap-4 mb-6">
-                <Scale className="w-10 h-10 text-accent" />
-                <h2 className="heading-section text-primary-foreground">
-                  L'article 815 du Code civil
-                </h2>
-              </div>
-              <blockquote className="border-l-4 border-accent pl-6 py-2 mb-6">
-                <p className="text-xl italic text-primary-foreground/90">
-                  « Nul ne peut être contraint à demeurer dans l'indivision et le partage
-                  peut toujours être provoqué, à moins qu'il n'y ait été sursis par jugement
-                  ou convention. »
-                </p>
-              </blockquote>
-              <p className="text-primary-foreground/70 leading-relaxed mb-6">
-                Ce principe fondamental du droit français garantit à chaque indivisaire le droit
-                de sortir de l'indivision. Notre expertise consiste à mettre en œuvre ce droit
-                dans le respect du formalisme légal, en protégeant vos intérêts tout en préservant
-                les relations avec les autres indivisaires.
-              </p>
-              <Button variant="hero" asChild>
-                <Link to="/comprendre-indivision">
-                  En savoir plus sur l'indivision
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </section>
+        {/* Article 815 - Section hero premium */}
+        <Article815Section />
 
         {/* CTA */}
         <section className="section-padding bg-primary text-primary-foreground">
