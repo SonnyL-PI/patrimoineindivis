@@ -235,15 +235,6 @@
     will-change: auto;
   }
 
-  /* Accessibilité : pas d'animation si préférence utilisateur */
-  @media (prefers-reduced-motion: reduce) {
-    .reveal-on-scroll {
-      opacity: 1 !important;
-      transform: none !important;
-      transition: none !important;
-    }
-  }
-
   /* Hero section heights */
   .hero-section {
     min-height: 80vh;
