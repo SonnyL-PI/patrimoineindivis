@@ -6,31 +6,67 @@ import article815Bg from "@/assets/article-815-bg.jpg";
 export function Article815Section() {
   return (
     <section className="relative overflow-hidden">
-      {/* Background Image */}
-      <img
-        src={article815Bg}
-        alt=""
-        aria-hidden="true"
-        className="absolute inset-0 w-full h-full object-cover object-center"
-        style={{
-          filter: "saturate(0.7) blur(1px)",
-        }}
-      />
+      {/* Background Image - Zoomed, blurred, desaturated */}
+      <div className="absolute inset-0">
+        <img
+          src={article815Bg}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{
+            transform: "scale(1.25)",
+            transformOrigin: "center center",
+            objectPosition: "65% 45%",
+            filter: "blur(3px) grayscale(55%) saturate(0.6)",
+          }}
+        />
+      </div>
       
-      {/* Overlay - Dark layer + gradient */}
+      {/* Dark overlay - Stronger opacity */}
       <div 
         className="absolute inset-0"
         style={{
           background: `
             linear-gradient(
               180deg,
-              hsla(215, 26%, 18%, 0.75) 0%,
-              hsla(215, 26%, 22%, 0.60) 50%,
-              hsla(215, 26%, 18%, 0.70) 100%
+              hsla(215, 26%, 12%, 0.78) 0%,
+              hsla(215, 26%, 15%, 0.68) 50%,
+              hsla(215, 26%, 10%, 0.80) 100%
             )
           `,
         }}
       />
+      
+      {/* Subtle noise/grain overlay */}
+      <div 
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+          opacity: 0.04,
+          mixBlendMode: "overlay",
+        }}
+      />
+      
+      {/* Watermark "ARTICLE 815" - Decorative filigrane */}
+      <div 
+        className="absolute inset-0 pointer-events-none flex items-end justify-end overflow-hidden"
+        aria-hidden="true"
+      >
+        <span
+          className="text-white select-none whitespace-nowrap"
+          style={{
+            fontFamily: "'Cormorant Garamond', serif",
+            fontSize: "clamp(6rem, 18vw, 16rem)",
+            fontWeight: 600,
+            letterSpacing: "0.08em",
+            opacity: 0.08,
+            transform: "translate(5%, 15%) rotate(-3deg)",
+            textTransform: "uppercase",
+          }}
+        >
+          Article 815
+        </span>
+      </div>
       
       {/* Content */}
       <div className="relative z-10 py-20 md:py-28 lg:py-32">
@@ -41,7 +77,7 @@ export function Article815Section() {
               className="text-5xl md:text-6xl lg:text-7xl font-semibold text-white mb-6"
               style={{
                 fontFamily: "'Cormorant Garamond', serif",
-                textShadow: "0 2px 12px rgba(0,0,0,0.3)",
+                textShadow: "0 2px 16px rgba(0,0,0,0.4)",
               }}
             >
               Article 815
