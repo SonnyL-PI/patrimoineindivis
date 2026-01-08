@@ -12,35 +12,37 @@ export function Article815Section() {
           src={article815Bg}
           alt=""
           aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover
+            [object-position:70%_40%] max-md:[object-position:65%_35%]"
           style={{
-            transform: "scale(1.45)",
+            transform: "scale(1.5)",
             transformOrigin: "center center",
-            objectPosition: "70% 40%",
-            filter: "blur(5px) grayscale(55%) saturate(0.9) contrast(0.95)",
+            filter: "blur(6px) grayscale(60%) saturate(0.9) contrast(0.95)",
           }}
         />
       </div>
       
       {/* === LAYER 2: "ARTICLE 815" watermark - UNDER the overlay === */}
       <div 
-        className="absolute inset-0 pointer-events-none flex items-end justify-start overflow-hidden"
+        className="absolute inset-0 pointer-events-none overflow-hidden"
         aria-hidden="true"
       >
         <span
+          className="absolute whitespace-nowrap select-none"
           style={{
             fontFamily: "'Cormorant Garamond', serif",
-            fontSize: "clamp(8rem, 22vw, 20rem)",
-            fontWeight: 700,
-            letterSpacing: "0.12em",
-            opacity: 0.10,
-            color: "rgba(255, 255, 255, 0.9)",
-            filter: "blur(0.8px)",
-            transform: "translate(-3%, 18%)",
+            fontSize: "clamp(10rem, 28vw, 26rem)",
+            fontWeight: 600,
+            letterSpacing: "0.15em",
+            opacity: 0.08,
+            color: "rgba(245, 242, 238, 0.95)",
+            filter: "blur(1px)",
+            bottom: "-8%",
+            right: "-5%",
             textTransform: "uppercase",
-            mixBlendMode: "overlay",
-            maskImage: "linear-gradient(to right, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%)",
-            WebkitMaskImage: "linear-gradient(to right, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%)",
+            mixBlendMode: "soft-light",
+            maskImage: "linear-gradient(to left, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)",
+            WebkitMaskImage: "linear-gradient(to left, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)",
           }}
         >
           Article 815
