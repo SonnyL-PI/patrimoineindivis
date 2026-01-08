@@ -6,29 +6,18 @@ import article815Bg from "@/assets/article-815-bg.jpg";
 export function Article815Section() {
   return (
     <section className="relative overflow-hidden">
-      {/* Background Image - ONLY blur, no color filters */}
+      {/* Background Image */}
       <img
         src={article815Bg}
         alt=""
         aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover object-center"
         style={{
-          filter: "blur(4.5px)",
+          filter: "saturate(0.7) blur(1px)",
         }}
       />
       
-      {/* Noise layer - neutral gray grain to break text readability */}
-      <div 
-        className="absolute inset-0 pointer-events-none"
-        aria-hidden="true"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
-          opacity: 0.08,
-          mixBlendMode: "overlay",
-        }}
-      />
-      
-      {/* Overlay - Dark layer + gradient (unchanged) */}
+      {/* Overlay - Dark layer + gradient */}
       <div 
         className="absolute inset-0"
         style={{
