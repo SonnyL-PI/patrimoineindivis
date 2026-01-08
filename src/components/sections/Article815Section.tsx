@@ -13,7 +13,7 @@ export function Article815Section() {
         aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover object-center"
         style={{
-          filter: "saturate(0.7) blur(1px)",
+          filter: "saturate(0.7) blur(4px)",
         }}
       />
       
