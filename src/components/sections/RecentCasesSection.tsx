@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
+import { RevealOnScroll } from "@/components/RevealOnScroll";
 import { ArrowRight, Check } from "lucide-react";
 import {
   Dialog,
@@ -94,7 +94,7 @@ export function RecentCasesSection() {
           </RevealOnScroll>
 
           {/* Right: Image */}
-          <RevealOnScroll delay={100} className="order-first lg:order-last">
+          <RevealOnScroll delayMs={100} className="order-first lg:order-last">
             <img
               src={salleReunion}
               alt="Salle de réunion – Patrimoine Indivis"
@@ -107,7 +107,7 @@ export function RecentCasesSection() {
         {/* Cases Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
           {recentCases.map((caseItem, index) => (
-            <RevealOnScroll key={caseItem.id} delay={index * 80}>
+            <RevealOnScroll key={caseItem.id} delayMs={index * 80}>
               <button
                 onClick={() => setSelectedCase(caseItem)}
                 className="group bg-card rounded-2xl p-6 border border-border/20 shadow-sm hover:shadow-md hover:border-accent/30 transition-all duration-300 text-left cursor-pointer w-full h-full"

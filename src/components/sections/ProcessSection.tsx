@@ -1,4 +1,5 @@
 import { FileSearch, FileText, Scale, Banknote } from "lucide-react";
+import { RevealOnScroll } from "@/components/RevealOnScroll";
 
 const steps = [
   {
@@ -40,7 +41,7 @@ export function ProcessSection() {
     <section className="py-12 md:py-16 bg-background">
       <div className="container-wide">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-12">
+        <RevealOnScroll className="text-center max-w-3xl mx-auto mb-10 md:mb-12">
           <span className="inline-block text-sm font-semibold text-accent uppercase tracking-wider mb-3">
             Notre processus
           </span>
@@ -50,13 +51,14 @@ export function ProcessSection() {
           <p className="text-sm md:text-base text-muted-foreground max-w-xl mx-auto">
             Un accompagnement structuré, du premier contact jusqu'à la clôture du dossier.
           </p>
-        </div>
+        </RevealOnScroll>
 
         {/* Steps */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
           {steps.map((step, index) => (
-            <div
+            <RevealOnScroll
               key={step.number}
+              delayMs={index * 80}
               className="group relative"
             >
               {/* Connector line (desktop only) */}
@@ -86,7 +88,7 @@ export function ProcessSection() {
                   {step.highlight}
                 </span>
               </div>
-            </div>
+            </RevealOnScroll>
           ))}
         </div>
       </div>

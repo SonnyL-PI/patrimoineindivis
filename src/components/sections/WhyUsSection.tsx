@@ -1,5 +1,5 @@
 import { Award, ShieldCheck, Heart, Users } from "lucide-react";
-import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
+import { RevealOnScroll } from "@/components/RevealOnScroll";
 const pillars = [{
   icon: Award,
   title: "Leader par l'expérience et le volume",
@@ -43,7 +43,7 @@ export function WhyUsSection() {
         {/* Pillars Grid - 4 cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {pillars.map((pillar, index) => (
-            <RevealOnScroll key={pillar.title} delay={index * 80}>
+            <RevealOnScroll key={pillar.title} delayMs={index * 80}>
               <div className="relative card-premium flex flex-col h-full">
                 <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-6 group-hover:bg-accent/15 transition-colors">
                   <pillar.icon className="w-7 h-7 text-accent" />

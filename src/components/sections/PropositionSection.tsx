@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
+import { RevealOnScroll } from "@/components/RevealOnScroll";
 import { Check, ArrowRight, Quote, Star } from "lucide-react";
 import { PremiumPlate } from "@/components/ui/PremiumPlate";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
@@ -113,7 +113,7 @@ export function PropositionSection() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
             {googleReviews.map((review, index) => {
             const isTruncated = review.quote.length > TRUNCATE_THRESHOLD;
-            return <RevealOnScroll key={index} delay={index * 80}>
+            return <RevealOnScroll key={index} delayMs={index * 80}>
               <div className="card-premium relative group h-full">
                   <Quote className="w-6 h-6 text-accent/20 absolute top-5 right-5" />
                   

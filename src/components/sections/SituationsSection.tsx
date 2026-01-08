@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
+import { RevealOnScroll } from "@/components/RevealOnScroll";
 import { 
   Users, 
   Heart, 
@@ -71,7 +71,7 @@ export function SituationsSection() {
         {/* Situations Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
           {situations.map((situation, index) => (
-            <RevealOnScroll key={situation.title} delay={index * 80}>
+            <RevealOnScroll key={situation.title} delayMs={index * 80}>
               <div className="group card-situation flex flex-col h-full">
                 <div className="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/15 transition-colors">
                   <situation.icon className="w-5 h-5 text-accent" />

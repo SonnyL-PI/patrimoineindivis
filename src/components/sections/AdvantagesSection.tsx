@@ -1,5 +1,5 @@
 import { Award, Zap, Building, Users, Euro, Lock } from "lucide-react";
-import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
+import { RevealOnScroll } from "@/components/RevealOnScroll";
 
 const advantages = [
   {
@@ -52,7 +52,7 @@ export function AdvantagesSection() {
         {/* Advantages Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
           {advantages.map((advantage, index) => (
-            <RevealOnScroll key={advantage.title} delay={index * 80}>
+            <RevealOnScroll key={advantage.title} delayMs={index * 80}>
               <div className="text-center p-6 md:p-7 rounded-2xl bg-primary-foreground/[0.06] border border-primary-foreground/[0.1] hover:bg-primary-foreground/[0.09] hover:border-accent/30 hover:-translate-y-0.5 transition-all duration-300 backdrop-blur-sm h-full">
                 <div className="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center mx-auto mb-4">
                   <advantage.icon className="w-6 h-6 text-accent" />

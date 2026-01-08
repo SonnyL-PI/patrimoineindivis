@@ -221,6 +221,20 @@
 }
 
 @layer utilities {
+  /* Reveal on Scroll Animation - Sobre et professionnel */
+  .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 600ms ease-out, transform 600ms ease-out;
+    will-change: opacity, transform;
+  }
+
+  .reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    will-change: auto;
+  }
+
   /* Hero section heights */
   .hero-section {
     min-height: 80vh;

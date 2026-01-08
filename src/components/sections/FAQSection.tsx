@@ -6,7 +6,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
+import { RevealOnScroll } from "@/components/RevealOnScroll";
 import { ArrowRight } from "lucide-react";
 
 const faqs = [
@@ -68,7 +68,7 @@ export function FAQSection() {
           </RevealOnScroll>
 
           {/* Right: Accordion */}
-          <RevealOnScroll delay={100}>
+          <RevealOnScroll delayMs={100}>
             <Accordion type="single" collapsible className="space-y-4">
               {faqs.map((faq, index) => (
                 <AccordionItem
