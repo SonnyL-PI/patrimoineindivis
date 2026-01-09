@@ -64,8 +64,7 @@ export function Article815Section() {
                 style={{ color: "rgba(255,255,255,0.82)" }}
               >
                 « Nul ne peut être contraint à demeurer dans l'indivision et le partage
-                peut toujours être provoqué, à moins qu'il n'y ait été sursis par jugement
-                ou convention. »
+                peut toujours être provoqué. »
               </p>
               <cite 
                 className="block mt-3 text-sm font-medium"
