@@ -91,7 +91,7 @@ export function Header() {
                 className="text-primary-foreground/80 hover:text-accent hover:bg-transparent text-sm"
                 asChild
               >
-                <Link to="/contact#rappel">
+<Link to="/contactez-nous#etre-rappele">
                   <Phone className="w-4 h-4 mr-2" />
                   Être rappelé
                 </Link>
@@ -147,7 +147,7 @@ export function Header() {
               </div>
               <div className="flex gap-3 mt-2">
                 <Button variant="goldOutline" className="flex-1" asChild>
-                  <Link to="/contact#rappel">Être rappelé</Link>
+                  <Link to="/contactez-nous#etre-rappele">Être rappelé</Link>
                 </Button>
                 <Button variant="gold" className="flex-1" asChild>
                   <Link to="/etude-gratuite">Étude de rachat</Link>
