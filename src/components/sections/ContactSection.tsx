@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -111,23 +111,25 @@ const parseFormattedNumber = (value: string): number => {
 export function ContactSection() {
   const { toast } = useToast();
   const location = useLocation();
+  const [searchParams, setSearchParams] = useSearchParams();
   const formRef = useRef<HTMLDivElement>(null);
   
-  // Determine initial tab from URL hash
-  const getTabFromHash = (hash: string) => {
-    if (hash === "#etre-rappele" || hash === "#rappel") return "rappel";
-    if (hash === "#je-veux-une-offre" || hash === "#offre") return "offre";
+  // Determine initial tab from URL query param
+  const getTabFromParams = () => {
+    const tab = searchParams.get("tab");
+    if (tab === "callback") return "rappel";
+    if (tab === "offer") return "offre";
     return "offre";
   };
   
-  const [activeTab, setActiveTab] = useState(() => getTabFromHash(location.hash));
+  const [activeTab, setActiveTab] = useState(getTabFromParams);
   
-  // Handle hash changes and scroll to form
+  // Handle query param changes and scroll to form
   useEffect(() => {
-    const hash = location.hash;
-    const targetTab = getTabFromHash(hash);
+    const tab = searchParams.get("tab");
     
-    if (hash === "#etre-rappele" || hash === "#rappel" || hash === "#je-veux-une-offre" || hash === "#offre") {
+    if (tab === "callback" || tab === "offer") {
+      const targetTab = tab === "callback" ? "rappel" : "offre";
       setActiveTab(targetTab);
       
       // Scroll to form with offset for sticky header
@@ -144,13 +146,13 @@ export function ContactSection() {
         }
       }, 100);
     }
-  }, [location.hash]);
+  }, [searchParams]);
   
-  // Update URL hash when tab changes manually
+  // Update URL query param when tab changes manually
   const handleTabChange = (value: string) => {
     setActiveTab(value);
-    const newHash = value === "rappel" ? "#etre-rappele" : "#je-veux-une-offre";
-    window.history.replaceState(null, "", `${location.pathname}${newHash}`);
+    const newTab = value === "rappel" ? "callback" : "offer";
+    setSearchParams({ tab: newTab }, { replace: true });
   };
   const [consentOffre, setConsentOffre] = useState(false);
   const [consentRappel, setConsentRappel] = useState(false);
