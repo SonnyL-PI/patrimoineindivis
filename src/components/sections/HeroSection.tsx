@@ -96,7 +96,7 @@ export function HeroSection() {
               </Link>
             </Button>
             <Button size="lg" className="w-full min-h-[56px] text-base font-semibold text-white bg-white/25 border-2 border-white hover:bg-white/35 shadow-lg backdrop-blur-sm" asChild>
-              <Link to="/contact#rappel">
+<Link to="/contactez-nous#etre-rappele">
                 <Phone className="w-5 h-5" />
                 Être rappelé
               </Link>
@@ -212,7 +212,7 @@ export function HeroSection() {
                 </Link>
               </Button>
               <Button className="w-full sm:w-auto px-8 lg:px-10 py-4 lg:py-5 text-base lg:text-lg font-semibold text-white bg-white/25 border-2 border-white hover:bg-white/40 shadow-xl backdrop-blur-sm min-h-[56px]" asChild>
-                <Link to="/contact#rappel">
+<Link to="/contactez-nous#etre-rappele">
                   <Phone className="w-5 h-5" />
                   Être rappelé
                 </Link>

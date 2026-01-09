@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect, useRef } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -110,7 +110,48 @@ const parseFormattedNumber = (value: string): number => {
 
 export function ContactSection() {
   const { toast } = useToast();
-  const [activeTab, setActiveTab] = useState("offre");
+  const location = useLocation();
+  const formRef = useRef<HTMLDivElement>(null);
+  
+  // Determine initial tab from URL hash
+  const getTabFromHash = (hash: string) => {
+    if (hash === "#etre-rappele" || hash === "#rappel") return "rappel";
+    if (hash === "#je-veux-une-offre" || hash === "#offre") return "offre";
+    return "offre";
+  };
+  
+  const [activeTab, setActiveTab] = useState(() => getTabFromHash(location.hash));
+  
+  // Handle hash changes and scroll to form
+  useEffect(() => {
+    const hash = location.hash;
+    const targetTab = getTabFromHash(hash);
+    
+    if (hash === "#etre-rappele" || hash === "#rappel" || hash === "#je-veux-une-offre" || hash === "#offre") {
+      setActiveTab(targetTab);
+      
+      // Scroll to form with offset for sticky header
+      setTimeout(() => {
+        if (formRef.current) {
+          const headerOffset = 100; // Account for sticky header
+          const elementPosition = formRef.current.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+          });
+        }
+      }, 100);
+    }
+  }, [location.hash]);
+  
+  // Update URL hash when tab changes manually
+  const handleTabChange = (value: string) => {
+    setActiveTab(value);
+    const newHash = value === "rappel" ? "#etre-rappele" : "#je-veux-une-offre";
+    window.history.replaceState(null, "", `${location.pathname}${newHash}`);
+  };
   const [consentOffre, setConsentOffre] = useState(false);
   const [consentRappel, setConsentRappel] = useState(false);
   
@@ -302,8 +343,8 @@ export function ContactSection() {
           </RevealOnScroll>
 
           {/* Right: Form */}
-          <div className="bg-card rounded-2xl p-6 md:p-8 border border-border/30 shadow-soft">
-            <Tabs value={activeTab} onValueChange={setActiveTab}>
+          <div ref={formRef} id="contact-form" className="bg-card rounded-2xl p-6 md:p-8 border border-border/30 shadow-soft">
+            <Tabs value={activeTab} onValueChange={handleTabChange}>
               <TabsList className="grid grid-cols-2 mb-6 bg-secondary rounded-xl p-1">
                 <TabsTrigger value="offre" className="rounded-lg data-[state=active]:bg-card data-[state=active]:shadow-sm font-medium py-2.5 text-sm">
                   <FileText className="w-4 h-4 mr-2" />
