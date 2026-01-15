@@ -55,7 +55,7 @@ export function HeroSection() {
           </p>
 
           {/* H1 */}
-          <h1 className="font-serif text-[2rem] text-white font-bold leading-[1.08] mb-3 animate-fade-up" style={{
+          <h1 className="font-serif text-[1.75rem] text-white font-bold leading-[1.08] mb-3 animate-fade-up" style={{
           animationDelay: "100ms",
           textShadow: "0 3px 12px rgba(0,0,0,0.5), 0 1px 3px rgba(0,0,0,0.3)"
         }}>
@@ -169,7 +169,7 @@ export function HeroSection() {
             </p>
 
             {/* H1 - sized to fit on ONE line */}
-            <h1 className="font-serif text-[2.75rem] md:text-[3.25rem] lg:text-[3.75rem] xl:text-[4.25rem] 2xl:text-[4.75rem] text-white font-bold leading-[1.0] mb-5 animate-fade-up whitespace-nowrap" style={{
+            <h1 className="font-serif text-[2.25rem] md:text-[2.75rem] lg:text-[3.25rem] xl:text-[3.5rem] 2xl:text-[3.75rem] text-white font-bold leading-[1.0] mb-5 animate-fade-up whitespace-nowrap" style={{
             animationDelay: "100ms",
             textShadow: "0 4px 20px rgba(0,0,0,0.5), 0 2px 6px rgba(0,0,0,0.35)"
           }}>
