@@ -95,12 +95,17 @@ export function RecentCasesSection() {
 
           {/* Right: Image */}
           <RevealOnScroll delayMs={100} className="order-first lg:order-last">
-            <img
-              src={salleReunion}
-              alt="Salle de réunion – Patrimoine Indivis"
-              className="w-full h-[280px] md:h-[340px] lg:h-[360px] object-cover rounded-2xl shadow-soft"
-              loading="lazy"
-            />
+            <figure>
+              <img
+                src={salleReunion}
+                alt="Notre bureau – Patrimoine Indivis"
+                className="w-full h-[280px] md:h-[340px] lg:h-[360px] object-cover rounded-2xl shadow-soft"
+                loading="lazy"
+              />
+              <figcaption className="text-center text-sm text-muted-foreground mt-3 italic">
+                Notre bureau
+              </figcaption>
+            </figure>
           </RevealOnScroll>
         </div>
 
