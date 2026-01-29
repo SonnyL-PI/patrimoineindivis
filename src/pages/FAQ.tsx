@@ -149,7 +149,7 @@ const FAQ = () => {
             <h2 className="heading-section text-foreground mb-6">
               Vous n'avez pas trouvé votre réponse ?
             </h2>
-            <p className="text-body mb-8">
+            <p className="text-body mb-8 mx-auto">
               Contactez-nous directement, notre équipe se fera un plaisir de répondre
               à toutes vos questions.
             </p>
