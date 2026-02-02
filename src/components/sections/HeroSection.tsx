@@ -136,17 +136,18 @@ export function HeroSection() {
         {/* Background Image - natural colors */}
         <img src={heroImage} alt="Façade immeuble haussmannien – Paris" className="absolute inset-0 w-full h-full object-cover" />
 
-        {/* Strong dark overlay - dense on left, fading to right */}
+        {/* Dark overlay - aligned with text block, starts at 5% */}
         <div className="absolute inset-0 pointer-events-none" style={{
         background: `
-              linear-gradient(95deg,
-                hsl(220 18% 5% / 0.92) 0%,
-                hsl(220 16% 6% / 0.88) 15%,
-                hsl(220 14% 8% / 0.78) 30%,
-                hsl(220 12% 10% / 0.62) 45%,
-                hsl(220 10% 12% / 0.42) 60%,
-                hsl(220 8% 15% / 0.22) 75%,
-                transparent 92%
+              linear-gradient(98deg,
+                transparent 0%,
+                hsl(220 18% 5% / 0.88) 5%,
+                hsl(220 16% 5% / 0.92) 12%,
+                hsl(220 14% 6% / 0.88) 25%,
+                hsl(220 12% 8% / 0.75) 40%,
+                hsl(220 10% 10% / 0.55) 55%,
+                hsl(220 8% 12% / 0.32) 70%,
+                transparent 88%
               )
             `
       }} />
@@ -156,8 +157,8 @@ export function HeroSection() {
         background: "linear-gradient(to top, hsl(220 16% 5% / 0.6) 0%, transparent 100%)"
       }} />
 
-        {/* Content - elegant positioning with increased left margin */}
-        <div className="relative z-10 py-20 lg:py-28 pl-[8%] md:pl-[10%] lg:pl-[12%] xl:pl-[14%] 2xl:pl-[15%] pr-8 md:pr-12 lg:pr-16 max-w-[1800px] w-full">
+        {/* Content - aligned with overlay start */}
+        <div className="relative z-10 py-20 lg:py-28 pl-[6%] md:pl-[7%] lg:pl-[8%] xl:pl-[9%] 2xl:pl-[10%] pr-8 md:pr-12 lg:pr-16 max-w-[1800px] w-full">
           <div className="max-w-2xl lg:max-w-3xl xl:max-w-[44rem]">
             {/* Sur-titre */}
             <p className="text-accent text-[13px] lg:text-sm tracking-[0.25em] uppercase font-semibold mb-6 lg:mb-8 animate-fade-up">
@@ -244,9 +245,9 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Legal quote - bottom */}
+        {/* Legal quote - bottom, aligned with content */}
         <div className="relative z-10 mt-auto">
-          <div className="pl-[8%] md:pl-[10%] lg:pl-[12%] xl:pl-[14%] 2xl:pl-[15%] pr-8 py-6">
+          <div className="pl-[6%] md:pl-[7%] lg:pl-[8%] xl:pl-[9%] 2xl:pl-[10%] pr-8 py-6">
             <p className="text-sm lg:text-[15px] font-serif italic" style={{ color: textSecondary }}>
               « Nul ne peut être contraint à demeurer dans l'indivision » — Art. 815 du Code civil
             </p>
