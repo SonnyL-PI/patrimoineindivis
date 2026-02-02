@@ -136,17 +136,17 @@ export function HeroSection() {
         {/* Background Image - natural colors */}
         <img src={heroImage} alt="Façade immeuble haussmannien – Paris" className="absolute inset-0 w-full h-full object-cover" />
 
-        {/* Dark overlay - aligned with container-wide grid (px-6 = 24px) */}
+        {/* Dark overlay - starts from left edge, compact coverage */}
         <div className="absolute inset-0 pointer-events-none" style={{
         background: `
-              linear-gradient(95deg,
-                hsl(220 18% 5% / 0.92) 0%,
-                hsl(220 16% 5% / 0.90) 8%,
-                hsl(220 14% 6% / 0.82) 20%,
-                hsl(220 12% 8% / 0.68) 35%,
-                hsl(220 10% 10% / 0.50) 50%,
-                hsl(220 8% 12% / 0.30) 65%,
-                transparent 85%
+              linear-gradient(92deg,
+                hsl(220 18% 4% / 0.94) 0%,
+                hsl(220 16% 5% / 0.92) 12%,
+                hsl(220 14% 6% / 0.82) 28%,
+                hsl(220 12% 8% / 0.65) 42%,
+                hsl(220 10% 10% / 0.45) 55%,
+                hsl(220 8% 12% / 0.25) 68%,
+                transparent 82%
               )
             `
       }} />
@@ -156,8 +156,8 @@ export function HeroSection() {
         background: "linear-gradient(to top, hsl(220 16% 5% / 0.6) 0%, transparent 100%)"
       }} />
 
-        {/* Content - using same container-wide grid as header (max-w-7xl mx-auto px-6) */}
-        <div className="relative z-10 py-20 lg:py-28 container-wide">
+        {/* Content - left-aligned with minimal padding */}
+        <div className="relative z-10 py-20 lg:py-28 px-6 md:px-8 lg:px-10 xl:px-12">
           <div className="max-w-2xl lg:max-w-3xl xl:max-w-[44rem]">
             {/* Sur-titre */}
             <p className="text-accent text-[13px] lg:text-sm tracking-[0.25em] uppercase font-semibold mb-6 lg:mb-8 animate-fade-up">
@@ -244,9 +244,9 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Legal quote - bottom, using same container-wide grid */}
+        {/* Legal quote - bottom, left-aligned */}
         <div className="relative z-10 mt-auto">
-          <div className="container-wide py-6">
+          <div className="px-6 md:px-8 lg:px-10 xl:px-12 py-6">
             <p className="text-sm lg:text-[15px] font-serif italic" style={{ color: textSecondary }}>
               « Nul ne peut être contraint à demeurer dans l'indivision » — Art. 815 du Code civil
             </p>
