@@ -156,9 +156,9 @@ export function HeroSection() {
         background: "linear-gradient(to top, hsl(220 16% 5% / 0.6) 0%, transparent 100%)"
       }} />
 
-        {/* Content - elegant positioning */}
-        <div className="relative z-10 py-20 lg:py-28 px-10 md:px-14 lg:px-20 xl:px-28 2xl:px-32 max-w-[1600px] mx-auto w-full">
-          <div className="max-w-3xl lg:max-w-4xl">
+        {/* Content - elegant positioning with increased left margin */}
+        <div className="relative z-10 py-20 lg:py-28 pl-[8%] md:pl-[10%] lg:pl-[12%] xl:pl-[14%] 2xl:pl-[15%] pr-8 md:pr-12 lg:pr-16 max-w-[1800px] w-full">
+          <div className="max-w-2xl lg:max-w-3xl xl:max-w-[44rem]">
             {/* Sur-titre */}
             <p className="text-accent text-[13px] lg:text-sm tracking-[0.25em] uppercase font-semibold mb-6 lg:mb-8 animate-fade-up">
               Sortir de l'indivision
@@ -246,7 +246,7 @@ export function HeroSection() {
 
         {/* Legal quote - bottom */}
         <div className="relative z-10 mt-auto">
-          <div className="container-wide py-6">
+          <div className="pl-[8%] md:pl-[10%] lg:pl-[12%] xl:pl-[14%] 2xl:pl-[15%] pr-8 py-6">
             <p className="text-sm lg:text-[15px] font-serif italic" style={{ color: textSecondary }}>
               « Nul ne peut être contraint à demeurer dans l'indivision » — Art. 815 du Code civil
             </p>
