@@ -98,7 +98,7 @@ export function AboutUsSection() {
             {/* Story paragraphs */}
             <div className="space-y-4 text-primary-foreground/80 text-[0.9375rem] sm:text-base leading-relaxed mb-8">
               <p>
-                Nous sommes dans l'immobilier depuis une trentaine d'années. En{" "}
+                Issus du secteur de l'immobilier, dès{" "}
                 <span className="text-accent font-medium">2013</span>, nous avons étudié
                 toutes les solutions possibles pour permettre aux copropriétaires en
                 indivision de sortir de situations souvent complexes et conflictuelles.
