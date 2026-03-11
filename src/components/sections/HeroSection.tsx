@@ -134,11 +134,12 @@ export function HeroSection() {
           style={{
             background: `linear-gradient(92deg,
               hsl(220 18% 4% / 0.94) 0%,
-              hsl(220 16% 5% / 0.90) 14%,
-              hsl(220 14% 6% / 0.78) 30%,
-              hsl(220 12% 8% / 0.58) 46%,
-              hsl(220 10% 10% / 0.35) 60%,
-              transparent 80%
+              hsl(220 16% 5% / 0.91) 14%,
+              hsl(220 14% 6% / 0.84) 30%,
+              hsl(220 12% 7% / 0.72) 46%,
+              hsl(220 10% 9% / 0.48) 60%,
+              hsl(220 8% 10% / 0.18) 76%,
+              transparent 90%
             )`,
           }}
         />
