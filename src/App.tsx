@@ -17,6 +17,9 @@ import Ressources from "./pages/Ressources";
 import Blog from "./pages/Blog";
 import BlogArticle from "./pages/BlogArticle";
 import EtudeGratuite from "./pages/EtudeGratuite";
+import PartnerLogin from "./pages/PartnerLogin";
+import PartnerAccessRequest from "./pages/PartnerAccessRequest";
+import PartnerDashboard from "./pages/PartnerDashboard";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
