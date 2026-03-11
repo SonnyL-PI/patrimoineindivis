@@ -47,7 +47,8 @@ const App = () => (
             <Route path="/blog/:slug" element={<BlogArticle />} />
             <Route path="/etude-gratuite" element={<EtudeGratuite />} />
             <Route path="/demande-etude" element={<Navigate to="/etude-gratuite" replace />} />
-            <Route path="/espace-partenaires" element={<PartnerLogin />} />
+            <Route path="/espace-partenaires" element={<PartnerDashboard />} />
+            <Route path="/espace-partenaires/login" element={<PartnerLogin />} />
             <Route path="/espace-partenaires/demande-acces" element={<PartnerAccessRequest />} />
             <Route path="/espace-partenaires/dashboard" element={<PartnerDashboard />} />
             <Route path="*" element={<NotFound />} />

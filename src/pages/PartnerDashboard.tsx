@@ -48,23 +48,23 @@ export default function PartnerDashboard() {
   const [caseSubmitted, setCaseSubmitted] = useState(false);
 
   useEffect(() => {
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user ?? null);
-      setLoading(false);
-      if (!session?.user) {
-        navigate("/espace-partenaires");
-      }
-    });
-
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setUser(session?.user ?? null);
-      setLoading(false);
-      if (!session?.user) {
-        navigate("/espace-partenaires");
-      }
-    });
-
-    return () => subscription.unsubscribe();
+    // Auth temporarily disabled for design phase
+    setLoading(false);
+    // const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+    //   setUser(session?.user ?? null);
+    //   setLoading(false);
+    //   if (!session?.user) {
+    //     navigate("/espace-partenaires");
+    //   }
+    // });
+    // supabase.auth.getSession().then(({ data: { session } }) => {
+    //   setUser(session?.user ?? null);
+    //   setLoading(false);
+    //   if (!session?.user) {
+    //     navigate("/espace-partenaires");
+    //   }
+    // });
+    // return () => subscription.unsubscribe();
   }, [navigate]);
 
   const handleLogout = async () => {
