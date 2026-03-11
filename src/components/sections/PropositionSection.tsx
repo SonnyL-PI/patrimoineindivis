@@ -6,7 +6,7 @@ import { Check, ArrowRight, Quote, Star } from "lucide-react";
 import { PremiumPlate } from "@/components/ui/PremiumPlate";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import heroBuilding from "@/assets/hero-building.jpg";
-const benefits = ["Proposition de rachat après étude par nos équipes, notaires et avocats", "Offres fermes et sans conditions suspensives de crédit", "Accompagnement complet jusqu'à l'acquisition de vos parts devant notaire", "Étude réalisée gratuitement et sans engagement"];
+const benefits = ["Proposition de rachat après étude par nos équipes, notaires et avocats", "Offres fermes et sans condition suspensive de crédit", "Accompagnement complet jusqu'à l'acquisition de vos parts devant notaire", "Étude réalisée gratuitement et sans engagement"];
 const googleReviews = [{
   initials: "C.B.",
   author: "Christine BASSI",
