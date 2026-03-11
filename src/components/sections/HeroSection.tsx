@@ -92,7 +92,7 @@ export function HeroSection() {
             </Button>
             <Button
               size="lg"
-              className="w-full min-h-[52px] text-[15px] font-medium bg-white/20 border border-white/50 hover:bg-white/30 shadow-md backdrop-blur-sm"
+              className="w-full min-h-[52px] text-[15px] font-medium bg-transparent border border-white/60 hover:bg-white/15 shadow-md backdrop-blur-sm"
               style={{ color: "hsl(40 25% 98%)" }}
               asChild
             >
@@ -210,7 +210,7 @@ export function HeroSection() {
                 </Link>
               </Button>
               <Button
-                className="w-full sm:w-auto px-7 lg:px-9 py-3.5 lg:py-4 text-[15px] lg:text-base font-medium bg-white/20 border border-white/50 hover:bg-white/30 shadow-md backdrop-blur-sm min-h-[50px]"
+                className="w-full sm:w-auto px-7 lg:px-9 py-3.5 lg:py-4 text-[15px] lg:text-base font-medium bg-transparent border border-white/60 hover:bg-white/15 shadow-md backdrop-blur-sm min-h-[50px]"
                 style={{ color: "hsl(40 25% 98%)" }}
                 asChild
               >
