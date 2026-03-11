@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, BookOpen } from "lucide-react";
+import { ArrowRight, BookOpen, MapPin, Shield, Lock } from "lucide-react";
 import heroImage from "@/assets/hero-haussmann.jpg";
+
+const trustBadges = [
+  { icon: MapPin, text: "Intervention sur tout le territoire" },
+  { icon: Shield, text: "Expertise exclusivement dédiée à l'indivision" },
+  { icon: Lock, text: "Analyse confidentielle de votre situation" },
+];
 
 const stats = [
   { value: "+8 ans", label: "d'expertise dans le traitement des indivisions" },
@@ -80,7 +86,7 @@ export function HeroSection() {
           <div className="flex flex-col gap-3 animate-fade-up" style={{ animationDelay: "260ms" }}>
             <Button variant="gold" size="lg" className="w-full min-h-[52px] text-[15px] font-semibold shadow-lg" asChild>
               <Link to="/etude-gratuite">
-                Obtenir une étude gratuite
+                Demander une étude de votre situation
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </Button>
@@ -97,12 +103,15 @@ export function HeroSection() {
             </Button>
           </div>
 
-          <p
-            className="text-[12px] text-center mt-4 animate-fade-up"
-            style={{ animationDelay: "310ms", color: "hsl(40 18% 82%)" }}
-          >
-            Étude confidentielle — Réponse rapide
-          </p>
+          {/* Trust badges */}
+          <div className="flex flex-col gap-2.5 mt-5 animate-fade-up" style={{ animationDelay: "320ms" }}>
+            {trustBadges.map((badge, i) => (
+              <div key={i} className="flex items-center gap-2">
+                <badge.icon className="w-3.5 h-3.5 flex-shrink-0" style={{ color: "hsl(40 18% 75%)" }} />
+                <span className="text-[11.5px]" style={{ color: "hsl(40 18% 78%)" }}>{badge.text}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -195,7 +204,7 @@ export function HeroSection() {
                 asChild
               >
                 <Link to="/etude-gratuite">
-                  Obtenir une étude gratuite
+                  Demander une étude de votre situation
                   <ArrowRight className="w-4 h-4 lg:w-5 lg:h-5" />
                 </Link>
               </Button>
@@ -211,12 +220,15 @@ export function HeroSection() {
               </Button>
             </div>
 
-            <p
-              className="text-sm font-normal mb-8 animate-fade-up"
-              style={{ animationDelay: "310ms", color: "hsl(40 18% 88%)" }}
-            >
-              Étude confidentielle — Réponse rapide
-            </p>
+            {/* Trust badges */}
+            <div className="flex flex-wrap items-center gap-x-8 lg:gap-x-10 gap-y-2 animate-fade-up" style={{ animationDelay: "320ms" }}>
+              {trustBadges.map((badge, i) => (
+                <div key={i} className="flex items-center gap-2">
+                  <badge.icon className="w-4 h-4 flex-shrink-0" style={{ color: "hsl(40 18% 72%)" }} />
+                  <span className="text-[13px] lg:text-sm" style={{ color: "hsl(40 18% 78%)" }}>{badge.text}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
