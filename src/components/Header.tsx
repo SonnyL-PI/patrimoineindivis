@@ -10,6 +10,7 @@ const navLinks = [
   { href: "/notre-approche", label: "Notre approche" },
   { href: "/qui-sommes-nous", label: "Qui sommes-nous" },
   { href: "/blog", label: "Blog" },
+  { href: "/espace-partenaires", label: "Espace partenaires" },
 ];
 
 export function Header() {

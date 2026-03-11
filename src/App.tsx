@@ -17,6 +17,9 @@ import Ressources from "./pages/Ressources";
 import Blog from "./pages/Blog";
 import BlogArticle from "./pages/BlogArticle";
 import EtudeGratuite from "./pages/EtudeGratuite";
+import PartnerLogin from "./pages/PartnerLogin";
+import PartnerAccessRequest from "./pages/PartnerAccessRequest";
+import PartnerDashboard from "./pages/PartnerDashboard";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -44,6 +47,9 @@ const App = () => (
             <Route path="/blog/:slug" element={<BlogArticle />} />
             <Route path="/etude-gratuite" element={<EtudeGratuite />} />
             <Route path="/demande-etude" element={<Navigate to="/etude-gratuite" replace />} />
+            <Route path="/espace-partenaires" element={<PartnerLogin />} />
+            <Route path="/espace-partenaires/demande-acces" element={<PartnerAccessRequest />} />
+            <Route path="/espace-partenaires/dashboard" element={<PartnerDashboard />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
