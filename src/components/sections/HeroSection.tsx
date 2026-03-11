@@ -112,7 +112,6 @@ export function HeroSection() {
               </div>
             ))}
           </div>
-          </p>
         </div>
       </section>
 
