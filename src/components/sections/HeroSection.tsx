@@ -132,13 +132,13 @@ export function HeroSection() {
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
-            background: `linear-gradient(92deg,
-              hsl(220 18% 4% / 0.94) 0%,
-              hsl(220 16% 5% / 0.90) 14%,
-              hsl(220 14% 6% / 0.78) 30%,
-              hsl(220 12% 8% / 0.58) 46%,
-              hsl(220 10% 10% / 0.35) 60%,
-              transparent 80%
+            background: `linear-gradient(90deg,
+              hsl(220 20% 4% / 0.82) 0%,
+              hsl(220 18% 5% / 0.75) 18%,
+              hsl(220 16% 6% / 0.60) 36%,
+              hsl(220 14% 8% / 0.40) 52%,
+              hsl(220 12% 10% / 0.18) 68%,
+              transparent 85%
             )`,
           }}
         />
