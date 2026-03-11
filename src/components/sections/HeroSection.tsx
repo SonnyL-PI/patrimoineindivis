@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, BookOpen } from "lucide-react";
+import { ArrowRight, BookOpen, MapPin, Shield, Lock } from "lucide-react";
 import heroImage from "@/assets/hero-haussmann.jpg";
+
+const trustBadges = [
+  { icon: MapPin, text: "Intervention sur tout le territoire" },
+  { icon: Shield, text: "Expertise exclusivement dédiée à l'indivision" },
+  { icon: Lock, text: "Analyse confidentielle de votre situation" },
+];
 
 const stats = [
   { value: "+8 ans", label: "d'expertise dans le traitement des indivisions" },
