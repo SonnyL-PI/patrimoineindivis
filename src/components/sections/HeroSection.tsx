@@ -205,7 +205,7 @@ export function HeroSection() {
                 asChild
               >
                 <Link to="/etude-gratuite">
-                  Obtenir une étude gratuite
+                  Demander une étude de votre situation
                   <ArrowRight className="w-4 h-4 lg:w-5 lg:h-5" />
                 </Link>
               </Button>
@@ -221,12 +221,15 @@ export function HeroSection() {
               </Button>
             </div>
 
-            <p
-              className="text-sm font-normal mb-8 animate-fade-up"
-              style={{ animationDelay: "310ms", color: "hsl(40 18% 88%)" }}
-            >
-              Étude confidentielle — Réponse rapide
-            </p>
+            {/* Trust badges */}
+            <div className="flex flex-wrap items-center gap-x-8 lg:gap-x-10 gap-y-2 animate-fade-up" style={{ animationDelay: "320ms" }}>
+              {trustBadges.map((badge, i) => (
+                <div key={i} className="flex items-center gap-2">
+                  <badge.icon className="w-4 h-4 flex-shrink-0" style={{ color: "hsl(40 18% 72%)" }} />
+                  <span className="text-[13px] lg:text-sm" style={{ color: "hsl(40 18% 78%)" }}>{badge.text}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
