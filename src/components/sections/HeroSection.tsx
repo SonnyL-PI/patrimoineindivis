@@ -236,7 +236,7 @@ export function HeroSection() {
         {/* Legal quote */}
         <div className="relative z-10 mt-auto">
           <div className="px-6 md:px-8 lg:px-10 xl:px-12 py-6">
-            <p className="text-sm lg:text-[15px] font-serif italic" style={{ color: "hsl(40 18% 88%)" }}>
+            <p className="text-lg lg:text-xl font-serif italic" style={{ color: "hsl(40 18% 88%)" }}>
               « Nul ne peut être contraint à demeurer dans l'indivision » — Art. 815 du Code civil
             </p>
           </div>
