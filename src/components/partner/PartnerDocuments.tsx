@@ -30,9 +30,6 @@ export default function PartnerDocuments() {
             </li>
           ))}
         </ul>
-        <p className="text-xs text-muted-foreground mt-4 italic">
-          Les documents seront prochainement disponibles au téléchargement.
-        </p>
       </CardContent>
     </Card>
   );
