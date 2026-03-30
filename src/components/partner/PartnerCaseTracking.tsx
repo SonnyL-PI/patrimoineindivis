@@ -27,24 +27,12 @@ export default function PartnerCaseTracking({
         </p>
 
         {!isAuthenticated && (
-          <div className="pt-3 border-t border-border/30 space-y-3">
-            <p className="text-xs text-muted-foreground">
-              Fonction réservée aux partenaires disposant d'un compte validé.
-            </p>
-            <p className="text-xs text-accent font-medium">
-              Bénéficiez d'un suivi en temps réel et d'un traitement prioritaire de vos dossiers.
-            </p>
+          <div className="pt-3 border-t border-border/30">
             <Button variant="gold" size="sm" onClick={onRequestAccess}>
               <Lock className="w-3.5 h-3.5 mr-1.5" />
               Accéder à mon espace
             </Button>
           </div>
-        )}
-
-        {isAuthenticated && (
-          <p className="text-xs text-muted-foreground">
-            Aucun dossier transmis pour le moment.
-          </p>
         )}
       </CardContent>
     </Card>
