@@ -182,7 +182,7 @@ export default function PartnerForm({ professionalType }: PartnerFormProps) {
 
           {/* Documents liés à l'indivision */}
           <div className="rounded-lg border border-border/40 p-5 space-y-3">
-            <h4 className="text-sm font-medium text-foreground">Documents liés à l'indivision</h4>
+            
             <p className="text-xs text-muted-foreground">
               Pièces utiles à la compréhension de la situation juridique
             </p>
@@ -216,7 +216,7 @@ export default function PartnerForm({ professionalType }: PartnerFormProps) {
 
           {/* Documents liés au bien */}
           <div className="rounded-lg border border-border/40 p-5 space-y-3">
-            <h4 className="text-sm font-medium text-foreground">Documents liés au bien</h4>
+            
             <p className="text-xs text-muted-foreground">
               Éléments permettant d'évaluer le bien immobilier
             </p>
