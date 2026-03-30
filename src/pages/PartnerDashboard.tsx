@@ -131,11 +131,11 @@ export default function PartnerDashboard() {
                       isAuthenticated={isAuthenticated}
                       onRequestAccess={() => setLoginOpen(true)}
                     />
-                    <PartnerCaseTracking
+                    <PartnerPremiumSection
                       isAuthenticated={isAuthenticated}
                       onRequestAccess={() => setLoginOpen(true)}
                     />
-                    <PartnerPremiumSection
+                    <PartnerCaseTracking
                       isAuthenticated={isAuthenticated}
                       onRequestAccess={() => setLoginOpen(true)}
                     />
