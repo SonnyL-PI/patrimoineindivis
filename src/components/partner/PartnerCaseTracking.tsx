@@ -30,7 +30,7 @@ export default function PartnerCaseTracking({
           <div className="pt-3 border-t border-border/30">
             <Button variant="gold" size="sm" onClick={onRequestAccess}>
               <Lock className="w-3.5 h-3.5 mr-1.5" />
-              Accéder à mon espace
+              Accéder avec un compte
             </Button>
           </div>
         )}
