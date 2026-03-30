@@ -13,7 +13,7 @@ import PartnerPropertiesSection from "@/components/partner/PartnerPropertiesSect
 import PartnerPremiumSection from "@/components/partner/PartnerPremiumSection";
 import PartnerAccessForm from "@/components/partner/PartnerAccessForm";
 import PartnerLoginDialog from "@/components/partner/PartnerLoginDialog";
-import { Lock, LogOut, User, Shield, ArrowRight } from "lucide-react";
+import { Lock, LogOut, User, Shield, ArrowRight, FileText } from "lucide-react";
 
 export default function PartnerDashboard() {
   const [activeTab, setActiveTab] = useState("agents");
