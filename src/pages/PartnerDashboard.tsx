@@ -5,10 +5,6 @@ import { Footer } from "@/components/Footer";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import PartnerForm from "@/components/partner/PartnerForm";
 import PartnerContact from "@/components/partner/PartnerContact";
-import PartnerDocumentsGated from "@/components/partner/PartnerDocumentsGated";
-import PartnerPropertiesSection from "@/components/partner/PartnerPropertiesSection";
-import PartnerPremiumSection from "@/components/partner/PartnerPremiumSection";
-import PartnerCaseTracking from "@/components/partner/PartnerCaseTracking";
 
 export default function PartnerDashboard() {
   const [activeTab, setActiveTab] = useState("agents");
@@ -67,13 +63,6 @@ export default function PartnerDashboard() {
                     <PartnerForm professionalType="agent" />
                   </div>
                   <div className="space-y-6">
-                    <h3 className="font-serif text-lg text-foreground border-b border-border/40 pb-2">
-                      Ressources partenaires
-                    </h3>
-                    <PartnerDocumentsGated />
-                    <PartnerPropertiesSection />
-                    <PartnerPremiumSection />
-                    <PartnerCaseTracking />
                     <PartnerContact />
                   </div>
                 </div>
@@ -85,18 +74,6 @@ export default function PartnerDashboard() {
                     <PartnerForm professionalType="notaire" />
                   </div>
                   <div className="space-y-6">
-                    <h3 className="font-serif text-lg text-foreground border-b border-border/40 pb-2">
-                      Ressources notaires
-                    </h3>
-                    <PartnerDocumentsGated
-                      documents={[
-                        { name: "Plaquette Patrimoine Indivis" },
-                        { name: "Estimation à réaliser pour le compte de Patrimoine Indivis" },
-                        { name: "Mandat de vente de biens appartenant à Patrimoine Indivis" },
-                      ]}
-                    />
-                    <PartnerPropertiesSection />
-                    <PartnerCaseTracking />
                     <PartnerContact />
                   </div>
                 </div>
