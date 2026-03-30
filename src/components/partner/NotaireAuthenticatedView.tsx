@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { FileText, Download, Building2, Mail, Phone } from "lucide-react";
+import PartnerCaseTracking from "@/components/partner/PartnerCaseTracking";
 
 const notaireDocuments = [
   { name: "Plaquette Patrimoine Indivis" },
@@ -34,6 +35,13 @@ export default function NotaireAuthenticatedView() {
           </ul>
         </CardContent>
       </Card>
+
+      {/* Suivi des dossiers */}
+      <PartnerCaseTracking
+        isAuthenticated={true}
+        onRequestAccess={() => {}}
+        variant="notaire"
+      />
 
       {/* Contact dédié */}
       <Card className="border-border/40 shadow-sm">
