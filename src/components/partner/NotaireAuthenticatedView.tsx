@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { FileText, Download, Building2, Mail, Phone } from "lucide-react";
+import PartnerCaseTracking from "@/components/partner/PartnerCaseTracking";
 
 const notaireDocuments = [
   { name: "Plaquette Patrimoine Indivis" },
