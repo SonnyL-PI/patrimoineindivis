@@ -131,20 +131,36 @@ export default function PartnerForm({ professionalType }: PartnerFormProps) {
             <Input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required placeholder="jean.dupont@cabinet.fr" />
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div className="space-y-2">
-              <Label>Statut *</Label>
-              <Select value={status} onValueChange={setStatus} required>
-                <SelectTrigger>
-                  <SelectValue placeholder="Sélectionnez" />
-                </SelectTrigger>
-                <SelectContent>
-                  {statusOptions.map((s) => (
-                    <SelectItem key={s.value} value={s.value}>{s.label}</SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+          {professionalType === "agent" ? (
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="space-y-2">
+                <Label>Statut *</Label>
+                <Select value={status} onValueChange={setStatus} required>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Sélectionnez" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {statusOptions.map((s) => (
+                      <SelectItem key={s.value} value={s.value}>{s.label}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="space-y-2">
+                <Label>Type de dossier *</Label>
+                <Select value={caseType} onValueChange={setCaseType} required>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Sélectionnez" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {caseTypes.map((t) => (
+                      <SelectItem key={t.value} value={t.value}>{t.label}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
             </div>
+          ) : (
             <div className="space-y-2">
               <Label>Type de dossier *</Label>
               <Select value={caseType} onValueChange={setCaseType} required>
@@ -158,7 +174,7 @@ export default function PartnerForm({ professionalType }: PartnerFormProps) {
                 </SelectContent>
               </Select>
             </div>
-          </div>
+          )}
 
           <div className="space-y-2">
             <Label htmlFor="description">Description de la situation *</Label>
