@@ -48,9 +48,6 @@ export default function PartnerDocumentsGated({ isAuthenticated, onRequestAccess
 
         {!isAuthenticated && (
           <div className="mt-5 pt-4 border-t border-border/30">
-            <p className="text-xs text-muted-foreground mb-3">
-              Accès réservé aux partenaires disposant d'un compte validé
-            </p>
             <Button variant="gold" size="sm" onClick={onRequestAccess}>
               <Lock className="w-3.5 h-3.5 mr-1.5" />
               Accéder avec un compte

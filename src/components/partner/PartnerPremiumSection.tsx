@@ -31,14 +31,11 @@ export default function PartnerPremiumSection({ isAuthenticated, onRequestAccess
             <ArrowRight className="w-4 h-4 ml-2" />
           </Button>
         ) : (
-          <div>
-            <Button variant="goldOutline" size="sm" disabled className="opacity-60 cursor-not-allowed">
+          <div className="pt-3 border-t border-border/30">
+            <Button variant="gold" size="sm" onClick={onRequestAccess}>
               <Lock className="w-3.5 h-3.5 mr-1.5" />
-              Fonction réservée aux partenaires
+              Accéder avec un compte
             </Button>
-            <p className="text-xs text-muted-foreground mt-3">
-              Fonction réservée aux partenaires
-            </p>
           </div>
         )}
       </CardContent>
