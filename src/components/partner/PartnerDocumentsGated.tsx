@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { FileText, Download, Lock } from "lucide-react";
 
-const documents = [
+const defaultDocuments = [
   { name: "Plaquette Patrimoine Indivis" },
   { name: "Mandat de recherche" },
   { name: "Annexe d'identification" },
@@ -11,9 +11,10 @@ const documents = [
 interface PartnerDocumentsGatedProps {
   isAuthenticated: boolean;
   onRequestAccess: () => void;
+  documents?: { name: string }[];
 }
 
-export default function PartnerDocumentsGated({ isAuthenticated, onRequestAccess }: PartnerDocumentsGatedProps) {
+export default function PartnerDocumentsGated({ isAuthenticated, onRequestAccess, documents = defaultDocuments }: PartnerDocumentsGatedProps) {
   return (
     <Card className="border-border/40 shadow-sm">
       <CardHeader>
