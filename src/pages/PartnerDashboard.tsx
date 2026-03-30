@@ -162,6 +162,10 @@ export default function PartnerDashboard() {
                         { name: "Mandat de vente de biens appartenant à Patrimoine Indivis" },
                       ]}
                     />
+                    <PartnerPropertiesSection
+                      isAuthenticated={isAuthenticated}
+                      onRequestAccess={() => setLoginOpen(true)}
+                    />
                     <PartnerCaseTracking
                       isAuthenticated={isAuthenticated}
                       onRequestAccess={() => setLoginOpen(true)}
