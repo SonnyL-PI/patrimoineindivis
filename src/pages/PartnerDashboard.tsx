@@ -37,86 +37,53 @@ export default function PartnerDashboard() {
         <div className="bg-primary text-primary-foreground py-12 md:py-16">
           <div className="container-wide">
             <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
-              <div>
+              <div className="max-w-2xl">
                 <p className="text-accent text-sm font-medium tracking-widest uppercase mb-3">
                   Espace réservé
                 </p>
                 <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl mb-4">
                   Espace professionnel
                 </h1>
-                <p className="text-primary-foreground/70 text-base md:text-lg max-w-2xl">
-                  Un espace dédié aux professionnels pour transmettre des dossiers et accéder à nos ressources
+                <p className="text-primary-foreground/70 text-base md:text-lg mb-4">
+                  Un espace dédié aux professionnels pour transmettre des dossiers et accéder à nos ressources.
                 </p>
-              </div>
-              <div className="flex items-center gap-3 flex-shrink-0">
-                {isAuthenticated ? (
-                  <div className="flex items-center gap-3">
-                    <div className="flex items-center gap-2 text-sm text-primary-foreground/70">
-                      <User className="w-4 h-4" />
-                      <span className="hidden sm:inline">{user?.email}</span>
-                    </div>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={signOut}
-                      className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10"
-                    >
-                      <LogOut className="w-4 h-4 mr-1.5" />
-                      Déconnexion
-                    </Button>
-                  </div>
-                ) : (
-                  <Button
-                    variant="gold"
-                    size="default"
-                    onClick={() => setLoginOpen(true)}
-                    className="px-6"
-                  >
-                    <Lock className="w-4 h-4 mr-2" />
-                    Accès partenaires
-                  </Button>
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Partner intro block - only when not authenticated */}
-        {!isAuthenticated && (
-          <div className="bg-muted/30 border-b border-border/40">
-            <div className="container-wide py-10 md:py-14">
-              <div className="max-w-3xl mx-auto text-center">
-                <div className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase mb-5">
-                  <Shield className="w-3.5 h-3.5" />
-                  Espace partenaire
-                </div>
-                <h2 className="font-serif text-2xl md:text-3xl text-foreground mb-4">
-                  Un espace dédié à nos partenaires
-                </h2>
-                <p className="text-muted-foreground text-base md:text-lg mb-3 max-w-2xl mx-auto">
-                  Accédez à l'ensemble de nos ressources, aux biens à la revente et bénéficiez d'un traitement prioritaire de vos dossiers.
-                </p>
-                <p className="text-muted-foreground text-sm mb-3 max-w-2xl mx-auto">
+                <p className="text-primary-foreground/60 text-sm mb-8">
                   Une question sur un dossier ? Échangez directement avec notre équipe avant transmission au{" "}
                   <a href="tel:0142301000" className="font-semibold text-accent hover:text-accent/80 transition-colors">01.42.30.10.00</a>.
                 </p>
-                <p className="text-muted-foreground/70 text-sm mb-8 max-w-xl mx-auto">
-                  Renseignez vos informations professionnelles et accédez à un espace dédié après validation de votre statut.
-                </p>
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-                  <Button variant="gold" size="lg" onClick={() => setLoginOpen(true)}>
-                    <Lock className="w-4 h-4 mr-2" />
-                    Accéder à mon espace
-                  </Button>
-                  <Button variant="goldOutline" size="lg" onClick={handleRequestAccess}>
-                    Demander un accès
-                    <ArrowRight className="w-4 h-4 ml-2" />
+                {!isAuthenticated && (
+                  <div className="flex flex-col sm:flex-row items-start gap-3">
+                    <Button variant="gold" size="lg" onClick={() => setLoginOpen(true)}>
+                      <Lock className="w-4 h-4 mr-2" />
+                      Accès partenaires
+                    </Button>
+                    <Button variant="heroOutline" size="lg" onClick={handleRequestAccess}>
+                      Demander un accès
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </Button>
+                  </div>
+                )}
+              </div>
+              {isAuthenticated && (
+                <div className="flex items-center gap-3 flex-shrink-0">
+                  <div className="flex items-center gap-2 text-sm text-primary-foreground/70">
+                    <User className="w-4 h-4" />
+                    <span className="hidden sm:inline">{user?.email}</span>
+                  </div>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={signOut}
+                    className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10"
+                  >
+                    <LogOut className="w-4 h-4 mr-1.5" />
+                    Déconnexion
                   </Button>
                 </div>
-              </div>
+              )}
             </div>
           </div>
-        )}
+        </div>
 
         {/* Tabs */}
         <div className="section-padding">
