@@ -6,6 +6,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import PartnerForm from "@/components/partner/PartnerForm";
 import PartnerDocuments from "@/components/partner/PartnerDocuments";
 import PartnerContact from "@/components/partner/PartnerContact";
+import PartnerCTAContact from "@/components/partner/PartnerCTAContact";
 
 export default function PartnerDashboard() {
   const [activeTab, setActiveTab] = useState("agents");
