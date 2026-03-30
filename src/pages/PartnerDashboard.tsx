@@ -156,6 +156,11 @@ export default function PartnerDashboard() {
                     <PartnerDocumentsGated
                       isAuthenticated={isAuthenticated}
                       onRequestAccess={() => setLoginOpen(true)}
+                      documents={[
+                        { name: "Plaquette Patrimoine Indivis" },
+                        { name: "Estimation à réaliser pour le compte de Patrimoine Indivis" },
+                        { name: "Mandat de vente de biens appartenant à Patrimoine Indivis" },
+                      ]}
                     />
                     <PartnerCaseTracking
                       isAuthenticated={isAuthenticated}
