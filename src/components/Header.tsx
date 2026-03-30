@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone, MapPin } from "lucide-react";
+import { Menu, X, Phone, MapPin, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
 
@@ -10,7 +10,7 @@ const navLinks = [
   { href: "/notre-approche", label: "Notre approche" },
   { href: "/qui-sommes-nous", label: "Qui sommes-nous" },
   { href: "/blog", label: "Blog" },
-  { href: "/espace-partenaires", label: "Espace partenaires" },
+  { href: "/espace-partenaires", label: "Espace professionnel" },
 ];
 
 export function Header() {
@@ -99,6 +99,12 @@ export function Header() {
               </Button>
               <Button variant="gold" size="sm" className="px-5" asChild>
                 <Link to="/etude-gratuite">Étude de rachat</Link>
+              </Button>
+              <Button variant="default" size="sm" className="px-5 bg-accent text-primary font-semibold" asChild>
+                <Link to="/espace-partenaires">
+                  <Lock className="w-3.5 h-3.5 mr-1.5" />
+                  Accès partenaires
+                </Link>
               </Button>
             </div>
 

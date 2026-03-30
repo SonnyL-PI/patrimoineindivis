@@ -13,7 +13,7 @@ import PartnerPropertiesSection from "@/components/partner/PartnerPropertiesSect
 import PartnerPremiumSection from "@/components/partner/PartnerPremiumSection";
 import PartnerAccessForm from "@/components/partner/PartnerAccessForm";
 import PartnerLoginDialog from "@/components/partner/PartnerLoginDialog";
-import { Lock, LogOut, User } from "lucide-react";
+import { Lock, LogOut, User, Shield, ArrowRight } from "lucide-react";
 
 export default function PartnerDashboard() {
   const [activeTab, setActiveTab] = useState("agents");
@@ -22,7 +22,6 @@ export default function PartnerDashboard() {
 
   const handleRequestAccess = () => {
     setActiveTab("agents");
-    // Scroll to access form
     document.getElementById("partner-access-form")?.scrollIntoView({ behavior: "smooth" });
   };
 
@@ -68,19 +67,52 @@ export default function PartnerDashboard() {
                   </div>
                 ) : (
                   <Button
-                    variant="outline"
-                    size="sm"
+                    variant="gold"
+                    size="default"
                     onClick={() => setLoginOpen(true)}
-                    className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10"
+                    className="px-6"
                   >
-                    <Lock className="w-4 h-4 mr-1.5" />
-                    Connexion partenaire
+                    <Lock className="w-4 h-4 mr-2" />
+                    Accès partenaires
                   </Button>
                 )}
               </div>
             </div>
           </div>
         </div>
+
+        {/* Partner intro block - only when not authenticated */}
+        {!isAuthenticated && (
+          <div className="bg-muted/30 border-b border-border/40">
+            <div className="container-wide py-10 md:py-14">
+              <div className="max-w-3xl mx-auto text-center">
+                <div className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase mb-5">
+                  <Shield className="w-3.5 h-3.5" />
+                  Espace partenaire
+                </div>
+                <h2 className="font-serif text-2xl md:text-3xl text-foreground mb-4">
+                  Un espace dédié à nos partenaires
+                </h2>
+                <p className="text-muted-foreground text-base md:text-lg mb-3 max-w-2xl mx-auto">
+                  Accédez à l'ensemble de nos ressources, aux biens à la revente et bénéficiez d'un traitement prioritaire de vos dossiers.
+                </p>
+                <p className="text-muted-foreground/70 text-sm mb-8 max-w-xl mx-auto">
+                  Renseignez vos informations professionnelles et accédez à un espace dédié après validation de votre statut.
+                </p>
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+                  <Button variant="gold" size="lg" onClick={() => setLoginOpen(true)}>
+                    <Lock className="w-4 h-4 mr-2" />
+                    Accéder à mon espace
+                  </Button>
+                  <Button variant="goldOutline" size="lg" onClick={handleRequestAccess}>
+                    Demander un accès
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Tabs */}
         <div className="section-padding">
@@ -107,7 +139,6 @@ export default function PartnerDashboard() {
                     <PartnerCTAContact />
                     <PartnerForm professionalType="agent" />
 
-                    {/* Access request form for agents */}
                     {!isAuthenticated && (
                       <div id="partner-access-form">
                         <PartnerAccessForm />
@@ -115,32 +146,29 @@ export default function PartnerDashboard() {
                     )}
                   </div>
                   <div className="space-y-6">
-                    {/* Ressources partenaires */}
                     <h3 className="font-serif text-lg text-foreground border-b border-border/40 pb-2">
                       Ressources partenaires
                     </h3>
                     <PartnerDocumentsGated
                       isAuthenticated={isAuthenticated}
-                      onRequestAccess={handleRequestAccess}
+                      onRequestAccess={() => setLoginOpen(true)}
                     />
                     <PartnerPropertiesSection
                       isAuthenticated={isAuthenticated}
-                      onRequestAccess={handleRequestAccess}
+                      onRequestAccess={() => setLoginOpen(true)}
                     />
                     <PartnerPremiumSection
                       isAuthenticated={isAuthenticated}
-                      onRequestAccess={handleRequestAccess}
+                      onRequestAccess={() => setLoginOpen(true)}
                     />
                     {!isAuthenticated && (
-                      <div className="rounded-lg border border-accent/20 bg-accent/5 p-5 text-center">
-                        <Lock className="w-5 h-5 text-accent mx-auto mb-3" />
-                        <p className="text-sm font-medium text-foreground mb-1">Vous êtes partenaire ?</p>
-                        <p className="text-xs text-muted-foreground mb-4">
-                          Connectez-vous pour accéder à l'ensemble des ressources
-                        </p>
-                        <Button variant="gold" size="sm" onClick={() => setLoginOpen(true)}>
-                          Se connecter
-                        </Button>
+                      <div className="text-center pt-2">
+                        <button
+                          onClick={() => setLoginOpen(true)}
+                          className="text-sm text-accent hover:text-accent/80 underline underline-offset-4 transition-colors"
+                        >
+                          Déjà partenaire ? Se connecter
+                        </button>
                       </div>
                     )}
                     <PartnerContact />
@@ -160,18 +188,22 @@ export default function PartnerDashboard() {
                     </h3>
                     <PartnerDocumentsGated
                       isAuthenticated={isAuthenticated}
-                      onRequestAccess={() => {
-                        setActiveTab("agents");
-                        setTimeout(() => handleRequestAccess(), 100);
-                      }}
+                      onRequestAccess={() => setLoginOpen(true)}
                     />
                     <PartnerPropertiesSection
                       isAuthenticated={isAuthenticated}
-                      onRequestAccess={() => {
-                        setActiveTab("agents");
-                        setTimeout(() => handleRequestAccess(), 100);
-                      }}
+                      onRequestAccess={() => setLoginOpen(true)}
                     />
+                    {!isAuthenticated && (
+                      <div className="text-center pt-2">
+                        <button
+                          onClick={() => setLoginOpen(true)}
+                          className="text-sm text-accent hover:text-accent/80 underline underline-offset-4 transition-colors"
+                        >
+                          Déjà partenaire ? Se connecter
+                        </button>
+                      </div>
+                    )}
                     <PartnerContact />
                   </div>
                 </div>
