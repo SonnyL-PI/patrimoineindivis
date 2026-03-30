@@ -161,16 +161,6 @@ export default function PartnerDashboard() {
                       isAuthenticated={isAuthenticated}
                       onRequestAccess={() => setLoginOpen(true)}
                     />
-                    {!isAuthenticated && (
-                      <div className="text-center pt-2">
-                        <button
-                          onClick={() => setLoginOpen(true)}
-                          className="text-sm text-accent hover:text-accent/80 underline underline-offset-4 transition-colors"
-                        >
-                          Déjà partenaire ? Se connecter
-                        </button>
-                      </div>
-                    )}
                     <PartnerContact />
                   </div>
                 </div>
@@ -194,16 +184,6 @@ export default function PartnerDashboard() {
                       isAuthenticated={isAuthenticated}
                       onRequestAccess={() => setLoginOpen(true)}
                     />
-                    {!isAuthenticated && (
-                      <div className="text-center pt-2">
-                        <button
-                          onClick={() => setLoginOpen(true)}
-                          className="text-sm text-accent hover:text-accent/80 underline underline-offset-4 transition-colors"
-                        >
-                          Déjà partenaire ? Se connecter
-                        </button>
-                      </div>
-                    )}
                     <PartnerContact />
                   </div>
                 </div>
