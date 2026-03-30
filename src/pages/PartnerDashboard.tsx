@@ -96,6 +96,10 @@ export default function PartnerDashboard() {
                 <p className="text-muted-foreground text-base md:text-lg mb-3 max-w-2xl mx-auto">
                   Accédez à l'ensemble de nos ressources, aux biens à la revente et bénéficiez d'un traitement prioritaire de vos dossiers.
                 </p>
+                <p className="text-muted-foreground text-sm mb-3 max-w-2xl mx-auto">
+                  Une question sur un dossier ? Échangez directement avec notre équipe avant transmission au{" "}
+                  <a href="tel:0142301000" className="font-semibold text-accent hover:text-accent/80 transition-colors">01.42.30.10.00</a>.
+                </p>
                 <p className="text-muted-foreground/70 text-sm mb-8 max-w-xl mx-auto">
                   Renseignez vos informations professionnelles et accédez à un espace dédié après validation de votre statut.
                 </p>
@@ -136,7 +140,6 @@ export default function PartnerDashboard() {
               <TabsContent value="agents">
                 <div className="grid gap-8 lg:grid-cols-3">
                   <div className="lg:col-span-2 space-y-8">
-                    <PartnerCTAContact />
                     <PartnerForm professionalType="agent" />
 
                     {!isAuthenticated && (
@@ -169,7 +172,7 @@ export default function PartnerDashboard() {
               <TabsContent value="notaires">
                 <div className="grid gap-8 lg:grid-cols-3">
                   <div className="lg:col-span-2">
-                    <PartnerCTAContact />
+                    
                     <PartnerForm professionalType="notaire" />
                   </div>
                   <div className="space-y-6">
