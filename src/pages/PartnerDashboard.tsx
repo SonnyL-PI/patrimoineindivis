@@ -67,13 +67,6 @@ export default function PartnerDashboard() {
                     <PartnerForm professionalType="agent" />
                   </div>
                   <div className="space-y-6">
-                    <h3 className="font-serif text-lg text-foreground border-b border-border/40 pb-2">
-                      Ressources partenaires
-                    </h3>
-                    <PartnerDocumentsGated />
-                    <PartnerPropertiesSection />
-                    <PartnerPremiumSection />
-                    <PartnerCaseTracking />
                     <PartnerContact />
                   </div>
                 </div>
