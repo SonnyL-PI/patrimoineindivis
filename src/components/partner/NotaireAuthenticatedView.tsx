@@ -37,10 +37,7 @@ export default function NotaireAuthenticatedView() {
       </Card>
 
       {/* Suivi des dossiers */}
-      <PartnerCaseTracking
-        isAuthenticated={true}
-        onRequestAccess={() => {}}
-      />
+      <PartnerCaseTracking />
 
       {/* Contact dédié */}
       <Card className="border-border/40 shadow-sm">
