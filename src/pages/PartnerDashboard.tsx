@@ -5,10 +5,6 @@ import { Footer } from "@/components/Footer";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import PartnerForm from "@/components/partner/PartnerForm";
 import PartnerContact from "@/components/partner/PartnerContact";
-import PartnerDocumentsGated from "@/components/partner/PartnerDocumentsGated";
-import PartnerPropertiesSection from "@/components/partner/PartnerPropertiesSection";
-import PartnerPremiumSection from "@/components/partner/PartnerPremiumSection";
-import PartnerCaseTracking from "@/components/partner/PartnerCaseTracking";
 
 export default function PartnerDashboard() {
   const [activeTab, setActiveTab] = useState("agents");
