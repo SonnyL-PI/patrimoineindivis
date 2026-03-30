@@ -100,12 +100,6 @@ export function Header() {
               <Button variant="gold" size="sm" className="px-5" asChild>
                 <Link to="/etude-gratuite">Étude de rachat</Link>
               </Button>
-              <Button variant="default" size="sm" className="px-5 bg-accent text-primary font-semibold" asChild>
-                <Link to="/espace-partenaires">
-                  <Lock className="w-3.5 h-3.5 mr-1.5" />
-                  Accès partenaires
-                </Link>
-              </Button>
             </div>
 
             {/* Mobile Menu Button */}
