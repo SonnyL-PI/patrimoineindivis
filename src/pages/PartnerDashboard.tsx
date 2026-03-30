@@ -44,11 +44,11 @@ export default function PartnerDashboard() {
                 <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl mb-4">
                   Espace professionnel
                 </h1>
-                <p className="text-primary-foreground/70 text-base md:text-lg mb-4">
-                  Un espace dédié aux professionnels pour transmettre des dossiers et accéder à nos ressources.
+                <p className="text-primary-foreground/70 text-base md:text-lg mb-3">
+                  Un espace dédié aux professionnels pour transmettre des dossiers librement et accéder, après validation, à nos ressources et biens disponibles à la revente.
                 </p>
-                <p className="text-primary-foreground/60 text-sm mb-8">
-                  Une question sur un dossier ? Échangez directement avec notre équipe avant transmission au{" "}
+                <p className="text-primary-foreground/50 text-sm mb-8">
+                  Une question sur un dossier ? Échangez avec notre équipe au{" "}
                   <a href="tel:0142301000" className="font-semibold text-accent hover:text-accent/80 transition-colors">01.42.30.10.00</a>.
                 </p>
                 {!isAuthenticated && (
@@ -85,35 +85,6 @@ export default function PartnerDashboard() {
           </div>
         </div>
 
-        {/* Explainer block */}
-        <div className="bg-muted/20 border-b border-border/30 py-10 md:py-14">
-          <div className="container-wide">
-            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-              <div className="bg-background rounded-xl border border-border/40 shadow-sm p-6 md:p-8">
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                  <FileText className="w-5 h-5 text-primary" />
-                </div>
-                <h3 className="font-serif text-lg text-foreground mb-2">Transmission libre de dossier</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Transmettez un dossier d'indivision directement, sans création de compte.
-                </p>
-              </div>
-              <div className="bg-background rounded-xl border border-accent/20 shadow-sm p-6 md:p-8">
-                <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
-                  <Shield className="w-5 h-5 text-accent" />
-                </div>
-                <h3 className="font-serif text-lg text-foreground mb-2">Accès partenaire</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Après validation de votre statut professionnel, accédez à nos ressources, aux biens disponibles à la revente et bénéficiez d'un traitement prioritaire de vos dossiers.
-                </p>
-              </div>
-            </div>
-            <p className="text-center text-sm text-muted-foreground mt-8">
-              Une question sur un dossier ? Échangez directement avec notre équipe au{" "}
-              <a href="tel:0142301000" className="font-semibold text-accent hover:text-accent/80 transition-colors">01.42.30.10.00</a>.
-            </p>
-          </div>
-        </div>
 
         {/* Tabs */}
         <div className="section-padding">
