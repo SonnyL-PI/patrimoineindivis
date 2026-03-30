@@ -13,6 +13,8 @@ import PartnerPropertiesSection from "@/components/partner/PartnerPropertiesSect
 import PartnerPremiumSection from "@/components/partner/PartnerPremiumSection";
 import PartnerAccessForm from "@/components/partner/PartnerAccessForm";
 import PartnerLoginDialog from "@/components/partner/PartnerLoginDialog";
+import NotaireLoginScreen from "@/components/partner/NotaireLoginScreen";
+import NotaireAuthenticatedView from "@/components/partner/NotaireAuthenticatedView";
 import { Lock, LogOut, User, Shield, ArrowRight, FileText } from "lucide-react";
 
 export default function PartnerDashboard() {
