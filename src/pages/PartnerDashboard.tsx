@@ -78,18 +78,6 @@ export default function PartnerDashboard() {
                     <PartnerForm professionalType="notaire" />
                   </div>
                   <div className="space-y-6">
-                    <h3 className="font-serif text-lg text-foreground border-b border-border/40 pb-2">
-                      Ressources notaires
-                    </h3>
-                    <PartnerDocumentsGated
-                      documents={[
-                        { name: "Plaquette Patrimoine Indivis" },
-                        { name: "Estimation à réaliser pour le compte de Patrimoine Indivis" },
-                        { name: "Mandat de vente de biens appartenant à Patrimoine Indivis" },
-                      ]}
-                    />
-                    <PartnerPropertiesSection />
-                    <PartnerCaseTracking />
                     <PartnerContact />
                   </div>
                 </div>
