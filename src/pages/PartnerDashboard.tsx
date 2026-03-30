@@ -6,6 +6,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import PartnerForm from "@/components/partner/PartnerForm";
 import PartnerDocuments from "@/components/partner/PartnerDocuments";
 import PartnerContact from "@/components/partner/PartnerContact";
+import PartnerCTAContact from "@/components/partner/PartnerCTAContact";
 
 export default function PartnerDashboard() {
   const [activeTab, setActiveTab] = useState("agents");
@@ -55,6 +56,7 @@ export default function PartnerDashboard() {
               <TabsContent value="agents">
                 <div className="grid gap-8 lg:grid-cols-3">
                   <div className="lg:col-span-2">
+                    <PartnerCTAContact />
                     <PartnerForm professionalType="agent" />
                   </div>
                   <div className="space-y-8">
@@ -67,6 +69,7 @@ export default function PartnerDashboard() {
               <TabsContent value="notaires">
                 <div className="grid gap-8 lg:grid-cols-3">
                   <div className="lg:col-span-2">
+                    <PartnerCTAContact />
                     <PartnerForm professionalType="notaire" />
                   </div>
                   <div className="space-y-8">
