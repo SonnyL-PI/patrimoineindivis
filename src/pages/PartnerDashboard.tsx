@@ -140,26 +140,11 @@ export default function PartnerDashboard() {
               </TabsContent>
 
               <TabsContent value="notaires">
-                <div className="grid gap-8 lg:grid-cols-3">
-                  <div className="lg:col-span-2">
-                    
-                    <PartnerForm professionalType="notaire" />
-                  </div>
-                  <div className="space-y-6">
-                    <h3 className="font-serif text-lg text-foreground border-b border-border/40 pb-2">
-                      Ressources partenaires
-                    </h3>
-                    <PartnerDocumentsGated
-                      isAuthenticated={isAuthenticated}
-                      onRequestAccess={() => setLoginOpen(true)}
-                    />
-                    <PartnerPropertiesSection
-                      isAuthenticated={isAuthenticated}
-                      onRequestAccess={() => setLoginOpen(true)}
-                    />
-                    <PartnerContact />
-                  </div>
-                </div>
+                {isAuthenticated ? (
+                  <NotaireAuthenticatedView />
+                ) : (
+                  <NotaireLoginScreen onRequestAccess={handleRequestAccess} />
+                )}
               </TabsContent>
             </Tabs>
           </div>
