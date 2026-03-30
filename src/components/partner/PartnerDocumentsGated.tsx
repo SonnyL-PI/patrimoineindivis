@@ -50,9 +50,9 @@ export default function PartnerDocumentsGated({ isAuthenticated, onRequestAccess
             <p className="text-xs text-muted-foreground mb-3">
               Accès réservé aux partenaires disposant d'un compte validé
             </p>
-            <Button variant="goldOutline" size="sm" onClick={onRequestAccess}>
+            <Button variant="gold" size="sm" onClick={onRequestAccess}>
               <Lock className="w-3.5 h-3.5 mr-1.5" />
-              Demander un accès
+              Accéder avec un compte
             </Button>
           </div>
         )}

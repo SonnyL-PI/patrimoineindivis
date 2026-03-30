@@ -32,9 +32,9 @@ export default function PartnerPropertiesSection({ isAuthenticated, onRequestAcc
           </Button>
         ) : (
           <div>
-            <Button variant="goldOutline" size="sm" disabled className="opacity-60 cursor-not-allowed">
+            <Button variant="gold" size="sm" onClick={onRequestAccess}>
               <Lock className="w-3.5 h-3.5 mr-1.5" />
-              Accéder aux biens disponibles
+              Accéder avec un compte
             </Button>
             <p className="text-xs text-muted-foreground mt-3">
               Accès réservé aux partenaires validés
