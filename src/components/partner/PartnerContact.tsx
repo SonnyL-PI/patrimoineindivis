@@ -13,8 +13,11 @@ export default function PartnerContact() {
         </div>
       </CardHeader>
       <CardContent>
+        <p className="text-sm text-muted-foreground mb-2">
+          Vous intervenez sur une indivision complexe ou un dossier nécessitant une sortie rapide ?
+        </p>
         <p className="text-sm text-muted-foreground mb-4">
-          Une question sur un dossier ? Notre équipe vous accompagne.
+          Notre équipe vous accompagne dans l'analyse de la situation, la structuration de l'opération et la mise en œuvre d'une solution adaptée.
         </p>
         <div className="space-y-3">
           <a
