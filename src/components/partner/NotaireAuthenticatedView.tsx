@@ -40,7 +40,6 @@ export default function NotaireAuthenticatedView() {
       <PartnerCaseTracking
         isAuthenticated={true}
         onRequestAccess={() => {}}
-        variant="notaire"
       />
 
       {/* Contact dédié */}
