@@ -6,7 +6,7 @@ export default function PartnerCTAContact() {
       <Phone className="w-5 h-5 text-accent flex-shrink-0" />
       <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
         <p className="text-sm text-foreground">
-          <span className="font-medium">Un doute sur un dossier ?</span>
+          <span className="font-medium">Une question sur un dossier ?</span>
           <span className="text-muted-foreground ml-1.5">Échangez directement avec notre équipe avant transmission.</span>
         </p>
         <a
