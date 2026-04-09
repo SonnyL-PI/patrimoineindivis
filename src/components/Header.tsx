@@ -62,7 +62,7 @@ export function Header() {
                   <Link
                     key={link.href}
                     to={link.href}
-                    className={`relative text-[12.5px] tracking-wide font-medium transition-colors whitespace-nowrap py-1 ${
+                    className={`relative text-[13.5px] tracking-[0.3px] font-medium transition-colors whitespace-nowrap py-1 leading-tight ${
                       location.pathname === link.href
                         ? "text-accent"
                         : "text-primary-foreground/80 hover:text-accent"
