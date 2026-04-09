@@ -42,7 +42,7 @@ export function Header() {
           <div className="h-full bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
         </div>
 
-        <div className="pl-10 xl:pl-14 pr-8 xl:pr-10 py-4 lg:py-5">
+        <div className="pl-8 xl:pl-12 pr-8 xl:pr-10 py-4 lg:py-5">
           <div className="hidden lg:grid grid-cols-[auto_1fr_auto] items-center h-10">
             {/* LEFT: Logo */}
             <Link to="/" className="flex-shrink-0">
@@ -56,7 +56,7 @@ export function Header() {
             </Link>
 
             {/* CENTER: Navigation */}
-            <nav className="justify-self-center px-14 xl:px-18">
+            <nav className="justify-self-center px-10 xl:px-14">
               <div className="flex items-center gap-8 xl:gap-9">
                 {navLinks.map((link) => (
                   <Link
@@ -80,19 +80,19 @@ export function Header() {
             </nav>
 
             {/* RIGHT: CTA buttons */}
-            <div className="flex items-center gap-2.5 flex-shrink-0">
+            <div className="flex items-center gap-2 flex-shrink-0">
               <Button
                 variant="ghost"
                 size="sm"
-                className="text-primary-foreground/80 hover:text-accent hover:bg-transparent text-[13px]"
+                className="text-primary-foreground/80 hover:text-accent hover:bg-transparent text-[12.5px]"
                 asChild
               >
                 <Link to="/contact?tab=callback">
-                  <Phone className="w-4 h-4 mr-2" />
+                  <Phone className="w-3.5 h-3.5 mr-1.5" />
                   Être rappelé
                 </Link>
               </Button>
-              <Button variant="gold" size="sm" className="px-5 text-[13px]" asChild>
+              <Button variant="gold" size="sm" className="px-4 text-[12.5px]" asChild>
                 <Link to="/etude-gratuite">Étude de rachat</Link>
               </Button>
             </div>
