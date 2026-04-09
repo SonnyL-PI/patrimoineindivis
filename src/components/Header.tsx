@@ -42,10 +42,10 @@ export function Header() {
           <div className="h-full bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
         </div>
 
-        <div className="px-8 xl:px-12 py-4 lg:py-5">
-          <div className="flex items-center justify-between h-10 lg:h-10">
-            {/* LEFT: Logo (desktop) */}
-            <Link to="/" className="hidden lg:block flex-shrink-0">
+        <div className="px-6 xl:px-10 py-4 lg:py-5">
+          <div className="hidden lg:grid grid-cols-[auto_1fr_auto] items-center h-10">
+            {/* LEFT: Logo */}
+            <Link to="/" className="flex-shrink-0">
               <img
                 src={logo}
                 alt="Patrimoine Indivis"
@@ -55,14 +55,14 @@ export function Header() {
               />
             </Link>
 
-            {/* NAVIGATION: closer to logo, generous inter-item spacing */}
-            <nav className="hidden lg:flex items-center ml-8 xl:ml-10 mr-auto">
-              <div className="flex items-center gap-8 xl:gap-10">
+            {/* CENTER: Navigation */}
+            <nav className="justify-self-center">
+              <div className="flex items-center gap-9 xl:gap-10">
                 {navLinks.map((link) => (
                   <Link
                     key={link.href}
                     to={link.href}
-                    className={`relative text-[13px] tracking-wide font-medium transition-colors whitespace-nowrap py-1 ${
+                    className={`relative text-[12.5px] tracking-wide font-medium transition-colors whitespace-nowrap py-1 ${
                       location.pathname === link.href
                         ? "text-accent"
                         : "text-primary-foreground/80 hover:text-accent"
@@ -79,19 +79,8 @@ export function Header() {
               </div>
             </nav>
 
-            {/* Mobile Logo */}
-            <Link to="/" className="flex-shrink-0 lg:hidden">
-              <img
-                src={logo}
-                alt="Patrimoine Indivis"
-                className={`w-auto transition-all duration-300 ${
-                  isScrolled ? "h-8" : "h-9"
-                }`}
-              />
-            </Link>
-
-            {/* RIGHT: CTA buttons with clear separation */}
-            <div className="hidden lg:flex items-center gap-3 flex-shrink-0 ml-12">
+            {/* RIGHT: CTA buttons */}
+            <div className="flex items-center gap-3 flex-shrink-0">
               <Button
                 variant="ghost"
                 size="sm"
@@ -107,6 +96,20 @@ export function Header() {
                 <Link to="/etude-gratuite">Étude de rachat</Link>
               </Button>
             </div>
+          </div>
+
+          {/* Mobile layout */}
+          <div className="flex lg:hidden items-center justify-between h-10">
+            {/* Mobile Logo */}
+            <Link to="/" className="flex-shrink-0">
+              <img
+                src={logo}
+                alt="Patrimoine Indivis"
+                className={`w-auto transition-all duration-300 ${
+                  isScrolled ? "h-8" : "h-9"
+                }`}
+              />
+            </Link>
 
             {/* Mobile Menu Button */}
             <button
