@@ -46,43 +46,55 @@ export function Header() {
         </div>
         <div className="container-wide py-4 lg:py-5">
           <div className="flex items-center justify-between h-10 lg:h-10">
-            {/* Logo - Left */}
-            <Link to="/" className="flex-shrink-0">
+            {/* Logo + Nav - Unified left block (desktop) */}
+            <div className="hidden lg:flex items-center">
+              <Link to="/" className="flex-shrink-0">
+                <img 
+                  src={logo} 
+                  alt="Patrimoine Indivis" 
+                  className={`w-auto transition-all duration-300 ${
+                    isScrolled ? "h-8 lg:h-9" : "h-9 lg:h-11"
+                  }`} 
+                />
+              </Link>
+              {/* Subtle gold divider */}
+              <div className="mx-5 h-6 w-px bg-accent/25" />
+              <nav className="flex items-center">
+                <div className="flex items-center gap-6 xl:gap-8">
+                  {navLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      to={link.href}
+                      className={`relative text-sm font-medium transition-colors whitespace-nowrap py-1 ${
+                        location.pathname === link.href
+                          ? "text-accent"
+                          : "text-primary-foreground/80 hover:text-accent"
+                      }`}
+                    >
+                      {link.label}
+                      <span 
+                        className={`absolute bottom-0 left-0 h-0.5 bg-accent transition-all duration-300 ${
+                          location.pathname === link.href 
+                            ? "w-full" 
+                            : "w-0 group-hover:w-full"
+                        }`} 
+                      />
+                    </Link>
+                  ))}
+                </div>
+              </nav>
+            </div>
+
+            {/* Mobile Logo */}
+            <Link to="/" className="flex-shrink-0 lg:hidden">
               <img 
                 src={logo} 
                 alt="Patrimoine Indivis" 
                 className={`w-auto transition-all duration-300 ${
-                  isScrolled ? "h-8 lg:h-9" : "h-9 lg:h-11"
+                  isScrolled ? "h-8" : "h-9"
                 }`} 
               />
             </Link>
-
-            {/* Desktop Navigation - Center */}
-            <nav className="hidden lg:flex items-center justify-center flex-1 mx-8">
-              <div className="flex items-center gap-7 xl:gap-9">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    to={link.href}
-                    className={`relative text-sm font-medium transition-colors whitespace-nowrap py-1 ${
-                      location.pathname === link.href
-                        ? "text-accent"
-                        : "text-primary-foreground/80 hover:text-accent"
-                    }`}
-                  >
-                    {link.label}
-                    {/* Active/hover underline */}
-                    <span 
-                      className={`absolute bottom-0 left-0 h-0.5 bg-accent transition-all duration-300 ${
-                        location.pathname === link.href 
-                          ? "w-full" 
-                          : "w-0 group-hover:w-full"
-                      }`} 
-                    />
-                  </Link>
-                ))}
-              </div>
-            </nav>
 
             {/* Desktop CTAs - Right */}
             <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
