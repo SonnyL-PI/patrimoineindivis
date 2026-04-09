@@ -42,7 +42,7 @@ export function Header() {
           <div className="h-full bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
         </div>
 
-        <div className="px-6 xl:px-10 py-4 lg:py-5">
+        <div className="pl-10 xl:pl-14 pr-8 xl:pr-10 py-4 lg:py-5">
           <div className="hidden lg:grid grid-cols-[auto_1fr_auto] items-center h-10">
             {/* LEFT: Logo */}
             <Link to="/" className="flex-shrink-0">
@@ -56,8 +56,8 @@ export function Header() {
             </Link>
 
             {/* CENTER: Navigation */}
-            <nav className="justify-self-center">
-              <div className="flex items-center gap-9 xl:gap-10">
+            <nav className="justify-self-center px-14 xl:px-18">
+              <div className="flex items-center gap-8 xl:gap-9">
                 {navLinks.map((link) => (
                   <Link
                     key={link.href}
@@ -80,7 +80,7 @@ export function Header() {
             </nav>
 
             {/* RIGHT: CTA buttons */}
-            <div className="flex items-center gap-3 flex-shrink-0">
+            <div className="flex items-center gap-2.5 flex-shrink-0">
               <Button
                 variant="ghost"
                 size="sm"
