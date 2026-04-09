@@ -56,7 +56,7 @@ export function Header() {
             </Link>
 
             {/* CENTER: Navigation */}
-            <nav className="justify-self-center px-14 xl:px-18">
+            <nav className="justify-self-center px-10 xl:px-14">
               <div className="flex items-center gap-8 xl:gap-9">
                 {navLinks.map((link) => (
                   <Link
