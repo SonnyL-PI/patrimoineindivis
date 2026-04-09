@@ -42,7 +42,7 @@ export function Header() {
           <div className="h-full bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
         </div>
 
-        <div className="pl-10 xl:pl-14 pr-8 xl:pr-10 py-4 lg:py-5">
+        <div className="pl-8 xl:pl-12 pr-8 xl:pr-10 py-4 lg:py-5">
           <div className="hidden lg:grid grid-cols-[auto_1fr_auto] items-center h-10">
             {/* LEFT: Logo */}
             <Link to="/" className="flex-shrink-0">
