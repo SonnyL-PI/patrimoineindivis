@@ -10,7 +10,7 @@ const trustBadges = [
 ];
 
 const stats = [
-  { value: "+8 ans", label: "d'expertise dans le traitement des indivisions" },
+  { value: "+10 ans", label: "d'expertise dans le traitement des indivisions" },
   { value: "+100", label: "indivisions conflictuelles débloquées" },
   { value: "+100 M€", label: "de parts indivises acquises" },
 ];
