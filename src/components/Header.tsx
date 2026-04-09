@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone, MapPin, Lock } from "lucide-react";
+import { Menu, X, Phone, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
 
@@ -32,84 +32,78 @@ export function Header() {
 
   return (
     <>
-      {/* Main Header - Fixed */}
       <header
         className={`fixed top-0 left-0 right-0 z-[9999] bg-navy transition-all duration-300 ${
-          isScrolled 
-            ? "shadow-lg shadow-black/20" 
-            : ""
+          isScrolled ? "shadow-lg shadow-black/20" : ""
         }`}
       >
         {/* Premium gold separator */}
         <div className="absolute bottom-0 left-0 right-0 h-px">
           <div className="h-full bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
         </div>
-        <div className="container-wide py-4 lg:py-5">
-          <div className="flex items-center justify-between h-10 lg:h-10">
-            {/* Logo + Nav - Unified left block (desktop) */}
-            <div className="hidden lg:flex items-center">
-              <Link to="/" className="flex-shrink-0">
-                <img 
-                  src={logo} 
-                  alt="Patrimoine Indivis" 
-                  className={`w-auto transition-all duration-300 ${
-                    isScrolled ? "h-8 lg:h-9" : "h-9 lg:h-11"
-                  }`} 
-                />
-              </Link>
-              {/* Subtle gold divider */}
-              <div className="mx-5 h-6 w-px bg-accent/25" />
-              <nav className="flex items-center">
-                <div className="flex items-center gap-6 xl:gap-8">
-                  {navLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      to={link.href}
-                      className={`relative text-sm font-medium transition-colors whitespace-nowrap py-1 ${
-                        location.pathname === link.href
-                          ? "text-accent"
-                          : "text-primary-foreground/80 hover:text-accent"
-                      }`}
-                    >
-                      {link.label}
-                      <span 
-                        className={`absolute bottom-0 left-0 h-0.5 bg-accent transition-all duration-300 ${
-                          location.pathname === link.href 
-                            ? "w-full" 
-                            : "w-0 group-hover:w-full"
-                        }`} 
-                      />
-                    </Link>
-                  ))}
-                </div>
-              </nav>
-            </div>
 
-            {/* Mobile Logo */}
-            <Link to="/" className="flex-shrink-0 lg:hidden">
-              <img 
-                src={logo} 
-                alt="Patrimoine Indivis" 
+        <div className="px-8 xl:px-12 py-4 lg:py-5">
+          <div className="flex items-center justify-between h-10 lg:h-10">
+            {/* LEFT: Logo (desktop) */}
+            <Link to="/" className="hidden lg:block flex-shrink-0">
+              <img
+                src={logo}
+                alt="Patrimoine Indivis"
                 className={`w-auto transition-all duration-300 ${
-                  isScrolled ? "h-8" : "h-9"
-                }`} 
+                  isScrolled ? "h-8 lg:h-9" : "h-9 lg:h-11"
+                }`}
               />
             </Link>
 
-            {/* Desktop CTAs - Right */}
-            <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
-              <Button 
-                variant="ghost" 
-                size="sm" 
-                className="text-primary-foreground/80 hover:text-accent hover:bg-transparent text-sm"
+            {/* NAVIGATION: closer to logo, generous inter-item spacing */}
+            <nav className="hidden lg:flex items-center ml-8 xl:ml-10 mr-auto">
+              <div className="flex items-center gap-8 xl:gap-10">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    to={link.href}
+                    className={`relative text-[13px] tracking-wide font-medium transition-colors whitespace-nowrap py-1 ${
+                      location.pathname === link.href
+                        ? "text-accent"
+                        : "text-primary-foreground/80 hover:text-accent"
+                    }`}
+                  >
+                    {link.label}
+                    <span
+                      className={`absolute bottom-0 left-0 h-0.5 bg-accent transition-all duration-300 ${
+                        location.pathname === link.href ? "w-full" : "w-0"
+                      }`}
+                    />
+                  </Link>
+                ))}
+              </div>
+            </nav>
+
+            {/* Mobile Logo */}
+            <Link to="/" className="flex-shrink-0 lg:hidden">
+              <img
+                src={logo}
+                alt="Patrimoine Indivis"
+                className={`w-auto transition-all duration-300 ${
+                  isScrolled ? "h-8" : "h-9"
+                }`}
+              />
+            </Link>
+
+            {/* RIGHT: CTA buttons with clear separation */}
+            <div className="hidden lg:flex items-center gap-3 flex-shrink-0 ml-12">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="text-primary-foreground/80 hover:text-accent hover:bg-transparent text-[13px]"
                 asChild
               >
-<Link to="/contact?tab=callback">
+                <Link to="/contact?tab=callback">
                   <Phone className="w-4 h-4 mr-2" />
                   Être rappelé
                 </Link>
               </Button>
-              <Button variant="gold" size="sm" className="px-5" asChild>
+              <Button variant="gold" size="sm" className="px-5 text-[13px]" asChild>
                 <Link to="/etude-gratuite">Étude de rachat</Link>
               </Button>
             </div>
